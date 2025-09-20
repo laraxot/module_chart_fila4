@@ -15,7 +15,6 @@
                         @if ($resource['icon'])
                             <x-filament::icon
                                 :icon="$resource['icon']"
-                                :size="24"
                                 class="overlook-icon w-auto h-24 absolute left-0 top-8 text-primary-500 opacity-20 dark:opacity-20 transition group-hover:scale-110 group-hover:-rotate-12 group-hover:opacity-40 dark:group-hover:opacity-80"
                             />
                         @endif
