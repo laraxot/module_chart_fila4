@@ -1,0 +1,172 @@
+# Report Risoluzione Conflitti Automatica
+
+## Data: 2025-07-29 10:22:40
+
+## Statistiche
+- **File totali elaborati**: 146
+- **File risolti con successo**: 146
+- **File con errori**: 25
+
+## Strategia Applicata
+- **Approccio**: Mantenimento versione HEAD (current)
+- **Metodo**: Rimozione automatica marker di conflitto
+- **Backup**: Creazione backup automatico prima della modifica
+
+## File Elaborati
+- ./bashscripts/phpstan/analyze_phpstan.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/analyze_module.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/analyze_modules_quality.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/run_phpstan_analysis_all_levels.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/composer_init.sh.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan-analyze-first-100.sh.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan_analyze.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/run_all_analysis.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/run_phpstan_modules.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan_docs_generator.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/create_phpstan_readme.sh.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan-capture-100-errors.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/update_roadmap_phpstan_links.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan_docs_generator_single.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/analyse_module.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/analyze_modules_structure.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/analyze_specific_functions.sh.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/run_phpstan.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/generate_phpstan_summary.sh.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/analyze_first_100_errors.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/generate_phpstan_docs.php.backup.20250729_102003.backup.20250729_102235
+- ./bashscripts/phpstan/phpstan_analyze_modules.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/analyze_modules_simple.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/phpstan/phpstan-limit-100.sh.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/phpstan/analyze_all_modules.sh.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/webmin/webmin-setup-repo.sh.backup.20250729_102012.backup.20250729_102240
+- ./bashscripts/mcp/mcp-manager-v2.sh.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/check_mcp_config.php.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/mcp-manager.sh.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/start-mysql-mcp.sh.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/mysql-db-connector.js.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/mysql.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/start-mcp.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/stop-mcp.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mcp/start-mysql-mcp.sh.backup.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/resolve_merge_conflicts.sh
+- ./bashscripts/submodules/sync_submodules.sh.backup.20250729_102008.backup.20250729_102238
+- ./bashscripts/testing/phpstan/check_before_phpstan.sh.backup.20250729_102009.backup.20250729_102239
+- ./bashscripts/testing/test.txt.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/testing/check_mysql_win.sh.backup.20250729_102009.backup.20250729_102238
+- ./bashscripts/testing/forms/check_form_schema.php.backup.20250729_102009.backup.20250729_102238
+- ./bashscripts/testing/zibibbo02.txt.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/testing/mysql/check_mysql_win.sh.backup.20250729_102009.backup.20250729_102238
+- ./bashscripts/testing/mysql/check_mysql.sh.backup.20250729_102009.backup.20250729_102238
+- ./bashscripts/testing/README.md.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/testing/check_form_schema.php.backup.20250729_102008.backup.20250729_102238
+- ./bashscripts/testing/check_mysql.sh.backup.20250729_102009.backup.20250729_102238
+- ./bashscripts/testing/check_before_phpstan.sh.backup.20250729_102008.backup.20250729_102238
+- ./bashscripts/maintenance/update_docs.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/manage_translations.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/fix_directory_structure.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/fix.txt.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/rename_additional_files.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/fix_errors.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/rename_docs_files.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/fix_structure.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/README.md.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/backup.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/fixes/fix_directory_structure.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/fixes/fix_errors.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/fixes/fix_structure.sh.backup.20250729_102001.backup.20250729_102230
+- ./bashscripts/maintenance/check_mysql_win.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/maintenance/backup/backup.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/setup/rector.php.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/setup/postcss.config.js.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/setup/sync_to_disk.sh.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/setup/package.json.backup.20250729_102006.backup.20250729_102237
+- ./bashscripts/setup/README.md.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/setup/tailwind.config.js.backup.20250729_102008.backup.20250729_102237
+- ./bashscripts/setup/phpunit.xml.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/setup/server_setup.md.backup.20250729_102007.backup.20250729_102237
+- ./bashscripts/geo/convert-comune-to-sushi.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/prompts/collision.txt.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/prompts/phpstan.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/notify_continuation.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/collision.txt
+- ./bashscripts/prompts/docs.txt.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/prompts/rules.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/global_context.txt.backup.20250729_102005.backup.20250729_102235
+- ./bashscripts/prompts/fix.txt.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/prompts/collision.txt.backup.20250729_102235
+- ./bashscripts/prompts/modules/patient.txt.backup.20250729_102005.backup.20250729_102236
+- ./bashscripts/prompts/modules/xot.txt.backup.20250729_102005.backup.20250729_102236
+- ./bashscripts/prompts/modules/notify.txt.backup.20250729_102005.backup.20250729_102236
+- ./bashscripts/prompts/roadmap.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/continue_tomorrow.txt.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/prompts/prompt.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/collision.txt.backup.20250729_102004
+- ./bashscripts/prompts/notify_module_context.txt.backup.20250729_102006.backup.20250729_102236
+- ./bashscripts/prompts/bugfix.txt.backup.20250729_102004.backup.20250729_102235
+- ./bashscripts/resolve_merge_conflicts.sh.backup.20250729_102236
+- ./bashscripts/fix/resolve_all_conflicts.sh.backup.20250729_102230
+- ./bashscripts/fix/resolve_all_conflicts.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/fix/resolve_all_conflicts.sh.backup.20250729_102000
+- ./bashscripts/fix/resolve_all_conflicts.sh
+- ./bashscripts/fix/fix_structure.sh.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/docs/wsl/tips.md.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/docs/wsl/setup.md.backup.20250729_102000.backup.20250729_102230
+- ./bashscripts/docs/conflict_resolution_report.md.backup.20250729_102229
+- ./bashscripts/docs/roadmap/08_maintenance.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/06_optimization.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/09_scalability.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/09_ui_ux.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/08_cloud_integration.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/07_documentation.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/docs/roadmap/10_conclusion.md.backup.20250729_102000.backup.20250729_102229
+- ./bashscripts/utils/composer/composer_init.sh.backup.20250729_102012.backup.20250729_102240
+- ./bashscripts/utils/tips.txt.backup.20250729_102012.backup.20250729_102240
+- ./bashscripts/utils/php/README.md.backup.20250729_102012.backup.20250729_102240
+- ./bashscripts/utils/php/add_strict_types.php.backup.20250729_102012.backup.20250729_102240
+- ./bashscripts/tools/copy_to_mono.sh.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/tools/check_form_schema.php.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/tools/generate_phpstan_docs.php.backup.20250729_102010.backup.20250729_102239
+- ./bashscripts/mysql/check_mysql.sh.backup.20250729_102001.backup.20250729_102231
+- ./bashscripts/mysql/check_mysql_win.sh.backup.20250729_102002.backup.20250729_102231
+- ./bashscripts/pdf/test_info1.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/process_markdown.py.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/pdf_to_markdown.py.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/test_original_backup.md.backup.20250729_102002.backup.20250729_102234
+- ./bashscripts/pdf/test_info3.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/analyze_pdf.sh.backup.20250729_102002.backup.20250729_102231
+- ./bashscripts/pdf/pdf_to_md.py.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test_completo.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test_v2.md.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/pdf/test_conversione.sh.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/README.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test_enhanced.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test_info4.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test_info2.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/test.it.md.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/enhance_markdown_safely.py.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/fix_markdown.py.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/test_output.md.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/pdf/improve_markdown.py.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/enhance_markdown.sh.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/test_v3.md.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/pdf/test_v4.md.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/pdf/process_markdown.sh.backup.20250729_102002.backup.20250729_102233
+- ./bashscripts/pdf/converti_pdf.sh.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/enhance_markdown.py.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/improve_markdown.sh.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/test.md.backup.20250729_102002.backup.20250729_102234
+- ./bashscripts/pdf/fix_markdown.sh.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/pdf/test_v1.md.backup.20250729_102003.backup.20250729_102234
+- ./bashscripts/pdf/enhance_safely.sh.backup.20250729_102002.backup.20250729_102232
+- ./bashscripts/system/README.md.backup.20250729_102008.backup.20250729_102238
+- ./bashscripts/temp/test.txt.backup.20250729_102008.backup.20250729_102238
+- ./bashscripts/translations/rewrite_salutemo_translations.sh.backup.20250729_102011.backup.20250729_102239
+- ./bashscripts/translations/fix-translations.php.backup.20250729_102011.backup.20250729_102239
+- ./bashscripts/translations/improve_salutemo_translations.sh.backup.20250729_102011.backup.20250729_102239
+- ./bashscripts/translations/fix_salutemo_translations.sh.backup.20250729_102011.backup.20250729_102239
+
+## Note
+- Tutti i file sono stati processati automaticamente
+- Backup creati con timestamp: `*.backup.YYYYMMDD_HHMMSS`
+- Verifica manuale consigliata per file critici
+

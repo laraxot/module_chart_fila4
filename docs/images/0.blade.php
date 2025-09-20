@@ -1,0 +1,48 @@
+@php
+$title = 'Salute ORAle';
+@endphp
+
+<x-app-layout :title="$title">
+    <div class="wave-bg min-h-screen flex flex-col items-center justify-center">
+        {{-- Onde decorative --}}
+        <div class="wave w-96 h-96 -left-20 bottom-20 transform rotate-45"></div>
+        <div class="wave w-80 h-80 right-10 bottom-36 transform -rotate-12"></div>
+        <div class="wave w-64 h-64 left-10 bottom-40 transform rotate-30"></div>
+        
+        {{-- Punti luminosi --}}
+        <div class="absolute bottom-1/4 right-1/3 w-3 h-3 bg-blue-300 rounded-full blur-sm"></div>
+        <div class="absolute bottom-1/5 left-1/3 w-2 h-2 bg-blue-300 rounded-full blur-sm"></div>
+        
+        {{-- Logo Salute ORAle --}}
+        <div class="text-white text-center z-10 px-6">
+            <h1 class="logo-text text-4xl sm:text-5xl tracking-wider">
+                <span>S</span>ALUTE <span>O</span>RA<span class="orale-text text-3xl sm:text-4xl">le</span>
+            </h1>
+        </div>
+    </div>
+</x-app-layout>
+
+@push('styles')
+<style>
+    .wave-bg {
+        background: linear-gradient(to bottom, #002855 40%, #00387a 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .wave {
+        position: absolute;
+        opacity: 0.2;
+        background: linear-gradient(to right, #0056b3, #007bff);
+        border-radius: 50%;
+    }
+    
+    .logo-text {
+        font-family: 'Georgia', serif;
+    }
+    
+    .orale-text {
+        font-style: italic;
+    }
+</style>
+@endpush

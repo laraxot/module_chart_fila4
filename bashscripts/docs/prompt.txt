@@ -1,0 +1,86 @@
+# GUIDA ESSENZIALE LARAXOT
+
+## DOCUMENTAZIONE
+- Consulta SEMPRE le cartelle docs prima di ogni azione
+- Mai includere percorsi assoluti specifici (es. base_*_fila3)
+- Aggiorna e studia la cartella "docs" più vicina prima di implementare soluzioni
+- La documentazione non deve essere una replica del codice
+
+## VALIDAZIONE E CORREZIONE
+- Eseguire PHPStan livello 9/10 prima di iniziare qualsiasi lavoro
+- Processo: 1) Aggiornare docs 2) Studiare 3) Correggere
+- Quando correggi un errore, aggiorna la documentazione più vicina
+- Analizza ogni modulo separatamente con PHPStan
+- PHPStan è installato nella cartella laravel: `./vendor/bin/phpstan`
+- Strategia per errori numerosi: scendi di livello fino a <100 errori, poi sali gradualmente
+- Cerca e sistema i file con conflitti git
+
+## NAMESPACE E STRUTTURA
+- Modello: `Modules\*\Models` (non `Modules\*\app\Models`)
+- Filament: `Modules\*\Filament` (non `Modules\*\app\Filament`)
+- Percorso corretto: `Modules\Xot\Filament\Resources\Pages\XotBaseListRecords`
+- Ogni modulo ha il suo composer.json - analizzalo per path e namespace corretti
+- Esempio: User path: `/var/www/html/exa/base_orisbroker_fila3/laravel/Modules/User/app/Models/User.php`
+  namespace: `Modules\User\Models`
+
+## TRADUZIONI
+- Formato corretto: `'field' => ['label' => 'Etichetta', 'tooltip' => 'Descrizione']`
+- MAI usare ->label() (gestito da LangServiceProvider)
+
+## ESTENSIONE CLASSI
+- MAI estendere classi Filament direttamente
+- SEMPRE estendere classi XotBase dal modulo Xot
+- Non estendiamo mai Migration ma XotBaseMigration
+- Estendere classi base Xot (XotBaseServiceProvider) per i Service Provider
+- Chiamare sempre parent::boot() nei Service Provider
+
+## FILAMENT RESOURCES
+- Estendere XotBaseResource, non Resource
+- Usare getFormSchema(), non form()
+- Non definire $navigationIcon, $modelLabel (gestiti da traduzioni)
+- Non definire table() (gestito dalla pagina index)
+
+## PAGINE DI LISTA
+- Usare metodi specifici: getTableColumns(), getTableFilters(), getTableActions()
+- Usare array associativi con chiavi string per componenti
+
+## MIGRAZIONI
+- Estendere XotBaseMigration
+- Usare tableCreate() e tableUpdate()
+- Studiare le migrazioni negli altri moduli per la struttura corretta
+
+## BEST PRACTICES
+- Utilizzare spatie/laravel-data invece di services
+- Utilizzare spatie/queueable-actions
+- Evitare l'uso di "mixed" (solo come ultima risorsa)
+- Analizzare moduli esistenti prima di implementare nuove funzionalità
+
+## METODOLOGIA
+- Analizzare moduli esistenti
+- Focalizzarsi sullo scopo, non solo sulla correzione
+- Seguire convenzioni del framework
+
+## REGOLE IMPORTANTI
+- getInfolistSchema restituisce un array con chiavi stringhe
+- Aggiornare la cartella "docs" più vicina e studiarla
+- Aggiornare rules e memories
+- Fields: `'source' => ['label'=>'Sorgente']` (non `'source' => 'Sorgente'`)
+- Aggiungere tooltip, placeholder, icon e color dove appropriato
+
+## PROCESSO DI CORREZIONE
+- Eseguire PHPStan a livello 7 su tutto Modules
+- Aggiornare la cartella docs più vicina all'errore
+- Studiare la documentazione aggiornata
+- Implementare la soluzione
+- Procedere con gli altri errori
+- Continuare finché PHPStan non segnala zero errori in tutto Modules
+
+## APPROCCIO GENERALE
+- Pensare ad alta voce
+- Analizzare la richiesta
+- Scomporre i concetti chiave
+- Formulare un ragionamento passo passo
+- La memoria è nella cartella docs
+- Aggiornare e studiare continuamente la documentazione
+- Consultare la documentazione prima di ogni azione
+- Ogni modulo ha la sua cartella docs da studiare e aggiornare
