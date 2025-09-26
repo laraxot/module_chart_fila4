@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite'
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default defineConfig({
     build: {
         // Directory di output per i file compilati del modulo Chart
-        outDir: './resources/dist',
+        outDir: './public',
         emptyOutDir: false,
         manifest: "manifest.json",
         // Opzioni rollup commentate per riferimento futuro
@@ -23,14 +29,15 @@ export default defineConfig({
             publicDirectory: '../../../public_html',
             buildDirectory: 'assets/chart',
             input: [
-                // __dirname + '/Resources/assets/sass/app.scss', // Percorso storico, lasciato commentato per riferimento
-                __dirname + '/resources/css/app.css',
-                __dirname + '/resources/js/app.js',
-                __dirname + '/resources/js/filament-chart-js-plugins'
+                // resolve(__dirname, 'Resources/assets/sass/app.scss'), // Percorso storico, lasciato commentato per riferimento
+                resolve(__dirname, 'resources/css/app.css'),
+                resolve(__dirname, 'resources/js/app.js'),
+                resolve(__dirname, 'resources/js/filament-chart-js-plugins')
             ],
             ...refreshPaths,
             refresh: true,
         }),
+        tailwindcss(),
     ],
 });
 //    'Modules/Quaeris/Resources/assets/sass/app.scss',

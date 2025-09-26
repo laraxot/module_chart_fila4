@@ -8,7 +8,7 @@ use Filament\Tables;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Actions\Action;
+use Filament\Actions\Action;
 use Filament\Tables\Filters\SelectFilter;
 use App\Models\Appointment;
 use App\Enums\AppointmentStatus;
