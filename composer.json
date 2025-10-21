@@ -39,14 +39,13 @@
     },
     "require": {
         "amenadiel/jpgraph": "^4.1",
-        "filament/tables": "^4.0",
-        "filament/schemas": "^4.0",
+        "filament/actions": "^4.0",
         "filament/forms": "^4.0",
         "filament/infolists": "^4.0",
-        "filament/actions": "^4.0",
         "filament/notifications": "^4.0",
-        "filament/widgets": "^4.0",
-        "filament/support": "^4.0"
+        "filament/schemas": "^4.0",
+        "filament/tables": "^4.0",
+        "filament/widgets": "^4.0"
     },
     "repositories": [ {
         "type": "path",

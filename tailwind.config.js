@@ -1,5 +1,4 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     '../../app/Filament/**/*.php',
     '../../resources/views/filament/**/*.blade.php',
@@ -16,4 +15,3 @@ module.exports = {
   },
   plugins: [],
 }
-
