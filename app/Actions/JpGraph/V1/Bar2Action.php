@@ -12,6 +12,7 @@ use Modules\Chart\Actions\JpGraph\ApplyPlotStyleAction;
 use Modules\Chart\Actions\JpGraph\GetGraphAction;
 use Modules\Chart\Datas\AnswersChartData;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class Bar2Action
 {
@@ -31,17 +32,39 @@ class Bar2Action
         $labels = $answersChartData->answers->toCollection()->pluck('label')->all();
         $chart = $answersChartData->chart;
         $graph = app(GetGraphAction::class)->execute($chart);
-        $graph->img->SetMargin(50, 50, 50, 100);
-        $graph->ygrid->SetFill(false);
-        $graph->xaxis->SetTickLabels($labels);
-        $graph->xaxis->SetLabelAngle($chart->x_label_angle);
+        
+        // Type narrowing for JpGraph properties
+        if (property_exists($graph, 'img') && is_object($graph->img) && method_exists($graph->img, 'SetMargin')) {
+            $graph->img->SetMargin(50, 50, 50, 100);
+        }
+        
+        if (property_exists($graph, 'ygrid') && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
+            $graph->ygrid->SetFill(false);
+        }
+        
+        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis)) {
+            if (method_exists($graph->xaxis, 'SetTickLabels')) {
+                $graph->xaxis->SetTickLabels($labels);
+            }
+            if (method_exists($graph->xaxis, 'SetLabelAngle')) {
+                $graph->xaxis->SetLabelAngle($chart->x_label_angle);
+            }
+        }
 
-        $graph->yaxis->HideLine(false);
-        $graph->yaxis->HideTicks(false, false);
+        if (property_exists($graph, 'yaxis') && is_object($graph->yaxis)) {
+            if (method_exists($graph->yaxis, 'HideLine')) {
+                $graph->yaxis->HideLine(false);
+            }
+            if (method_exists($graph->yaxis, 'HideTicks')) {
+                $graph->yaxis->HideTicks(false, false);
+            }
+        }
 
-        $graph->yscale->ticks->SupressZeroLabel(false);
-
-        $graph->xaxis->SetTickLabels($labels);
+        if (property_exists($graph, 'yscale') && is_object($graph->yscale)) {
+            if (property_exists($graph->yscale, 'ticks') && is_object($graph->yscale->ticks) && method_exists($graph->yscale->ticks, 'SupressZeroLabel')) {
+                $graph->yscale->ticks->SupressZeroLabel(false);
+            }
+        }
 
         /*
         $bplot = new BarPlot($data);
@@ -71,7 +94,10 @@ class Bar2Action
             $tmp = app(ApplyPlotStyleAction::class)->execute($tmp, $chart);
             $tmp->SetColor($colors[$i]);
             $tmp->SetFillColor($colors[$i].'@'.$chart->transparency); // trasparenza da 0 a 1
-            $tmp->value->Show();
+            
+            if (property_exists($tmp, 'value') && is_object($tmp->value) && method_exists($tmp->value, 'Show')) {
+                $tmp->value->Show();
+            }
             // $tmp->SetFillColor($colors[$k]);
             /*
             if (isset($chart->legend)) {
@@ -97,7 +123,8 @@ class Bar2Action
         $delta = ($chart->width - 100) / \count($data1);
 
         foreach ($data1 as $i => $v) {
-            $txt = new Text($v.'');
+            $txtValue = is_scalar($v) ? (string) $v : '';
+            $txt = new Text($txtValue);
 
             $x = 50 + ($delta * $i) + ($delta / 3);
 

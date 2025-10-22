@@ -7,6 +7,7 @@ namespace Modules\Chart\Actions\JpGraph\V1;
 use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Graph\PieGraph;
 use Amenadiel\JpGraph\Plot\PiePlotC;
+use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\ApplyGraphStyleAction;
 use Modules\Chart\Datas\AnswersChartData;
 use Spatie\QueueableAction\QueueableAction;
@@ -60,7 +61,9 @@ class PieAvgAction
         $piePlotC->SetSliceColors($color_array);
 
         // nasconde i label
-        $piePlotC->value->Show(false);
+        if (is_object($piePlotC->value) && method_exists($piePlotC->value, 'Show')) {
+            $piePlotC->value->Show(false);
+        }
 
         // Set color for mid circle
         $piePlotC->SetMidColor('white');
@@ -68,11 +71,15 @@ class PieAvgAction
         // $p1->SetMidSize(0.8);
         $piePlotC->SetMidSize($chart->plot_perc_width / 100);
 
-        $graph->title->Set($chart->title);
-        $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+            $graph->title->Set($chart->title);
+            $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
-        $graph->subtitle->Set($chart->subtitle);
-        $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+            $graph->subtitle->Set($chart->subtitle);
+            $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
         // 150    Cannot cast mixed to float.
         $footer_txt = 'Media N.D.';
@@ -81,12 +88,18 @@ class PieAvgAction
             $footer_txt = 'Media '.number_format((float) $data[0], 2);
         }
 
-        $graph->footer->center->Set($footer_txt);
-        $graph->footer->center->SetFont($chart->font_family, $chart->font_style, $chart->font_size);
+        if (property_exists($graph, 'footer') && is_object($graph->footer)) {
+            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+                $graph->footer->center->Set($footer_txt);
+                $graph->footer->center->SetFont($chart->font_family, $chart->font_style, $chart->font_size);
+            }
+        }
 
         // posiziona al centro del pie
         $y = $chart->height / 2 - 8; // 8 è il font_size
-        $graph->footer->SetMargin(0, 0, $y);
+        if (property_exists($graph, 'footer') && is_object($graph->footer) && method_exists($graph->footer, 'SetMargin')) {
+            $graph->footer->SetMargin(0, 0, $y);
+        }
 
         // con 0 metto al centro la percentuale
         $piePlotC->SetLabelPos(0);

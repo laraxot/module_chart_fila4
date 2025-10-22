@@ -82,6 +82,8 @@ class AnswersChartData extends Data
                     $data[] = $other;
                     $labels = [];
                     $labels[] = $this->chart->answer_value_no_txt ?? 'answer_value_no_txt';
+                    // This assertion is always true because we just added an element to $labels
+                    // Assert::notNull($labels[0], '['.__FILE__.']['.__LINE__.']');
                     /** @phpstan-ignore isset.offset */
                     if (\count($labels) === 2 && isset($labels[0]) && \is_string($labels[0]) && \strlen($labels[0]) < 3) {
                         $labels[0] = $this->chart->answer_value_txt;
@@ -116,7 +118,8 @@ class AnswersChartData extends Data
                     $data[] = $other;
                     $labels = [];
                     $labels[] = $this->chart->answer_value_no_txt ?? 'answer_value_no_txt';
-                    Assert::notNull($labels[0], '['.__FILE__.']['.__LINE__.']');
+                    // This assertion is always true because we just added an element to $labels
+                    // Assert::notNull($labels[0], '['.__FILE__.']['.__LINE__.']');
                     /** @phpstan-ignore isset.offset */
                     if (\count($labels) === 2 && isset($labels[0]) && \is_string($labels[0]) && \strlen($labels[0]) < 3) {
                         $labels[0] = $this->chart->answer_value_txt;

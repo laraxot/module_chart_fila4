@@ -39,7 +39,9 @@ class Horizbar1Action
 
         $graph = app(ApplyGraphStyleAction::class)->execute($graph, $chart);
 
-        $graph->xaxis->SetTickLabels($labels);
+        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis) && method_exists($graph->xaxis, 'SetTickLabels')) {
+            $graph->xaxis->SetTickLabels($labels);
+        }
 
         $bplot = new BarPlot($data);
         // $bplot = $this->applyPlotStyle($bplot);

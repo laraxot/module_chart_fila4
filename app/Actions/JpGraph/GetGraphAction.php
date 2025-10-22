@@ -6,9 +6,11 @@ namespace Modules\Chart\Actions\JpGraph;
 
 use Amenadiel\JpGraph\Graph\Axis;
 use Amenadiel\JpGraph\Graph\Graph;
+use Amenadiel\JpGraph\Text\Text;
 use Amenadiel\JpGraph\Themes\UniversalTheme;
 use Modules\Chart\Datas\ChartData;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class GetGraphAction
 {
@@ -24,35 +26,47 @@ class GetGraphAction
 
         $graph->SetTheme($universalTheme);
 
-        if (isset($chartData->min)) {
-            $graph->yscale->SetAutoMin($chartData->min);
+        if (is_object($graph->yscale)) {
+            if (isset($chartData->min) && method_exists($graph->yscale, 'SetAutoMin')) {
+                $graph->yscale->SetAutoMin($chartData->min);
+            }
+
+            if (isset($chartData->max) && method_exists($graph->yscale, 'SetAutoMax')) {
+                $graph->yscale->SetAutoMax($chartData->max);
+            }
         }
 
-        if (isset($chartData->max)) {
-            $graph->yscale->SetAutoMax($chartData->max);
-        }
-
-        if ($chartData->title !== null) {
+        if ($chartData->title !== null && $graph->title instanceof Text) {
             $graph->title->Set($chartData->title);
             $graph->title->SetFont($chartData->font_family, $chartData->font_style, 11);
         }
 
-        if ($chartData->subtitle !== null) {
+        if ($chartData->subtitle !== null && $graph->subtitle instanceof Text) {
             $graph->subtitle->Set($chartData->subtitle);
             $graph->subtitle->SetFont($chartData->font_family, $chartData->font_style, 11);
         }
 
-        if ($chartData->footer !== null) {
-            $graph->footer->center->Set($chartData->footer);
-            $graph->footer->center->SetFont($chartData->font_family, $chartData->font_style, 10);
+        if ($chartData->footer !== null && is_object($graph->footer)) {
+            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+                $graph->footer->center->Set($chartData->footer);
+                $graph->footer->center->SetFont($chartData->font_family, $chartData->font_style, 10);
+            }
         }
 
         $graph->SetBox($chartData->show_box);
 
-        $graph->footer->right->SetFont($chartData->font_family, $chartData->font_style);
+        if (is_object($graph->footer)) {
+            if (property_exists($graph->footer, 'right') && $graph->footer->right instanceof Text) {
+                $graph->footer->right->SetFont($chartData->font_family, $chartData->font_style);
+            }
+        }
 
-        $this->applyGraphXStyle($graph->xaxis, $chartData);
-        $this->applyGraphYStyle($graph->yaxis, $chartData);
+        if ($graph->xaxis instanceof Axis) {
+            $this->applyGraphXStyle($graph->xaxis, $chartData);
+        }
+        if ($graph->yaxis instanceof Axis) {
+            $this->applyGraphYStyle($graph->yaxis, $chartData);
+        }
 
         return $graph;
     }
@@ -72,7 +86,9 @@ class GetGraphAction
         // Add some grace to y-axis so the bars doesn't go
         // all the way to the end of the plot area
         // "restringe" la visualizzazione delle barre
-        $axis->scale->SetGrace($chartData->y_grace);
+        if (is_object($axis->scale) && method_exists($axis->scale, 'SetGrace')) {
+            $axis->scale->SetGrace($chartData->y_grace);
+        }
         // dddx($style['yaxis_hide']);
         // We don't want to display Y-axis
         // visualizza delle colonne verticali "in sottofondo/di riferimento"

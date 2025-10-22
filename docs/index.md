@@ -1,62 +1,133 @@
-# Indice della Documentazione
+# Chart Module Documentation
 
-## 📚 Documentazione SaluteOra - Indice Consolidato DRY + KISS
+## Overview
+The Chart module provides comprehensive data visualization and charting capabilities for the Laraxot system. It integrates with various data sources and provides customizable charts for dashboards, reports, and analytics.
 
-## 🎯 Navigazione Rapida
+## Key Features
+- **Multiple Chart Types**: Support for line, bar, pie, area, and other chart types
+- **Data Integration**: Seamless integration with Eloquent models and database queries
+- **Customization**: Extensive styling and configuration options
+- **Responsive Design**: Mobile-friendly charts that adapt to different screen sizes
+- **Export Capabilities**: Export charts to various formats (PNG, PDF, SVG)
 
-### 🏛️ Core - Fondamenti
-- [🎭 Filosofia](core/filosofia.md) - Principi e valori del progetto
-- [🏗️ Architettura](core/architettura_tecnologica.md) - Struttura tecnica
-- [📋 Progetto](core/progetto.md) - Overview completa
-- [🎨 Presentazione](core/presentazione.md) - Materiali presentazione
+## Architecture
+The module follows the Laraxot architecture principles:
+- Extends Xot base classes
+- Uses Filament for admin interface
+- Implements proper service providers
+- Follows DRY/KISS principles
 
-### 🛠️ Development - Sviluppo
-- [🚀 Getting Started](development/getting-started.md) - Primi passi
-- [📏 Coding Standards](development/coding-standards.md) - Standard di codifica
-- [🧪 Testing](development/testing.md) - Strategie di test
-- [🐛 Debugging](development/debugging.md) - Risoluzione problemi
-- [Filament](/docs/filament)
-- [Frontend Development](/docs/frontend-development.md)
-- [Temi](/docs/theme-links.md)
-- [Componenti](/docs/components)
-- [Sezioni](/docs/sections.md)
+## Core Components
 
-## Moduli
-- [Architettura Moduli](/docs/architecture/modules.md)
-- [Moduli Core](/docs/modules/core.md)
-- [Moduli Business](/docs/modules/business.md)
-- [Moduli Support](/docs/modules/support.md)
+### Widgets
+- `ChartWidget` - Base chart widget class
+- `LineChartWidget` - Line chart implementation
+- `BarChartWidget` - Bar chart implementation
+- `PieChartWidget` - Pie chart implementation
+- `AreaChartWidget` - Area chart implementation
 
-## Testing e Qualità
-- [Testing](/docs/implementazione/testing/README.md)
-- [PHPStan](/docs/phpstan/README.md)
-- [Safe Library Fix](/docs/safe_library_fix.md)
+### Resources
+- `ChartResource` - Filament resource for chart management
+- `ChartTemplateResource` - Resource for chart templates
 
-## Deployment e Manutenzione
-- [Deployment](/docs/amministrazione/deployment/README.md)
-- [Backup](/docs/amministrazione/backup/README.md)
-- [Monitoraggio](/docs/amministrazione/monitoraggio/README.md)
+### Services
+- `ChartService` - Core chart generation logic
+- `ChartRenderer` - Chart rendering service
+- `ChartExporter` - Chart export functionality
+
+## Implementation Guide
+
+### Basic Usage
+```php
+// Create a simple line chart
+class SalesChart extends LineChartWidget
+{
+    protected function getData(): array
+    {
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Sales',
+                    'data' => [100, 200, 150, 300, 250],
+                ],
+            ],
+            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        ];
+    }
+}
+```
+
+### Advanced Configuration
+```php
+// Custom chart with advanced options
+class CustomChart extends BarChartWidget
+{
+    protected static ?string $heading = 'Custom Chart';
+    
+    protected static ?int $sort = 1;
+    
+    protected int | string | array $columnSpan = 'full';
+    
+    protected function getData(): array
+    {
+        // Complex data processing logic
+        return parent::getData();
+    }
+    
+    protected function getOptions(): array
+    {
+        return [
+            'plugins' => [
+                'legend' => [
+                    'display' => true,
+                ],
+            ],
+            'scales' => [
+                'y' => [
+                    'beginAtZero' => true,
+                ],
+            ],
+        ];
+    }
+}
+```
+
+## Chart Types
+1. **Line Charts**: For trend analysis over time
+2. **Bar Charts**: For comparing quantities across categories
+3. **Pie Charts**: For showing proportions and distributions
+4. **Area Charts**: For cumulative data visualization
+5. **Scatter Charts**: For correlation analysis
+6. **Radar Charts**: For multi-dimensional data comparison
+
+## Data Sources
+- Eloquent models
+- Database queries
+- API endpoints
+- Static data arrays
+- Real-time data streams
+
+## Customization Options
+- **Colors**: Custom color schemes and gradients
+- **Animations**: Entry and hover animations
+- **Labels**: Custom axis labels and formatting
+- **Tooltips**: Interactive data tooltips
+- **Legends**: Custom legend positioning and styling
+
+## Performance Considerations
+1. **Data Pagination**: For large datasets
+2. **Caching**: Cache frequently accessed chart data
+3. **Lazy Loading**: Load charts only when visible
+4. **Optimization**: Optimize database queries for chart data
+
+## Related Modules
+- [Xot Module](../Xot/docs/index.md) - Core base classes
+- [UI Module](../UI/docs/README.md) - User interface components
+- [Quaeris Module](../Quaeris/docs/README.md) - Main application module
 
 ## Troubleshooting
-- [Errori](/docs/errors.md)
-- [Error Analysis](/docs/error_analysis.md)
-- [Troubleshooting](/docs/troubleshooting)
-- [Risoluzione Conflitti Git](/docs/risoluzione_conflitti_git.md)
-- [Conflitti Git Moduli](/docs/conflitti_git_moduli.md)
-
-## Documentazione e Regole
-- [Linee Guida Documentazione](/docs/linee-guida-documentazione.md)
-- [Regole Documentazione](/docs/regole-documentazione.md)
-- [Collegamenti Immagini](/docs/collegamenti-immagini.md)
-- [Spostare Documenti](/docs/spostare-documenti.md)
-
-## Note
-- Tutti i documenti sono collegati bidirezionalmente dove appropriato
-- Consultare [Collegamenti Documentazione](/docs/collegamenti-documentazione.md) per i dettagli sui collegamenti
-- Mantenere aggiornata la documentazione è una responsabilità di tutti i contributori
-- La documentazione è mantenuta in italiano
-- Ogni sezione ha il suo README.md specifico
-
-## Collegamenti tra versioni di INDEX.md
-* [INDEX.md](laravel-app/INDEX.md)
-* [INDEX.md](../laravel/docs/INDEX.md)
+Common issues and solutions:
+- Chart not rendering
+- Data formatting issues
+- Performance problems with large datasets
+- Export functionality errors

@@ -27,6 +27,9 @@ class MixedChartResource extends XotBaseResource
 {
     protected static ?string $model = MixedChart::class;
 
+    /**
+     * @return array<string, Select>
+     */
     public static function getFormSchema(): array
     {
         return [

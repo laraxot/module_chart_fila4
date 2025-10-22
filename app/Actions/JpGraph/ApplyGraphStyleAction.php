@@ -6,8 +6,10 @@ namespace Modules\Chart\Actions\JpGraph;
 
 use Amenadiel\JpGraph\Graph\Axis;
 use Amenadiel\JpGraph\Graph\Graph;
+use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Datas\ChartData;
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 class ApplyGraphStyleAction
 {
@@ -20,13 +22,20 @@ class ApplyGraphStyleAction
 
         $graph->SetBox($chartData->show_box);
 
-        $graph->footer->right->SetFont($chartData->font_family, $chartData->font_style);
+        // Ensure footer->right is a Text object
+        if (is_object($graph->footer)) {
+            $footer = $graph->footer;
+            if (property_exists($footer, 'right') && $footer->right instanceof Text) {
+                $footer->right->SetFont($chartData->font_family, $chartData->font_style);
+            }
+        }
+        
         // $graph->footer->right->Set('Totale Risposte '.$this->vars['tot']);
-        if ($graph->xaxis !== null) {
+        if ($graph->xaxis instanceof Axis) {
             $this->applyGraphXStyle($graph->xaxis, $chartData);
         }
 
-        if ($graph->yaxis !== null) {
+        if ($graph->yaxis instanceof Axis) {
             $this->applyGraphYStyle($graph->yaxis, $chartData);
         }
 
@@ -48,7 +57,9 @@ class ApplyGraphStyleAction
         // Add some grace to y-axis so the bars doesn't go
         // all the way to the end of the plot area
         // "restringe" la visualizzazione delle barre
-        $axis->scale->SetGrace($chartData->y_grace);
+        if (is_object($axis->scale) && method_exists($axis->scale, 'SetGrace')) {
+            $axis->scale->SetGrace($chartData->y_grace);
+        }
         // dddx($style['yaxis_hide']);
         // We don't want to display Y-axis
         // visualizza delle colonne verticali "in sottofondo/di riferimento"

@@ -7,6 +7,7 @@ namespace Modules\Chart\Actions\JpGraph\V1;
 use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Graph\PieGraph;
 use Amenadiel\JpGraph\Plot\PiePlotC;
+use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\ApplyGraphStyleAction;
 use Modules\Chart\Datas\AnswersChartData;
 use Spatie\QueueableAction\QueueableAction;
@@ -77,7 +78,9 @@ class Pie1Action
         // Use percentage values in the legends values (This is also the default)
         $piePlotC->SetLabelType(PIE_VALUE_PER);
 
-        $piePlotC->value->Show();
+        if (is_object($piePlotC->value) && method_exists($piePlotC->value, 'Show')) {
+            $piePlotC->value->Show();
+        }
 
         // $p1->SetMidSize(0.8);
         $piePlotC->SetMidSize($chart->plot_perc_width / 100);
@@ -87,21 +90,38 @@ class Pie1Action
         //     $mandatory = 'null';
         // }
 
-        $graph->title->Set($chart->title);
-        $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+            $graph->title->Set($chart->title);
+            $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
-        $graph->subtitle->Set($chart->subtitle);
-        $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+            $graph->subtitle->Set($chart->subtitle);
+            $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
         // Label font and color setup
-        $piePlotC->value->SetFont(FF_ARIAL, FS_BOLD, 10);
-        $piePlotC->value->SetColor('black');
+        if (is_object($piePlotC->value)) {
+            if (method_exists($piePlotC->value, 'SetFont')) {
+                $piePlotC->value->SetFont(FF_ARIAL, FS_BOLD, 10);
+            }
+            if (method_exists($piePlotC->value, 'SetColor')) {
+                $piePlotC->value->SetColor('black');
+            }
+            if (method_exists($piePlotC->value, 'SetFormat')) {
+                $piePlotC->value->SetFormat('%2.1f%%');
+            }
+        }
 
         // Setup the title on the center circle
-        $piePlotC->midtitle->Set('');
-        $piePlotC->midtitle->SetFont(FF_ARIAL, FS_NORMAL, 10);
-
-        $piePlotC->value->SetFormat('%2.1f%%');
+        if (is_object($piePlotC->midtitle)) {
+            if (method_exists($piePlotC->midtitle, 'Set')) {
+                $piePlotC->midtitle->Set('');
+            }
+            if (method_exists($piePlotC->midtitle, 'SetFont')) {
+                $piePlotC->midtitle->SetFont(FF_ARIAL, FS_NORMAL, 10);
+            }
+        }
 
         // Set color for mid circle
         $piePlotC->SetMidColor('white');

@@ -6,6 +6,7 @@ namespace Modules\Chart\Actions\JpGraph\V1;
 
 use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Plot\LinePlot;
+use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\GetGraphAction;
 use Modules\Chart\Datas\AnswersChartData;
 use Modules\Chart\Datas\AnswerData;
@@ -62,14 +63,30 @@ class LineSubQuestionAction
         // $graph->title->Set('Background Image');
         $graph->SetBox(false);
 
-        $graph->yaxis->HideZeroLabel();
-        $graph->yaxis->HideLine(false);
-        $graph->yaxis->HideTicks(false, false);
+        if (property_exists($graph, 'yaxis') && is_object($graph->yaxis)) {
+            if (method_exists($graph->yaxis, 'HideZeroLabel')) {
+                $graph->yaxis->HideZeroLabel();
+            }
+            if (method_exists($graph->yaxis, 'HideLine')) {
+                $graph->yaxis->HideLine(false);
+            }
+            if (method_exists($graph->yaxis, 'HideTicks')) {
+                $graph->yaxis->HideTicks(false, false);
+            }
+        }
 
-        $graph->xaxis->SetTickLabels($labels);
-        $graph->xaxis->SetLabelAngle($chart->x_label_angle);
+        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis)) {
+            if (method_exists($graph->xaxis, 'SetTickLabels')) {
+                $graph->xaxis->SetTickLabels($labels);
+            }
+            if (method_exists($graph->xaxis, 'SetLabelAngle')) {
+                $graph->xaxis->SetLabelAngle($chart->x_label_angle);
+            }
+        }
 
-        $graph->ygrid->SetFill(false);
+        if (property_exists($graph, 'ygrid') && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
+            $graph->ygrid->SetFill(false);
+        }
         // $graph->SetBackgroundImage('tiger_bkg.png', BGIMG_FILLFRAME);
         $p = [];
         $colors = [
@@ -102,27 +119,49 @@ class LineSubQuestionAction
             $p[$i]->SetColor($colors[$i]);
 
             $p[$i]->SetLegend($legend);
-            $p[$i]->mark->SetType($marks[$i], '', 1.2);
-            $p[$i]->mark->SetColor($colors[$i]);
+            if (property_exists($p[$i], 'mark') && is_object($p[$i]->mark)) {
+                if (method_exists($p[$i]->mark, 'SetType')) {
+                    $p[$i]->mark->SetType($marks[$i], '', 1.2);
+                }
+                if (method_exists($p[$i]->mark, 'SetColor')) {
+                    $p[$i]->mark->SetColor($colors[$i]);
+                }
+            }
             // dddx($this->vars['transparency']);
             // $p[$i]->mark->SetFillColor($colors[$i].'@'.$this->vars['transparency']); // trasparenza da 0 a 1
             // $p[$i]->mark->SetFillColor($colors[$i]);
             $p[$i]->SetCenter();
         }
 
-        $graph->legend->SetFrameWeight(1);
-        $graph->legend->SetColor('#4E4E4E', '#00A78A');
-        $graph->legend->SetMarkAbsSize(8);
+        if (property_exists($graph, 'legend') && is_object($graph->legend)) {
+            if (method_exists($graph->legend, 'SetFrameWeight')) {
+                $graph->legend->SetFrameWeight(1);
+            }
+            if (method_exists($graph->legend, 'SetColor')) {
+                $graph->legend->SetColor('#4E4E4E', '#00A78A');
+            }
+            if (method_exists($graph->legend, 'SetMarkAbsSize')) {
+                $graph->legend->SetMarkAbsSize(8);
+            }
+        }
 
         $title = $chart->title;
-        $graph->title->Set($title);
-        $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+            $graph->title->Set($title);
+            $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
         $subtitle = $chart->subtitle;
-        $graph->subtitle->Set($subtitle);
-        $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+            $graph->subtitle->Set($subtitle);
+            $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
+        }
 
-        $graph->footer->center->Set('');
+        if (property_exists($graph, 'footer') && is_object($graph->footer)) {
+            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+                $graph->footer->center->Set('');
+            }
+        }
 
         return $graph;
     }
