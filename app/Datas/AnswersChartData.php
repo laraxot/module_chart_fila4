@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Datas;
 
-use Modules\Xot\Actions\Cast\SafeFloatCastAction;
 use Filament\Support\RawJs;
 use Illuminate\Support\Str;
+use Modules\Xot\Actions\Cast\SafeFloatCastAction;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 use Webmozart\Assert\Assert;
@@ -459,7 +459,7 @@ class AnswersChartData extends Data
      */
     public function getChartJsBarOptionsArray(array $options): array
     {
-        if (!isset($options['plugins'])) {
+        if (! isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -505,7 +505,7 @@ class AnswersChartData extends Data
             ],
         ];
 
-        if (!isset($options['plugins'])) {
+        if (! isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -529,8 +529,8 @@ class AnswersChartData extends Data
 
         // return '{'.$js.'}';
 
-                    return RawJs::make('{
-            '.(string)$js.'
+        return RawJs::make('{
+            '.(string) $js.'
             }');
     }
 

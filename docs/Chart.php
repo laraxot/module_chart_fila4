@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\Chart\Models;
 
 use ErrorException;
-use Modules\Chart\Database\Factories\ChartFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
+use Modules\Chart\Database\Factories\ChartFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Webmozart\Assert\Assert;
 
 /**
@@ -42,12 +42,15 @@ use Webmozart\Assert\Assert;
  * @property string|null $post_id
  * @property string|null $post_type
  * @property string|null $chart_type
+ *
  * @method static ChartFactory factory($count = null, $state = [])
  * @method static Builder|Chart newModelQuery()
  * @method static Builder|Chart newQuery()
  * @method static Builder|Chart query()
+ *
  * @property-read ProfileContract|null $creator
  * @property-read ProfileContract|null $updater
+ *
  * @mixin \Eloquent
  */
 class Chart extends BaseModel
@@ -82,7 +85,7 @@ class Chart extends BaseModel
         'colors',
     ];
 
-    /** @var  array<string, mixed>   */
+    /** @var array<string, mixed> */
     protected $attributes = [
         'list_color' => '#d60021',
         'color' => '#d60021',
@@ -232,6 +235,7 @@ class Chart extends BaseModel
 
         $res = $this->attributes['type'] ?? (string) $this->getPanelRow('chart_type', 'type');
         Assert::string($res);
+
         return $res;
     }
 

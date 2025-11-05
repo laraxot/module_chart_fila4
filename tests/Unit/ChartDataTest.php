@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Spatie\LaravelData\Data;
 use Modules\Chart\Datas\ChartData;
+use Spatie\LaravelData\Data;
 
 describe('ChartData', function () {
     it('can be created from array', function () {

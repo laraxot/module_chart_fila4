@@ -109,3 +109,5 @@ Il modulo Chart è uno dei **più DRY del progetto**:
 
 **Conclusione:** Modulo Chart è un esempio perfetto di architettura DRY/KISS.
 
+
+

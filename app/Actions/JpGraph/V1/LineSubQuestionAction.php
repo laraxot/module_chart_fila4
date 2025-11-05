@@ -8,19 +8,18 @@ use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Plot\LinePlot;
 use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\GetGraphAction;
-use Modules\Chart\Datas\AnswersChartData;
 use Modules\Chart\Datas\AnswerData;
-use Modules\Xot\Actions\XotBaseAction;
+use Modules\Chart\Datas\AnswersChartData;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
-use function Safe\define;
 
+use function Safe\define;
 
 // JpGraph mark constants - these are global constants defined by JpGraph
 // We'll use them directly without namespace imports since they're global
 
 // Fallback constant definitions for PHPStan compatibility
-if (!defined('Amenadiel\\JpGraph\\MARK_FILLEDCIRCLE')) {
+if (! defined('Amenadiel\\JpGraph\\MARK_FILLEDCIRCLE')) {
     define('Amenadiel\\JpGraph\\MARK_FILLEDCIRCLE', 1);
     define('Amenadiel\\JpGraph\\MARK_UTRIANGLE', 2);
     define('Amenadiel\\JpGraph\\MARK_SQUARE', 3);
@@ -63,7 +62,8 @@ class LineSubQuestionAction
         // $graph->title->Set('Background Image');
         $graph->SetBox(false);
 
-        if (property_exists($graph, 'yaxis') && is_object($graph->yaxis)) {
+        // PHPStan Level 10: isset() invece di property_exists() per oggetti JpGraph
+        if (isset($graph->yaxis) && is_object($graph->yaxis)) {
             if (method_exists($graph->yaxis, 'HideZeroLabel')) {
                 $graph->yaxis->HideZeroLabel();
             }
@@ -75,7 +75,7 @@ class LineSubQuestionAction
             }
         }
 
-        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis)) {
+        if (isset($graph->xaxis) && is_object($graph->xaxis)) {
             if (method_exists($graph->xaxis, 'SetTickLabels')) {
                 $graph->xaxis->SetTickLabels($labels);
             }
@@ -84,7 +84,7 @@ class LineSubQuestionAction
             }
         }
 
-        if (property_exists($graph, 'ygrid') && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
+        if (isset($graph->ygrid) && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
             $graph->ygrid->SetFill(false);
         }
         // $graph->SetBackgroundImage('tiger_bkg.png', BGIMG_FILLFRAME);
@@ -119,7 +119,8 @@ class LineSubQuestionAction
             $p[$i]->SetColor($colors[$i]);
 
             $p[$i]->SetLegend($legend);
-            if (property_exists($p[$i], 'mark') && is_object($p[$i]->mark)) {
+            // PHPStan Level 10: isset() per oggetti JpGraph
+            if (isset($p[$i]->mark) && is_object($p[$i]->mark)) {
                 if (method_exists($p[$i]->mark, 'SetType')) {
                     $p[$i]->mark->SetType($marks[$i], '', 1.2);
                 }
@@ -133,7 +134,8 @@ class LineSubQuestionAction
             $p[$i]->SetCenter();
         }
 
-        if (property_exists($graph, 'legend') && is_object($graph->legend)) {
+        // PHPStan Level 10: isset() per oggetti JpGraph
+        if (isset($graph->legend) && is_object($graph->legend)) {
             if (method_exists($graph->legend, 'SetFrameWeight')) {
                 $graph->legend->SetFrameWeight(1);
             }
@@ -146,19 +148,19 @@ class LineSubQuestionAction
         }
 
         $title = $chart->title;
-        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+        if (isset($graph->title) && $graph->title instanceof Text) {
             $graph->title->Set($title);
             $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
         }
 
         $subtitle = $chart->subtitle;
-        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+        if (isset($graph->subtitle) && $graph->subtitle instanceof Text) {
             $graph->subtitle->Set($subtitle);
             $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
         }
 
-        if (property_exists($graph, 'footer') && is_object($graph->footer)) {
-            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+        if (isset($graph->footer) && is_object($graph->footer)) {
+            if (isset($graph->footer->center) && $graph->footer->center instanceof Text) {
                 $graph->footer->center->Set('');
             }
         }

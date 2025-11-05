@@ -10,7 +10,6 @@ use Amenadiel\JpGraph\Text\Text;
 use Amenadiel\JpGraph\Themes\UniversalTheme;
 use Modules\Chart\Datas\ChartData;
 use Spatie\QueueableAction\QueueableAction;
-use Webmozart\Assert\Assert;
 
 class GetGraphAction
 {
@@ -47,7 +46,8 @@ class GetGraphAction
         }
 
         if ($chartData->footer !== null && is_object($graph->footer)) {
-            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+            // PHPStan L10: isset() universale - funziona per declared properties (JpGraph) E magic properties
+            if (isset($graph->footer->center) && $graph->footer->center instanceof Text) {
                 $graph->footer->center->Set($chartData->footer);
                 $graph->footer->center->SetFont($chartData->font_family, $chartData->font_style, 10);
             }
@@ -56,7 +56,8 @@ class GetGraphAction
         $graph->SetBox($chartData->show_box);
 
         if (is_object($graph->footer)) {
-            if (property_exists($graph->footer, 'right') && $graph->footer->right instanceof Text) {
+            // PHPStan L10: isset() universale - funziona per declared properties (JpGraph) E magic properties
+            if (isset($graph->footer->right) && $graph->footer->right instanceof Text) {
                 $graph->footer->right->SetFont($chartData->font_family, $chartData->font_style);
             }
         }

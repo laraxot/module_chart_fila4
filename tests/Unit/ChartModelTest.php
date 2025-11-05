@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Webmozart\Assert\InvalidArgumentException;
 use Modules\Chart\Models\Chart;
+use Webmozart\Assert\InvalidArgumentException;
 
 describe('Chart Model', function () {
     it('can be created with factory', function () {
@@ -14,7 +14,7 @@ describe('Chart Model', function () {
     });
 
     it('has correct fillable attributes', function () {
-        $chart = new Chart();
+        $chart = new Chart;
 
         expect($chart->getFillable())->toContain([
             'id', 'post_id', 'post_type', 'type', 'width', 'height',
@@ -22,12 +22,12 @@ describe('Chart Model', function () {
             'y_grace', 'yaxis_hide', 'list_color', 'grace', 'x_label_angle',
             'show_box', 'x_label_margin', 'plot_perc_width', 'plot_value_show',
             'plot_value_format', 'plot_value_pos', 'plot_value_color',
-            'group_by', 'sort_by', 'transparency', 'colors'
+            'group_by', 'sort_by', 'transparency', 'colors',
         ]);
     });
 
     it('has correct default attributes', function () {
-        $chart = new Chart();
+        $chart = new Chart;
 
         expect($chart->getAttributes())->toMatchArray([
             'list_color' => '#d60021',
@@ -65,6 +65,7 @@ describe('Chart Model', function () {
             // Mock the getPanelRow method behavior
             $chart = $chart->withoutEvents(function () use ($chart) {
                 $chart->chart_type = 'line';
+
                 return $chart;
             });
 
@@ -145,7 +146,7 @@ describe('Chart Model', function () {
         it('throws assertion error when type is null', function () {
             $chart = makeChart(['type' => null]);
 
-            expect(fn() => $chart->getSettings())
+            expect(fn () => $chart->getSettings())
                 ->toThrow(InvalidArgumentException::class);
         });
     });

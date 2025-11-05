@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Modules\Chart\Models\Chart;
-use Modules\Chart\Models\MixedChart;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Chart\Models\Chart;
+use Modules\Chart\Models\MixedChart;
 
 uses(RefreshDatabase::class);
 
@@ -34,11 +34,11 @@ describe('Chart Model', function () {
     });
 
     it('has correct default attributes', function () {
-        $chart = new Chart();
-        
+        $chart = new Chart;
+
         expect($chart->getAttributes())->toHaveKeys([
             'list_color',
-            'color', 
+            'color',
             'font_family',
             'font_style',
             'font_size',
@@ -48,7 +48,7 @@ describe('Chart Model', function () {
             'plot_perc_width',
             'plot_value_show',
             'plot_value_pos',
-            'plot_value_color'
+            'plot_value_color',
         ]);
     });
 
@@ -104,17 +104,19 @@ describe('Chart Model', function () {
     it('handles mixed chart settings', function () {
         // Create a mixed chart type
         $mixedChart = Chart::factory()->create([
-            'type' => 'mixed:test_id'
+            'type' => 'mixed:test_id',
         ]);
 
         // Mock MixedChart
-        $mockMixed = new class {
+        $mockMixed = new class
+        {
             public $charts;
-            
-            public function __construct() {
+
+            public function __construct()
+            {
                 $this->charts = new Collection([
                     ['type' => 'bar', 'data' => 'test1'],
-                    ['type' => 'line', 'data' => 'test2']
+                    ['type' => 'line', 'data' => 'test2'],
                 ]);
             }
         };
@@ -126,13 +128,13 @@ describe('Chart Model', function () {
     it('has proper model relationships', function () {
         // Test that the model has the expected relationships defined
         $relations = [];
-        
+
         // Check if creator relation exists
         if (method_exists($this->chart, 'creator')) {
             $relations[] = 'creator';
         }
-        
-        // Check if updater relation exists  
+
+        // Check if updater relation exists
         if (method_exists($this->chart, 'updater')) {
             $relations[] = 'updater';
         }
@@ -151,11 +153,11 @@ describe('Chart Model', function () {
 
     it('handles database operations correctly', function () {
         $initialCount = Chart::count();
-        
+
         $newChart = Chart::factory()->create([
             'type' => 'pie1',
             'width' => 400,
-            'height' => 300
+            'height' => 300,
         ]);
 
         expect(Chart::count())->toBe($initialCount + 1)
@@ -168,7 +170,7 @@ describe('Chart Model', function () {
         $this->chart->update([
             'type' => 'line',
             'width' => 1200,
-            'height' => 800
+            'height' => 800,
         ]);
 
         expect($this->chart->fresh()->type)->toBe('line')

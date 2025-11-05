@@ -12,13 +12,14 @@ use Modules\Chart\Actions\JpGraph\ApplyGraphStyleAction;
 use Modules\Chart\Datas\AnswersChartData;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
+
 use function Safe\define;
 
 // JpGraph font constants - these are global constants defined by JpGraph
 // We'll use them directly without namespace imports since they're global
 
 // Fallback constant definitions for PHPStan compatibility
-if (!defined('Amenadiel\\JpGraph\\FF_ARIAL')) {
+if (! defined('Amenadiel\\JpGraph\\FF_ARIAL')) {
     define('Amenadiel\\JpGraph\\FF_ARIAL', 1);
     define('Amenadiel\\JpGraph\\FS_BOLD', 1);
     define('Amenadiel\\JpGraph\\FS_NORMAL', 0);
@@ -90,12 +91,12 @@ class Pie1Action
         //     $mandatory = 'null';
         // }
 
-        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+        if (isset($graph->title) && $graph->title instanceof Text) {
             $graph->title->Set($chart->title);
             $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
         }
 
-        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+        if (isset($graph->subtitle) && $graph->subtitle instanceof Text) {
             $graph->subtitle->Set($chart->subtitle);
             $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
         }

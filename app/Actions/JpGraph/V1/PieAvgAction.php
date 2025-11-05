@@ -71,12 +71,12 @@ class PieAvgAction
         // $p1->SetMidSize(0.8);
         $piePlotC->SetMidSize($chart->plot_perc_width / 100);
 
-        if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+        if (isset($graph->title) && $graph->title instanceof Text) {
             $graph->title->Set($chart->title);
             $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
         }
 
-        if (property_exists($graph, 'subtitle') && $graph->subtitle instanceof Text) {
+        if (isset($graph->subtitle) && $graph->subtitle instanceof Text) {
             $graph->subtitle->Set($chart->subtitle);
             $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
         }
@@ -88,8 +88,8 @@ class PieAvgAction
             $footer_txt = 'Media '.number_format((float) $data[0], 2);
         }
 
-        if (property_exists($graph, 'footer') && is_object($graph->footer)) {
-            if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+        if (isset($graph->footer) && is_object($graph->footer)) {
+            if (isset($graph->footer->center) && $graph->footer->center instanceof Text) {
                 $graph->footer->center->Set($footer_txt);
                 $graph->footer->center->SetFont($chart->font_family, $chart->font_style, $chart->font_size);
             }
@@ -97,7 +97,7 @@ class PieAvgAction
 
         // posiziona al centro del pie
         $y = $chart->height / 2 - 8; // 8 è il font_size
-        if (property_exists($graph, 'footer') && is_object($graph->footer) && method_exists($graph->footer, 'SetMargin')) {
+        if (isset($graph->footer) && is_object($graph->footer) && method_exists($graph->footer, 'SetMargin')) {
             $graph->footer->SetMargin(0, 0, $y);
         }
 

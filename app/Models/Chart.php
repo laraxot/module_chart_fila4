@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Modules\Chart\Models;
 
 use ErrorException;
-use Modules\Chart\Database\Factories\ChartFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
+use Modules\Chart\Database\Factories\ChartFactory;
+use Modules\Xot\Contracts\ProfileContract;
 use Webmozart\Assert\Assert;
 
 /**
@@ -50,6 +50,48 @@ use Webmozart\Assert\Assert;
  *
  * @property-read ProfileContract|null $creator
  * @property-read ProfileContract|null $updater
+ *
+ * @mixin IdeHelperChart
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
+ * @property string|null $lang
+ *
+ * @method static Builder<static>|Chart whereBgColor($value)
+ * @method static Builder<static>|Chart whereColor($value)
+ * @method static Builder<static>|Chart whereColors($value)
+ * @method static Builder<static>|Chart whereCreatedAt($value)
+ * @method static Builder<static>|Chart whereCreatedBy($value)
+ * @method static Builder<static>|Chart whereFontFamily($value)
+ * @method static Builder<static>|Chart whereFontSize($value)
+ * @method static Builder<static>|Chart whereFontStyle($value)
+ * @method static Builder<static>|Chart whereGrace($value)
+ * @method static Builder<static>|Chart whereGroupBy($value)
+ * @method static Builder<static>|Chart whereHeight($value)
+ * @method static Builder<static>|Chart whereId($value)
+ * @method static Builder<static>|Chart whereLang($value)
+ * @method static Builder<static>|Chart whereListColor($value)
+ * @method static Builder<static>|Chart wherePlotPercWidth($value)
+ * @method static Builder<static>|Chart wherePlotValueColor($value)
+ * @method static Builder<static>|Chart wherePlotValueFormat($value)
+ * @method static Builder<static>|Chart wherePlotValuePos($value)
+ * @method static Builder<static>|Chart wherePlotValueShow($value)
+ * @method static Builder<static>|Chart wherePostId($value)
+ * @method static Builder<static>|Chart wherePostType($value)
+ * @method static Builder<static>|Chart whereShowBox($value)
+ * @method static Builder<static>|Chart whereSortBy($value)
+ * @method static Builder<static>|Chart whereTransparency($value)
+ * @method static Builder<static>|Chart whereType($value)
+ * @method static Builder<static>|Chart whereUpdatedAt($value)
+ * @method static Builder<static>|Chart whereUpdatedBy($value)
+ * @method static Builder<static>|Chart whereWidth($value)
+ * @method static Builder<static>|Chart whereXLabelAngle($value)
+ * @method static Builder<static>|Chart whereXLabelMargin($value)
+ * @method static Builder<static>|Chart whereYGrace($value)
+ * @method static Builder<static>|Chart whereYaxisHide($value)
  *
  * @mixin \Eloquent
  */
@@ -181,7 +223,7 @@ class Chart extends BaseModel
     public function getSettings(): array
     {
         Assert::notNull($this->type, '['.__FILE__.']['.__LINE__.']');
-        
+
         if (Str::startsWith($this->type, 'mixed')) {
             $parz = \array_slice(explode(':', $this->type), 1);
             $mixed_id = implode('|', $parz);
@@ -191,11 +233,13 @@ class Chart extends BaseModel
 
             /** @var array<string, array<int|string, mixed>> $chartsArray */
             $chartsArray = $mixed->charts->toArray();
+
             return $chartsArray;
         }
 
         /** @var array<string, array<int|string, mixed>> $result */
         $result = ['chart' => $this->toArray()];
+
         return $result;
     }
 }

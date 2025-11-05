@@ -9,7 +9,6 @@ use Amenadiel\JpGraph\Graph\Graph;
 use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Datas\ChartData;
 use Spatie\QueueableAction\QueueableAction;
-use Webmozart\Assert\Assert;
 
 class ApplyGraphStyleAction
 {
@@ -25,11 +24,11 @@ class ApplyGraphStyleAction
         // Ensure footer->right is a Text object
         if (is_object($graph->footer)) {
             $footer = $graph->footer;
-            if (property_exists($footer, 'right') && $footer->right instanceof Text) {
+            if (isset($footer->right) && $footer->right instanceof Text) {
                 $footer->right->SetFont($chartData->font_family, $chartData->font_style);
             }
         }
-        
+
         // $graph->footer->right->Set('Totale Risposte '.$this->vars['tot']);
         if ($graph->xaxis instanceof Axis) {
             $this->applyGraphXStyle($graph->xaxis, $chartData);

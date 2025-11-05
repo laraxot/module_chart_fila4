@@ -70,6 +70,7 @@ class ChartColumn extends Column
 
         /** @var view-string $viewName */
         $viewName = $this->view;
+
         return view($viewName, $view_params);
     }
 

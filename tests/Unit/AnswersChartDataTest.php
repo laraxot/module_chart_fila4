@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use Filament\Support\RawJs;
+use Modules\Chart\Datas\AnswerData;
 use Modules\Chart\Datas\AnswersChartData;
 use Modules\Chart\Datas\ChartData;
-use Modules\Chart\Datas\AnswerData;
 use Spatie\LaravelData\DataCollection;
-use Filament\Support\RawJs;
 
 describe('AnswersChartData', function () {
     beforeEach(function () {
@@ -28,7 +28,7 @@ describe('AnswersChartData', function () {
             'plot_value_pos' => 1,
             'plot_value_color' => '#000000',
             'answer_value_no_txt' => 'No Answer',
-            'answer_value_txt' => 'Yes Answer'
+            'answer_value_txt' => 'Yes Answer',
         ]);
 
         // Mock AnswerData collection
@@ -36,12 +36,12 @@ describe('AnswersChartData', function () {
             AnswerData::from([
                 'label' => 'Test Answer 1',
                 'value' => 25,
-                'avg' => 75.5
+                'avg' => 75.5,
             ]),
             AnswerData::from([
-                'label' => 'Test Answer 2', 
+                'label' => 'Test Answer 2',
                 'value' => 15,
-                'avg' => 85.2
+                'avg' => 85.2,
             ]),
         ];
 
@@ -52,7 +52,7 @@ describe('AnswersChartData', function () {
             'tot_answered' => 40,
             'tot_invited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
-            'chart' => $this->chartData
+            'chart' => $this->chartData,
         ]);
     });
 
@@ -88,7 +88,7 @@ describe('AnswersChartData', function () {
             'plot_perc_width' => 90,
             'plot_value_show' => true,
             'plot_value_pos' => 1,
-            'plot_value_color' => '#000000'
+            'plot_value_color' => '#000000',
         ]);
         $answersChartData = AnswersChartData::from([
             'tot' => 100,
@@ -97,7 +97,7 @@ describe('AnswersChartData', function () {
             'tot_answered' => 40,
             'tot_invited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
-            'chart' => $chartData
+            'chart' => $chartData,
         ]);
 
         expect($answersChartData->getChartJsType())->toBe('doughnut');
@@ -119,7 +119,7 @@ describe('AnswersChartData', function () {
             'plot_perc_width' => 90,
             'plot_value_show' => true,
             'plot_value_pos' => 1,
-            'plot_value_color' => '#000000'
+            'plot_value_color' => '#000000',
         ]);
         $answersChartData = AnswersChartData::from([
             'tot' => 100,
@@ -128,7 +128,7 @@ describe('AnswersChartData', function () {
             'tot_answered' => 40,
             'tot_invited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
-            'chart' => $chartData
+            'chart' => $chartData,
         ]);
 
         expect($answersChartData->getChartJsType())->toBe('line');
@@ -166,7 +166,7 @@ describe('AnswersChartData', function () {
             'tot_answered' => 40,
             'tot_invited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
-            'chart' => $this->chartData
+            'chart' => $this->chartData,
         ]);
 
         $options = $answersChartData->getChartJsOptionsArray();
@@ -192,7 +192,7 @@ describe('AnswersChartData', function () {
             'plot_perc_width' => 90,
             'plot_value_show' => true,
             'plot_value_pos' => 1,
-            'plot_value_color' => '#000000'
+            'plot_value_color' => '#000000',
         ]);
         $answersChartData = AnswersChartData::from([
             'tot' => 100,
@@ -201,7 +201,7 @@ describe('AnswersChartData', function () {
             'tot_answered' => 40,
             'tot_invited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
-            'chart' => $chartData
+            'chart' => $chartData,
         ]);
 
         $options = $answersChartData->getChartJsOptionsArray();

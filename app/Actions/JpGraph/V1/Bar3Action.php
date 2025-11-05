@@ -24,11 +24,11 @@ class Bar3Action
         $chart = $answersChartData->chart;
         $answers = $answersChartData->answers;
         $graph = app(GetGraphAction::class)->execute($chart);
-        
-        if (property_exists($graph, 'img') && is_object($graph->img) && method_exists($graph->img, 'SetMargin')) {
+
+        if (isset($graph->img) && is_object($graph->img) && method_exists($graph->img, 'SetMargin')) {
             $graph->img->SetMargin(50, 50, 50, 100);
         }
-        
+
         $labels = $answers->toCollection()->pluck('label')->all();
         $datay = $answers->toCollection()->pluck('value')->all();
         $datay1 = $answers->toCollection()->pluck('value1')->all();
@@ -42,11 +42,11 @@ class Bar3Action
 
         // dddx(['legends' => $legends, 'labels' => $labels, 'datay' => $datay, 'datay1' => $datay1]);
 
-        if (property_exists($graph, 'ygrid') && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
+        if (isset($graph->ygrid) && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
             $graph->ygrid->SetFill(false);
         }
-        
-        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis)) {
+
+        if (isset($graph->xaxis) && is_object($graph->xaxis)) {
             if (method_exists($graph->xaxis, 'SetTickLabels')) {
                 $graph->xaxis->SetTickLabels($labels);
             }
@@ -55,7 +55,7 @@ class Bar3Action
             }
         }
 
-        if (property_exists($graph, 'yaxis') && is_object($graph->yaxis)) {
+        if (isset($graph->yaxis) && is_object($graph->yaxis)) {
             if (method_exists($graph->yaxis, 'HideLine')) {
                 $graph->yaxis->HideLine(false);
             }
@@ -64,8 +64,9 @@ class Bar3Action
             }
         }
 
-        if (property_exists($graph, 'yscale') && is_object($graph->yscale)) {
-            if (property_exists($graph->yscale, 'ticks') && is_object($graph->yscale->ticks) && method_exists($graph->yscale->ticks, 'SupressZeroLabel')) {
+        if (isset($graph->yscale) && is_object($graph->yscale)) {
+            // PHPStan L10: isset() universale per JpGraph objects
+            if (isset($graph->yscale->ticks) && is_object($graph->yscale->ticks) && method_exists($graph->yscale->ticks, 'SupressZeroLabel')) {
                 $graph->yscale->ticks->SupressZeroLabel(false);
             }
         }
@@ -101,13 +102,14 @@ class Bar3Action
             $title = $chart->title;
 
             // $subtitle = 'Totale rispondenti';
-            if (property_exists($graph, 'title') && $graph->title instanceof Text) {
+            if (isset($graph->title) && $graph->title instanceof Text) {
                 $graph->title->Set($title);
                 $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
             }
         }
 
-        if (property_exists($chart, 'totali') && $chart->totali !== null && is_iterable($chart->totali)) {
+        // PHPStan L10: isset() già garantisce non-null, per ChartData properties (può essere Model o Data object)
+        if (isset($chart->totali) && is_iterable($chart->totali)) {
             $str = '';
             foreach ($chart->totali as $k => $v) {
                 $kStr = is_scalar($k) ? (string) $k : '';
@@ -115,8 +117,8 @@ class Bar3Action
                 $str .= $kStr.' '.$vStr.' - ';
             }
 
-            if (property_exists($graph, 'footer') && is_object($graph->footer)) {
-                if (property_exists($graph->footer, 'center') && $graph->footer->center instanceof Text) {
+            if (isset($graph->footer) && is_object($graph->footer)) {
+                if (isset($graph->footer->center) && $graph->footer->center instanceof Text) {
                     $graph->footer->center->Set($str);
                     $graph->footer->center->SetFont($chart->font_family, $chart->font_style, 11);
                 }

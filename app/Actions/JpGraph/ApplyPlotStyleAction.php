@@ -34,7 +34,7 @@ class ApplyPlotStyleAction
         // se tolto non mostra i valori
         Assert::notNull($barPlot->value);
         $value = $barPlot->value;
-        if (!($value instanceof Text)) {
+        if (! ($value instanceof Text)) {
             return $barPlot;
         }
 
@@ -44,7 +44,7 @@ class ApplyPlotStyleAction
 
         $value->SetFont($chartData->font_family, $chartData->font_style, $chartData->font_size);
         $value->SetAlign('left', 'center');
-        
+
         // colore del font che scrivi
         if ($chartData->plot_value_color !== null) {
             $value->SetColor($chartData->plot_value_color);

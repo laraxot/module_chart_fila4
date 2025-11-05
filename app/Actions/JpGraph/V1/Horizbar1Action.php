@@ -39,7 +39,7 @@ class Horizbar1Action
 
         $graph = app(ApplyGraphStyleAction::class)->execute($graph, $chart);
 
-        if (property_exists($graph, 'xaxis') && is_object($graph->xaxis) && method_exists($graph->xaxis, 'SetTickLabels')) {
+        if (isset($graph->xaxis) && is_object($graph->xaxis) && method_exists($graph->xaxis, 'SetTickLabels')) {
             $graph->xaxis->SetTickLabels($labels);
         }
 
