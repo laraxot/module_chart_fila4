@@ -8,28 +8,32 @@ use ErrorException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Str;
-use Modules\Chart\Database\Factories\ChartFactory;
-use Modules\Xot\Contracts\ProfileContract;
 use Webmozart\Assert\Assert;
 
 /**
  * Modules\Chart\Models\Chart.
  *
- * @property int|null $height
- * @property string|null $type
- * @property int|null $width
+ * @property int $id
+ * @property string|null $post_type
+ * @property int|null $post_id
  * @property string|null $color
  * @property string|null $bg_color
  * @property int|null $font_family
- * @property int|null $font_size
  * @property int|null $font_style
+ * @property int|null $font_size
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $created_by
+ * @property string|null $updated_by
  * @property int|null $y_grace
- * @property bool|null $yaxis_hide
+ * @property int|null $yaxis_hide
  * @property string|null $list_color
- * @property int|null $grace
- * @property int|null $x_label_angle
- * @property bool|null $show_box
+ * @property string|null $x_label_angle
+ * @property int|null $show_box
  * @property int|null $x_label_margin
+ * @property int|null $width
+ * @property int|null $height
+ * @property string|null $type
  * @property int|null $plot_perc_width
  * @property int|null $plot_value_show
  * @property string|null $plot_value_format
@@ -37,29 +41,15 @@ use Webmozart\Assert\Assert;
  * @property string|null $plot_value_color
  * @property string|null $group_by
  * @property string|null $sort_by
- * @property int|null $transparency
- * @property array<string, mixed>|null $colors
- * @property string|null $post_id
- * @property string|null $post_type
- * @property string|null $chart_type
- *
- * @method static ChartFactory factory($count = null, $state = [])
- * @method static Builder|Chart newModelQuery()
- * @method static Builder|Chart newQuery()
- * @method static Builder|Chart query()
- *
- * @property-read ProfileContract|null $creator
- * @property-read ProfileContract|null $updater
- *
- * @mixin IdeHelperChart
- *
- * @property int $id
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
  * @property string|null $lang
- *
+ * @property string $transparency
+ * @property array<array-key, mixed> $colors
+ * @property string|null $grace
+ * @property-read \Modules\Quaeris\Models\Profile|null $creator
+ * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @method static Builder<static>|Chart newModelQuery()
+ * @method static Builder<static>|Chart newQuery()
+ * @method static Builder<static>|Chart query()
  * @method static Builder<static>|Chart whereBgColor($value)
  * @method static Builder<static>|Chart whereColor($value)
  * @method static Builder<static>|Chart whereColors($value)
@@ -92,7 +82,6 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Chart whereXLabelMargin($value)
  * @method static Builder<static>|Chart whereYGrace($value)
  * @method static Builder<static>|Chart whereYaxisHide($value)
- *
  * @mixin \Eloquent
  */
 class Chart extends BaseModel
