@@ -59,11 +59,5 @@ abstract class BaseModel extends XotBaseModel
         // 'password'
     ];
 
-    /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): Factory
-    {
-        return app(GetFactoryAction::class)->execute(static::class);
-    }
+   
 }

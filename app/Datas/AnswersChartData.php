@@ -6,10 +6,11 @@ namespace Modules\Chart\Datas;
 
 use Filament\Support\RawJs;
 use Illuminate\Support\Str;
-use Modules\Xot\Actions\Cast\SafeFloatCastAction;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
 use Webmozart\Assert\Assert;
+use Illuminate\Support\Stringable;
+use Spatie\LaravelData\DataCollection;
+use Modules\Xot\Actions\Cast\SafeFloatCastAction;
 
 class AnswersChartData extends Data
 {
@@ -60,19 +61,31 @@ class AnswersChartData extends Data
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array{
+     *     datasets: array<int, array{
+     *         label: string|array<string>,
+     *         data: array<int, int|float|string>,
+     *         data2?: array<int, int|float|string>,
+     *         borderColor?: string|array<int, string>|null,
+     *         backgroundColor?: string|array<int, string>|null,
+     *     }>,
+     *     labels: array<int, string>
+     * }
      */
     public function getChartJsData(): array
     {
         $datasets = [];
-        $data = $this->answers->toCollection()->pluck('value')->all();
+        $answersCollection = $this->answers->toCollection();
 
-        // if($this->chart->type != 'pieAvg'){
-        // dddx($this->answers->toCollection());
-        // }
+        $labelsCollection = $answersCollection
+            ->pluck('label')
+            ->map(static fn ($label): string => (string) $label)
+            ->values();
+
+        $data = $answersCollection->pluck('value')->all();
 
         if (\in_array($this->chart->type, ['pieAvg', 'pie1'], false)) {
-            $data = $this->answers->toCollection()->pluck('avg')->all();
+            $data = $answersCollection->pluck('avg')->all();
 
             if (isset($this->chart->max)) {
                 Assert::numeric($sum = collect($data)->sum());
@@ -80,81 +93,87 @@ class AnswersChartData extends Data
                 $other = $this->chart->max - $sum;
                 if ($other > 0.01) {
                     $data[] = $other;
-                    $labels = [];
-                    $labels[] = $this->chart->answer_value_no_txt ?? 'answer_value_no_txt';
-                    // This assertion is always true because we just added an element to $labels
-                    // Assert::notNull($labels[0], '['.__FILE__.']['.__LINE__.']');
-                    /** @phpstan-ignore isset.offset */
-                    if (\count($labels) === 2 && isset($labels[0]) && \is_string($labels[0]) && \strlen($labels[0]) < 3) {
-                        $labels[0] = $this->chart->answer_value_txt;
-                    }
+                    $labelsCollection->push((string) ($this->chart->answer_value_no_txt ?? 'answer_value_no_txt'));
                 }
             }
+
+            $data = $this->normalizeSeries($data);
         }
 
-        if (isset($data[0]) && \is_array($data[0])) { // questionario multiplo
-            // dddx([$this->chart, $this->answers]);
+        if (isset($data[0]) && \is_array($data[0])) {
             $legends = array_keys($data[0]);
             foreach ($legends as $key => $legend) {
-                $tmp = [
-                    'label' => $legend,
-                    'data' => array_column($data, $legend),
+                $series = array_column($data, $legend);
+
+                $datasets[] = [
+                    'label' => (string) $legend,
+                    'data' => $this->normalizeSeries($series),
                     'borderColor' => $this->chart->getColorsRgba(0.5)[$key] ?? null,
                     'backgroundColor' => $this->chart->getColorsRgba(0.5)[$key] ?? null,
                 ];
-                $datasets[] = $tmp;
             }
         } else {
-            $data = $this->answers->toCollection()->pluck('avg')->all();
-            foreach ($data as $key => $item) {
-                $data[$key] = number_format(SafeFloatCastAction::cast($item, 0.0), 2, '.', '');
-            }
+            $avgValues = $answersCollection->pluck('avg')->values()->map(
+                static fn ($item): string => number_format(SafeFloatCastAction::cast($item, 0.0), 2, '.', '')
+            )->all();
 
             if (isset($this->chart->max)) {
-                Assert::numeric($sum = collect($data)->sum());
+                Assert::numeric($sum = collect($avgValues)->sum());
                 Assert::numeric($this->chart->max);
                 $other = $this->chart->max - $sum;
                 if ($other > 0.01) {
-                    $data[] = $other;
-                    $labels = [];
-                    $labels[] = $this->chart->answer_value_no_txt ?? 'answer_value_no_txt';
-                    // This assertion is always true because we just added an element to $labels
-                    // Assert::notNull($labels[0], '['.__FILE__.']['.__LINE__.']');
-                    /** @phpstan-ignore isset.offset */
-                    if (\count($labels) === 2 && isset($labels[0]) && \is_string($labels[0]) && \strlen($labels[0]) < 3) {
-                        $labels[0] = $this->chart->answer_value_txt;
-                    }
+                    $avgValues[] = number_format($other, 2, '.', '');
+                    $labelsCollection->push((string) ($this->chart->answer_value_no_txt ?? 'answer_value_no_txt'));
                 }
             }
+
             /** @phpstan-ignore offsetAccess.nonOffsetAccessible */
-            if (isset($this->answers->toCollection()->pluck('avg')[0]) && ! \is_string($this->answers->toCollection()->pluck('avg')[0])) {
-                $label = 'Media';
-            } else {
-                $label = 'Percentuale';
-            }
+            $label = isset($answersCollection->pluck('avg')[0]) && ! \is_string($answersCollection->pluck('avg')[0])
+                ? 'Media'
+                : 'Percentuale';
 
             $datasets = [
                 [
-                    // 'label' => ['Percentuale'],
-                    'label' => [$label],
-                    'data' => $data,
-                    'data2' => $this->answers->toCollection()->pluck('value')->all(),
+                    'label' => $label,
+                    'data' => array_values($avgValues),
+                    'data2' => $this->normalizeSeries($answersCollection->pluck('value')->all()),
                     'borderColor' => $this->chart->getColorsRgba(0.5),
                     'backgroundColor' => $this->chart->getColorsRgba(0.5),
                 ],
             ];
         }
 
-        // dddx([
-        //     'datasets' => $datasets,
-        //     'labels' => $this->answers->toCollection()->pluck('label')->all(),
-        // ]);
-
         return [
             'datasets' => $datasets,
-            'labels' => $this->answers->toCollection()->pluck('label')->all(),
-            // 'labels' => ['tasso'],
+            'labels' => $labelsCollection->values()->all(),
         ];
+    }
+
+    /**
+     * @param array<int|string, mixed> $series
+     * @return array<int, int|float|string>
+     */
+    private function normalizeSeries(array $series): array
+    {
+        $normalized = [];
+
+        foreach (array_values($series) as $value) {
+            if (is_int($value) || is_float($value) || is_string($value)) {
+                $normalized[] = $value;
+
+                continue;
+            }
+
+            if ($value === null) {
+                $normalized[] = 0;
+
+                continue;
+            }
+
+            $normalized[] = $value instanceof Stringable ? (string) $value : '';
+        }
+
+        return $normalized;
     }
 
     /**
@@ -267,12 +286,12 @@ class AnswersChartData extends Data
             $tooltip = "{
                 callbacks: {
                     label: function(context) {
-                        // console.log(context);
-                        let label = (context.dataset.label || '')  + ':' + (context.dataset.data[context.dataIndex]) || '';
+                        let label = (context.dataset.label || '') + ':' + (context.dataset.data[context.dataIndex] || '');
 
-                        if(context.dataset.data2[context.dataIndex] != ''){
-                            label = label + '/' +' Rispondenti'  + ':' + (context.dataset.data2[context.dataIndex]) || '';
+                        if (context.dataset.data2 && context.dataset.data2[context.dataIndex] !== '') {
+                            label = label + '/ Rispondenti:' + (context.dataset.data2[context.dataIndex] || '');
                         }
+
                         return label;
                     }
                 }
@@ -459,7 +478,7 @@ class AnswersChartData extends Data
      */
     public function getChartJsBarOptionsArray(array $options): array
     {
-        if (! isset($options['plugins'])) {
+        if (!isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -505,7 +524,7 @@ class AnswersChartData extends Data
             ],
         ];
 
-        if (! isset($options['plugins'])) {
+        if (!isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -530,7 +549,7 @@ class AnswersChartData extends Data
         // return '{'.$js.'}';
 
         return RawJs::make('{
-            '.(string) $js.'
+            '.(string)$js.'
             }');
     }
 

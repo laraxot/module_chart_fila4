@@ -1,68 +1,139 @@
-# Convenzione Naming per Cartelle Docs
+# Regola Critica: Naming Convention per Cartelle Docs
 
-## ⚠️ REGOLA CRITICA ⚠️
+## Regola Fondamentale
 
-**TUTTI** i file e le cartelle nelle cartelle `docs` DEVONO essere in **MINUSCOLO**:
-- ✅ CORRETTO: `readme.md`, `project.md`, `technical.md`
-- ❌ ERRATO: `README.md`, `PROJECT.md`, `TECHNICAL.md`
+**NEI FILE E NELLE SOTTOCARTELLE DELLE CARTELLE DOCS NON DEVONO ESSERCI CARATTERI MAIUSCOLI, TRANNE PER README.md**
 
-## Motivazione
-- Coerenza con le convenzioni di documentazione
-- Compatibilità cross-platform
-- Facilità di manutenzione
-- Standardizzazione del progetto
-
-## Applicazione
-Questa regola si applica a:
-- Tutte le cartelle `docs/` del progetto
-- Tutti i file `.md` nelle cartelle docs
-- Tutte le sottocartelle delle cartelle docs
-- Qualsiasi file di documentazione
-
-## Procedura per Correzione
-Quando si identificano file con caratteri maiuscoli:
-
-1. **Identificare i file problematici**:
-   ```bash
-   find docs -name "*[A-Z]*" -type f
-   ```
-
-2. **Rinominare in minuscolo**:
-   ```bash
-   mv docs/README.md docs/readme.md
-   mv docs/PROJECT.md docs/project.md
-   ```
-
-3. **Verificare la correzione**:
-   ```bash
-   find docs -name "*[A-Z]*" -type f
-   # Dovrebbe restituire nessun risultato
-   ```
-
-## Eccezioni
-- **Nessuna eccezione**: Tutti i file devono essere in minuscolo
-- **Nessun caso speciale**: Anche i file importanti come README devono essere `readme.md`
-
-## Comandi Utili
-```bash
-# Trova tutti i file con caratteri maiuscoli
-find docs -name "*[A-Z]*" -type f
-
-# Trova tutte le cartelle con caratteri maiuscoli
-find docs -name "*[A-Z]*" -type d
-
-# Rinomina tutti i README.md in readme.md
-find docs -name "README.md" -type f -exec bash -c 'mv "$1" "$(dirname "$1")/readme.md"' _ {} \;
+### ✅ CORRETTO
+```
+docs/
+├── README.md (eccezione: può avere maiuscole)
+├── translation-standards.md
+├── filament-best-practices.md
+├── naming-conventions.md
+├── regole/
+│   ├── traduzioni.md
+│   ├── filament-resources.md
+│   └── naming-convention.md
+└── rules/
+    ├── translation-keys.md
+    ├── filament-components.md
+    └── project-structure.md
 ```
 
-## Checklist
-- [ ] Verificare che tutti i file siano in minuscolo
-- [ ] Verificare che tutte le cartelle siano in minuscolo
-- [ ] Aggiornare tutti i riferimenti nei file
-- [ ] Documentare la correzione
-- [ ] Aggiornare regole e memorie
+### ❌ ERRATO
+```
+docs/
+├── Translation_Standards.md (maiuscole nel nome)
+├── Filament_Best_Practices.md (maiuscole nel nome)
+├── Naming_Conventions.md (maiuscole nel nome)
+├── Regole/ (maiuscola nella cartella)
+└── Rules/ (maiuscola nella cartella)
+```
 
-## Collegamenti
-- [Correzione Naming 2025-01-27](readme-naming-correction-2025-01-27.md)
+## Motivazione
 
-*Ultimo aggiornamento: 2025-01-27* 
+1. **Coerenza**: Mantenere una convenzione uniforme in tutto il progetto
+2. **Compatibilità**: Evitare problemi con sistemi case-sensitive
+3. **Manutenibilità**: Facilitare la ricerca e organizzazione dei file
+4. **Standard**: Seguire le convenzioni Unix/Linux per i file
+
+## Applicazione
+
+### File
+- ✅ `translation-standards.md`
+- ✅ `filament-best-practices.md`
+- ✅ `naming-conventions.md`
+- ✅ `send-email-fix.md`
+- ❌ `Translation_Standards.md`
+- ❌ `Filament_Best_Practices.md`
+- ❌ `Naming_Conventions.md`
+
+### Cartelle
+- ✅ `regole/`
+- ✅ `rules/`
+- ✅ `standards/`
+- ✅ `conventions/`
+- ❌ `Regole/`
+- ❌ `Rules/`
+- ❌ `Standards/`
+
+### Eccezioni
+- ✅ `README.md` - Può contenere maiuscole nel nome
+- ✅ `index.md` - Nome standard per file indice
+
+## Checklist di Controllo
+
+Prima di considerare completa una cartella docs:
+
+- [ ] Tutti i file hanno nomi in minuscolo
+- [ ] Tutte le sottocartelle hanno nomi in minuscolo
+- [ ] Solo README.md può avere maiuscole
+- [ ] Uso di trattini (-) invece di underscore (_)
+- [ ] Nomi descrittivi e chiari
+- [ ] Nessun carattere speciale oltre a trattini
+
+## Esempi di Conversione
+
+### Prima (Errato)
+```
+docs/
+├── Translation_Standards.md
+├── Filament_Best_Practices.md
+├── Naming_Conventions.md
+├── Regole/
+│   ├── Traduzioni.md
+│   └── Filament_Resources.md
+└── Rules/
+    ├── Translation_Keys.md
+    └── Project_Structure.md
+```
+
+### Dopo (Corretto)
+```
+docs/
+├── translation-standards.md
+├── filament-best-practices.md
+├── naming-conventions.md
+├── regole/
+│   ├── traduzioni.md
+│   └── filament-resources.md
+└── rules/
+    ├── translation-keys.md
+    └── project-structure.md
+```
+
+## Comandi per Verificare
+
+### Verifica Manuale
+```bash
+
+# Trova file con maiuscole nelle cartelle docs
+find docs/ -name "*[A-Z]*" -type f | grep -v README.md
+
+# Trova cartelle con maiuscole nelle cartelle docs
+find docs/ -name "*[A-Z]*" -type d
+
+# Verifica completa (docs + moduli)
+find ./docs ./Modules/*/docs -name "*[A-Z]*" -type f | grep -v README.md
+```
+
+### Script Automatico
+```bash
+
+# Esegui script di correzione automatica
+./bashscripts/fix_docs_naming_convention.sh
+```
+
+## Note Importanti
+
+- **Sempre**: Usare trattini (-) invece di underscore (_)
+- **Sempre**: Nomi descrittivi e chiari
+- **Mai**: Caratteri maiuscoli nei nomi
+- **Eccezione**: Solo README.md può avere maiuscole
+- **Verifica**: Controllare sempre prima di creare nuovi file
+
+---
+
+**Questa regola è OBBLIGATORIA per tutte le cartelle docs del progetto.**
+

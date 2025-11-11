@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Chart\Filament\Resources\MixedChartResource\Pages;
 
 use Filament\Actions\DeleteAction;
-use Filament\Resources\Pages\EditRecord;
 use Modules\Chart\Filament\Resources\MixedChartResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
-class EditMixedChart extends EditRecord
+class EditMixedChart extends XotBaseEditRecord
 {
     protected static string $resource = MixedChartResource::class;
 

@@ -1,54 +1,109 @@
-# Dashboard Principale Paziente
+# Dashboard Principale
 
-## Descrizione
-La dashboard principale dell'area paziente offre una visione d'insieme dei dati sanitari, appuntamenti e documenti dell'utente.
+## Panoramica
+La dashboard principale è il punto di accesso centrale per i pazienti, fornendo una visione completa delle informazioni e delle azioni principali.
 
-## Stato Attuale
-- **Completamento**: 100%
-- **Responsabile**: Team Frontend
-- **Data completamento**: Aprile 2025
+## Componenti della Dashboard
 
-## Funzionalità Implementate
-- Riepilogo appuntamenti futuri
-- Scorciatoie rapide alle funzioni principali
-- Widget informativi personalizzati
-- Notifiche e avvisi
-- Stato documenti e richieste
-- Storico visite recenti
-- Promemoria per follow-up
+### Sezione Intestazione
+- Nome e foto profilo utente
+- Pulsante rapido per prenota visita
+- Indicatore stato salute (se applicabile)
 
-## Componenti UI
-- Card appuntamenti con countdown
-- Card notifiche con priorità visiva
-- Widget riepilogo documenti
-- Sezione promemoria dinamica
-- Card rimborsi con stato
-- Banner informativo personalizzabile
+### Riquadri Informativi
+1. **Prossimo Appuntamento**
+   - Data e ora
+   - Nome specialista
+   - Tipo di visita
+   - Pulsante "Dettagli"
+   - Pulsante "Annulla Prenotazione"
 
-## Tecnologie Utilizzate
-- Filament PHP per il framework UI
-- Livewire per componenti interattivi
-- Alpine.js per interazioni frontend
-- Chart.js per visualizzazioni grafiche
-- Responsive design (mobile-first)
+2. **Notifiche Recenti**
+   - Ultime 3 notifiche non lette
+   - Anteprima messaggio
+   - Indicatore stato lettura
+   - Link a tutte le notifiche
 
-## Metriche di Utilizzo
-- Tempo medio sulla dashboard: 2:30 min
-- Tasso di click su widget: 65%
-- Tasso di completamento azioni: 78%
-- Soddisfazione utente: 4.3/5
+3. **Documenti Recenti**
+   - Ultimi 3 documenti caricati
+   - Tipo documento
+   - Data caricamento
+   - Pulsante download
 
-## Prossimi Sviluppi
-- Widget personalizzabili dall'utente
-- Più integrazioni con servizi terzi
-- Dashboard analytics avanzato
-- Suggerimenti basati su machine learning
+4. **Stato Salute** (se abilitato)
+   - Grafico andamento parametri
+   - Indicatori chiave
+   - Link a dettagli completi
+
+### Sezione Azioni Rapide
+- Nuova prenotazione
+- Richiedi referto
+- Contatta l'assistenza
+- Scarica certificato
+
+## Requisiti Tecnici
+
+### API Endpoints
+```
+GET /api/v1/patient/dashboard
+```
+
+### Risposta di Esempio
+```json
+{
+  "user": {
+    "name": "Mario Rossi",
+    "avatar": "/storage/avatars/123.jpg"
+  },
+  "next_appointment": {
+    "id": 456,
+    "date": "2025-06-15T10:30:00+02:00",
+    "doctor": "Dr. Bianchi",
+    "specialty": "Odontoiatria",
+    "status": "confermato"
+  },
+  "notifications": [
+    {
+      "id": 789,
+      "title": "Appuntamento confermato",
+      "message": "Il tuo appuntamento è stato confermato per il 15/06/2025",
+      "read": false,
+      "created_at": "2025-06-01T14:30:00+02:00"
+    }
+  ],
+  "recent_documents": [
+    {
+      "id": 101,
+      "type": "referto",
+      "name": "Referto visita del 01/05/2025",
+      "date": "2025-05-05",
+      "url": "/documents/101/download"
+    }
+  ]
+}
+```
+
+## Sicurezza
+- Accesso consentito solo a utenti autenticati con ruolo paziente
+- Verifica dei permessi per ogni richiesta
+- Dati sensibili crittografati
+- Logging degli accessi
+
+## Accessibilità
+- Struttura semantica HTML5
+- Attributi ARIA per componenti dinamici
+- Tasti di scelta rapida
+- Supporto per screen reader
+
+## Performance
+- Tempo di caricamento < 2 secondi
+- Lazy loading per immagini e componenti pesanti
+- Cache lato client per dati non critici
+- Ottimizzazione per dispositivi mobili
 
 ## Documentazione Correlata
-- [Gestione profilo](./gestione-profilo.md)
-- [Storico appuntamenti](./storico-appuntamenti.md)
-- [Documenti clinici](./documenti-clinici.md)
-- [Impostazioni notifiche](./impostazioni-notifiche.md)
+- [Panoramica Area Personale](./README.md)
+- [API Documentation](../api/patient_api.md)
+- [Linee Guida UI/UX](../ui_ux/patient_dashboard_guidelines.md)
 
-## Riferimento Principale
-→ [Torna a Stato Avanzamento Lavori](../../stato_avanzamento_lavori_2025_06_05.md)
+[← Torna all'Area Personale](./README.md)

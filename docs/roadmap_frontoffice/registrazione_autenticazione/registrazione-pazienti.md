@@ -1,41 +1,59 @@
 # Registrazione Pazienti
 
-## Descrizione
-Implementazione del processo di registrazione pazienti con verifica dati personali e sanitari.
+## Panoramica
+Documentazione dettagliata del flusso di registrazione pazienti per il portale SaluteOra.
 
-## Stato Attuale
-- **Completamento**: 100%
-- **Responsabile**: Team Frontend/Backend
-- **Data completamento**: Aprile 2025
+## Requisiti Funzionali
+- [x] Form di registrazione con validazione lato client e server
+- [x] Verifica dell'email obbligatoria
+- [x] Accettazione privacy policy e termini di servizio
+- [x] Controllo duplicati email/CF
+- [x] Integrazione con sistema di notifiche
 
-## Funzionalità Implementate
-- Form di registrazione multi-step
-- Validazione in tempo reale dei campi
-- Verifica tessera sanitaria
-- Verifica email tramite token
-- Creazione profilo paziente con dati sanitari
+## Specifiche Tecniche
 
-## Tecnologie Utilizzate
-- Laravel Form Request per validazione
-- Livewire per interfaccia dinamica
-- Queue per elaborazione asincrona
-- Mailables per notifiche
+### Endpoint API
+```
+POST /api/v1/auth/register
+```
 
-## Integrazioni
-- Sistema di notifiche email
-- Servizio verifica tessera sanitaria
-- Storage sicuro documenti
+### Campi Richiesti
+| Campo | Tipo | Obbligatorio | Note |
+|-------|------|--------------|------|
+| email | string | Sì | Deve essere un'email valida |
+| password | string | Sì | Min 12 caratteri, maiuscole, numeri |
+| nome | string | Sì | Solo lettere e spazi |
+| cognome | string | Sì | Solo lettere e spazi |
+| codice_fiscale | string | Sì | Formato valido CF |
+| data_nascita | date | Sì | Formato YYYY-MM-DD |
+| telefono | string | No | Formato internazionale |
+| accetta_termini | boolean | Sì | Deve essere true |
 
-## Test e Qualità
-- Test unitari: 24 test
-- Test funzionali: 15 test
-- Coverage: 92%
+### Flusso di Registrazione
+1. Utente compila il form
+2. Validazione lato client
+3. Invio dati al server
+4. Creazione record utente con stato "in attesa di verifica"
+5. Invio email di verifica
+6. Conferma tramite link nell'email
+7. Attivazione account
+
+## Sicurezza
+- Password crittografate con bcrypt
+- Token di verifica con scadenza 24h
+- Rate limiting: 5 tentativi/ora per indirizzo IP
+- Protezione CSRF
+- Logging di sicurezza per tentativi sospetti
+
+## Test
+- [x] Test unitari
+- [x] Test di integrazione
+- [x] Test di carico
+- [x] Test di sicurezza OWASP
 
 ## Documentazione Correlata
-- [Verifica Email](./verifica-email.md)
-- [Login/Logout](./login-logout.md)
-- [Recupero Password](./recupero-password.md)
-- [Integrazione con sistemi sanitari](../integrazioni/sistemi-sanitari.md)
+- [Panoramica Autenticazione](./README.md)
+- [Specifiche Sicurezza](../sicurezza/autenticazione_sicurezza.md)
+- [API Reference](../api/auth_api.md)
 
-## Riferimento Principale
-→ [Torna a Stato Avanzamento Lavori](../../stato_avanzamento_lavori_2025_06_05.md)
+[← Torna all'elenco componenti](./README.md)

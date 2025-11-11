@@ -1,91 +1,26 @@
-# Regole Fondamentali del Progetto
+# Regole Fondamentali del Progetto SaluteOra
 
-## Estensioni e Classi Base
+Questo documento centralizza tutte le regole e le convenzioni del progetto SaluteOra per garantire coerenza e facilità di accesso.
 
-### Filament Resources
-- ❌ NON estendere mai direttamente le classi di Filament
-- ✅ SEMPRE estendere le classi base Xot con prefisso `XotBase`
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  class DoctorRegistrationResource extends Resource
-  
-  // ✅ FARE
-  class DoctorRegistrationResource extends XotBaseResource
-  ```
+## Traduzioni e Localizzazione
+- **MAI utilizzare `->label()` nei componenti Filament**. Le etichette sono gestite automaticamente dal `LangServiceProvider`. [Dettagli](/var/www/html/saluteora/docs/lang-service-provider-improvements.md)
+- Utilizzare sempre i file di traduzione per le etichette e i testi. [Struttura dei file di traduzione](#)
 
-### Componenti Filament
-- Le classi che estendono `XotBaseResource` NON devono implementare:
-  - `form()`
-  - `table()`
-  - Questi metodi sono già implementati nelle classi base
-
-## Traduzioni
-- ❌ NON usare il metodo `label()`
-- ✅ Usare i file di traduzione tramite `LangServiceProvider`
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  ->label('Nome')
-  
-  // ✅ FARE
-  ->label(__('dentist.fields.name'))
-  ```
+## Enum e Valori Fissi
+- **Utilizzare SEMPRE ENUM per array di opzioni fisse**. Evitare array hardcoded. [Esempio di implementazione](#)
 
 ## Notifiche
-- ❌ NON creare nuove classi di notifica per ogni caso
-- ✅ Usare `RecordNotification` direttamente
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  class DentistRegistrationNotification extends Notification
-  
-  // ✅ FARE
-  $notification = new RecordNotification($record, 'dentist.registration');
-  ```
+- Utilizzare `RecordNotification` per le notifiche. Studiare le implementazioni esistenti prima di crearne di nuove. [Dettagli](/var/www/html/saluteora/docs/record-notification-implementation.md)
 
-## Enums
-- ❌ NON creare enum specifici per ogni modulo se possono essere riutilizzati
-- ✅ Usare enum generici quando possibile
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  enum DentistRegistrationStatus
-  
-  // ✅ FARE
-  enum RegistrationStatus
-  ```
-
-## Actions
-- ❌ NON usare Services
-- ✅ Usare Spatie/Laravel-Queueable-Action
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  class CreateDentistService
-  
-  // ✅ FARE
-  class CreateDentistAction implements QueueableAction
-  ```
+## Architettura
+- **NON utilizzare componenti Livewire diretti**. Usare esclusivamente Widget di Filament. [Dettagli](#)
+- **NON utilizzare Services**. Usare `spatie/laravel-queueable-action` per la business logic asincrona. [Dettagli](#)
 
 ## Documentazione
-- ❌ NON creare documentazione duplicata
-- ✅ Mantenere la documentazione nel modulo corretto
-- Esempio:
-  ```php
-  // ❌ NON FARE
-  /docs/lang-service-provider-improvements.md
-  
-  // ✅ FARE
-  /laravel/Modules/Lang/docs/lang-service-provider-improvements.md
-  ```
+- Studiare a fondo la documentazione esistente prima di proporre implementazioni. [Struttura della documentazione](#)
 
-## Collegamenti
-- [Modulo Xot](../laravel/Modules/Xot/README.md)
-- [Best Practices](./best-practices.md)
-- [Guida Contribuzione](./CONTRIBUTING.md)
+## Configurazioni
+- Separare configurazioni generiche e specifiche per provider. [Struttura di configurazione](#)
+- MAI utilizzare valori predefiniti per parametri critici nelle variabili d'ambiente. [Dettagli](#)
 
-## Note
-- Questo file serve come riferimento rapido per evitare errori comuni
-- Aggiornare questo file quando vengono aggiunte nuove regole
-- Consultare questo file prima di ogni implementazione 
+Questo documento è un punto di riferimento rapido. Per approfondimenti, consultare i link forniti o la documentazione completa nella directory `/docs`.

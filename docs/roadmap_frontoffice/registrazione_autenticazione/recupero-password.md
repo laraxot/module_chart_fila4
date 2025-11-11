@@ -1,46 +1,45 @@
 # Recupero Password
 
-## Descrizione
-Sistema sicuro per il recupero password con token temporanei e notifiche multiple.
+## Panoramica
+Documentazione del flusso di recupero password per gli utenti che hanno dimenticato le credenziali di accesso.
 
-## Stato Attuale
-- **Completamento**: 100%
-- **Responsabile**: Team Backend
-- **Data completamento**: Marzo 2025
+## Flusso di Recupero
+1. Utente richiede il recupero password
+2. Inserimento email nel form di recupero
+3. Verifica esistenza email nel sistema
+4. Generazione token di reset con scadenza 1h
+5. Invio email con link di reset
+6. Utente clicca sul link
+7. Inserimento nuova password
+8. Conferma nuova password
+9. Aggiornamento credenziali nel sistema
+10. Notifica di conferma all'utente
 
-## Funzionalità Implementate
-- Generazione token sicuri con scadenza
-- Invio email con link di reset
-- Form di reset con validazione password
-- Sistema anti-bruteforce
-- Tracciamento tentativi di recupero
-- Notifica di avvenuto cambio password
+## Specifiche Tecniche
 
-## Processo di Recupero
-1. Utente richiede reset tramite form dedicato
-2. Sistema verifica email e genera token univoco
-3. Email inviata con link sicuro
-4. Link apre form di reset
-5. Nuova password validata e salvata
-6. Notifica di conferma inviata
-7. Tutti i token precedenti invalidati
+### Endpoint API
+```
+POST /api/v1/auth/forgot-password
+POST /api/v1/auth/reset-password
+```
+
+### Requisiti Password
+- Lunghezza minima: 12 caratteri
+- Almeno 1 maiuscola
+- Almeno 1 numero
+- Almeno 1 carattere speciale
+- Non può essere uguale alle ultime 5 password
 
 ## Sicurezza
-- Token con scadenza a 30 minuti
-- Hash token SHA-256 in database
-- Rate limiting per prevenzione abusi
-- IP tracking per richieste sospette
-- Notifica di sicurezza per cambio effettuato
-
-## Test e Qualità
-- Test unitari: 15 test
-- Test funzionali: 8 test
-- Security audit completato
+- Token di reset monouso
+- Scadenza token: 1 ora
+- Rate limiting: 3 richieste/ora per indirizzo IP
+- Logging di tutte le operazioni di reset
+- Notifica all'utente in caso di richiesta di reset
 
 ## Documentazione Correlata
-- [Login/Logout](./login-logout.md)
-- [Registrazione Pazienti](./registrazione-pazienti.md)
-- [Verifica Email](./verifica-email.md)
+- [Panoramica Autenticazione](./README.md)
+- [Login e Logout](./login_logout.md)
+- [Politiche di Sicurezza](../sicurezza/politiche_password.md)
 
-## Riferimento Principale
-→ [Torna a Stato Avanzamento Lavori](../../stato_avanzamento_lavori_2025_06_05.md)
+[← Torna all'elenco componenti](./README.md)

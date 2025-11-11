@@ -1,44 +1,43 @@
-# Login/Logout
+# Login e Logout
 
-## Descrizione
-Sistema di autenticazione con gestione accessi differenziati per pazienti, odontoiatri e admin.
+## Panoramica
+Documentazione dettagliata del sistema di autenticazione e gestione della sessione.
 
-## Stato Attuale
-- **Completamento**: 100%
-- **Responsabile**: Team Backend
-- **Data completamento**: Marzo 2025
+## Flusso di Accesso
 
-## Funzionalità Implementate
-- Login con email e password
-- Logout su tutti i dispositivi
-- Remember me per sessioni persistenti
-- Tracciamento tentativi falliti
-- Protezione CSRF
-- Blocco account dopo tentativi falliti
-- Log attività di accesso
+### Login
+1. Utente inserisce email e password
+2. Validazione lato client
+3. Richiesta al server con credenziali
+4. Verifica credenziali e stato account
+5. Generazione token JWT
+6. Impostazione cookie di sessione
+7. Reindirizzamento all'area riservata
 
-## Tecnologie Utilizzate
-- Laravel Fortify per autenticazione base
-- Session Storage personalizzato
-- Rate limiting per protezione
-- Middleware customizzati per ruoli
+### Logout
+1. Eliminazione token JWT lato client
+2. Invalido token lato server
+3. Pulizia cookie di sessione
+4. Reindirizzamento alla homepage
 
-## Sicurezza
-- Rate limiting per prevenzione brute force
-- Auditing accessi
-- Rotazione token
-- Validazione IP (opzionale)
+## Specifiche Tecniche
 
-## Test e Qualità
-- Test unitari: 18 test
-- Test funzionali: 12 test
-- Security audit completato
+### Endpoint API
+```
+POST /api/v1/auth/login
+POST /api/v1/auth/logout
+```
+
+### Sicurezza
+- Token JWT con scadenza 8 ore
+- Refresh token con scadenza 7 giorni
+- Protezione contro attacchi CSRF
+- Rate limiting: 10 tentativi/ora per utente
+- Blocco account dopo 5 tentativi falliti
 
 ## Documentazione Correlata
-- [Registrazione Pazienti](./registrazione-pazienti.md)
-- [Recupero Password](./recupero-password.md)
-- [Autenticazione a due fattori](./2fa.md)
-- [Verifica Email](./verifica-email.md)
+- [Panoramica Autenticazione](./README.md)
+- [Registrazione Pazienti](./registrazione_pazienti.md)
+- [Recupero Password](./recupero_password.md)
 
-## Riferimento Principale
-→ [Torna a Stato Avanzamento Lavori](../../stato_avanzamento_lavori_2025_06_05.md)
+[← Torna all'elenco componenti](./README.md)

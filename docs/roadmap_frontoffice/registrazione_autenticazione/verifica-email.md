@@ -1,50 +1,38 @@
 # Verifica Email
 
-## Descrizione
-Sistema di verifica dell'indirizzo email dei pazienti e odontoiatri per validare l'identità e ridurre spam e account falsi.
+## Panoramica
+Documentazione del processo di verifica dell'indirizzo email per i nuovi utenti.
 
-## Stato Attuale
-- **Completamento**: 100%
-- **Responsabile**: Team Backend
-- **Data completamento**: Marzo 2025
+## Flusso di Verifica
+1. Dopo la registrazione, viene inviata un'email di verifica
+2. L'email contiene un link con token univoco
+3. Cliccando sul link, l'utente conferma la proprietà dell'email
+4. L'account viene attivato e l'utente può effettuare il login
+5. In caso di mancata ricezione, possibilità di richiedere un nuovo link
 
-## Funzionalità Implementate
-- Generazione token sicuro one-time
-- Invio email di verifica automatico
-- Pagina di conferma dedicata
-- Re-invio token in caso di necessità
-- Tracciamento verifiche completate
-- Limitazione funzionalità per account non verificati
+## Specifiche Tecniche
 
-## Processo di Verifica
-1. Registrazione utente completata
-2. Token univoco generato e memorizzato
-3. Email con link di verifica inviata
-4. Clic sul link porta a conferma
-5. Account sbloccato con accesso completo
-6. Notifica di verifica completata
+### Endpoint API
+```
+GET /api/v1/auth/verify-email/{token}
+POST /api/v1/auth/resend-verification
+```
 
-## Tecnologie Utilizzate
-- Laravel Notifications
-- Queue per invio asincrono
-- Throttling per prevenire abusi
-- Database storage per token
+### Token di Verifica
+- Durata: 24 ore
+- Formato: JWT firmato con chiave segreta
+- Payload: { userId, email, exp }
+- Monouso: sì
 
-## Sicurezza e Privacy
-- Token con scadenza a 24 ore
-- Crittografia token in database
-- Limite richieste verifica (3/ora)
-- Conformità GDPR per trattamento dati
-
-## Test e Qualità
-- Test unitari: 12 test
-- Test funzionali: 6 test
-- Test di integrazione con email provider
+## Gestione Errori
+- Token scaduto: richiedere un nuovo link
+- Token non valido: notifica all'utente
+- Account già verificato: reindirizzamento al login
+- Troppi tentativi: temporaneamente bloccato
 
 ## Documentazione Correlata
-- [Registrazione Pazienti](./registrazione-pazienti.md)
-- [Login/Logout](./login-logout.md)
-- [Recupero Password](./recupero-password.md)
+- [Panoramica Autenticazione](./README.md)
+- [Registrazione Pazienti](./registrazione_pazienti.md)
+- [Template Email](../notifiche/email_templates.md)
 
-## Riferimento Principale
-→ [Torna a Stato Avanzamento Lavori](../../stato_avanzamento_lavori_2025_06_05.md)
+[← Torna all'elenco componenti](./README.md)

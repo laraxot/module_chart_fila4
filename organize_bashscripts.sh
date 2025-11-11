@@ -3,7 +3,7 @@
 # Script per organizzare i file nella cartella bashscripts
 # Mantiene solo README.md nella root e sposta tutto il resto in sottocartelle
 
-BASHSCRIPTS_DIR="/var/www/html/_bases/base_saluteora/bashscripts"
+BASHSCRIPTS_DIR="/var/www/html/_bases/base_<nome progetto>/bashscripts"
 cd "$BASHSCRIPTS_DIR"
 
 echo "Inizio organizzazione dei file bashscripts..."
