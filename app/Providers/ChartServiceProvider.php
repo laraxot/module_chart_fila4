@@ -10,7 +10,7 @@ class ChartServiceProvider extends XotBaseServiceProvider
 {
     public string $name = 'Chart';
 
-    protected string $module_dir = __DIR__;
+    protected string $moduleDir = __DIR__;
 
-    protected string $module_ns = __NAMESPACE__;
+    protected string $moduleNs = __NAMESPACE__;
 }

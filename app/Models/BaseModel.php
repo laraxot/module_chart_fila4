@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Models;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
 use Modules\Xot\Contracts\ProfileContract;
 use Modules\Xot\Models\XotBaseModel;
 
@@ -41,6 +39,14 @@ abstract class BaseModel extends XotBaseModel
     /** @var string */
     protected $connection = 'chart';
 
+    /** @var string */
+    protected $primaryKey = 'id';
+
+    /** @var list<string> */
+    protected $hidden = [
+        // 'password'
+    ];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -50,14 +56,4 @@ abstract class BaseModel extends XotBaseModel
     {
         return ['published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
     }
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /** @var list<string> */
-    protected $hidden = [
-        // 'password'
-    ];
-
-   
 }

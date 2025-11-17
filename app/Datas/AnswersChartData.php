@@ -6,11 +6,12 @@ namespace Modules\Chart\Datas;
 
 use Filament\Support\RawJs;
 use Illuminate\Support\Str;
-use Spatie\LaravelData\Data;
-use Webmozart\Assert\Assert;
 use Illuminate\Support\Stringable;
-use Spatie\LaravelData\DataCollection;
 use Modules\Xot\Actions\Cast\SafeFloatCastAction;
+use Spatie\LaravelData\Attributes\MapInputName;
+use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
+use Webmozart\Assert\Assert;
 
 class AnswersChartData extends Data
 {
@@ -20,9 +21,11 @@ class AnswersChartData extends Data
 
     public string $footer = 'no_set';
 
-    public int $tot_answered = 0;
+    #[MapInputName('tot_answered')]
+    public int $totalAnswered = 0;
 
-    public int $tot_invited = 0;
+    #[MapInputName('tot_invited')]
+    public int $totalInvited = 0;
 
     /**
      * @var DataCollection<AnswerData>
@@ -150,33 +153,6 @@ class AnswersChartData extends Data
     }
 
     /**
-     * @param array<int|string, mixed> $series
-     * @return array<int, int|float|string>
-     */
-    private function normalizeSeries(array $series): array
-    {
-        $normalized = [];
-
-        foreach (array_values($series) as $value) {
-            if (is_int($value) || is_float($value) || is_string($value)) {
-                $normalized[] = $value;
-
-                continue;
-            }
-
-            if ($value === null) {
-                $normalized[] = 0;
-
-                continue;
-            }
-
-            $normalized[] = $value instanceof Stringable ? (string) $value : '';
-        }
-
-        return $normalized;
-    }
-
-    /**
      * @return array<string, mixed>
      */
     public function getChartJsOptionsArray(): array
@@ -210,33 +186,58 @@ class AnswersChartData extends Data
             $options['indexAxis'] = 'y';
         }
 
-        $chartjs_type = $this->getChartJsType();
-        $method = 'getChartJs'.Str::of($chartjs_type)->studly()->toString().'OptionsArray';
-        /** @var array<string, mixed> */
-        $options = $this->{$method}($options);
+        $chartJsType = $this->getChartJsType();
+        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsArray';
 
-        return $options;
+        return $this->resolveChartOptions($method, $options);
     }
 
-    public function getChartJsBarOptionsJs(string $js): string
+    public function getChartJsBarOptionsJs(): string
     {
-        $indexAxis = 'x';
-        $value = '';
-
-        if ($this->chart->max === 100.0) {
-            $value = ' %';
-        }
-        if ($this->chart->type === 'horizbar1') {
-            $indexAxis = 'y';
-            $value = ' %';
-        }
-
-        $title = '{}';
-
-        $labels = '{}';
         $chartJsData = $this->getChartJsData();
+        $labels = $this->buildBarLabelsJs($chartJsData);
+        $title = $this->buildBarTitleJs();
+        $tooltip = $this->buildBarTooltipJs($chartJsData);
+        $valueSuffix = $this->determineValueSuffix();
+        $indexAxis = $this->determineIndexAxis();
+
+        return <<<JS
+            plugins: {
+                title: {$title}
+                ,datalabels:{
+                    formatter: function(value) {
+                        return value+'{$valueSuffix}';
+                    },
+                    display: true,
+                    backgroundColor: '#ccc',
+                    borderRadius:3,
+                    anchor: 'start',
+                    font: {
+                        color: 'red',
+                        weight: 'bold',
+                    },
+                    labels: {$labels}
+                },
+                legend:{
+                    display: false,
+                },
+                tooltip: {$tooltip}
+            },
+
+            indexAxis: '{$indexAxis}'
+            JS;
+    }
+
+    /**
+     * @param array{
+     *     datasets: array<int, array<string, mixed>>,
+     *     labels: array<int, string>
+     * } $chartJsData
+     */
+    private function buildBarLabelsJs(array $chartJsData): string
+    {
         if (\is_array($chartJsData['datasets']) && \count($chartJsData['datasets']) === 1 && $this->chart->type !== 'horizbar1') {
-            $labels = "{
+            return "{
                 name: {
                     align: 'center',
                     formatter: function(value, ctx) {
@@ -261,10 +262,21 @@ class AnswersChartData extends Data
             }";
         }
 
-        $title = '{}';
-        // dddx($this);
+        return '{}';
+    }
+
+    private function buildBarTitleJs(): string
+    {
+        if ($this->footer !== 'no_set') {
+            return "{
+                        display: true,
+                        text: '".$this->footer."',
+                        position: 'bottom',
+                    }";
+        }
+
         if ($this->title !== 'no_set' && $this->chart->type === 'horizbar1') {
-            $title = "{
+            return "{
                         display: true,
                         text: '".$this->title."',
                         font: {
@@ -273,17 +285,19 @@ class AnswersChartData extends Data
                     }";
         }
 
-        if ($this->footer !== 'no_set') {
-            $title = "{
-                        display: true,
-                        text: '".$this->footer."',
-                        position: 'bottom',
-                    }";
-        }
-        $tooltip = '{}';
-        $chartJsData = $this->getChartJsData();
+        return '{}';
+    }
+
+    /**
+     * @param array{
+     *     datasets: array<int, array<string, mixed>>,
+     *     labels: array<int, string>
+     * } $chartJsData
+     */
+    private function buildBarTooltipJs(array $chartJsData): string
+    {
         if ($this->chart->type === 'bar2' && \is_array($chartJsData['datasets']) && \count($chartJsData['datasets']) === 1) {
-            $tooltip = "{
+            return "{
                 callbacks: {
                     label: function(context) {
                         let label = (context.dataset.label || '') + ':' + (context.dataset.data[context.dataIndex] || '');
@@ -298,150 +312,44 @@ class AnswersChartData extends Data
             }";
         }
 
-        $js .= <<<JS
-            plugins: {
-                title: $title
-                ,datalabels:{
-                    formatter: function(value, context) {
-                        return value+'$value';
-                    },
-                    display: true,
-                    backgroundColor: '#ccc',
-                    borderRadius:3,
-                    anchor: 'start',
-                    font: {
-                        color: 'red',
-                        weight: 'bold',
-                    },
-                    labels: $labels
-                },
-                legend:{
-                    display: false,
-                },
-                tooltip: $tooltip
-            },
-
-            indexAxis: '$indexAxis'
-            JS;
-
-        // if($this->chart->type === 'bar2'){
-        // $js=<<<JS
-        //     plugins: {
-        //         datalabels:{
-        //             display: true,
-        //             backgroundColor: '#ccc',
-        //             borderRadius:3,
-        //             anchor: 'start',
-        //             font: {
-        //                 color: 'red',
-        //                 weight: 'bold',
-        //             },
-        //             labels: {
-        //                 name: {
-        //                     align: 'center',
-        //                     formatter: function(value, ctx) {
-        //                         return ctx.dataset.data2[ctx.dataIndex];
-        //                     },
-        //                     borderColor: 'white',
-        //                     borderWidth: 2,
-        //                     borderRadius: 4,
-        //                     padding: 4
-        //                 },
-        //                 value: {
-        //                     align: 'bottom',
-        //                     borderColor: 'white',
-        //                     borderWidth: 2,
-        //                     borderRadius: 4,
-        //                     padding: 4
-        //                 }
-        //             }
-        //         },
-        //         legend:{
-        //             display: false,
-        //         },
-        //     },
-        //     indexAxis: '$indexAxis'
-        //     JS;
-        // }
-
-        // $js .= <<<JS
-        // tooltip: {
-        //     callbacks: {
-        //         label: function(context) {
-        //             let label = context.dataset.label || '';
-
-        //             return label + '!';
-        //         }
-        //     }
-        // }
-        //     JS;
-
-        // $js .= <<<JS
-        //     ,scales: {
-        //             y: {
-        //                 ticks: {
-        //                     callback: (value) => '€' + value,
-        //                 },
-        //             },
-        //         },
-
-        //     JS;
-
-        // prova divisione label in più righe
-
-        // $js .= <<<JS
-        //     ,scales: {
-        //         x: {
-        //             ticks: {
-        //                 callback: function(value, context) {
-        //                     console.log(context.labels);
-        //                     var label = this.getLabelForValue(value);
-        //                     var maxLength = 10; // Numero massimo di caratteri per riga
-        //                     var words = label.split(' ');
-        //                     var lines = [];
-        //                     var currentLine = '';
-
-        //                     words.forEach(function(word) {
-        //                         if (currentLine.length + word.length + 1 <= maxLength) {
-        //                             currentLine += (currentLine ? ' ' : '') + word;
-        //                         } else {
-        //                             lines.push(currentLine);
-        //                             currentLine = word;
-        //                         }
-        //                     });
-
-        //                     lines.push(currentLine); // Aggiungi l'ultima riga
-        //                     return lines.join('AAA');
-        //                 }
-        //             },
-        //         },
-        //     },
-        // JS;
-
-        // dddx($js);
-        return $js;
+        return '{}';
     }
 
-    public function getChartJsDoughnutOptionsJs(string $js): string
+    private function determineValueSuffix(): string
+    {
+        if ($this->chart->type === 'horizbar1' || $this->chart->max === 100.0) {
+            return ' %';
+        }
+
+        return '';
+    }
+
+    private function determineIndexAxis(): string
+    {
+        return $this->chart->type === 'horizbar1' ? 'y' : 'x';
+    }
+
+    public function getChartJsDoughnutOptionsJs(): string
     {
         $title = '{}';
         if ($this->title !== 'no_set') {
             $title = "{
                         display: true,
-                        text: '".$this->title."',
+                        text: '{$this->title}',
                         font: {
                             size: 14
                         },
                     }";
         }
-        $first_answer = $this->answers->first();
+        $firstAnswer = $this->answers->first();
         $label = '--';
-        if ($first_answer != null) {
-            Assert::isInstanceOf($first_answer, AnswerData::class, '['.__LINE__.']['.__FILE__.']');
+        if ($firstAnswer !== null) {
+            Assert::isInstanceOf($firstAnswer, AnswerData::class, '['.__LINE__.']['.__FILE__.']');
             /** @phpstan-ignore property.nonObject */
             $label = round((float) $this->answers->first()->avg, 2);
         }
-        $js = <<<JS
+
+        return <<<JS
             scales: {
                 x:{
                     grid:{
@@ -461,15 +369,13 @@ class AnswersChartData extends Data
                 }
             },
             plugins:{
-                title: $title
+                title: {$title}
                 ,datalabels: false,
                 doughnutLabel:{
-                    label: '$label',
+                    label: '{$label}',
                 }
             }
         JS;
-
-        return $js;
     }
 
     /**
@@ -478,7 +384,7 @@ class AnswersChartData extends Data
      */
     public function getChartJsBarOptionsArray(array $options): array
     {
-        if (!isset($options['plugins'])) {
+        if (! isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -524,7 +430,7 @@ class AnswersChartData extends Data
             ],
         ];
 
-        if (!isset($options['plugins'])) {
+        if (! isset($options['plugins'])) {
             $options['plugins'] = [];
         }
         Assert::isArray($options['plugins']);
@@ -541,15 +447,12 @@ class AnswersChartData extends Data
 
     public function getChartJsOptionsJs(): RawJs
     {
-        $js = '';
-        $chartjs_type = $this->getChartJsType();
-        $method = 'getChartJs'.Str::of($chartjs_type)->studly()->toString().'OptionsJs';
-        $js = $this->{$method}($js);
-
-        // return '{'.$js.'}';
+        $chartJsType = $this->getChartJsType();
+        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsJs';
+        $js = $this->{$method}();
 
         return RawJs::make('{
-            '.(string)$js.'
+            '.(string) $js.'
             }');
     }
 
@@ -589,11 +492,48 @@ class AnswersChartData extends Data
             $options['indexAxis'] = 'y';
         }
 
-        $chartjs_type = $this->getChartJsType();
-        $method = 'getChartJs'.Str::of($chartjs_type)->studly()->toString().'OptionsArray';
-        /** @var array<string, mixed> */
-        $options = $this->{$method}($options);
+        $chartJsType = $this->getChartJsType();
+        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsArray';
 
-        return $options;
+        return $this->resolveChartOptions($method, $options);
+    }
+
+    /**
+     * @param  array<int|string, mixed>  $series
+     * @return array<int, int|float|string>
+     */
+    private function normalizeSeries(array $series): array
+    {
+        $normalized = [];
+
+        foreach (array_values($series) as $value) {
+            if (is_int($value) || is_float($value) || is_string($value)) {
+                $normalized[] = $value;
+
+                continue;
+            }
+
+            if ($value === null) {
+                $normalized[] = 0;
+
+                continue;
+            }
+
+            $normalized[] = $value instanceof Stringable ? (string) $value : '';
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     * @return array<string, mixed>
+     */
+    private function resolveChartOptions(string $method, array $options): array
+    {
+        /** @var array<string, mixed> $result */
+        $result = $this->{$method}($options);
+
+        return $result;
     }
 }

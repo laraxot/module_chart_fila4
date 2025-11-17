@@ -14,13 +14,6 @@ use function Safe\json_encode;
 
 class ChartColumn extends Column
 {
-    protected static ?string $heading = null;
-
-    protected static ?string $maxHeight = null;
-
-    /** @var array<string, mixed>|null */
-    protected static ?array $options = null;
-
     // class ChartColumn extends Component
     public string $dataChecksum;
 
@@ -44,12 +37,19 @@ class ChartColumn extends Column
     /** @var array<string, mixed> */
     public array $chartOptions = [];
 
+    protected static ?string $heading = null;
+
+    protected static ?string $maxHeight = null;
+
+    /** @var array<string, mixed>|null */
+    protected static ?array $options = null;
+
     /** @var array<string, mixed>|null */
     protected ?array $cachedData = null;
 
     protected string $view = 'chart::tables.columns.chart-column';
 
-    public function setAnswersChartData(AnswersChartData $answersChartData): self
+    public function applyAnswersChartData(AnswersChartData $answersChartData): self
     {
         $this->chartData = $answersChartData->getChartJsData();
         $this->chartType = $answersChartData->getChartJsType();
@@ -64,14 +64,14 @@ class ChartColumn extends Column
 
     public function render(): View
     {
-        $view_params = [
+        $viewParams = [
             'obj' => $this,
         ];
 
         /** @var view-string $viewName */
         $viewName = $this->view;
 
-        return view($viewName, $view_params);
+        return view($viewName, $viewParams);
     }
 
     /**

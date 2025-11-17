@@ -6,7 +6,6 @@ namespace Modules\Chart\Models\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Datas\XotData;
 
 abstract class ChartBasePolicy
 {
@@ -14,8 +13,11 @@ abstract class ChartBasePolicy
 
     public function before(UserContract $user, string $ability): ?bool
     {
-        $xotData = XotData::make();
         if ($user->hasRole('super-admin')) {
+            return true;
+        }
+
+        if ($ability === 'viewAny' && $user->hasPermissionTo('chart.viewAny')) {
             return true;
         }
 

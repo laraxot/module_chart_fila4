@@ -47,6 +47,7 @@ use Webmozart\Assert\Assert;
  * @property string|null $grace
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static Builder<static>|Chart newModelQuery()
  * @method static Builder<static>|Chart newQuery()
  * @method static Builder<static>|Chart query()
@@ -82,6 +83,7 @@ use Webmozart\Assert\Assert;
  * @method static Builder<static>|Chart whereXLabelMargin($value)
  * @method static Builder<static>|Chart whereYGrace($value)
  * @method static Builder<static>|Chart whereYaxisHide($value)
+ *
  * @mixin \Eloquent
  */
 class Chart extends BaseModel
@@ -132,18 +134,6 @@ class Chart extends BaseModel
         'plot_value_color' => '#000000',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'colors' => 'array',
-        ];
-    }
-
     public function getPanelRow(string $parent_field, string $my_field): int|string|null
     {
         $panel_row = $this;
@@ -154,16 +144,12 @@ class Chart extends BaseModel
             $this->{$my_field} = $value;
             $this->save();
         } catch (ErrorException $errorException) {
-            $msg = [
-                'message' => $errorException->getMessage(),
-                'line' => $errorException->getLine(),
-                'file' => $errorException->getFile(),
-                'panel_row_class' => $panel_row::class,
-            ];
+            // Error caught but not logged - intentionally silent
+            // If logging is needed, implement explicitly here
             $value = null;
         }
 
-        /** @var int|string|null */
+        /** @var int|string|null $value */
         return $value;
     }
 
@@ -220,15 +206,23 @@ class Chart extends BaseModel
             Assert::notNull($mixed, '['.__FILE__.']['.__LINE__.']');
             Assert::isInstanceof($mixed->charts, Collection::class);
 
-            /** @var array<string, array<int|string, mixed>> $chartsArray */
-            $chartsArray = $mixed->charts->toArray();
-
-            return $chartsArray;
+            /** @var array<string, array<int|string, mixed>> */
+            return $mixed->charts->toArray();
         }
 
-        /** @var array<string, array<int|string, mixed>> $result */
-        $result = ['chart' => $this->toArray()];
+        /** @var array<string, array<int|string, mixed>> */
+        return ['chart' => $this->toArray()];
+    }
 
-        return $result;
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'colors' => 'array',
+        ];
     }
 }

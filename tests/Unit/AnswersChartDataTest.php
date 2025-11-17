@@ -49,8 +49,8 @@ describe('AnswersChartData', function () {
             'tot' => 100,
             'title' => 'Test Chart',
             'footer' => 'Test Footer',
-            'tot_answered' => 40,
-            'tot_invited' => 100,
+            'totalAnswered' => 40,
+            'totalInvited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
             'chart' => $this->chartData,
         ]);
@@ -64,8 +64,8 @@ describe('AnswersChartData', function () {
         expect($this->answersChartData->tot)->toBe(100)
             ->and($this->answersChartData->title)->toBe('Test Chart')
             ->and($this->answersChartData->footer)->toBe('Test Footer')
-            ->and($this->answersChartData->tot_answered)->toBe(40)
-            ->and($this->answersChartData->tot_invited)->toBe(100);
+            ->and($this->answersChartData->totalAnswered)->toBe(40)
+            ->and($this->answersChartData->totalInvited)->toBe(100);
     });
 
     it('returns correct chart js type for bar1', function () {
@@ -94,8 +94,8 @@ describe('AnswersChartData', function () {
             'tot' => 100,
             'title' => 'Test',
             'footer' => 'Test',
-            'tot_answered' => 40,
-            'tot_invited' => 100,
+            'totalAnswered' => 40,
+            'totalInvited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
             'chart' => $chartData,
         ]);
@@ -125,8 +125,8 @@ describe('AnswersChartData', function () {
             'tot' => 100,
             'title' => 'Test',
             'footer' => 'Test',
-            'tot_answered' => 40,
-            'tot_invited' => 100,
+            'totalAnswered' => 40,
+            'totalInvited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
             'chart' => $chartData,
         ]);
@@ -163,8 +163,8 @@ describe('AnswersChartData', function () {
             'tot' => 100,
             'title' => 'no_set',
             'footer' => 'Test Footer',
-            'tot_answered' => 40,
-            'tot_invited' => 100,
+            'totalAnswered' => 40,
+            'totalInvited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
             'chart' => $this->chartData,
         ]);
@@ -198,8 +198,8 @@ describe('AnswersChartData', function () {
             'tot' => 100,
             'title' => 'Test',
             'footer' => 'no_set',
-            'tot_answered' => 40,
-            'tot_invited' => 100,
+            'totalAnswered' => 40,
+            'totalInvited' => 100,
             'answers' => new DataCollection(AnswerData::class, $this->answerData),
             'chart' => $chartData,
         ]);
@@ -237,7 +237,7 @@ describe('AnswersChartData', function () {
     });
 
     it('processes bar chart javascript correctly', function () {
-        $js = $this->answersChartData->getChartJsBarOptionsJs('');
+        $js = $this->answersChartData->getChartJsBarOptionsJs();
 
         expect($js)->toBeString()
             ->and($js)->toContain('plugins')
@@ -246,7 +246,7 @@ describe('AnswersChartData', function () {
     });
 
     it('processes doughnut chart javascript correctly', function () {
-        $js = $this->answersChartData->getChartJsDoughnutOptionsJs('');
+        $js = $this->answersChartData->getChartJsDoughnutOptionsJs();
 
         expect($js)->toBeString()
             ->and($js)->toContain('scales')

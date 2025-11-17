@@ -21,13 +21,7 @@ class AnswerData extends Data
     /** @var float|array<string, mixed>|string */
     public float|array|string $value1 = '';
 
-    public ?string $_key = null;
-
     public ?string $key = null;
-
-    public ?string $_sub = null;
-
-    public ?string $_sort = null;
 
     // public ?array $sub_labels;
     // public $values; NO ! NO ! NO !

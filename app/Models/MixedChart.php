@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  * @property-read int|null $charts_count
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ *
  * @method static Builder<static>|MixedChart newModelQuery()
  * @method static Builder<static>|MixedChart newQuery()
  * @method static Builder<static>|MixedChart query()
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  * @method static Builder<static>|MixedChart whereName($value)
  * @method static Builder<static>|MixedChart whereUpdatedAt($value)
  * @method static Builder<static>|MixedChart whereUpdatedBy($value)
+ *
  * @mixin \Eloquent
  */
 class MixedChart extends BaseModel
