@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Filament\Widgets\Samples;
 
-use Filament\Support\RawJs;
 use Filament\Widgets\ChartWidget;
 
 class Doughnut01Chart extends ChartWidget

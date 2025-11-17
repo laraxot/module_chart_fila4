@@ -6,7 +6,6 @@ use Rector\Config\RectorConfig;
 use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use RectorLaravel\Rector\MethodCall\RedirectRouteToToRouteHelperRector;
 use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {

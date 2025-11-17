@@ -7,7 +7,6 @@ namespace Modules\Chart\Tables\Columns;
 use Filament\Tables\Columns\Column;
 use Illuminate\Contracts\View\View;
 use Modules\Chart\Datas\AnswersChartData;
-
 use function Safe\json_encode;
 
 // use Illuminate\Session\SessionManager;

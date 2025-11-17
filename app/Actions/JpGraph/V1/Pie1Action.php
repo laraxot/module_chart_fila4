@@ -10,10 +10,9 @@ use Amenadiel\JpGraph\Plot\PiePlotC;
 use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\ApplyGraphStyleAction;
 use Modules\Chart\Datas\AnswersChartData;
+use function Safe\define;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
-
-use function Safe\define;
 
 // JpGraph font constants - these are global constants defined by JpGraph
 // We'll use them directly without namespace imports since they're global

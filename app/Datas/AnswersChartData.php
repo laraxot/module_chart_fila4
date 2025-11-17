@@ -228,6 +228,177 @@ class AnswersChartData extends Data
             JS;
     }
 
+    public function getChartJsDoughnutOptionsJs(): string
+    {
+        $title = '{}';
+        if ($this->title !== 'no_set') {
+            $title = "{
+                        display: true,
+                        text: '{$this->title}',
+                        font: {
+                            size: 14
+                        },
+                    }";
+        }
+        $firstAnswer = $this->answers->first();
+        $label = '--';
+        if ($firstAnswer !== null) {
+            Assert::isInstanceOf($firstAnswer, AnswerData::class, '['.__LINE__.']['.__FILE__.']');
+            /** @phpstan-ignore property.nonObject */
+            $label = round((float) $this->answers->first()->avg, 2);
+        }
+
+        return <<<JS
+            scales: {
+                x:{
+                    grid:{
+                        display:false,
+                    },
+                    ticks:{
+                        display:false,
+                    }
+                },
+                y:{
+                    grid:{
+                        display:false,
+                    },
+                    ticks:{
+                        display:false,
+                    }
+                }
+            },
+            plugins:{
+                title: {$title}
+                ,datalabels: false,
+                doughnutLabel:{
+                    label: '{$label}',
+                }
+            }
+        JS;
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     *
+     * @return array<string, mixed>
+     */
+    public function getChartJsBarOptionsArray(array $options): array
+    {
+        if (! isset($options['plugins'])) {
+            $options['plugins'] = [];
+        }
+        Assert::isArray($options['plugins']);
+        $options['plugins']['datalabels'] = [
+            'display' => true,
+            'backgroundColor' => '#ccc',
+            'borderRadius' => 3,
+            'anchor' => 'start',
+            'font' => [
+                'color' => 'red',
+                'weight' => 'bold',
+            ],
+        ];
+        $options['plugins']['legend'] = [
+            'display' => false,
+        ];
+
+        return $options;
+    }
+
+    /**
+     * @param  array<string, mixed>  $options
+     *
+     * @return array<string, mixed>
+     */
+    public function getChartJsDoughnutOptionsArray(array $options): array
+    {
+        $options['scales'] = [
+            'x' => [
+                'grid' => [
+                    'display' => false,
+                ],
+                'ticks' => [
+                    'display' => false, // Questa opzione nasconde i numeri sull'asse X
+                ],
+            ],
+            'y' => [
+                'grid' => [
+                    'display' => false,
+                ],
+                'ticks' => [
+                    'display' => false, // Questa opzione nasconde i numeri sull'asse Y
+                ],
+            ],
+        ];
+
+        if (! isset($options['plugins'])) {
+            $options['plugins'] = [];
+        }
+        Assert::isArray($options['plugins']);
+        $options['plugins']['datalabels'] = [
+            'display' => false,
+        ];
+        Assert::isInstanceOf($this->answers->first(), AnswerData::class, '['.__LINE__.']['.__FILE__.']');
+        $options['plugins']['doughnutLabel'] = [
+            'label' => round((float) $this->answers->first()->avg, 2),
+        ];
+
+        return $options;
+    }
+
+    public function getChartJsOptionsJs(): RawJs
+    {
+        $chartJsType = $this->getChartJsType();
+        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsJs';
+        $js = $this->{$method}();
+
+        return RawJs::make('{
+            '.(string) $js.'
+            }');
+    }
+
+    /**
+     * funzione deprecata, utilizzata nella dashboard precedente
+     *
+     * @return array<string, mixed>
+     */
+    public function getChartJsOptions(): array
+    {
+        $title = [];
+
+        if ($this->title !== 'no_set') {
+            $title = [
+                'display' => true,
+                'text' => $this->title,
+                'font' => [
+                    'size' => 14,
+                ],
+            ];
+        }
+
+        if ($this->footer !== 'no_set') {
+            $title = [
+                'display' => true,
+                'text' => $this->footer,
+                'position' => 'bottom',
+            ];
+        }
+
+        $options = [];
+        $options['plugins'] = [
+            'title' => $title,
+        ];
+
+        if ($this->chart->type === 'horizbar1') {
+            $options['indexAxis'] = 'y';
+        }
+
+        $chartJsType = $this->getChartJsType();
+        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsArray';
+
+        return $this->resolveChartOptions($method, $options);
+    }
+
     /**
      * @param array{
      *     datasets: array<int, array<string, mixed>>,
@@ -329,177 +500,9 @@ class AnswersChartData extends Data
         return $this->chart->type === 'horizbar1' ? 'y' : 'x';
     }
 
-    public function getChartJsDoughnutOptionsJs(): string
-    {
-        $title = '{}';
-        if ($this->title !== 'no_set') {
-            $title = "{
-                        display: true,
-                        text: '{$this->title}',
-                        font: {
-                            size: 14
-                        },
-                    }";
-        }
-        $firstAnswer = $this->answers->first();
-        $label = '--';
-        if ($firstAnswer !== null) {
-            Assert::isInstanceOf($firstAnswer, AnswerData::class, '['.__LINE__.']['.__FILE__.']');
-            /** @phpstan-ignore property.nonObject */
-            $label = round((float) $this->answers->first()->avg, 2);
-        }
-
-        return <<<JS
-            scales: {
-                x:{
-                    grid:{
-                        display:false,
-                    },
-                    ticks:{
-                        display:false,
-                    }
-                },
-                y:{
-                    grid:{
-                        display:false,
-                    },
-                    ticks:{
-                        display:false,
-                    }
-                }
-            },
-            plugins:{
-                title: {$title}
-                ,datalabels: false,
-                doughnutLabel:{
-                    label: '{$label}',
-                }
-            }
-        JS;
-    }
-
-    /**
-     * @param  array<string, mixed>  $options
-     * @return array<string, mixed>
-     */
-    public function getChartJsBarOptionsArray(array $options): array
-    {
-        if (! isset($options['plugins'])) {
-            $options['plugins'] = [];
-        }
-        Assert::isArray($options['plugins']);
-        $options['plugins']['datalabels'] = [
-            'display' => true,
-            'backgroundColor' => '#ccc',
-            'borderRadius' => 3,
-            'anchor' => 'start',
-            'font' => [
-                'color' => 'red',
-                'weight' => 'bold',
-            ],
-        ];
-        $options['plugins']['legend'] = [
-            'display' => false,
-        ];
-
-        return $options;
-    }
-
-    /**
-     * @param  array<string, mixed>  $options
-     * @return array<string, mixed>
-     */
-    public function getChartJsDoughnutOptionsArray(array $options): array
-    {
-        $options['scales'] = [
-            'x' => [
-                'grid' => [
-                    'display' => false,
-                ],
-                'ticks' => [
-                    'display' => false, // Questa opzione nasconde i numeri sull'asse X
-                ],
-            ],
-            'y' => [
-                'grid' => [
-                    'display' => false,
-                ],
-                'ticks' => [
-                    'display' => false, // Questa opzione nasconde i numeri sull'asse Y
-                ],
-            ],
-        ];
-
-        if (! isset($options['plugins'])) {
-            $options['plugins'] = [];
-        }
-        Assert::isArray($options['plugins']);
-        $options['plugins']['datalabels'] = [
-            'display' => false,
-        ];
-        Assert::isInstanceOf($this->answers->first(), AnswerData::class, '['.__LINE__.']['.__FILE__.']');
-        $options['plugins']['doughnutLabel'] = [
-            'label' => round((float) $this->answers->first()->avg, 2),
-        ];
-
-        return $options;
-    }
-
-    public function getChartJsOptionsJs(): RawJs
-    {
-        $chartJsType = $this->getChartJsType();
-        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsJs';
-        $js = $this->{$method}();
-
-        return RawJs::make('{
-            '.(string) $js.'
-            }');
-    }
-
-    /**
-     * funzione deprecata, utilizzata nella dashboard precedente
-     *
-     * @return array<string, mixed>
-     */
-    public function getChartJsOptions(): array
-    {
-        $title = [];
-
-        if ($this->title !== 'no_set') {
-            $title = [
-                'display' => true,
-                'text' => $this->title,
-                'font' => [
-                    'size' => 14,
-                ],
-            ];
-        }
-
-        if ($this->footer !== 'no_set') {
-            $title = [
-                'display' => true,
-                'text' => $this->footer,
-                'position' => 'bottom',
-            ];
-        }
-
-        $options = [];
-        $options['plugins'] = [
-            'title' => $title,
-        ];
-
-        if ($this->chart->type === 'horizbar1') {
-            $options['indexAxis'] = 'y';
-        }
-
-        $chartJsType = $this->getChartJsType();
-        $method = 'getChartJs'.Str::of($chartJsType)->studly()->toString().'OptionsArray';
-
-        return $this->resolveChartOptions($method, $options);
-    }
-
     /**
      * @param  array<int|string, mixed>  $series
+     *
      * @return array<int, int|float|string>
      */
     private function normalizeSeries(array $series): array
@@ -527,13 +530,12 @@ class AnswersChartData extends Data
 
     /**
      * @param  array<string, mixed>  $options
+     *
      * @return array<string, mixed>
      */
     private function resolveChartOptions(string $method, array $options): array
     {
         /** @var array<string, mixed> $result */
-        $result = $this->{$method}($options);
-
-        return $result;
+        return $this->{$method}($options);
     }
 }

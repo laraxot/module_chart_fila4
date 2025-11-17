@@ -21,7 +21,7 @@ class GetGraphAction
         $graph->SetScale('textlin');
         $graph->SetShadow();
 
-        $universalTheme = new UniversalTheme;
+        $universalTheme = new UniversalTheme();
 
         $graph->SetTheme($universalTheme);
 
