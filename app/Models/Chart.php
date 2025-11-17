@@ -45,7 +45,6 @@ use Webmozart\Assert\Assert;
  * @property string $transparency
  * @property array<array-key, mixed> $colors
  * @property string|null $grace
- *
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
  * @property-read \Modules\Quaeris\Models\Profile|null $updater
  *

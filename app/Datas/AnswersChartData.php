@@ -279,7 +279,6 @@ class AnswersChartData extends Data
 
     /**
      * @param  array<string, mixed>  $options
-     *
      * @return array<string, mixed>
      */
     public function getChartJsBarOptionsArray(array $options): array
@@ -307,7 +306,6 @@ class AnswersChartData extends Data
 
     /**
      * @param  array<string, mixed>  $options
-     *
      * @return array<string, mixed>
      */
     public function getChartJsDoughnutOptionsArray(array $options): array
@@ -502,7 +500,6 @@ class AnswersChartData extends Data
 
     /**
      * @param  array<int|string, mixed>  $series
-     *
      * @return array<int, int|float|string>
      */
     private function normalizeSeries(array $series): array
@@ -510,7 +507,7 @@ class AnswersChartData extends Data
         $normalized = [];
 
         foreach (array_values($series) as $value) {
-            if (is_int($value) || is_float($value) || is_string($value)) {
+            if (\is_int($value) || \is_float($value) || \is_string($value)) {
                 $normalized[] = $value;
 
                 continue;
@@ -530,12 +527,13 @@ class AnswersChartData extends Data
 
     /**
      * @param  array<string, mixed>  $options
-     *
      * @return array<string, mixed>
      */
     private function resolveChartOptions(string $method, array $options): array
     {
-        /** @var array<string, mixed> $result */
-        return $this->{$method}($options);
+        /** @var array<string, mixed> */
+        $result = $this->{$method}($options);
+
+        return $result;
     }
 }

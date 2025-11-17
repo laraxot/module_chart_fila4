@@ -10,9 +10,10 @@ use Amenadiel\JpGraph\Text\Text;
 use Modules\Chart\Actions\JpGraph\GetGraphAction;
 use Modules\Chart\Datas\AnswerData;
 use Modules\Chart\Datas\AnswersChartData;
-use function Safe\define;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
+
+use function Safe\define;
 
 // JpGraph mark constants - these are global constants defined by JpGraph
 // We'll use them directly without namespace imports since they're global

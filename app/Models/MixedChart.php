@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
- *
  * @property-read Collection<int, \Modules\Chart\Models\Chart> $charts
  * @property-read int|null $charts_count
  * @property-read \Modules\Quaeris\Models\Profile|null $creator
