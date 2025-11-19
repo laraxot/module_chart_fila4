@@ -15,37 +15,8 @@ use Modules\Xot\Models\XotBaseModel;
  */
 abstract class BaseModel extends XotBaseModel
 {
-    // use Searchable;
-    // use Cachable;
-
-    /**
-     * Indicates whether attributes are snake cased on arrays.
-     *
-     * @see  https://laravel-news.com/6-eloquent-secrets
-     */
-
-    /** @var bool */
-    public static $snakeAttributes = true;
-
-    /** @var bool */
-    public $incrementing = true;
-
-    /** @var bool */
-    public $timestamps = true;
-
-    /** @var int */
-    protected $perPage = 30;
-
     /** @var string */
     protected $connection = 'chart';
-
-    /** @var string */
-    protected $primaryKey = 'id';
-
-    /** @var list<string> */
-    protected $hidden = [
-        // 'password'
-    ];
 
     /**
      * Get the attributes that should be cast.
@@ -54,6 +25,8 @@ abstract class BaseModel extends XotBaseModel
      */
     protected function casts(): array
     {
-        return ['published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
+        return [
+            ...parent::casts(),
+        ];
     }
 }

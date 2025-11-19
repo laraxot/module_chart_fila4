@@ -10,9 +10,7 @@
 # ==============================================
 /vendor/
 /vendor
-/node_modules/
-/node_modules
-/docs/vendor/
+node_modules/
 package-lock.json
 yarn.lock
 composer.lock
@@ -26,7 +24,6 @@ npm-debug.log
 /build/
 build/
 dist/
-docs/cache/
 cache/
 
 # ==============================================
@@ -117,8 +114,6 @@ Thumbs.db
 # ==============================================
 # DOCUMENTATION CACHE
 # ==============================================
-docs/phpstan/
-docs/cache/
 
 # ==============================================
 # LANGUAGE FILES

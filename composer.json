@@ -32,6 +32,11 @@
             "Modules\\Chart\\Database\\Seeders\\": "database/seeders/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Chart\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "amenadiel/jpgraph": "^4.1",
         "filament/tables": "^4.0",

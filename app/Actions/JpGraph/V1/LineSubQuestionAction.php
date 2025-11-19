@@ -4,167 +4,318 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions\JpGraph\V1;
 
+use Amenadiel\JpGraph\Graph\Axis;
 use Amenadiel\JpGraph\Graph\Graph;
+use Amenadiel\JpGraph\Graph\Legend;
 use Amenadiel\JpGraph\Plot\LinePlot;
 use Amenadiel\JpGraph\Text\Text;
+use Illuminate\Support\Collection;
 use Modules\Chart\Actions\JpGraph\GetGraphAction;
 use Modules\Chart\Datas\AnswerData;
 use Modules\Chart\Datas\AnswersChartData;
+use Modules\Chart\Datas\ChartData;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
-use function Safe\define;
+use function collect;
 
-// JpGraph mark constants - these are global constants defined by JpGraph
-// We'll use them directly without namespace imports since they're global
-
-// Fallback constant definitions for PHPStan compatibility
-if (! defined('Amenadiel\\JpGraph\\MARK_FILLEDCIRCLE')) {
-    define('Amenadiel\\JpGraph\\MARK_FILLEDCIRCLE', 1);
-    define('Amenadiel\\JpGraph\\MARK_UTRIANGLE', 2);
-    define('Amenadiel\\JpGraph\\MARK_SQUARE', 3);
-    define('Amenadiel\\JpGraph\\MARK_DTRIANGLE', 4);
-    define('Amenadiel\\JpGraph\\MARK_DIAMOND', 5);
-    define('Amenadiel\\JpGraph\\MARK_CIRCLE', 6);
-    define('Amenadiel\\JpGraph\\MARK_CROSS', 7);
-    define('Amenadiel\\JpGraph\\MARK_STAR', 8);
-    define('Amenadiel\\JpGraph\\MARK_X', 9);
-    define('Amenadiel\\JpGraph\\MARK_LEFTTRIANGLE', 10);
-    define('Amenadiel\\JpGraph\\MARK_RIGHTTRIANGLE', 11);
-    define('Amenadiel\\JpGraph\\MARK_FLASH', 12);
-}
-
-class LineSubQuestionAction
+final class LineSubQuestionAction
 {
     use QueueableAction;
 
+    private const COLOR_PALETTE = [
+        '#55bbdd',
+        '#aaaaaa',
+        '#d60021',
+        '#0baa90',
+    ];
+
+    /**
+     * Marker identifiers recognized by JpGraph PlotMark.
+     */
+    private const MARKERS = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+    ];
+
     public function execute(AnswersChartData $answersChartData): Graph
     {
-        $chart = $answersChartData->chart;
-        $answers = $answersChartData->answers;
-        $graph = app(GetGraphAction::class)->execute($chart);
+        $chart = $this->extractChart($answersChartData);
+        $graph = $this->makeGraph($chart);
 
-        $labels = $answers->toCollection()->pluck('label')->all();
-        $data = $answers->toCollection()->pluck('value')->all();
-        $answers_first = $answers->first();
-        Assert::isInstanceOf($answers_first, AnswerData::class);
-        $legends = [];
-        if (is_array($answers_first->value)) {
-            $legends = array_keys($answers_first->value);
-        }
+        $answers = $this->getAnswers($answersChartData);
+        $labels = $this->extractLabels($answers);
+        $legends = $this->extractLegends($answers);
+        $dataSets = $this->normalizeDataSets($answers, $legends);
 
-        // $legends = collect(collect($data)->first())->keys()->all();
-
-        $graph->SetScale('textlin');
-
-        // $graph->SetMargin(40, 20, 33, 58);
-
-        // $graph->title->Set('Background Image');
-        $graph->SetBox(false);
-
-        // PHPStan Level 10: isset() invece di property_exists() per oggetti JpGraph
-        if (isset($graph->yaxis) && is_object($graph->yaxis)) {
-            if (method_exists($graph->yaxis, 'HideZeroLabel')) {
-                $graph->yaxis->HideZeroLabel();
-            }
-            if (method_exists($graph->yaxis, 'HideLine')) {
-                $graph->yaxis->HideLine(false);
-            }
-            if (method_exists($graph->yaxis, 'HideTicks')) {
-                $graph->yaxis->HideTicks(false, false);
-            }
-        }
-
-        if (isset($graph->xaxis) && is_object($graph->xaxis)) {
-            if (method_exists($graph->xaxis, 'SetTickLabels')) {
-                $graph->xaxis->SetTickLabels($labels);
-            }
-            if (method_exists($graph->xaxis, 'SetLabelAngle')) {
-                $graph->xaxis->SetLabelAngle($chart->x_label_angle);
-            }
-        }
-
-        if (isset($graph->ygrid) && is_object($graph->ygrid) && method_exists($graph->ygrid, 'SetFill')) {
-            $graph->ygrid->SetFill(false);
-        }
-        // $graph->SetBackgroundImage('tiger_bkg.png', BGIMG_FILLFRAME);
-        $p = [];
-        $colors = [
-            '#55bbdd',
-            '#aaaaaa',
-            '#d60021',
-            '#0baa90',
-        ];
-        $marks = [
-            MARK_FILLEDCIRCLE, // A filled circle
-
-            MARK_UTRIANGLE, // A triangle pointed upwards
-            MARK_SQUARE, // A filled square
-            MARK_DTRIANGLE, // A triangle pointed downwards
-            MARK_DIAMOND, // A diamond
-            MARK_CIRCLE, // A circle
-
-            MARK_CROSS, // A cross
-            MARK_STAR, // A star
-            MARK_X, // An 'X'
-            MARK_LEFTTRIANGLE, // A half triangle, vertical line to left (used as group markers for Gantt charts)
-            MARK_RIGHTTRIANGLE, // A half triangle, vertical line to right (used as group markers for Gantt charts)
-            MARK_FLASH, // A Zig-Zag vertical flash
-        ];
-
-        foreach ($legends as $i => $legend) {
-            $tmp_data = array_column($data, $legend);
-            $p[$i] = new LinePlot($tmp_data);
-            $graph->Add($p[$i]);
-            $p[$i]->SetColor($colors[$i]);
-
-            $p[$i]->SetLegend($legend);
-            // PHPStan Level 10: isset() per oggetti JpGraph
-            if (isset($p[$i]->mark) && is_object($p[$i]->mark)) {
-                if (method_exists($p[$i]->mark, 'SetType')) {
-                    $p[$i]->mark->SetType($marks[$i], '', 1.2);
-                }
-                if (method_exists($p[$i]->mark, 'SetColor')) {
-                    $p[$i]->mark->SetColor($colors[$i]);
-                }
-            }
-            // dddx($this->vars['transparency']);
-            // $p[$i]->mark->SetFillColor($colors[$i].'@'.$this->vars['transparency']); // trasparenza da 0 a 1
-            // $p[$i]->mark->SetFillColor($colors[$i]);
-            $p[$i]->SetCenter();
-        }
-
-        // PHPStan Level 10: isset() per oggetti JpGraph
-        if (isset($graph->legend) && is_object($graph->legend)) {
-            if (method_exists($graph->legend, 'SetFrameWeight')) {
-                $graph->legend->SetFrameWeight(1);
-            }
-            if (method_exists($graph->legend, 'SetColor')) {
-                $graph->legend->SetColor('#4E4E4E', '#00A78A');
-            }
-            if (method_exists($graph->legend, 'SetMarkAbsSize')) {
-                $graph->legend->SetMarkAbsSize(8);
-            }
-        }
-
-        $title = $chart->title;
-        if (isset($graph->title) && $graph->title instanceof Text) {
-            $graph->title->Set($title);
-            $graph->title->SetFont($chart->font_family, $chart->font_style, 11);
-        }
-
-        $subtitle = $chart->subtitle;
-        if (isset($graph->subtitle) && $graph->subtitle instanceof Text) {
-            $graph->subtitle->Set($subtitle);
-            $graph->subtitle->SetFont($chart->font_family, $chart->font_style, 11);
-        }
-
-        if (isset($graph->footer) && is_object($graph->footer)) {
-            if (isset($graph->footer->center) && $graph->footer->center instanceof Text) {
-                $graph->footer->center->Set('');
-            }
-        }
+        $this->configureAxes($graph, $labels, (int) $chart->x_label_angle);
+        $this->addLinePlots($graph, $dataSets, $legends);
+        $this->configureLegend($graph);
+        $this->configureTitles($graph, $chart);
+        $this->clearFooter($graph);
 
         return $graph;
+    }
+
+    private function extractChart(AnswersChartData $answersChartData): ChartData
+    {
+        return $answersChartData->chart;
+    }
+
+    private function makeGraph(ChartData $chart): Graph
+    {
+        $graph = app(GetGraphAction::class)->execute($chart);
+        Assert::isInstanceOf($graph, Graph::class);
+
+        $graph->SetScale('textlin');
+        $graph->SetBox(false);
+
+        return $graph;
+    }
+
+    /**
+     * @return Collection<int, AnswerData>
+     */
+    private function getAnswers(AnswersChartData $answersChartData): Collection
+    {
+        /** @var Collection<int, AnswerData> $answers */
+        $answers = collect($answersChartData->answers->items())->values();
+        Assert::allIsInstanceOf($answers->all(), AnswerData::class);
+
+        return $answers;
+    }
+
+    /**
+     * @param Collection<int, AnswerData> $answers
+     *
+     * @return array<int, string>
+     */
+    private function extractLabels(Collection $answers): array
+    {
+        return $answers
+            ->pluck('label')
+            ->filter(static fn ($label): bool => is_scalar($label))
+            ->map(static fn ($label): string => (string) $label)
+            ->values()
+            ->all();
+    }
+
+    /**
+     * @param Collection<int, AnswerData> $answers
+     *
+     * @return array<int, string>
+     */
+    private function extractLegends(Collection $answers): array
+    {
+        $first = $answers->first();
+
+        if (! $first instanceof AnswerData || ! is_array($first->value)) {
+            return [];
+        }
+
+        return array_map(
+            static fn ($legend): string => (string) $legend,
+            array_keys($first->value)
+        );
+    }
+
+    /**
+     * @param Collection<int, AnswerData> $answers
+     * @param array<int, string>          $legends
+     *
+     * @return array<int, array<int, float>>
+     */
+    private function normalizeDataSets(Collection $answers, array $legends): array
+    {
+        /** @var array<int, array<string, int|float|string|null>|null> $rawData */
+        $rawData = $answers->pluck('value')->all();
+
+        return array_map(
+            fn (string $legend): array => $this->buildDataSeries($rawData, $legend),
+            $legends
+        );
+    }
+
+    /**
+     * @param array<int, array<string, int|float|string|null>|null> $rawData
+     *
+     * @return array<int, float>
+     */
+    private function buildDataSeries(array $rawData, string $legend): array
+    {
+        $series = [];
+
+        foreach ($rawData as $row) {
+            $series[] = $this->extractNumericValue($row, $legend);
+        }
+
+        return $series;
+    }
+
+    /**
+     * @param array<string, int|float|string|null>|null $row
+     */
+    private function extractNumericValue(?array $row, string $legend): float
+    {
+        if ($row !== null && array_key_exists($legend, $row)) {
+            $value = $row[$legend];
+
+            if (is_numeric($value)) {
+                return (float) $value;
+            }
+        }
+
+        return 0.0;
+    }
+
+    /**
+     * @param array<int, string> $labels
+     */
+    private function configureAxes(Graph $graph, array $labels, int $angle): void
+    {
+        $this->configureYAxis($graph);
+        $this->configureXAxis($graph, $labels, $angle);
+        $this->configureYGrid($graph);
+    }
+
+    private function configureYAxis(Graph $graph): void
+    {
+        $yAxis = isset($graph->yaxis) && $graph->yaxis instanceof Axis ? $graph->yaxis : null;
+        if (! $yAxis instanceof Axis) {
+            return;
+        }
+
+        $yAxis->HideZeroLabel();
+        $yAxis->HideLine(false);
+        $yAxis->HideTicks(false, false);
+    }
+
+    /**
+     * @param array<int, string> $labels
+     */
+    private function configureXAxis(Graph $graph, array $labels, int $angle): void
+    {
+        $xAxis = isset($graph->xaxis) && $graph->xaxis instanceof Axis ? $graph->xaxis : null;
+        if (! $xAxis instanceof Axis) {
+            return;
+        }
+
+        $xAxis->SetTickLabels($labels);
+        $xAxis->SetLabelAngle($angle);
+    }
+
+    private function configureYGrid(Graph $graph): void
+    {
+        $yGrid = $graph->ygrid ?? null;
+        if (! is_object($yGrid) || ! method_exists($yGrid, 'SetFill')) {
+            return;
+        }
+
+        $yGrid->SetFill(false);
+    }
+
+    /**
+     * @param array<int, array<int, float>> $dataSets
+     * @param array<int, string>            $legends
+     */
+    private function addLinePlots(Graph $graph, array $dataSets, array $legends): void
+    {
+        foreach ($legends as $index => $legend) {
+            $linePlot = new LinePlot($dataSets[$index] ?? []);
+            $graph->Add($linePlot);
+
+            $color = self::COLOR_PALETTE[$index % \count(self::COLOR_PALETTE)];
+            $linePlot->SetColor($color);
+            $linePlot->SetLegend($legend);
+            $this->configureMarker($linePlot, $index, $color);
+
+            $linePlot->SetCenter();
+        }
+    }
+
+    private function configureMarker(LinePlot $linePlot, int $index, string $color): void
+    {
+        $mark = $linePlot->mark ?? null;
+        if (! is_object($mark)) {
+            return;
+        }
+
+        $marker = $this->resolveMarker($index);
+        if ($marker !== null && method_exists($mark, 'SetType')) {
+            $mark->SetType($marker, '', 1.2);
+        }
+
+        if (method_exists($mark, 'SetColor')) {
+            $mark->SetColor($color);
+        }
+    }
+
+    private function configureLegend(Graph $graph): void
+    {
+        $legend = isset($graph->legend) && $graph->legend instanceof Legend ? $graph->legend : null;
+        if (! $legend instanceof Legend) {
+            return;
+        }
+
+        $legend->SetFrameWeight(1);
+        $legend->SetColor('#4E4E4E', '#00A78A');
+        $legend->SetMarkAbsSize(8);
+    }
+
+    private function configureTitles(Graph $graph, ChartData $chart): void
+    {
+        $this->applyTextSettings(
+            isset($graph->title) && $graph->title instanceof Text ? $graph->title : null,
+            $chart->title,
+            $chart->font_family,
+            $chart->font_style
+        );
+
+        $this->applyTextSettings(
+            isset($graph->subtitle) && $graph->subtitle instanceof Text ? $graph->subtitle : null,
+            $chart->subtitle,
+            $chart->font_family,
+            $chart->font_style
+        );
+    }
+
+    private function clearFooter(Graph $graph): void
+    {
+        $footer = $graph->footer ?? null;
+        if (! is_object($footer) || ! isset($footer->center)) {
+            return;
+        }
+
+        $center = $footer->center instanceof Text ? $footer->center : null;
+        if ($center !== null) {
+            $center->Set('');
+        }
+    }
+
+    private function resolveMarker(int $index): ?int
+    {
+        $marker = self::MARKERS[$index % \count(self::MARKERS)] ?? null;
+
+        return is_int($marker) ? $marker : null;
+    }
+
+    private function applyTextSettings(?Text $component, ?string $text, string $fontFamily, string $fontStyle): void
+    {
+        if ($component === null || $text === null) {
+            return;
+        }
+
+        $component->Set($text);
+        $component->SetFont($fontFamily, $fontStyle, 11);
     }
 }
