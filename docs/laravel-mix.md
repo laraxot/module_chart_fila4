@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Questo documento descrive la configurazione e l'utilizzo di Laravel Mix nel progetto SaluteOra.
+Questo documento descrive la configurazione e l'utilizzo di Laravel Mix nel progetto <nome progetto>.
 
 ## Collegamenti
 - [Gestione Asset](asset-management.md)

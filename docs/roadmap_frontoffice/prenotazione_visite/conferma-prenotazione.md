@@ -1,4 +1,4 @@
-# Conferma Prenotazione - SaluteOra
+# Conferma Prenotazione - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema completo di conferma e finalizzazione delle prenotazioni con verifica automatica e notifiche
 
@@ -14,7 +14,7 @@ Il sistema di conferma prenotazione gestisce l'intero processo di finalizzazione
 // Page: ConfirmAppointmentPage
 class ConfirmAppointmentPage extends Page
 {
-    protected static string $view = 'saluteora::filament.pages.confirm-appointment';
+    protected static string $view = '<nome progetto>::filament.pages.confirm-appointment';
     
     public Availability $selectedSlot;
     public array $selectedServices = [];
@@ -560,7 +560,7 @@ class DocumentsVerificationComponent extends Component
                 <span class="checkbox-text">
                     Accetto i 
                     <a href="{{ route('terms') }}" target="_blank">termini e condizioni</a> 
-                    del servizio SaluteOra
+                    del servizio <nome progetto>
                 </span>
             </label>
             
@@ -614,7 +614,7 @@ class AppointmentConfirmedNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Appuntamento confermato - SaluteOra')
+            ->subject('Appuntamento confermato - <nome progetto>')
             ->greeting('Gentile ' . $notifiable->nome)
             ->line('Il suo appuntamento è stato confermato con successo.')
             ->line('**Dettagli appuntamento:**')
@@ -625,7 +625,7 @@ class AppointmentConfirmedNotification extends Notification
             ->line('Codice prenotazione: ' . $this->appointment->codice_prenotazione)
             ->action('Visualizza Appuntamento', route('appointments.show', $this->appointment))
             ->line('Si presenti 15 minuti prima dell\'orario previsto.')
-            ->line('Grazie per aver scelto SaluteOra!');
+            ->line('Grazie per aver scelto <nome progetto>!');
     }
     
     public function toArray($notifiable): array
@@ -717,9 +717,9 @@ class BookingFunnelAnalytics
 - [Upload Documenti](../documenti/upload_documenti.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Pages/ConfirmAppointmentPage.php`
-- `Modules/SaluteOra/Actions/CreateAppointmentAction.php`
-- `Modules/SaluteOra/Notifications/AppointmentConfirmedNotification.php`
+- `Modules/<nome progetto>/Filament/Pages/ConfirmAppointmentPage.php`
+- `Modules/<nome progetto>/Actions/CreateAppointmentAction.php`
+- `Modules/<nome progetto>/Notifications/AppointmentConfirmedNotification.php`
 
 ---
 

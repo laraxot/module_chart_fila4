@@ -2,7 +2,7 @@
 
 ## Introduzione
 
-La dashboard principale rappresenta il centro di controllo per gli odontoiatri registrati su SaluteOra, fornendo una visione d'insieme completa delle attività, appuntamenti e performance dello studio.
+La dashboard principale rappresenta il centro di controllo per gli odontoiatri registrati su <nome progetto>, fornendo una visione d'insieme completa delle attività, appuntamenti e performance dello studio.
 
 ## Stato Implementazione
 
@@ -21,7 +21,7 @@ La dashboard principale rappresenta il centro di controllo per gli odontoiatri r
 ### Sezione Header
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 🦷 SaluteOra - Area Dentista | Dr. [NOME COGNOME]        │
+│ 🦷 <nome progetto> - Area Dentista | Dr. [NOME COGNOME]        │
 │                                                     [LOGOUT]│
 ├─────────────────────────────────────────────────────────────┤
 │ Studio: [NOME STUDIO] | Via [INDIRIZZO] | 📞 [TELEFONO]   │
@@ -124,7 +124,7 @@ La dashboard principale rappresenta il centro di controllo per gli odontoiatri r
 ### Real-time Updates
 ```javascript
 // WebSocket connection per aggiornamenti live
-const socket = new WebSocket(`wss://saluteora.it/ws/dentist/${dentistId}`);
+const socket = new WebSocket(`wss://<nome progetto>.it/ws/dentist/${dentistId}`);
 
 socket.onmessage = function(event) {
     const data = JSON.parse(event.data);

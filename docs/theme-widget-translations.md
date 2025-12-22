@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Questo documento descrive le regole e le best practice per gestire le traduzioni dei widget Filament nei temi One e Two del progetto SaluteOra.
+Questo documento descrive le regole e le best practice per gestire le traduzioni dei widget Filament nei temi One e Two del progetto <nome progetto>.
 
 ## Struttura File di Traduzione
 
@@ -59,7 +59,7 @@ Le traduzioni del tema utilizzano il namespace `pub_theme::`:
 
 ### Namespace Alternativi
 - `pub_theme::` - Per traduzioni del tema attivo
-- `saluteora::` - Per traduzioni del modulo SaluteOra
+- `<nome progetto>::` - Per traduzioni del modulo <nome progetto>
 - `ui::` - Per traduzioni del modulo UI
 
 ## Caso Studio: Profilo Dottore
@@ -163,7 +163,7 @@ Lo script `ThemeTranslationSynchronizer` gestisce automaticamente:
 
 ### Comando Manuale
 ```bash
-cd /var/www/html/_bases/base_saluteora
+cd /var/www/html/_bases/base_<nome progetto>
 php bashscripts/translations/sync_theme_translations.php
 ```
 

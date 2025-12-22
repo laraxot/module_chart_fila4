@@ -798,5 +798,5 @@ echo "Deployment completato con successo!"
 
 Per supporto tecnico sul progetto il progetto, contattare:
 
-- **Supporto Tecnico**: support@saluteora.it
-- **Documentazione**: https://saluteora.it/docs
+- **Supporto Tecnico**: support@<nome progetto>.it
+- **Documentazione**: https://<nome progetto>.it/docs

@@ -1,4 +1,4 @@
-# Conferma Appuntamento - SaluteOra
+# Conferma Appuntamento - <nome progetto>
 
 > **📧 Sistema di conferma automatica per appuntamenti odontoiatrici prenotati**
 
@@ -33,7 +33,7 @@ Fornire conferma immediata della prenotazione con tutti i dettagli necessari:
 
 ### Event Listener
 ```php
-// Modules/SaluteOra/Listeners/AppointmentConfirmationListener.php
+// Modules/<nome progetto>/Listeners/AppointmentConfirmationListener.php
 class AppointmentConfirmationListener
 {
     public function handle(AppointmentCreated $event): void
@@ -60,7 +60,7 @@ class AppointmentConfirmationListener
 
 ### Mail Class
 ```php
-// Modules/SaluteOra/Mail/AppointmentConfirmationMail.php
+// Modules/<nome progetto>/Mail/AppointmentConfirmationMail.php
 class AppointmentConfirmationMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
@@ -73,11 +73,11 @@ class AppointmentConfirmationMail extends Mailable implements ShouldQueue
     public function build(): self
     {
         $subject = $this->recipient_type === 'patient' 
-            ? 'Conferma appuntamento - SaluteOra'
-            : 'Nuova richiesta appuntamento - SaluteOra';
+            ? 'Conferma appuntamento - <nome progetto>'
+            : 'Nuova richiesta appuntamento - <nome progetto>';
 
         return $this->subject($subject)
-            ->view('saluteora::emails.appointment-confirmation')
+            ->view('<nome progetto>::emails.appointment-confirmation')
             ->with([
                 'appointment' => $this->appointment,
                 'recipient_type' => $this->recipient_type,
@@ -121,13 +121,13 @@ class AppointmentConfirmationMail extends Mailable implements ShouldQueue
 
 ### Template Email per Paziente
 ```blade
-{{-- Modules/SaluteOra/resources/views/emails/appointment-confirmation.blade.php --}}
+{{-- Modules/<nome progetto>/resources/views/emails/appointment-confirmation.blade.php --}}
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conferma Appuntamento - SaluteOra</title>
+    <title>Conferma Appuntamento - <nome progetto></title>
     <style>
         /* Base styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -345,7 +345,7 @@ class AppointmentConfirmationMail extends Mailable implements ShouldQueue
         <!-- Header -->
         <div class="header">
             <h1>✅ Appuntamento Confermato</h1>
-            <div class="confirmation-badge">SaluteOra</div>
+            <div class="confirmation-badge"><nome progetto></div>
         </div>
         
         <!-- Content -->
@@ -488,13 +488,13 @@ class AppointmentConfirmationMail extends Mailable implements ShouldQueue
         <!-- Footer -->
         <div class="footer">
             <p class="footer-text">
-                Email inviata automaticamente da <strong>SaluteOra</strong>
+                Email inviata automaticamente da <strong><nome progetto></strong>
             </p>
             <p class="footer-text">
-                Per assistenza: info@saluteora.it | Tel: 800-123-456
+                Per assistenza: info@<nome progetto>.it | Tel: 800-123-456
             </p>
             <p class="footer-text" style="margin-top: 15px;">
-                © 2025 SaluteOra - Servizi Odontoiatrici Gratuiti
+                © 2025 <nome progetto> - Servizi Odontoiatrici Gratuiti
             </p>
         </div>
     </div>

@@ -7,7 +7,7 @@ Se l'installazione Laravel esiste già in una posizione errata, è possibile spo
 ```bash
 
 # Spostare l'installazione Laravel dalla posizione errata a quella corretta
-mv /var/www/html/saluteora/public_html/laravel /var/www/html/saluteora/laravel
+mv /var/www/html/<nome progetto>/public_html/laravel /var/www/html/<nome progetto>/laravel
 ```
 
 Questo approccio è preferibile rispetto alla reinstallazione completa, in quanto:
@@ -19,7 +19,7 @@ Questo approccio è preferibile rispetto alla reinstallazione completa, in quant
 ## Struttura Corretta delle Directory
 
 ```
-/var/www/html/saluteora/
+/var/www/html/<nome progetto>/
 ├── docs/                     # Documentazione del progetto
 ├── laravel/                  # Installazione Laravel (posizione corretta)
 │   ├── app/                  # Core application code
@@ -45,7 +45,7 @@ Dopo lo spostamento, potrebbe essere necessario aggiornare alcuni percorsi di fi
 Per verificare che tutto funzioni correttamente dopo lo spostamento:
 
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan serve
 ```
 

@@ -226,7 +226,7 @@ $notification = new SlackNotification([
 logrotate /etc/logrotate.d/laravel
 
 # Pulizia logs vecchi
-find /var/www/html/saluteora/storage/logs -type f -mtime +30 -delete
+find /var/www/html/<nome progetto>/storage/logs -type f -mtime +30 -delete
 ```
 
 ### Cache

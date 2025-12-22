@@ -1,7 +1,7 @@
 # Struttura dei Moduli Laraxot
 
 ## Organizzazione Base
-Ogni modulo deve essere contenuto all'interno della cartella `/var/www/html/saluteora/laravel/Modules` e seguire la seguente struttura:
+Ogni modulo deve essere contenuto all'interno della cartella `/var/www/html/<nome progetto>/laravel/Modules` e seguire la seguente struttura:
 
 ```
 Modules/

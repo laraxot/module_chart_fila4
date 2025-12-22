@@ -7,7 +7,7 @@
 
 ## Configurazione .env
 ```env
-APP_URL=http://saluteora.local
+APP_URL=http://<nome progetto>.local
 AUTH_GUARD=web
 AUTH_MODEL=Modules\User\Models\User
 AUTH_PASSWORD_BROKER=users

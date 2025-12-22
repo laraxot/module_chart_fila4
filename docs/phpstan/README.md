@@ -236,5 +236,5 @@ php artisan phpstan:fix app/Models/Chart.php
 ## Collegamenti
 
 - [README Chart](../README.md)
-- [Documentazione SaluteOra](/docs/README.md)
+- [Documentazione <nome progetto>](/docs/README.md)
 - [Regole PHPStan Globali](/docs/phpstan_usage.md)

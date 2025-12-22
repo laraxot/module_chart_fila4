@@ -1,4 +1,4 @@
-# Centralizzazione degli Enum nel Sistema SaluteOra
+# Centralizzazione degli Enum nel Sistema <nome progetto>
 
 ## Panoramica
 
@@ -91,7 +91,7 @@ $workingDays = DayOfWeek::workingDays();
 
 ## Conclusione
 
-La centralizzazione degli enum è un passo importante verso un'architettura più coerente e manutenibile. Continueremo a identificare e centralizzare altri componenti comuni per migliorare ulteriormente la qualità del codice nel sistema SaluteOra.
+La centralizzazione degli enum è un passo importante verso un'architettura più coerente e manutenibile. Continueremo a identificare e centralizzare altri componenti comuni per migliorare ulteriormente la qualità del codice nel sistema <nome progetto>.
 
 ## Riferimenti
 

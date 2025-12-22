@@ -1,4 +1,4 @@
-# 📚 Documentazione SaluteOra - Indice Consolidato DRY + KISS
+# 📚 Documentazione <nome progetto> - Indice Consolidato DRY + KISS
 
 ## 🎯 Navigazione Rapida
 
@@ -20,7 +20,7 @@
 
 - [📊 Overview](modules/overview.md) - Panoramica moduli
 - [⚙️ Xot](modules/xot/) - Modulo core framework
-- [🏥 SaluteOra](modules/saluteora/) - Modulo principale
+- [🏥 <nome progetto>](modules/<nome progetto>/) - Modulo principale
 - [🎨 UI](modules/ui/) - Componenti interfaccia
 - [👤 User](modules/user/) - Gestione utenti
 - [🏢 Tenant](modules/tenant/) - Multi-tenancy
@@ -89,7 +89,7 @@
 ### Per Modulo
 
 - **Xot**: [Modules/Xot/docs/](../laravel/Modules/Xot/docs/)
-- **SaluteOra**: [Modules/SaluteOra/docs/](../laravel/Modules/SaluteOra/docs/)
+- **<nome progetto>**: [Modules/<nome progetto>/docs/](../laravel/Modules/<nome progetto>/docs/)
 - **UI**: [Modules/UI/docs/](../laravel/Modules/UI/docs/)
 
 ## 🆘 Supporto

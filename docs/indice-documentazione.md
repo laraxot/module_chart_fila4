@@ -1,4 +1,4 @@
-# 📚 Indice Completo della Documentazione SaluteOra
+# 📚 Indice Completo della Documentazione <nome progetto>
 
 ## 🏠 Documentazione Principale
 

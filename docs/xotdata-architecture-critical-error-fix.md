@@ -2,12 +2,12 @@
 
 ## 🚨 **Caso Studio: Violazione Architetturale Critica**
 
-Durante lo sviluppo del sistema SaluteOra è stata commessa una **violazione architetturale grave** che ha compromesso il pattern fondamentale XotData di Laraxot.
+Durante lo sviluppo del sistema <nome progetto> è stata commessa una **violazione architetturale grave** che ha compromesso il pattern fondamentale XotData di Laraxot.
 
 ### **Errore Commesso**
 ```php
 // ❌ ERRORE CRITICO nel LoginTest.php (modulo Cms)
-use Modules\SaluteOra\Models\User;
+use Modules\<nome progetto>\Models\User;
 
 /** @var User $user */
 $user = User::factory()->create([...]);
@@ -15,7 +15,7 @@ actingAs($user);
 ```
 
 ### **Impatto dell'Errore**
-- **Accoppiamento diretto**: Cms dipende da SaluteOra
+- **Accoppiamento diretto**: Cms dipende da <nome progetto>
 - **Configurabilità persa**: User hardcoded invece di dinamico
 - **Multi-tenancy rotta**: Pattern XotData ignorato
 - **Architettura violata**: Principi di disaccoppiamento ignorati
@@ -111,8 +111,8 @@ class XotData
 ### **Regola 1: NO Import Diretti tra Moduli**
 ```php
 // ❌ VIETATO ASSOLUTAMENTE
-use Modules\SaluteOra\Models\User;
-use Modules\SaluteOra\Models\Patient;
+use Modules\<nome progetto>\Models\User;
+use Modules\<nome progetto>\Models\Patient;
 
 // ✅ OBBLIGATORIO
 use Modules\Xot\Contracts\UserContract;
@@ -122,7 +122,7 @@ use Modules\Xot\Datas\XotData;
 ### **Regola 2: SEMPRE XotData per Risoluzione**
 ```php
 // ❌ HARDCODING VIETATO
-$user = \Modules\SaluteOra\Models\User::create($data);
+$user = \Modules\<nome progetto>\Models\User::create($data);
 
 // ✅ RISOLUZIONE DINAMICA
 $userClass = XotData::make()->getUserClass();
@@ -132,7 +132,7 @@ $user = $userClass::create($data);
 ### **Regola 3: UserContract per Type Hints**
 ```php
 // ❌ TYPE HINT SPECIFICO
-function processUser(\Modules\SaluteOra\Models\User $user): void
+function processUser(\Modules\<nome progetto>\Models\User $user): void
 
 // ✅ TYPE HINT CONTRATTO  
 function processUser(UserContract $user): void
@@ -253,7 +253,7 @@ trait IsTenant
 'providers' => [
     'users' => [
         'driver' => 'eloquent',
-        'model' => \Modules\SaluteOra\Models\User::class, // Configurabile!
+        'model' => \Modules\<nome progetto>\Models\User::class, // Configurabile!
     ],
 ],
 
@@ -277,7 +277,7 @@ $vendorClass = XotData::make()->getUserClassByType('vendor');
 ```mermaid
 graph TD
     A[Modulo Cms] --> B[XotData]
-    C[Modulo SaluteOra] --> B
+    C[Modulo <nome progetto>] --> B
     D[Modulo User] --> B
     E[Altri Moduli] --> B
     
@@ -326,7 +326,7 @@ rules:
 ## ⚡ **Processo di Correzione Implementato**
 
 ### **Fase 1: Identificazione**
-1. ✅ Riconosciuto import diretto `use Modules\SaluteOra\Models\User`
+1. ✅ Riconosciuto import diretto `use Modules\<nome progetto>\Models\User`
 2. ✅ Identificato impatto su disaccoppiamento modulare
 3. ✅ Compreso rischio per multi-tenancy e configurabilità
 
@@ -362,7 +362,7 @@ rules:
 
 ### **Best Practices**
 - [XotData Best Practices](/laravel/Modules/Xot/docs/best-practices.md)
-- [Testing Real Data Strategy](/laravel/Modules/SaluteOra/docs/testing/real-data-testing-strategy.md)
+- [Testing Real Data Strategy](/laravel/Modules/<nome progetto>/docs/testing/real-data-testing-strategy.md)
 - [Modular Architecture](/laravel/docs/modular-architecture.md)
 
 ### **Esempi Implementazione**
@@ -391,4 +391,4 @@ rules:
 
 **Status**: ✅ **ERRORE RISOLTO E DOCUMENTATO**  
 **Data**: Gennaio 2025  
-**Team**: Laraxot SaluteOra  
+**Team**: Laraxot <nome progetto>  

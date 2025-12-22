@@ -4,8 +4,8 @@
 
 L'attuale stato dell'implementazione di il progetto presenta le seguenti caratteristiche:
 
-1. **Moduli installati**: Tutti i 15 moduli previsti sono presenti nella directory `/var/www/html/saluteora/laravel/Modules/`
-2. **Tema installato**: ThemeOne è correttamente posizionato in `/var/www/html/saluteora/laravel/Themes/One/`
+1. **Moduli installati**: Tutti i 15 moduli previsti sono presenti nella directory `/var/www/html/<nome progetto>/laravel/Modules/`
+2. **Tema installato**: ThemeOne è correttamente posizionato in `/var/www/html/<nome progetto>/laravel/Themes/One/`
 3. **Configurazione Laravel 12**: Il file `config/app.php` è correttamente semplificato senza providers e aliases espliciti
 4. **Problemi di risorse**: I comandi PHP Artisan richiedono più memoria di quanto disponibile, anche con limiti aumentati
 
@@ -74,7 +74,7 @@ Per evitare problemi di memoria, ottimizziamo le operazioni:
 1. **Verifica dipendenze**:
    ```bash
    # Esaminare composer.json del modulo
-   cat /var/www/html/saluteora/laravel/Modules/Xot/composer.json
+   cat /var/www/html/<nome progetto>/laravel/Modules/Xot/composer.json
    ```
 
 2. **Configurazione**:

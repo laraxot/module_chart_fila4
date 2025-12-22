@@ -15,7 +15,7 @@
    // config/backup.php
    return [
        'backup' => [
-           'name' => env('APP_NAME', 'saluteora'),
+           'name' => env('APP_NAME', '<nome progetto>'),
            'source' => [
                'files' => [
                    'include' => [
@@ -31,7 +31,7 @@
                ],
            ],
            'destination' => [
-               'filename_prefix' => 'saluteora-',
+               'filename_prefix' => '<nome progetto>-',
                'disks' => [
                    's3',
                ],

@@ -4,10 +4,10 @@
 
 ## Collegamenti
 
-- [Documentazione completa sull'architettura Folio + Volt + Filament](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/FOLIO_VOLT_ARCHITECTURE.md)
-- [Struttura dei moduli](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
-- [Convenzioni di naming dei campi](/var/www/html/base_saluteora/docs/convenzioni-naming-campi.md)
-- [Flusso di registrazione](/var/www/html/base_saluteora/docs/flusso-registrazione.md)
+- [Documentazione completa sull'architettura Folio + Volt + Filament](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/FOLIO_VOLT_ARCHITECTURE.md)
+- [Struttura dei moduli](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
+- [Convenzioni di naming dei campi](/var/www/html/base_<nome progetto>/docs/convenzioni-naming-campi.md)
+- [Flusso di registrazione](/var/www/html/base_<nome progetto>/docs/flusso-registrazione.md)
 
 ## Sommario
 

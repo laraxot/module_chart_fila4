@@ -11,7 +11,7 @@ Questo documento spiega come il modulo Cms di Laraxot gestisce i temi in il prog
 Il sistema il progetto utilizza la seguente struttura per i temi:
 
 ```
-/var/www/html/saluteora/laravel/
+/var/www/html/<nome progetto>/laravel/
 ├── Modules/       # Contiene i moduli funzionali
 └── Themes/        # Contiene i temi dell'applicazione
     └── One/       # Tema principale
@@ -90,4 +90,4 @@ La creazione di un service provider dedicato per i temi (come `ThemeServiceProvi
 
 - Documentazione del modulo Cms
 - Implementazione esistente in `Modules/Cms/Providers/ThemeServiceProvider.php`
-- Struttura dei temi in `/var/www/html/saluteora/docs/themes-structure.md` 
+- Struttura dei temi in `/var/www/html/<nome progetto>/docs/themes-structure.md` 

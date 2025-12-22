@@ -63,15 +63,15 @@ Da un file in un modulo a un file in `/docs/`:
 I seguenti esempi mostrano collegamenti **NON CORRETTI** che non devono essere utilizzati:
 
 ```markdown
-[Documentazione User](/var/www/html/base_saluteora/laravel/Modules/User/docs/user_profile_models.md)
+[Documentazione User](/var/www/html/base_<nome progetto>/laravel/Modules/User/docs/user_profile_models.md)
 ```
 
 ```markdown
-[Architettura generale](/var/www/html/base_saluteora/docs/architettura.md)
+[Architettura generale](/var/www/html/base_<nome progetto>/docs/architettura.md)
 ```
 
 ```markdown
-![Diagramma ER](/var/www/html/base_saluteora/docs/images/er_diagram.png)
+![Diagramma ER](/var/www/html/base_<nome progetto>/docs/images/er_diagram.png)
 ```
 
 ## Casi Speciali
@@ -107,8 +107,8 @@ Per file di grandi dimensioni, è consigliabile utilizzare collegamenti a specif
 Per verificare che tutti i collegamenti nella documentazione siano relativi, è possibile utilizzare il seguente comando:
 
 ```bash
-grep -r "\/var\/www\/html\/base_saluteora\/" --include="*.md" /var/www/html/base_saluteora/docs/
-grep -r "\/var\/www\/html\/base_saluteora\/" --include="*.md" /var/www/html/base_saluteora/laravel/Modules/*/docs/
+grep -r "\/var\/www\/html\/base_<nome progetto>\/" --include="*.md" /var/www/html/base_<nome progetto>/docs/
+grep -r "\/var\/www\/html\/base_<nome progetto>\/" --include="*.md" /var/www/html/base_<nome progetto>/laravel/Modules/*/docs/
 ```
 
 Se il comando restituisce risultati, significa che ci sono collegamenti assoluti da correggere.
@@ -118,7 +118,7 @@ Se il comando restituisce risultati, significa che ci sono collegamenti assoluti
 Per convertire collegamenti assoluti in relativi, considerare il percorso base del file corrente e calcolare il percorso relativo al file di destinazione.
 
 Esempio di conversione:
-- Da: `/var/www/html/base_saluteora/docs/file.md`
+- Da: `/var/www/html/base_<nome progetto>/docs/file.md`
 - A: `./file.md` (se nella stessa directory)
 - A: `../laravel/Modules/User/docs/file.md` (se in un modulo)
 

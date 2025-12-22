@@ -14,7 +14,7 @@
 
 ## Panoramica
 
-Questo documento descrive l'implementazione delle pagine di autenticazione in SaluteOra, con particolare attenzione al file `logout.blade.php`. Le pagine di autenticazione sono implementate utilizzando Laravel Folio, Livewire Volt e componenti Filament, seguendo le convenzioni del progetto SaluteOra.
+Questo documento descrive l'implementazione delle pagine di autenticazione in <nome progetto>, con particolare attenzione al file `logout.blade.php`. Le pagine di autenticazione sono implementate utilizzando Laravel Folio, Livewire Volt e componenti Filament, seguendo le convenzioni del progetto <nome progetto>.
 
 ## Struttura delle Directory
 
@@ -35,7 +35,7 @@ laravel/Themes/One/resources/views/pages/auth/
 
 ## Approcci di Implementazione
 
-In SaluteOra, ci sono tre approcci principali per implementare le pagine di autenticazione:
+In <nome progetto>, ci sono tre approcci principali per implementare le pagine di autenticazione:
 
 1. **Folio con PHP puro (Raccomandato per logout)**: Semplice, diretto, senza gestione dello stato
 2. **Volt Action dedicata**: Per azioni che richiedono POST (es. form di logout)
@@ -92,13 +92,13 @@ return redirect()->to('/' . $locale)
 
 1. **Semplicità**: Il logout è un'operazione semplice che non richiede gestione dello stato o interazione con l'utente.
 2. **Efficienza**: Il reindirizzamento immediato offre una migliore esperienza utente rispetto a una pagina di conferma.
-3. **Coerenza**: Questo approccio è coerente con le convenzioni di SaluteOra per le operazioni semplici.
+3. **Coerenza**: Questo approccio è coerente con le convenzioni di <nome progetto> per le operazioni semplici.
 4. **Sicurezza**: Implementa correttamente tutte le misure di sicurezza necessarie (invalidazione sessione, rigenerazione token).
 5. **Tracciabilità**: Include eventi e logging per una migliore tracciabilità delle operazioni.
 
 ### Approccio Alternativo: Widget Filament
 
-Per casi in cui è necessaria una conferma dell'utente, SaluteOra raccomanda l'utilizzo di widget Filament invece di implementazioni Volt personalizzate:
+Per casi in cui è necessaria una conferma dell'utente, <nome progetto> raccomanda l'utilizzo di widget Filament invece di implementazioni Volt personalizzate:
 
 ```php
 <?php
@@ -129,7 +129,7 @@ name('logout');
 2. **Coerenza UI**: Utilizza i componenti UI nativi di Filament, garantendo coerenza visiva.
 3. **Manutenibilità**: Separa chiaramente la logica dalla presentazione.
 4. **Estensibilità**: Facilmente estensibile per aggiungere funzionalità aggiuntive.
-5. **Conformità alle convenzioni**: Segue le convenzioni di SaluteOra per i widget Filament.
+5. **Conformità alle convenzioni**: Segue le convenzioni di <nome progetto> per i widget Filament.
 
 ## Best Practices
 

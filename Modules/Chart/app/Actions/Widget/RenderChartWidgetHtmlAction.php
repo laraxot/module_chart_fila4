@@ -8,6 +8,8 @@ use Filament\Widgets\ChartWidget;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
 
+use function Safe\json_encode;
+
 /**
  * Action per renderizzare un Filament ChartWidget come HTML standalone
  *
@@ -48,10 +50,6 @@ class RenderChartWidgetHtmlAction
 
         $chartConfigJson = json_encode($chartConfig, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
-        if ($chartConfigJson === false) {
-            throw new \RuntimeException('Failed to encode chart configuration to JSON');
-        }
-
         return $this->createHtml($chartConfigJson, $width, $height, $heading);
     }
 
@@ -69,6 +67,8 @@ class RenderChartWidgetHtmlAction
         ?string $heading = null
     ): string {
         $title = $heading ?? 'Chart Widget';
+        $chartJsVersion = self::CHARTJS_VERSION;
+        $datalabelsVersion = self::DATALABELS_VERSION;
 
         return <<<HTML
 <!DOCTYPE html>
@@ -77,8 +77,8 @@ class RenderChartWidgetHtmlAction
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{$title}</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@{$this::CHARTJS_VERSION}/dist/chart.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@{$this::DATALABELS_VERSION}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@{$chartJsVersion}/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@{$datalabelsVersion}"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -124,7 +124,11 @@ HTML;
             $reflection = new \ReflectionClass($widget);
             $method = $reflection->getMethod('getData');
             $method->setAccessible(true);
-            return $method->invoke($widget);
+            $data = $method->invoke($widget);
+            Assert::isArray($data);
+
+            /** @var array<string, mixed> $data */
+            return $data;
         } catch (\ReflectionException $e) {
             throw new \RuntimeException("Failed to get widget data: {$e->getMessage()}", 0, $e);
         }
@@ -140,7 +144,10 @@ HTML;
             $reflection = new \ReflectionClass($widget);
             $method = $reflection->getMethod('getType');
             $method->setAccessible(true);
-            return $method->invoke($widget);
+            $type = $method->invoke($widget);
+            Assert::string($type);
+
+            return $type;
         } catch (\ReflectionException $e) {
             return 'line';
         }
@@ -156,7 +163,11 @@ HTML;
             $reflection = new \ReflectionClass($widget);
             $method = $reflection->getMethod('getOptions');
             $method->setAccessible(true);
-            return $method->invoke($widget);
+            $options = $method->invoke($widget);
+            Assert::isArray($options);
+
+            /** @var array<string, mixed> $options */
+            return $options;
         } catch (\ReflectionException $e) {
             return [];
         }
@@ -172,7 +183,10 @@ HTML;
             $reflection = new \ReflectionClass($widget);
             $property = $reflection->getProperty('heading');
             $property->setAccessible(true);
-            return $property->getValue($widget);
+            $heading = $property->getValue($widget);
+            Assert::nullOrString($heading);
+
+            return $heading;
         } catch (\ReflectionException $e) {
             return null;
         }

@@ -4,7 +4,7 @@
 
 ### Errore
 ```
-Call to undefined method Modules\SaluteOra\States\Appointment\Rejected::modalHeading()
+Call to undefined method Modules\<nome progetto>\States\Appointment\Rejected::modalHeading()
 ```
 
 ### Causa del Problema
@@ -54,7 +54,7 @@ class Rejected extends AppointmentState
 
 ### 1. Completamento Classe Rejected
 
-**File**: `laravel/Modules/SaluteOra/app/States/Appointment/Rejected.php`
+**File**: `laravel/Modules/<nome progetto>/app/States/Appointment/Rejected.php`
 
 Aggiunti i metodi mancanti seguendo il pattern di `Confirmed`:
 
@@ -118,7 +118,7 @@ return static::transClass(__CLASS__,'states.'.static::$name.'.{property}');
 
 ### 3. Traduzioni Complete
 
-**File**: `laravel/Modules/SaluteOra/lang/it/states.php`
+**File**: `laravel/Modules/<nome progetto>/lang/it/states.php`
 
 Aggiunte traduzioni per tutti gli appointment states:
 
@@ -320,7 +320,7 @@ public function test_widget_can_create_actions_for_all_states()
 ## Riferimenti
 
 - [Spatie Model States](https://spatie.be/docs/laravel-model-states)
-- [DoctorAppointmentsWidget Fix](../laravel/Modules/SaluteOra/docs/widgets/doctor-appointments-widget-fix.md)
+- [DoctorAppointmentsWidget Fix](../laravel/Modules/<nome progetto>/docs/widgets/doctor-appointments-widget-fix.md)
 - [TransTrait Documentation](../laravel/Modules/Xot/docs/traits/trans-trait.md)
 
 ---

@@ -4,9 +4,9 @@
 
 ## Collegamenti
 
-- [Documentazione completa sulla struttura dei moduli](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
-- [Convenzioni di naming](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/NAMING_CONVENTIONS.md)
-- [Architettura Folio + Volt + Filament](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/FOLIO_VOLT_ARCHITECTURE.md)
+- [Documentazione completa sulla struttura dei moduli](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
+- [Convenzioni di naming](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/NAMING_CONVENTIONS.md)
+- [Architettura Folio + Volt + Filament](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/FOLIO_VOLT_ARCHITECTURE.md)
 
 ## Sommario
 

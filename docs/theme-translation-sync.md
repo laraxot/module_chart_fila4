@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Questo documento descrive il processo di sincronizzazione delle traduzioni per i temi One e Two del progetto SaluteOra.
+Questo documento descrive il processo di sincronizzazione delle traduzioni per i temi One e Two del progetto <nome progetto>.
 
 ## Struttura dei Temi
 
@@ -218,7 +218,7 @@ return [
 
 - [Theme Widget Translations](theme-widget-translations.md)
 - [Translation Helper Text Standards](translation-helper-text-standards.md)
-- [Modules/SaluteOra/docs/translation_quality_standards.md](../laravel/Modules/SaluteOra/docs/translation_quality_standards.md)
+- [Modules/<nome progetto>/docs/translation_quality_standards.md](../laravel/Modules/<nome progetto>/docs/translation_quality_standards.md)
 
 ---
 

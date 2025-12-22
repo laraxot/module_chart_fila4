@@ -1,8 +1,8 @@
-# Componente Calendar Frontend per SaluteOra
+# Componente Calendar Frontend per <nome progetto>
 
 ## Panoramica
 
-Il componente `pub_theme::components.blocks.calendar` fornisce un'interfaccia frontend **semplificata** per richiamare i widget FullCalendar del modulo SaluteOra. 
+Il componente `pub_theme::components.blocks.calendar` fornisce un'interfaccia frontend **semplificata** per richiamare i widget FullCalendar del modulo <nome progetto>. 
 
 **IMPORTANTE**: Il componente NON ricrea il calendario, ma richiama direttamente i widget Filament esistenti tramite Livewire.
 
@@ -29,10 +29,10 @@ Il componente `pub_theme::components.blocks.calendar` fornisce un'interfaccia fr
 
 @php
     $widgetClass = match($type) {
-        'patient' => \Modules\SaluteOra\Filament\Widgets\PatientCalendarWidget::class,
-        'doctor' => \Modules\SaluteOra\Filament\Widgets\DoctorCalendarWidget::class,
-        'admin' => \Modules\SaluteOra\Filament\Widgets\AdminCalendarWidget::class,
-        default => \Modules\SaluteOra\Filament\Widgets\PatientCalendarWidget::class,
+        'patient' => \Modules\<nome progetto>\Filament\Widgets\PatientCalendarWidget::class,
+        'doctor' => \Modules\<nome progetto>\Filament\Widgets\DoctorCalendarWidget::class,
+        'admin' => \Modules\<nome progetto>\Filament\Widgets\AdminCalendarWidget::class,
+        default => \Modules\<nome progetto>\Filament\Widgets\PatientCalendarWidget::class,
     };
 @endphp
 
@@ -128,9 +128,9 @@ class CalendarComponentTest extends TestCase
 
 ## Documentazione Correlata
 
-- [Widget FullCalendar Backend](../../laravel/Modules/SaluteOra/docs/fullcalendar_widget_implementation.mdc)
-- [Configurazione FullCalendar](../../laravel/Modules/SaluteOra/docs/fullcalendar_configuration.md)
-- [Implementazione Multi-Tenant](../../laravel/Modules/SaluteOra/docs/fullcalendar_parental_widgets.md)
+- [Widget FullCalendar Backend](../../laravel/Modules/<nome progetto>/docs/fullcalendar_widget_implementation.mdc)
+- [Configurazione FullCalendar](../../laravel/Modules/<nome progetto>/docs/fullcalendar_configuration.md)
+- [Implementazione Multi-Tenant](../../laravel/Modules/<nome progetto>/docs/fullcalendar_parental_widgets.md)
 - [Regole Queueable Actions](../../.cursor/rules/queueable-actions.mdc)
 
 ## Zen del Componente Calendar

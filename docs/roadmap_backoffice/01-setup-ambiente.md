@@ -45,17 +45,17 @@ Configurazione dell'ambiente di sviluppo per il backoffice di il progetto, inclu
 
 ### Configurazione Laravel e Filament
 ```bash
-composer create-project laravel/laravel saluteora-back
-cd saluteora-back
+composer create-project laravel/laravel <nome progetto>-back
+cd <nome progetto>-back
 composer require filament/filament:"^3.0"
 php artisan filament:install --panels
 ```
 
 ### Configurazione Database
 ```sql
-CREATE DATABASE saluteora_back;
-CREATE USER saluteora_back WITH PASSWORD 'password';
-GRANT ALL PRIVILEGES ON DATABASE saluteora_back TO saluteora_back;
+CREATE DATABASE <nome progetto>_back;
+CREATE USER <nome progetto>_back WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE <nome progetto>_back TO <nome progetto>_back;
 ```
 
 ### Configurazione Redis

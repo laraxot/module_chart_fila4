@@ -3,7 +3,7 @@
 ## Struttura delle Directory
 
 ```
-/var/www/html/saluteora/
+/var/www/html/<nome progetto>/
 ├── docs/                     # Documentazione del progetto
 ├── laravel/                  # Installazione Laravel (percorso corretto)
 │   ├── app/                  # Core application code
@@ -34,7 +34,7 @@
 
 ## Note Importanti
 
-1. **Percorso Laravel**: L'installazione Laravel deve essere posizionata in `/var/www/html/saluteora/laravel` e non in altra directory. Questo è fondamentale per il corretto funzionamento del progetto.
+1. **Percorso Laravel**: L'installazione Laravel deve essere posizionata in `/var/www/html/<nome progetto>/laravel` e non in altra directory. Questo è fondamentale per il corretto funzionamento del progetto.
 
 2. **Struttura Modulare**: Tutti i moduli custom devono essere creati nella directory `laravel/Modules/` seguendo le convenzioni di nwidart/laravel-modules.
 
@@ -64,7 +64,7 @@ composer require nwidart/laravel-modules
 In il progetto, tutte le migrazioni sono gestite all'interno dei moduli Laraxot. La struttura è la seguente:
 
 ```
-/var/www/html/saluteora/laravel/
+/var/www/html/<nome progetto>/laravel/
 ├── Modules/           # Contiene i moduli Laraxot
 │   └── [ModuleName]/  # Ogni modulo contiene le proprie migrazioni
 │       └── database/

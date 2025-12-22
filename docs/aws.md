@@ -1,5 +1,5 @@
-ssh saluteora
-cd /var/www/html/base_saluteora/laravel
+ssh <nome progetto>
+cd /var/www/html/base_<nome progetto>/laravel
 php -d memory_limit=-1 composer.phar selfupdate
 php -d memory_limit=-1 composer.phar update -W
 rm -rf resources/views/vendor
@@ -22,7 +22,7 @@ quinta
 http://ec2-34-247-221-151.eu-west-1.compute.amazonaws.com/it
 
 
-http://staging.saluteoraleingravidanza.it/
+http://staging.<nome progetto>leingravidanza.it/
 
 
 se si vedono dei |--35--
@@ -44,5 +44,5 @@ MAIL_PORT=2525
 MAIL_USERNAME=3347c34800fc41
 MAIL_PASSWORD=3b88a5ddd726a5
 
-MAIL_FROM_ADDRESS="hello@saluteora.com"
+MAIL_FROM_ADDRESS="hello@<nome progetto>.com"
 MAIL_FROM_NAME="${APP_NAME}"

@@ -50,7 +50,7 @@ docs/
 ├── modules/                     # Documentazione moduli
 │   ├── overview.md
 │   ├── xot/
-│   ├── saluteora/
+│   ├── <nome progetto>/
 │   └── ui/
 ├── guides/                      # Guide pratiche
 │   ├── installation.md
@@ -193,7 +193,7 @@ docs/
 
 ## 🏆 Conclusioni
 
-La ristrutturazione DRY + KISS della documentazione SaluteOra è stata un **successo completo**:
+La ristrutturazione DRY + KISS della documentazione <nome progetto> è stata un **successo completo**:
 
 ### Obiettivi Raggiunti
 - ✅ Eliminazione duplicazioni massive
@@ -228,4 +228,4 @@ La ristrutturazione DRY + KISS della documentazione SaluteOra è stata un **succ
 ---
 
 *Report consolidato secondo principi DRY + KISS*  
-*Documentazione di qualità enterprise per SaluteOra*
+*Documentazione di qualità enterprise per <nome progetto>*

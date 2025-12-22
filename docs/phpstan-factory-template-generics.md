@@ -2,7 +2,7 @@
 
 ## Overview
 
-Documentazione framework-level per l'implementazione corretta di template generics nelle factory Laravel, basata sui pattern implementati e validati nel modulo SaluteOra. Questa guida stabilisce gli standard di qualità per tutti i moduli Laraxot.
+Documentazione framework-level per l'implementazione corretta di template generics nelle factory Laravel, basata sui pattern implementati e validati nel modulo <nome progetto>. Questa guida stabilisce gli standard di qualità per tutti i moduli Laraxot.
 
 ## Pattern Template Generics Standard
 
@@ -379,14 +379,14 @@ class {Model}FactoryTest extends TestCase
 
 ### Documentation Links
 
-- [SaluteOra Factory Fixes](../Modules/SaluteOra/docs/phpstan_factory_fixes_2025.md)
+- [<nome progetto> Factory Fixes](../Modules/<nome progetto>/docs/phpstan_factory_fixes_2025.md)
 - [Laravel Factory Documentation](https://laravel.com/docs/10.x/database-testing#creating-factories)
 - [PHPStan Generics Guide](https://phpstan.org/writing-php-code/phpdoc-types#generics)
 - [Safe Functions Library](https://github.com/thecodingmachine/safe)
 
 ### Implementation Examples
 
-- **Reference Implementation**: SaluteOra Module Factories
+- **Reference Implementation**: <nome progetto> Module Factories
 - **Template Pattern**: UserFactory → AdminFactory/DoctorFactory/PatientFactory
 - **Complex Generics**: Multi-level inheritance with type constraints
 

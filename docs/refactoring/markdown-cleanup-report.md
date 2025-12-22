@@ -9,7 +9,7 @@
 
 ## Backup
 I file originali sono stati salvati in:
-`/var/www/html/_bases/base_saluteora/backup-markdown-cleanup-20250804-103739`
+`/var/www/html/_bases/base_<nome progetto>/backup-markdown-cleanup-20250804-103739`
 
 ## Problemi Risolti
 1. **Duplicazioni di contenuto**: Rimosse sezioni duplicate nei file markdown
@@ -176,7 +176,7 @@ I file originali sono stati salvati in:
 - `docs/technical/README.md`
 - `docs/migration-guide.md`
 - `docs/informativa_progetto_salute_ora_dedicata_alle_gestanti.md`
-- `.windsurf/rules/fullcalendar-saluteora.md`
+- `.windsurf/rules/fullcalendar-<nome progetto>.md`
 - `.windsurf/rules/documentation.md`
 - `.windsurf/rules/phpstan-complete.md`
 - `.windsurf/rules/docs-naming.md`
@@ -464,50 +464,50 @@ I file originali sono stati salvati in:
 - `laravel/Modules/Activity/docs/use_cases/shop/console_commands.md`
 - `laravel/Modules/Job/docs/structure.md`
 - `laravel/Modules/Job/docs/links.md`
-- `laravel/Modules/SaluteOra/docs/factories/phpstan-factory-compliance.md`
-- `laravel/Modules/SaluteOra/docs/miglioramenti_e_correzioni.md`
-- `laravel/Modules/SaluteOra/docs/testing/real-data-testing-strategy.md`
-- `laravel/Modules/SaluteOra/docs/directory-structure.md`
-- `laravel/Modules/SaluteOra/docs/models/doctor.md`
-- `laravel/Modules/SaluteOra/docs/development-rules.md`
-- `laravel/Modules/SaluteOra/docs/testing.md`
-- `laravel/Modules/SaluteOra/docs/namespace-vs-file-structure.md`
-- `laravel/Modules/SaluteOra/docs/doctor_registration_process.md`
-- `laravel/Modules/SaluteOra/docs/git-conflicts-resolution-summary.md`
-- `laravel/Modules/SaluteOra/docs/api_security.md`
-- `laravel/Modules/SaluteOra/docs/phpstan-fixes-implementation.md`
-- `laravel/Modules/SaluteOra/docs/form-implementation-errors.md`
-- `laravel/Modules/SaluteOra/docs/quick-reference.md`
-- `laravel/Modules/SaluteOra/docs/notifications/notification_templates.md`
-- `laravel/Modules/SaluteOra/docs/laravelmodules12.md`
-- `laravel/Modules/SaluteOra/docs/patient_media_library_fix.md`
-- `laravel/Modules/SaluteOra/docs/fullcalendar-configuration.md`
-- `laravel/Modules/SaluteOra/docs/actions_best_practices.md`
-- `laravel/Modules/SaluteOra/docs/fullcalendar_implementation_guide.md`
-- `laravel/Modules/SaluteOra/docs/translations.md`
-- `laravel/Modules/SaluteOra/docs/translations-appointments.md`
-- `laravel/Modules/SaluteOra/docs/register-action-update.md`
-- `laravel/Modules/SaluteOra/docs/README.md`
-- `laravel/Modules/SaluteOra/docs/doctor-email-templates.md`
-- `laravel/Modules/SaluteOra/docs/filament-namespace-rules.md`
-- `laravel/Modules/SaluteOra/docs/naming-conventions.md`
-- `laravel/Modules/SaluteOra/docs/bolt_integration.md`
-- `laravel/Modules/SaluteOra/docs/find-dentist-functionality.md`
-- `laravel/Modules/SaluteOra/docs/filament-resources.md`
-- `laravel/Modules/SaluteOra/docs/fullcalendar_configuration.md`
-- `laravel/Modules/SaluteOra/docs/admin-panel-provider-update.md`
-- `laravel/Modules/SaluteOra/docs/appointment-management.md`
-- `laravel/Modules/SaluteOra/docs/windsurf_rules.md`
-- `laravel/Modules/SaluteOra/docs/langserviceprovider-labels.md`
-- `laravel/Modules/SaluteOra/docs/find_doctor_widget_error_analysis.md`
-- `laravel/Modules/SaluteOra/docs/fullcalendar_parental_widgets.md`
-- `laravel/Modules/SaluteOra/docs/enums_best_practices.md`
-- `laravel/Modules/SaluteOra/docs/translation_quality_standards.md`
-- `laravel/Modules/SaluteOra/docs/widgets/doctor-appointments-widget-fix.md`
-- `laravel/Modules/SaluteOra/docs/regole-traduzioni-critiche-2025-01-06.md`
-- `laravel/Modules/SaluteOra/docs/critical-errors-resolved.md`
-- `laravel/Modules/SaluteOra/docs/http-structure.md`
-- `laravel/Modules/SaluteOra/docs/workflows/translation_validation_workflow.md`
+- `laravel/Modules/<nome progetto>/docs/factories/phpstan-factory-compliance.md`
+- `laravel/Modules/<nome progetto>/docs/miglioramenti_e_correzioni.md`
+- `laravel/Modules/<nome progetto>/docs/testing/real-data-testing-strategy.md`
+- `laravel/Modules/<nome progetto>/docs/directory-structure.md`
+- `laravel/Modules/<nome progetto>/docs/models/doctor.md`
+- `laravel/Modules/<nome progetto>/docs/development-rules.md`
+- `laravel/Modules/<nome progetto>/docs/testing.md`
+- `laravel/Modules/<nome progetto>/docs/namespace-vs-file-structure.md`
+- `laravel/Modules/<nome progetto>/docs/doctor_registration_process.md`
+- `laravel/Modules/<nome progetto>/docs/git-conflicts-resolution-summary.md`
+- `laravel/Modules/<nome progetto>/docs/api_security.md`
+- `laravel/Modules/<nome progetto>/docs/phpstan-fixes-implementation.md`
+- `laravel/Modules/<nome progetto>/docs/form-implementation-errors.md`
+- `laravel/Modules/<nome progetto>/docs/quick-reference.md`
+- `laravel/Modules/<nome progetto>/docs/notifications/notification_templates.md`
+- `laravel/Modules/<nome progetto>/docs/laravelmodules12.md`
+- `laravel/Modules/<nome progetto>/docs/patient_media_library_fix.md`
+- `laravel/Modules/<nome progetto>/docs/fullcalendar-configuration.md`
+- `laravel/Modules/<nome progetto>/docs/actions_best_practices.md`
+- `laravel/Modules/<nome progetto>/docs/fullcalendar_implementation_guide.md`
+- `laravel/Modules/<nome progetto>/docs/translations.md`
+- `laravel/Modules/<nome progetto>/docs/translations-appointments.md`
+- `laravel/Modules/<nome progetto>/docs/register-action-update.md`
+- `laravel/Modules/<nome progetto>/docs/README.md`
+- `laravel/Modules/<nome progetto>/docs/doctor-email-templates.md`
+- `laravel/Modules/<nome progetto>/docs/filament-namespace-rules.md`
+- `laravel/Modules/<nome progetto>/docs/naming-conventions.md`
+- `laravel/Modules/<nome progetto>/docs/bolt_integration.md`
+- `laravel/Modules/<nome progetto>/docs/find-dentist-functionality.md`
+- `laravel/Modules/<nome progetto>/docs/filament-resources.md`
+- `laravel/Modules/<nome progetto>/docs/fullcalendar_configuration.md`
+- `laravel/Modules/<nome progetto>/docs/admin-panel-provider-update.md`
+- `laravel/Modules/<nome progetto>/docs/appointment-management.md`
+- `laravel/Modules/<nome progetto>/docs/windsurf_rules.md`
+- `laravel/Modules/<nome progetto>/docs/langserviceprovider-labels.md`
+- `laravel/Modules/<nome progetto>/docs/find_doctor_widget_error_analysis.md`
+- `laravel/Modules/<nome progetto>/docs/fullcalendar_parental_widgets.md`
+- `laravel/Modules/<nome progetto>/docs/enums_best_practices.md`
+- `laravel/Modules/<nome progetto>/docs/translation_quality_standards.md`
+- `laravel/Modules/<nome progetto>/docs/widgets/doctor-appointments-widget-fix.md`
+- `laravel/Modules/<nome progetto>/docs/regole-traduzioni-critiche-2025-01-06.md`
+- `laravel/Modules/<nome progetto>/docs/critical-errors-resolved.md`
+- `laravel/Modules/<nome progetto>/docs/http-structure.md`
+- `laravel/Modules/<nome progetto>/docs/workflows/translation_validation_workflow.md`
 - `laravel/Themes/One/docs/components.md`
 - `laravel/Themes/One/docs/filament_components.md`
 - `laravel/Themes/One/docs/build.md`

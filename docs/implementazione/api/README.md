@@ -261,17 +261,17 @@ class RouteServiceProvider extends ServiceProvider
  *     version="1.0.0",
  *     description="API per il sistema il progetto",
  *     @OA\Contact(
- *         email="support@saluteora.it"
+ *         email="support@<nome progetto>.it"
  *     )
  * )
  * 
  * @OA\Server(
- *     url="https://api.saluteora.it/v1",
+ *     url="https://api.<nome progetto>.it/v1",
  *     description="Production Server"
  * )
  * 
  * @OA\Server(
- *     url="https://staging-api.saluteora.it/v1",
+ *     url="https://staging-api.<nome progetto>.it/v1",
  *     description="Staging Server"
  * )
  * 

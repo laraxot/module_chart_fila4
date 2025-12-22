@@ -60,7 +60,7 @@
    APP_ENV=staging
    APP_DEBUG=false
    DB_CONNECTION=mysql
-   DB_DATABASE=saluteora_staging
+   DB_DATABASE=<nome progetto>_staging
    ```
 
 2. Setup server staging
@@ -84,11 +84,11 @@
    return [
        'environments' => [
            'staging' => [
-               'server' => 'staging.saluteora.it',
+               'server' => 'staging.<nome progetto>.it',
                'branch' => 'dev',
            ],
            'production' => [
-               'server' => 'saluteora.it',
+               'server' => '<nome progetto>.it',
                'branch' => 'main',
            ],
        ],

@@ -10,7 +10,7 @@ Il progetto utilizza una struttura specifica per la gestione dei contenuti:
 - Contenuti statici gestiti in file JSON
 - Separazione tra contenuto e codice
 - Struttura gerarchica dei contenuti
-- Percorso specifico: `/laravel/config/local/saluteora/database/content/pages/`
+- Percorso specifico: `/laravel/config/local/<nome progetto>/database/content/pages/`
 
 ## Motivo dell'Errore
 1. **Mancata Analisi Architetturale**:

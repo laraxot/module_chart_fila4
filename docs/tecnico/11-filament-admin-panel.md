@@ -6,7 +6,7 @@ Il `AdminPanelProvider` è un componente fondamentale per la configurazione del 
 ## Posizione
 Il file deve essere posizionato in:
 ```
-/var/www/html/saluteora/laravel/app/Providers/Filament/AdminPanelProvider.php
+/var/www/html/<nome progetto>/laravel/app/Providers/Filament/AdminPanelProvider.php
 ```
 
 ## Struttura

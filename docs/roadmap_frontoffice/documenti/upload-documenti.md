@@ -1,4 +1,4 @@
-# Upload Documenti Sicuro - SaluteOra
+# Upload Documenti Sicuro - <nome progetto>
 
 > **📤 Sistema di upload sicuro e user-friendly per documenti sanitari e amministrativi**
 
@@ -711,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Upload Controller
 ```php
-// Modules/SaluteOra/Http/Controllers/DocumentUploadController.php
+// Modules/<nome progetto>/Http/Controllers/DocumentUploadController.php
 class DocumentUploadController extends Controller
 {
     public function upload(Request $request): JsonResponse

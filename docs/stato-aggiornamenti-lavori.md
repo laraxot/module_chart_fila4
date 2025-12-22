@@ -1,10 +1,10 @@
-# Stato Aggiornamenti Lavori SaluteOra
+# Stato Aggiornamenti Lavori <nome progetto>
 
 > Ultimo aggiornamento: 05 Giugno 2025
 
 ## Panoramica Generale
 
-Questo documento fornisce un quadro aggiornato dello stato di avanzamento del progetto SaluteOra, incluse le attività completate, quelle in corso e quelle pianificate per le prossime iterazioni. La pianificazione dettagliata si basa sull'analisi del codice attuale, dei requisiti documentati e delle risorse disponibili.
+Questo documento fornisce un quadro aggiornato dello stato di avanzamento del progetto <nome progetto>, incluse le attività completate, quelle in corso e quelle pianificate per le prossime iterazioni. La pianificazione dettagliata si basa sull'analisi del codice attuale, dei requisiti documentati e delle risorse disponibili.
 
 ## Stato Complessivo del Progetto
 
@@ -25,7 +25,7 @@ Questo documento fornisce un quadro aggiornato dello stato di avanzamento del pr
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
-    title SaluteOra - Timeline di Completamento
+    title <nome progetto> - Timeline di Completamento
     
     section Architettura
     Completamento Architettura Base :done, arch1, 2025-03-01, 2025-05-15

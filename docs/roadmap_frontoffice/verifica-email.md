@@ -49,8 +49,8 @@ class EmailVerificationService
 ```yaml
 
 # Email Template Structure
-Subject: "Conferma il tuo account SaluteOra"
-Header: Logo SaluteOra + branding
+Subject: "Conferma il tuo account <nome progetto>"
+Header: Logo <nome progetto> + branding
 Main Content:
   - Saluto personalizzato con nome utente
   - Messaggio chiaro sull'azione richiesta
@@ -100,7 +100,7 @@ class EmailVerificationController extends Controller
         // Auto-login e redirect
         Auth::login($user);
         
-        return redirect('/dashboard')->with('success', 'Email verificata con successo! Benvenuto in SaluteOra');
+        return redirect('/dashboard')->with('success', 'Email verificata con successo! Benvenuto in <nome progetto>');
     }
 }
 ```

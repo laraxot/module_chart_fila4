@@ -2,7 +2,7 @@
 
 ## Scopo del Documento
 
-Questo documento ha lo scopo di identificare e documentare le classi PHP all'interno della directory `/var/www/html/_bases/base_saluteora/laravel/Modules` che non sembrano essere utilizzate nel codice. Questa analisi è utile per:
+Questo documento ha lo scopo di identificare e documentare le classi PHP all'interno della directory `/var/www/html/_bases/base_<nome progetto>/laravel/Modules` che non sembrano essere utilizzate nel codice. Questa analisi è utile per:
 
 1. **Pulizia del codice**: Identificare e rimuovere codice non utilizzato per mantenere la codebase pulita e manutenibile.
 2. **Ottimizzazione delle prestazioni**: Ridurre le dimensioni del codice e migliorare i tempi di caricamento.

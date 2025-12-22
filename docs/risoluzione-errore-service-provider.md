@@ -16,7 +16,7 @@ Internal Server Error
 
 Error
 Class "Modules\Chart\Providers\ChartServiceProvider" not found
-GET saluteora.local
+GET <nome progetto>.local
 PHP 8.3.20 — Laravel 12.7.2
 ```
 

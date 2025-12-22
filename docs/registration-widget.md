@@ -1,13 +1,13 @@
-# Integrazione del Widget di Registrazione in SaluteOra
+# Integrazione del Widget di Registrazione in <nome progetto>
 
 ## Panoramica
 
-Questo documento descrive come il widget di registrazione generico del modulo User viene utilizzato e integrato specificamente nel progetto SaluteOra. Il widget è progettato per essere riutilizzabile in diversi progetti, quindi questa documentazione si concentra sulle personalizzazioni e configurazioni specifiche per SaluteOra.
+Questo documento descrive come il widget di registrazione generico del modulo User viene utilizzato e integrato specificamente nel progetto <nome progetto>. Il widget è progettato per essere riutilizzabile in diversi progetti, quindi questa documentazione si concentra sulle personalizzazioni e configurazioni specifiche per <nome progetto>.
 
 ## Posizione del File
 
 ```
-/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
+/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php
 ```
 
 ## Architettura
@@ -110,9 +110,9 @@ protected static function getPersonalInfoStep(): Forms\Components\Wizard\Step
 3. **Form Schema Dinamico**: Ottiene lo schema del form dalla Resource corrispondente al tipo di utente
 4. **Gestione Stati**: Deve integrarsi con il sistema di stati specifico per ogni tipo di utente
 
-## Integrazione con SaluteOra
+## Integrazione con <nome progetto>
 
-In SaluteOra, il widget di registrazione viene utilizzato per diversi tipi di utenti attraverso un sistema di azioni specializzate. Questo approccio permette di:
+In <nome progetto>, il widget di registrazione viene utilizzato per diversi tipi di utenti attraverso un sistema di azioni specializzate. Questo approccio permette di:
 
 1. **Separare le Responsabilità**: Ogni tipo di utente ha la propria azione di registrazione
 2. **Semplificare il Widget**: Il widget si limita a delegare la logica all'azione appropriata
@@ -121,7 +121,7 @@ In SaluteOra, il widget di registrazione viene utilizzato per diversi tipi di ut
 
 ### Integrazione con il Workflow del Dottore
 
-Per la registrazione del dottore in SaluteOra, il widget deve integrarsi con il workflow di registrazione specifico:
+Per la registrazione del dottore in <nome progetto>, il widget deve integrarsi con il workflow di registrazione specifico:
 
 1. **Raccolta Dati Iniziali**: Il widget raccoglie i dati di base del dottore (nome, email, certificazione)
 2. **Creazione Record**: I dati vengono salvati nel modello `Doctor` con lo stato iniziale `Pending`
@@ -130,9 +130,9 @@ Per la registrazione del dottore in SaluteOra, il widget deve integrarsi con il 
 5. **Moderazione**: Un amministratore esamina la richiesta (questa fase è gestita da `DoctorResource`)
 6. **Continuazione**: Se approvato, il dottore riceve un'email con un link per continuare la registrazione
 
-### Gestione dei Diversi Tipi di Utenti in SaluteOra
+### Gestione dei Diversi Tipi di Utenti in <nome progetto>
 
-In SaluteOra, il widget gestisce diversi tipi di utenti con flussi di registrazione specifici:
+In <nome progetto>, il widget gestisce diversi tipi di utenti con flussi di registrazione specifici:
 
 #### Registrazione Dottori
 - Lo stato iniziale è `Pending` (richiede moderazione)
@@ -146,13 +146,13 @@ In SaluteOra, il widget gestisce diversi tipi di utenti con flussi di registrazi
 - Il sistema invia un'email di benvenuto con template `patient_welcome`
 - L'account è immediatamente utilizzabile
 
-## Integrazione con il Sistema di Stati di SaluteOra
+## Integrazione con il Sistema di Stati di <nome progetto>
 
-SaluteOra utilizza `spatie/laravel-model-states` per gestire gli stati degli utenti in modo type-safe. Il widget di registrazione deve integrarsi con questo sistema, utilizzando le classi di stato appropriate per ogni tipo di utente.
+<nome progetto> utilizza `spatie/laravel-model-states` per gestire gli stati degli utenti in modo type-safe. Il widget di registrazione deve integrarsi con questo sistema, utilizzando le classi di stato appropriate per ogni tipo di utente.
 
 Per i dottori, le classi di stato si trovano in `Modules\Patient\States\` e includono stati come `Pending`, `Approved`, `Rejected` e `Active`.
 
-## Sistema di Notifiche in SaluteOra
+## Sistema di Notifiche in <nome progetto>
 
 Il widget utilizza `SpatieEmail` per inviare notifiche agli utenti. Questo sistema permette:
 
@@ -161,9 +161,9 @@ Il widget utilizza `SpatieEmail` per inviare notifiche agli utenti. Questo siste
 3. **Personalizzazione Dinamica**: I dati dell'utente vengono inseriti dinamicamente nel template
 4. **Allegati**: Possibilità di allegare documenti alle email
 
-## Template Email in SaluteOra
+## Template Email in <nome progetto>
 
-In SaluteOra, i template email per la registrazione sono gestiti attraverso il modello `MailTemplate` del modulo Notify. Questi template sono memorizzati nel database e possono essere modificati senza toccare il codice.
+In <nome progetto>, i template email per la registrazione sono gestiti attraverso il modello `MailTemplate` del modulo Notify. Questi template sono memorizzati nel database e possono essere modificati senza toccare il codice.
 
 I template principali utilizzati nel processo di registrazione includono:
 
@@ -179,21 +179,21 @@ Ogni template supporta la localizzazione con versioni in italiano e inglese, e i
 - `{{ status }}`: Stato della registrazione
 - `{{ rejection_reason }}`: Motivo del rifiuto (se applicabile)
 
-## Integrazione con SaluteOra: Considerazioni Tecniche
+## Integrazione con <nome progetto>: Considerazioni Tecniche
 
-Per garantire che il widget di registrazione funzioni correttamente nel contesto di SaluteOra, è importante considerare alcuni aspetti tecnici specifici:
+Per garantire che il widget di registrazione funzioni correttamente nel contesto di <nome progetto>, è importante considerare alcuni aspetti tecnici specifici:
 
-1. **Gestione Multi-Tenant**: SaluteOra utilizza un'architettura multi-tenant, quindi il widget deve essere configurato per creare utenti nel tenant corretto
+1. **Gestione Multi-Tenant**: <nome progetto> utilizza un'architettura multi-tenant, quindi il widget deve essere configurato per creare utenti nel tenant corretto
 
-2. **Integrazione con Filament**: Il widget deve integrarsi con l'interfaccia Filament utilizzata in SaluteOra, mantenendo la coerenza visiva e funzionale
+2. **Integrazione con Filament**: Il widget deve integrarsi con l'interfaccia Filament utilizzata in <nome progetto>, mantenendo la coerenza visiva e funzionale
 
-3. **Localizzazione**: SaluteOra supporta italiano e inglese, quindi il widget deve utilizzare il sistema di localizzazione per adattarsi alla lingua dell'utente
+3. **Localizzazione**: <nome progetto> supporta italiano e inglese, quindi il widget deve utilizzare il sistema di localizzazione per adattarsi alla lingua dell'utente
 
 4. **Sicurezza**: Implementare le validazioni appropriate per garantire la sicurezza dei dati, specialmente per i dottori che caricano documenti di certificazione
 
 5. **Tracciabilità**: Registrare le azioni di registrazione nel sistema di log per consentire l'audit e il debugging
 
-## Vantaggi dell'Integrazione in SaluteOra
+## Vantaggi dell'Integrazione in <nome progetto>
 
 1. **Esperienza Utente Unificata**: Processo di registrazione coerente per tutti i tipi di utenti
 
@@ -207,7 +207,7 @@ Per garantire che il widget di registrazione funzioni correttamente nel contesto
 
 ## Collegamenti Bidirezionali
 
-- [Email Doctor Registration](/var/www/html/saluteora/docs/email-doctor-registration.md)
-- [Registrazione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
-- [DoctorResource](/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
-- [RegistrationWidget](/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)
+- [Email Doctor Registration](/var/www/html/<nome progetto>/docs/email-doctor-registration.md)
+- [Registrazione Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/13-registrazione-odontoiatra.md)
+- [DoctorResource](/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php)
+- [RegistrationWidget](/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php)

@@ -1,8 +1,8 @@
-# SaluteOra Complete Factory Ecosystem - ENTERPRISE GRADE ✅
+# <nome progetto> Complete Factory Ecosystem - ENTERPRISE GRADE ✅
 
 ## 🎯 Executive Summary
 
-L'**ecosistema completo delle factory** per il modulo SaluteOra è stato implementato con successo, rappresentando il **gold standard** per la generazione di dati di testing in domini sanitari specializzati.
+L'**ecosistema completo delle factory** per il modulo <nome progetto> è stato implementato con successo, rappresentando il **gold standard** per la generazione di dati di testing in domini sanitari specializzati.
 
 ## 📊 Factory Ecosystem Overview
 
@@ -10,10 +10,10 @@ L'**ecosistema completo delle factory** per il modulo SaluteOra è stato impleme
 
 | Component | Implementation | Features | Business Logic | Documentation |
 |-----------|---------------|----------|----------------|---------------|
-| **UserFactory** | ✅ COMPLETE | STI Base + 37 fields | Codice fiscale, indirizzi IT | [Complete](../laravel/Modules/SaluteOra/docs/factories/UserFactory-implementation-final.md) |
-| **PatientFactory** | ✅ COMPLETE | Healthcare Consumer | ISEE, gravidanza, patologie | [Complete](../laravel/Modules/SaluteOra/docs/factories/PatientFactory-implementation.md) |
-| **DoctorFactory** | ✅ COMPLETE | Professional Provider | OMD, specializzazioni, tech | [Complete](../laravel/Modules/SaluteOra/docs/factories/DoctorFactory-implementation.md) |
-| **AdminFactory** | ✅ COMPLETE | System Administrator | Multi-studio, security, GDPR | [Complete](../laravel/Modules/SaluteOra/docs/factories/AdminFactory-implementation.md) |
+| **UserFactory** | ✅ COMPLETE | STI Base + 37 fields | Codice fiscale, indirizzi IT | [Complete](../laravel/Modules/<nome progetto>/docs/factories/UserFactory-implementation-final.md) |
+| **PatientFactory** | ✅ COMPLETE | Healthcare Consumer | ISEE, gravidanza, patologie | [Complete](../laravel/Modules/<nome progetto>/docs/factories/PatientFactory-implementation.md) |
+| **DoctorFactory** | ✅ COMPLETE | Professional Provider | OMD, specializzazioni, tech | [Complete](../laravel/Modules/<nome progetto>/docs/factories/DoctorFactory-implementation.md) |
+| **AdminFactory** | ✅ COMPLETE | System Administrator | Multi-studio, security, GDPR | [Complete](../laravel/Modules/<nome progetto>/docs/factories/AdminFactory-implementation.md) |
 
 ## 🏆 Key Achievements
 
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
     {
         // Create realistic Italian healthcare ecosystem
         $systemAdmin = Admin::factory()->systemAdmin()->create([
-            'email' => 'admin@saluteora.it'
+            'email' => 'admin@<nome progetto>.it'
         ]);
         
         // Generate specialist doctors with authentic credentials
@@ -204,7 +204,7 @@ public function test_large_healthcare_system_generation()
 ## 🌍 Global Impact & Reusability
 
 ### Template for Other Domains
-L'architettura factory SaluteOra può essere **template per altri domini**:
+L'architettura factory <nome progetto> può essere **template per altri domini**:
 - **Educational Institutions**: Student/Teacher/Admin factories
 - **Legal Practices**: Client/Lawyer/Staff factories  
 - **Hospitality**: Guest/Staff/Manager factories
@@ -241,7 +241,7 @@ L'architettura factory SaluteOra può essere **template per altri domini**:
 
 ## 🎊 Final Recognition
 
-**L'ecosistema factory SaluteOra rappresenta un'**eccellenza tecnica**che dimostra come la combinazione di:**
+**L'ecosistema factory <nome progetto> rappresenta un'**eccellenza tecnica**che dimostra come la combinazione di:**
 
 1. **Domain Expertise** (healthcare italiano)
 2. **Technical Excellence** (Laravel + PHPStan + Testing)  

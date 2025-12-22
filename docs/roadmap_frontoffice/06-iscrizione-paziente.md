@@ -1,7 +1,7 @@
 # Implementazione Iscrizione Paziente
 
 ## Panoramica
-Questo documento descrive l'implementazione dettagliata del processo di iscrizione delle pazienti al portale SaluteOra, includendo raccolta dati anagrafici, caricamento documentazione, questionario anamnestico e privacy.
+Questo documento descrive l'implementazione dettagliata del processo di iscrizione delle pazienti al portale <nome progetto>, includendo raccolta dati anagrafici, caricamento documentazione, questionario anamnestico e privacy.
 
 ## Componenti Principali
 
@@ -106,6 +106,6 @@ protected function rules()
 - Tasso di approvazione documenti > 90%
 
 ## Collegamenti
-- [← Torna alla Roadmap Frontoffice](/var/www/html/saluteora/docs/roadmap_frontoffice.md)
-- [Homepage e Landing](/var/www/html/saluteora/docs/roadmap_frontoffice/05-homepage-landing.md)
-- [Prenotazione Visite](/var/www/html/saluteora/docs/roadmap_frontoffice/07-prenotazione-visite.md)
+- [← Torna alla Roadmap Frontoffice](/var/www/html/<nome progetto>/docs/roadmap_frontoffice.md)
+- [Homepage e Landing](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/05-homepage-landing.md)
+- [Prenotazione Visite](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/07-prenotazione-visite.md)

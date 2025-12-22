@@ -2,7 +2,7 @@
 
 questo documento è un collegamento alla documentazione completa disponibile nel modulo Xot:
 
-[vai alla documentazione completa](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/module_namespace_path_convention.md)
+[vai alla documentazione completa](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/module_namespace_path_convention.md)
 
 ## regola fondamentale
 
@@ -25,4 +25,4 @@ cercare file nel percorso:
 /Modules/NomeModulo/Tipo/...  // ERRATO: manca /app/
 ```
 
-per maggiori dettagli, vedere la [documentazione completa](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/module_namespace_path_convention.md).
+per maggiori dettagli, vedere la [documentazione completa](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/module_namespace_path_convention.md).

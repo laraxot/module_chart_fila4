@@ -749,7 +749,7 @@ return [
 
 ## Collegamenti
 
-- [Modulo Patient](/var/www/html/base_saluteora/laravel/Modules/Patient/)
-- [Modulo Dental](/var/www/html/base_saluteora/laravel/Modules/Dental/)
-- [Modulo Notify](/var/www/html/base_saluteora/laravel/Modules/Notify/)
-- [Roadmap Frontoffice](/var/www/html/base_saluteora/docs/roadmap_frontoffice.md)
+- [Modulo Patient](/var/www/html/base_<nome progetto>/laravel/Modules/Patient/)
+- [Modulo Dental](/var/www/html/base_<nome progetto>/laravel/Modules/Dental/)
+- [Modulo Notify](/var/www/html/base_<nome progetto>/laravel/Modules/Notify/)
+- [Roadmap Frontoffice](/var/www/html/base_<nome progetto>/docs/roadmap_frontoffice.md)

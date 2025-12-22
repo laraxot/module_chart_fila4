@@ -12,7 +12,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
 - **Descrizione**: Interfaccia di accesso protetta per gli amministratori con autenticazione a due fattori.
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Http/Livewire/Auth/Login.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Http/Livewire/Auth/Login.php
   namespace Modules\Admin\Http\Livewire\Auth;
   
   class Login extends Component
@@ -30,7 +30,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
   - Contatori in tempo reale
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/RequestResource.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/RequestResource.php
   namespace Modules\Admin\Filament\Resources;
   
   class RequestResource extends XotBaseResource
@@ -48,7 +48,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
   - Validazione documenti con verifica automatica (OCR)
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/RequestResource/Pages/ViewRequest.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/RequestResource/Pages/ViewRequest.php
   namespace Modules\Admin\Filament\Resources\RequestResource\Pages;
   
   class ViewRequest extends XotBaseViewRecord
@@ -68,7 +68,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
   5. Utente riceve credenziali di accesso
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Actions/ApproveRequestAction.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Actions/ApproveRequestAction.php
   namespace Modules\Admin\Actions;
   
   class ApproveRequestAction
@@ -91,7 +91,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
   5. Possibilità per l'utente di correggere problemi e ripresentare
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Actions/RejectRequestAction.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Actions/RejectRequestAction.php
   namespace Modules\Admin\Actions;
   
   class RejectRequestAction
@@ -104,7 +104,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
   ```
 
 ## Interfaccia Utente
-![Mockup Backoffice Verifica](/var/www/html/saluteora/docs/immagini/mockup-backoffice-verifica.png)
+![Mockup Backoffice Verifica](/var/www/html/<nome progetto>/docs/immagini/mockup-backoffice-verifica.png)
 
 ## Implementazione Tecnica
 
@@ -113,7 +113,7 @@ Questa parte del backoffice è dedicata alla verifica e approvazione delle richi
 La gestione delle richieste è implementata come una risorsa Filament, con metodi personalizzati per gestire il workflow di approvazione:
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/RequestResource.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/RequestResource.php
 namespace Modules\Admin\Filament\Resources;
 
 use Filament\Forms\Components\Textarea;
@@ -164,10 +164,10 @@ class RequestResource extends XotBaseResource
 
 ### Sistema di Notifiche
 
-Le notifiche di approvazione/rifiuto utilizzano il sistema multi-canale di SaluteOra:
+Le notifiche di approvazione/rifiuto utilizzano il sistema multi-canale di <nome progetto>:
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/app/Notifications/RequestApprovedNotification.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Notifications/RequestApprovedNotification.php
 namespace Modules\Admin\Notifications;
 
 use Illuminate\Notifications\Notification;
@@ -201,7 +201,7 @@ class RequestApprovedNotification extends Notification
 
 ### Test Unitari
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Unit/ApproveRequestActionTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Unit/ApproveRequestActionTest.php
 namespace Modules\Admin\Tests\Unit;
 
 use Tests\TestCase;
@@ -225,7 +225,7 @@ class ApproveRequestActionTest extends TestCase
 
 ### E2E Test
 ```php
-// /var/www/html/saluteora/laravel/Tests/Browser/RequestApprovalTest.php
+// /var/www/html/<nome progetto>/laravel/Tests/Browser/RequestApprovalTest.php
 namespace Tests\Browser;
 
 use Laravel\Dusk\Browser;

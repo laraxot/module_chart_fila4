@@ -57,7 +57,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (80% completato)
 - **Descrizione**: Modulo base che fornisce funzionalità core e utility per tutti gli altri moduli
 - **Dipendenze**: -
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Xot`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Xot`
 - **Funzionalità principali**: 
   - Base models
   - Migration helpers
@@ -70,7 +70,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (70% completato)
 - **Descrizione**: Gestione multilingua per l'intera applicazione
 - **Dipendenze**: Xot
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Lang`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Lang`
 - **Funzionalità principali**:
   - Traduzione dinamica
   - Supporto per lingue multiple
@@ -81,7 +81,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (90% completato)
 - **Descrizione**: Supporto multi-tenant per separare dati e funzionalità
 - **Dipendenze**: Xot
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Tenant`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Tenant`
 - **Funzionalità principali**:
   - Isolamento dati per tenant
   - Switching tra tenant
@@ -92,7 +92,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (85% completato)
 - **Descrizione**: Gestione utenti, ruoli e permessi
 - **Dipendenze**: Xot, Tenant
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/User`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/User`
 - **Funzionalità principali**:
   - Autenticazione utenti
   - Autorizzazione basata su ruoli
@@ -106,7 +106,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (75% completato)
 - **Descrizione**: Componenti UI e interfacce base
 - **Dipendenze**: Xot
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/UI`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/UI`
 - **Funzionalità principali**:
   - Componenti Blade/Livewire
   - Form builders
@@ -118,7 +118,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (65% completato)
 - **Descrizione**: Visualizzazione dati e grafici
 - **Dipendenze**: Xot, UI
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Chart`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Chart`
 - **Funzionalità principali**:
   - Grafici statistici
   - Dashboard visuali
@@ -131,7 +131,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (85% completato)
 - **Descrizione**: Gestione pazienti, anagrafiche e ISEE
 - **Dipendenze**: Xot, User, Tenant
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Patient`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Patient`
 - **Funzionalità principali**:
   - Anagrafica pazienti
   - Documentazione ISEE
@@ -143,7 +143,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (70% completato)
 - **Descrizione**: Gestione visite odontoiatriche e piano terapeutico
 - **Dipendenze**: Xot, Patient, User
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Dental`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Dental`
 - **Funzionalità principali**:
   - Anamnesi dentale
   - Piano trattamenti
@@ -155,7 +155,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e configurato (65% completato)
 - **Descrizione**: Reportistica e statistiche
 - **Dipendenze**: Xot, Patient, Dental, Chart
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Reporting`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Reporting`
 - **Funzionalità principali**:
   - Report statistici
   - Export dati
@@ -167,7 +167,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (20% completato)
 - **Descrizione**: Logging e monitoraggio attività utenti
 - **Dipendenze**: Xot, User
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Activity`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Activity`
 - **Funzionalità principali**:
   - Audit trail
   - Logging azioni utenti
@@ -179,7 +179,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (20% completato)
 - **Descrizione**: Gestione contenuti informativi
 - **Dipendenze**: Xot, Media
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Cms`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Cms`
 - **Funzionalità principali**:
   - Pagine informative
   - Articoli e news
@@ -191,7 +191,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (40% completato)
 - **Descrizione**: Conformità normativa privacy e GDPR
 - **Dipendenze**: Xot, User, Patient
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Gdpr`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Gdpr`
 - **Funzionalità principali**:
   - Gestione consensi
   - Richieste accesso dati
@@ -203,7 +203,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (15% completato)
 - **Descrizione**: Gestione lavori asincroni e code
 - **Dipendenze**: Xot
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Job`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Job`
 - **Funzionalità principali**:
   - Code di lavoro
   - Scheduling operazioni
@@ -215,7 +215,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (30% completato)
 - **Descrizione**: Gestione file e media
 - **Dipendenze**: Xot
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Media`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Media`
 - **Funzionalità principali**:
   - Upload documenti
   - Gestione immagini
@@ -227,7 +227,7 @@ Questo documento fornisce una panoramica completa di tutti i moduli installati n
 - **Stato**: ✅ Installato e in configurazione (50% completato)
 - **Descrizione**: Sistema notifiche multicanale
 - **Dipendenze**: Xot, User
-- **Localizzazione**: `/var/www/html/saluteora/laravel/Modules/Notify`
+- **Localizzazione**: `/var/www/html/<nome progetto>/laravel/Modules/Notify`
 - **Funzionalità principali**:
   - Notifiche in-app
   - Email notifications

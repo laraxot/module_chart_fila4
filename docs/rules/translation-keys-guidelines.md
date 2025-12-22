@@ -1,4 +1,4 @@
-# Linee Guida per le Chiavi di Traduzione in SaluteOra
+# Linee Guida per le Chiavi di Traduzione in <nome progetto>
 
 ## Collegamenti correlati
 - [Documentazione centrale](/docs/README.md)
@@ -9,7 +9,7 @@
 
 ## Errore Comune da Evitare
 
-Un errore comune nell'implementazione delle traduzioni in SaluteOra è l'utilizzo di chiavi di traduzione in italiano direttamente nel codice:
+Un errore comune nell'implementazione delle traduzioni in <nome progetto> è l'utilizzo di chiavi di traduzione in italiano direttamente nel codice:
 
 ```php
 // ERRATO
@@ -21,7 +21,7 @@ __('Esci')
 Questo approccio è problematico per diversi motivi:
 1. Rende difficile la manutenzione e l'aggiornamento delle traduzioni
 2. Complica l'internazionalizzazione dell'applicazione
-3. Non segue le convenzioni di SaluteOra per le traduzioni
+3. Non segue le convenzioni di <nome progetto> per le traduzioni
 4. Rende impossibile l'estrazione automatica delle chiavi di traduzione
 
 ## Regole Fondamentali
@@ -168,7 +168,7 @@ Per i menu e i dropdown, utilizzare chiavi di traduzione standardizzate:
 
 ## Strumenti di Supporto
 
-SaluteOra include strumenti per l'estrazione automatica delle chiavi di traduzione e la verifica delle traduzioni mancanti:
+<nome progetto> include strumenti per l'estrazione automatica delle chiavi di traduzione e la verifica delle traduzioni mancanti:
 
 ```bash
 php artisan lang:extract
@@ -178,4 +178,4 @@ php artisan lang:sync
 
 ## Conclusione
 
-Seguire queste linee guida per le chiavi di traduzione è fondamentale per garantire la coerenza, la manutenibilità e l'internazionalizzazione dell'applicazione SaluteOra. L'utilizzo di chiavi standardizzate e strutturate gerarchicamente facilita la gestione delle traduzioni e migliora la qualità complessiva del codice.
+Seguire queste linee guida per le chiavi di traduzione è fondamentale per garantire la coerenza, la manutenibilità e l'internazionalizzazione dell'applicazione <nome progetto>. L'utilizzo di chiavi standardizzate e strutturate gerarchicamente facilita la gestione delle traduzioni e migliora la qualità complessiva del codice.

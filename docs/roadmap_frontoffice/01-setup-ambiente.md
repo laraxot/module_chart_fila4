@@ -49,8 +49,8 @@ Configurazione dell'ambiente di sviluppo per il frontoffice di il progetto, incl
 
 ### Configurazione Laravel
 ```bash
-composer create-project laravel/laravel saluteora-front
-cd saluteora-front
+composer create-project laravel/laravel <nome progetto>-front
+cd <nome progetto>-front
 
 # Pacchetti core
 composer require nwidart/laravel-modules
@@ -77,8 +77,8 @@ DB_DATABASE=/absolute/path/to/database.sqlite
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora_front
-DB_USERNAME=saluteora_front
+DB_DATABASE=<nome progetto>_front
+DB_USERNAME=<nome progetto>_front
 DB_PASSWORD=password
 ```
 

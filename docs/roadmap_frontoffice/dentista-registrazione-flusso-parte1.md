@@ -2,9 +2,9 @@
 
 ## Panoramica del Processo
 
-Il processo di registrazione dei dentisti nel portale SaluteOra segue un flusso specifico progettato per garantire sicurezza, verificabilità e facilità d'uso. Questo documento descrive in dettaglio l'implementazione tecnica, seguendo le best practices e l'architettura del progetto.
+Il processo di registrazione dei dentisti nel portale <nome progetto> segue un flusso specifico progettato per garantire sicurezza, verificabilità e facilità d'uso. Questo documento descrive in dettaglio l'implementazione tecnica, seguendo le best practices e l'architettura del progetto.
 
-![Diagramma Flusso Registrazione](/var/www/html/saluteora/docs/images/flusso-registrazione-dentista.png)
+![Diagramma Flusso Registrazione](/var/www/html/<nome progetto>/docs/images/flusso-registrazione-dentista.png)
 
 ## Filosofia e Principi Guida
 
@@ -21,7 +21,7 @@ La filosofia sottostante è quella del "momento giusto": ogni informazione viene
 
 ## Architettura Tecnica
 
-L'implementazione segue rigorosamente l'architettura di SaluteOra:
+L'implementazione segue rigorosamente l'architettura di <nome progetto>:
 
 1. **Widget Filament** per tutti i form e le interfacce utente
 2. **QueueableAction** per tutte le operazioni di business logic
@@ -428,7 +428,7 @@ return [
         'self_declaration' => [
             'label' => 'Autocertificazione',
             'placeholder' => 'Carica autocertificazione',
-            'help' => 'Autocertificazione di adesione al progetto SaluteOra',
+            'help' => 'Autocertificazione di adesione al progetto <nome progetto>',
         ],
         'privacy_consent' => [
             'label' => 'Consenso Privacy',
@@ -476,7 +476,7 @@ Ogni fase genera una reportistica completa disponibile agli amministratori nel b
 
 ### Interfaccia di Conferma di Ricezione Documenti
 
-![Interfaccia Conferma](/var/www/html/saluteora/docs/images/conferma-ricezione-dentista.png)
+![Interfaccia Conferma](/var/www/html/<nome progetto>/docs/images/conferma-ricezione-dentista.png)
 
 Dopo l'invio della documentazione, il dentista riceve una conferma visuale e via email che include:
 

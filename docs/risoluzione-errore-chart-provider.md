@@ -9,7 +9,7 @@ Internal Server Error
 
 Error
 Class "Modules\Chart\Providers\ChartServiceProvider" not found
-GET saluteora.local
+GET <nome progetto>.local
 PHP 8.3.20 — Laravel 12.7.2
 ```
 
@@ -56,7 +56,7 @@ Se il modulo Chart non è necessario, rimuovere il service provider da:
 ### Soluzione 3: Rigenerare l'Autoloader di Composer
 
 ```bash
-cd /var/www/html/saluteora
+cd /var/www/html/<nome progetto>
 composer dump-autoload -o
 ```
 
@@ -65,7 +65,7 @@ composer dump-autoload -o
 Se il modulo Chart è necessario ma manca o è danneggiato:
 
 ```bash
-cd /var/www/html/saluteora
+cd /var/www/html/<nome progetto>
 composer require your-vendor/chart-module
 
 # Oppure, se è un modulo locale

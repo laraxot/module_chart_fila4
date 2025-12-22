@@ -1,4 +1,4 @@
-# Sistema Gestione Documenti - SaluteOra
+# Sistema Gestione Documenti - <nome progetto>
 
 > **📄 Sistema completo per upload, validazione e gestione documenti digitali per l'accesso ai servizi odontoiatrici**
 

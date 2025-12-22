@@ -1,8 +1,8 @@
-# Security Audit e Compliance - SaluteOra
+# Security Audit e Compliance - <nome progetto>
 
 ## Introduzione
 
-Data la natura sanitaria del progetto SaluteOra e la gestione di dati sensibili (informazioni mediche, documenti d'identità, dati finanziari), è fondamentale implementare un sistema di sicurezza robusto e conforme alle normative GDPR, HIPAA e standard sanitari italiani.
+Data la natura sanitaria del progetto <nome progetto> e la gestione di dati sensibili (informazioni mediche, documenti d'identità, dati finanziari), è fondamentale implementare un sistema di sicurezza robusto e conforme alle normative GDPR, HIPAA e standard sanitari italiani.
 
 ## Obiettivi di Sicurezza
 

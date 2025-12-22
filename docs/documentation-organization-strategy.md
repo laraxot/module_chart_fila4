@@ -1,4 +1,4 @@
-# Strategia di Organizzazione Documentazione SaluteOra
+# Strategia di Organizzazione Documentazione <nome progetto>
 
 ## Obiettivi
 

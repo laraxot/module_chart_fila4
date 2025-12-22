@@ -1,4 +1,4 @@
-# Spatie Laravel Model States in SaluteOra
+# Spatie Laravel Model States in <nome progetto>
 
 ## Cos'è
 [spatie/laravel-model-states](https://spatie.be/docs/laravel-model-states/v2/01-introduction) è un package che implementa il pattern State e le state machine su modelli Eloquent, permettendo di gestire in modo elegante e type-safe gli stati di un modello e le transizioni tra di essi.
@@ -13,9 +13,9 @@
 - **Validazione request**: Integrazione con il sistema di validazione di Laravel
 - **Supporto per dependency injection**: Nelle classi di transizione
 
-## Implementazione in SaluteOra
+## Implementazione in <nome progetto>
 
-Nel progetto SaluteOra, utilizziamo spatie/laravel-model-states principalmente per gestire gli stati di registrazione dei Doctor (odontoiatri). Questo approccio ci permette di:
+Nel progetto <nome progetto>, utilizziamo spatie/laravel-model-states principalmente per gestire gli stati di registrazione dei Doctor (odontoiatri). Questo approccio ci permette di:
 
 1. Avere un codice più leggibile e manutenibile
 2. Garantire che le transizioni di stato seguano un flusso predefinito
@@ -284,7 +284,7 @@ $approvedDoctors = Doctor::whereState('state', Approved::class)->get();
 $rejectedDoctors = Doctor::whereState('state', Rejected::class)->get();
 ```
 
-## Vantaggi dell'utilizzo in SaluteOra
+## Vantaggi dell'utilizzo in <nome progetto>
 
 1. **Codice più leggibile**: La struttura basata su classi rende il codice auto-documentante.
 2. **Validazione robusta**: Le transizioni non permesse generano eccezioni, garantendo l'integrità dei dati.
@@ -313,7 +313,7 @@ protected function casts(): array
 }
 ```
 
-Questo cambiamento si applica a tutti i modelli che utilizzano spatie/laravel-model-states e in generale a tutti i modelli Eloquent nel progetto SaluteOra.
+Questo cambiamento si applica a tutti i modelli che utilizzano spatie/laravel-model-states e in generale a tutti i modelli Eloquent nel progetto <nome progetto>.
 
 Per maggiori informazioni, consultare la [documentazione ufficiale di Laravel 12.x sui mutator e i cast](https://laravel.com/docs/12.x/eloquent-mutators).
 
@@ -330,7 +330,7 @@ Per maggiori informazioni, consultare la [documentazione ufficiale di Laravel 12
 
 - [Documentazione ufficiale](https://spatie.be/docs/laravel-model-states/v2/01-introduction)
 - [Repository GitHub](https://github.com/spatie/laravel-model-states)
-- [Esempio di implementazione in SaluteOra](../../laravel/Modules/Patient/app/States/DoctorRegistrationState.php)
+- [Esempio di implementazione in <nome progetto>](../../laravel/Modules/Patient/app/States/DoctorRegistrationState.php)
 ```
 
 ## Quando usarlo

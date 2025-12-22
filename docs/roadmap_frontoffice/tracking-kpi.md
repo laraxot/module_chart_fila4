@@ -1,13 +1,13 @@
-# Tracking e KPI SaluteOra
+# Tracking e KPI <nome progetto>
 
 ## Descrizione
-Questo documento definisce le metriche chiave di performance (KPI) per il monitoraggio del progetto SaluteOra, con particolare attenzione al frontoffice e all'interazione utente.
+Questo documento definisce le metriche chiave di performance (KPI) per il monitoraggio del progetto <nome progetto>, con particolare attenzione al frontoffice e all'interazione utente.
 
 ## Stato Attuale
 - **Implementazione**: 70%
 - **Responsabile**: Team Product/Analytics
 - **Aggiornamento**: Settimanale
-- **Dashboard**: [Analytics Dashboard](https://dashboard.saluteora.local) (interno)
+- **Dashboard**: [Analytics Dashboard](https://dashboard.<nome progetto>.local) (interno)
 
 ## Metriche Business
 

@@ -1,7 +1,7 @@
 # PHPStan Corrections - August 1, 2025
 
 ## Overview
-This document details the systematic corrections made to resolve PHPStan level 9 errors across the SaluteOra project, following DRY and KISS principles without obvious comments.
+This document details the systematic corrections made to resolve PHPStan level 9 errors across the <nome progetto> project, following DRY and KISS principles without obvious comments.
 
 ## Initial Error Summary (Resolved)
 - **Total Files Analyzed**: 4,122
@@ -22,8 +22,8 @@ This document details the systematic corrections made to resolve PHPStan level 9
 - Maintained proper `protected static ?string $type = null` declaration
 - Used consistent `static::$type` access pattern
 
-### 2. SaluteOra RegisterAction.php - Null Method Call
-**Files**: `Modules/SaluteOra/app/Actions/Doctor/RegisterAction.php`
+### 2. <nome progetto> RegisterAction.php - Null Method Call
+**Files**: `Modules/<nome progetto>/app/Actions/Doctor/RegisterAction.php`
 **Lines**: 126
 **Error Type**: `method.nonObject`
 
@@ -35,8 +35,8 @@ if ($doctor->state !== null) {
 }
 ```
 
-### 3. SaluteOra StudioFilterWidget.php - Collection Safety
-**Files**: `Modules/SaluteOra/app/Filament/Widgets/StudioFilterWidget.php`
+### 3. <nome progetto> StudioFilterWidget.php - Collection Safety
+**Files**: `Modules/<nome progetto>/app/Filament/Widgets/StudioFilterWidget.php`
 **Lines**: 199, 212
 **Error Types**: `method.nonObject`, `assign.propertyType`
 
@@ -48,9 +48,9 @@ if ($doctor->state !== null) {
 
 ### 4. Generic Type Issues - UserContract Collections
 **Files**: 
-- `Modules/SaluteOra/app/Models/Doctor.php`
-- `Modules/SaluteOra/app/Models/Patient.php`
-- `Modules/SaluteOra/app/Models/User.php`
+- `Modules/<nome progetto>/app/Models/Doctor.php`
+- `Modules/<nome progetto>/app/Models/Patient.php`
+- `Modules/<nome progetto>/app/Models/User.php`
 - `Modules/User/app/Models/User.php`
 **Error Type**: `generics.notSubtype`
 
@@ -59,11 +59,11 @@ if ($doctor->state !== null) {
 
 ### 5. Translation Files - Duplicate Array Keys
 **Files**: 
-- `Modules/SaluteOra/lang/de/active.php`
-- `Modules/SaluteOra/lang/en/active.php`
-- `Modules/SaluteOra/lang/en/refund_completed.php`
-- `Modules/SaluteOra/lang/en/scheduled.php`
-- `Modules/SaluteOra/lang/en/suspended.php`
+- `Modules/<nome progetto>/lang/de/active.php`
+- `Modules/<nome progetto>/lang/en/active.php`
+- `Modules/<nome progetto>/lang/en/refund_completed.php`
+- `Modules/<nome progetto>/lang/en/scheduled.php`
+- `Modules/<nome progetto>/lang/en/suspended.php`
 **Error Type**: `array.duplicateKey`
 
 **Problem**: Duplicate keys causing PHPStan array validation errors

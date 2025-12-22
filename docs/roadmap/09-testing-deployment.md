@@ -9,8 +9,8 @@ Questo documento fornisce le linee guida per il testing completo e il deployment
 ```bash
 
 # Creazione di un database specifico per i test
-mysql -u root -p -e "CREATE DATABASE saluteora_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -u root -p -e "GRANT ALL PRIVILEGES ON saluteora_test.* TO 'saluteora'@'localhost';"
+mysql -u root -p -e "CREATE DATABASE <nome progetto>_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -u root -p -e "GRANT ALL PRIVILEGES ON <nome progetto>_test.* TO '<nome progetto>'@'localhost';"
 
 # Configurazione del file .env.testing
 cp .env .env.testing
@@ -20,7 +20,7 @@ Modificare il file `.env.testing`:
 
 ```
 APP_ENV=testing
-DB_DATABASE=saluteora_test
+DB_DATABASE=<nome progetto>_test
 CACHE_DRIVER=array
 SESSION_DRIVER=array
 QUEUE_CONNECTION=sync
@@ -318,16 +318,16 @@ Creare un file `deploy.sh` nella root del progetto:
 # Script di deployment per il progetto
 
 # Variabili di configurazione
-DEPLOY_DIR="/var/www/saluteora"
-REPO_URL="git@github.com:organizzazione/saluteora.git"
+DEPLOY_DIR="/var/www/<nome progetto>"
+REPO_URL="git@github.com:organizzazione/<nome progetto>.git"
 BRANCH="main"
-BACKUP_DIR="/var/backups/saluteora"
+BACKUP_DIR="/var/backups/<nome progetto>"
 
 # Creazione backup
 echo "Creazione backup..."
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
 mkdir -p $BACKUP_DIR
-mysqldump -u saluteora -p saluteora > $BACKUP_DIR/saluteora_$TIMESTAMP.sql
+mysqldump -u <nome progetto> -p <nome progetto> > $BACKUP_DIR/<nome progetto>_$TIMESTAMP.sql
 cp -r $DEPLOY_DIR/storage $BACKUP_DIR/storage_$TIMESTAMP
 
 # Aggiornamento del codice
@@ -386,18 +386,18 @@ Configurazione del server web (Nginx):
 ```nginx
 server {
     listen 80;
-    server_name saluteora.org www.saluteora.org;
+    server_name <nome progetto>.org www.<nome progetto>.org;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name saluteora.org www.saluteora.org;
+    server_name <nome progetto>.org www.<nome progetto>.org;
     
-    ssl_certificate /etc/letsencrypt/live/saluteora.org/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/saluteora.org/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/<nome progetto>.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/<nome progetto>.org/privkey.pem;
     
-    root /var/www/saluteora/public;
+    root /var/www/<nome progetto>/public;
     
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";
@@ -473,7 +473,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /var/www/saluteora
+            cd /var/www/<nome progetto>
             git pull origin main
             composer install --no-dev --optimize-autoloader
             npm ci
@@ -484,8 +484,8 @@ jobs:
             php artisan route:cache
             php artisan view:cache
             php artisan filament:cache-resources
-            chown -R www-data:www-data /var/www/saluteora
-            chmod -R 755 /var/www/saluteora/storage /var/www/saluteora/bootstrap/cache
+            chown -R www-data:www-data /var/www/<nome progetto>
+            chmod -R 755 /var/www/<nome progetto>/storage /var/www/<nome progetto>/bootstrap/cache
 ```
 
 ### 4.3 Configurazione di Supervisord per i Worker di Coda
@@ -494,10 +494,10 @@ Creare un file di configurazione per Supervisord:
 
 ```ini
 
-# /etc/supervisor/conf.d/saluteora-worker.conf
-[program:saluteora-worker]
+# /etc/supervisor/conf.d/<nome progetto>-worker.conf
+[program:<nome progetto>-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/saluteora/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/<nome progetto>/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -505,7 +505,7 @@ killasgroup=true
 user=www-data
 numprocs=4
 redirect_stderr=true
-stdout_logfile=/var/www/saluteora/storage/logs/worker.log
+stdout_logfile=/var/www/<nome progetto>/storage/logs/worker.log
 stopwaitsecs=3600
 ```
 
@@ -524,16 +524,16 @@ Creare uno script di backup automatico:
 ```bash
 #!/bin/bash
 
-# /usr/local/bin/saluteora-backup.sh
+# /usr/local/bin/<nome progetto>-backup.sh
 
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
-BACKUP_DIR="/var/backups/saluteora"
+BACKUP_DIR="/var/backups/<nome progetto>"
 
 # Backup del database
-mysqldump -u saluteora -p'password' saluteora | gzip > $BACKUP_DIR/database_$TIMESTAMP.sql.gz
+mysqldump -u <nome progetto> -p'password' <nome progetto> | gzip > $BACKUP_DIR/database_$TIMESTAMP.sql.gz
 
 # Backup dei file
-tar -czf $BACKUP_DIR/files_$TIMESTAMP.tar.gz /var/www/saluteora/storage/app
+tar -czf $BACKUP_DIR/files_$TIMESTAMP.tar.gz /var/www/<nome progetto>/storage/app
 
 # Eliminazione backup più vecchi di 30 giorni
 find $BACKUP_DIR -name "database_*.sql.gz" -mtime +30 -delete
@@ -543,7 +543,7 @@ find $BACKUP_DIR -name "files_*.tar.gz" -mtime +30 -delete
 Aggiungere al crontab:
 
 ```
-0 2 * * * /usr/local/bin/saluteora-backup.sh > /dev/null 2>&1
+0 2 * * * /usr/local/bin/<nome progetto>-backup.sh > /dev/null 2>&1
 ```
 
 ## Fase 5: Monitoraggio e Manutenzione
@@ -592,10 +592,10 @@ Creare uno script di rollback per situazioni di emergenza:
 ```bash
 #!/bin/bash
 
-# /usr/local/bin/saluteora-rollback.sh
+# /usr/local/bin/<nome progetto>-rollback.sh
 
 # Rollback all'ultima versione stabile
-cd /var/www/saluteora
+cd /var/www/<nome progetto>
 git checkout stable-tag
 composer install --optimize-autoloader --no-dev
 npm ci
@@ -617,9 +617,9 @@ Pianificare aggiornamenti regolari delle dipendenze e delle patch di sicurezza:
 ```bash
 #!/bin/bash
 
-# /usr/local/bin/saluteora-update-deps.sh
+# /usr/local/bin/<nome progetto>-update-deps.sh
 
-cd /var/www/saluteora
+cd /var/www/<nome progetto>
 composer update --no-dev
 npm update
 git add composer.lock package-lock.json

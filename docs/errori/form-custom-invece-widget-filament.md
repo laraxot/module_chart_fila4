@@ -7,7 +7,7 @@ Ho creato un form custom con Livewire/Volt in `/Themes/One/resources/views/pages
 
 ## File Coinvolti
 - ❌ `/laravel/Themes/One/resources/views/pages/patient/book.blade.php` - Form custom creato
-- ✅ `/laravel/Modules/SaluteOra/app/Filament/Widgets/Patient/FindDoctorAndAppointmentWidget.php` - Widget da usare
+- ✅ `/laravel/Modules/<nome progetto>/app/Filament/Widgets/Patient/FindDoctorAndAppointmentWidget.php` - Widget da usare
 
 ## Perché è Grave
 1. **Duplicazione di codice**: Il widget esiste già

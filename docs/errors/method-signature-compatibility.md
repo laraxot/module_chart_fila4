@@ -2,7 +2,7 @@
 
 questo documento è un collegamento alla documentazione completa disponibile nel modulo xot:
 
-[vai alla documentazione completa](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/errors/method_signature_compatibility.md)
+[vai alla documentazione completa](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/errors/method_signature_compatibility.md)
 
 ## problema in breve
 
@@ -20,4 +20,4 @@ quando si estende una classe, è necessario mantenere la stessa firma dei metodi
 Cannot make non static method Filament\Pages\BasePage::getView() static in class Modules\Xot\Filament\Pages\XotBasePage
 ```
 
-per dettagli completi e soluzioni, consultare la [documentazione nel modulo xot](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/errors/method_signature_compatibility.md).
+per dettagli completi e soluzioni, consultare la [documentazione nel modulo xot](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/errors/method_signature_compatibility.md).

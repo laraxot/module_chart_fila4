@@ -5,7 +5,7 @@
 
 ## Overview Fase
 
-La Fase 3 rappresenta l'evoluzione di SaluteOra verso una piattaforma di next-generation healthcare, integrando tecnologie emergenti come AI, telemedicina, mobile nativo e analytics avanzate per creare un ecosistema sanitario digitale completo e all'avanguardia.
+La Fase 3 rappresenta l'evoluzione di <nome progetto> verso una piattaforma di next-generation healthcare, integrando tecnologie emergenti come AI, telemedicina, mobile nativo e analytics avanzate per creare un ecosistema sanitario digitale completo e all'avanguardia.
 
 ## Vision Strategica
 
@@ -132,7 +132,7 @@ Webhooks: Real-time event notification system
 
 #### Developer Ecosystem
 - **API Product Suite**:
-  - SaluteOra Practice API per practice management integration
+  - <nome progetto> Practice API per practice management integration
   - Healthcare Interoperability API per clinical data exchange
   - Analytics API per business intelligence integration
   - Payment API per financial transaction processing

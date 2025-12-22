@@ -76,8 +76,8 @@
 Per iniziare, è necessario clonare il repository del progetto:
 
 ```bash
-git clone git@github.com:organization/saluteora.git
-cd saluteora
+git clone git@github.com:organization/<nome progetto>.git
+cd <nome progetto>
 ```
 
 **Stato**: Da completare
@@ -101,7 +101,7 @@ services:
   # PHP Application with Nginx
   app:
     image: serversideup/php:8.2-fpm-nginx
-    container_name: saluteora-app
+    container_name: <nome progetto>-app
     restart: unless-stopped
     volumes:
       - ./:/var/www/html
@@ -112,8 +112,8 @@ services:
       - CONTAINER_ROLE=app
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_DATABASE=saluteora
-      - DB_USERNAME=saluteora
+      - DB_DATABASE=<nome progetto>
+      - DB_USERNAME=<nome progetto>
       - DB_PASSWORD=secret_password
       - REDIS_HOST=redis
       - CACHE_DRIVER=redis
@@ -125,44 +125,44 @@ services:
       - db
       - redis
     networks:
-      - saluteora-network
+      - <nome progetto>-network
 
   # Database
   db:
     image: mysql:8.0
-    container_name: saluteora-db
+    container_name: <nome progetto>-db
     restart: unless-stopped
     ports:
       - "33060:3306"
     environment:
-      - MYSQL_DATABASE=saluteora
-      - MYSQL_USER=saluteora
+      - MYSQL_DATABASE=<nome progetto>
+      - MYSQL_USER=<nome progetto>
       - MYSQL_PASSWORD=secret_password
       - MYSQL_ROOT_PASSWORD=root_password
     volumes:
       - db_data:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
-      - saluteora-network
+      - <nome progetto>-network
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
 
   # Redis for Cache & Queue
   redis:
     image: redis:7-alpine
-    container_name: saluteora-redis
+    container_name: <nome progetto>-redis
     restart: unless-stopped
     ports:
       - "63790:6379"
     volumes:
       - redis_data:/data
     networks:
-      - saluteora-network
+      - <nome progetto>-network
     command: redis-server --appendonly yes --requirepass "redis_password"
 
   # Queue Worker
   queue:
     image: serversideup/php:8.2-cli
-    container_name: saluteora-queue
+    container_name: <nome progetto>-queue
     restart: unless-stopped
     volumes:
       - ./:/var/www/html
@@ -174,22 +174,22 @@ services:
       - db
       - redis
     networks:
-      - saluteora-network
+      - <nome progetto>-network
     command: php artisan queue:work --sleep=3 --tries=3 --timeout=90
 
   # Mailhog for Email Testing
   mailhog:
     image: mailhog/mailhog
-    container_name: saluteora-mailhog
+    container_name: <nome progetto>-mailhog
     restart: unless-stopped
     ports:
       - "1025:1025" # SMTP port
       - "8025:8025" # Web UI port
     networks:
-      - saluteora-network
+      - <nome progetto>-network
 
 networks:
-  saluteora-network:
+  <nome progetto>-network:
     driver: bridge
 
 volumes:
@@ -317,7 +317,7 @@ APP_URL=http://localhost:8000
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora
+DB_DATABASE=<nome progetto>
 DB_USERNAME=root
 DB_PASSWORD=
 

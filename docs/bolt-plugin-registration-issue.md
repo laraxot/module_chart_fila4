@@ -1,16 +1,16 @@
-# Bolt Plugin Registration Issue - SaluteOra
+# Bolt Plugin Registration Issue - <nome progetto>
 
 ## Problema Identificato
 
 ### Errore
 ```
-Plugin [zeus-bolt] is not registered for panel [saluteora::admin].
+Plugin [zeus-bolt] is not registered for panel [<nome progetto>::admin].
 ```
 
 ### Contesto
 - **URL**: `/it/patient/referto`
 - **Component**: `<livewire:bolt.fill-form slug="prova-1" inline="true" />`
-- **Panel ID**: `saluteora::admin`
+- **Panel ID**: `<nome progetto>::admin`
 - **Plugin**: Lara Zeus Bolt (form builder per Filament)
 
 ## Analisi Approfondita
@@ -24,7 +24,7 @@ Il sistema di panel di Filament opera secondo principi di **autorità distribuit
 ### Struttura Attuale
 1. **Plugin installato**: `"lara-zeus/bolt": "*"` in `composer.json`
 2. **Plugin registrato**: `BoltPlugin::make()` in `AdminPanelProvider`
-3. **Panel ID**: Configurato come `saluteora::admin` nella classe base
+3. **Panel ID**: Configurato come `<nome progetto>::admin` nella classe base
 
 ## Causa Radice
 
@@ -84,7 +84,7 @@ Modifica dell'`AdminPanelProvider` per garantire registrazione anticipata:
 
 declare(strict_types=1);
 
-namespace Modules\SaluteOra\Providers\Filament;
+namespace Modules\<nome progetto>\Providers\Filament;
 
 use Filament\Panel;
 use LaraZeus\Bolt\BoltPlugin;
@@ -92,7 +92,7 @@ use Modules\Xot\Providers\Filament\XotBasePanelProvider;
 
 class AdminPanelProvider extends XotBasePanelProvider
 {
-    protected string $module = 'SaluteOra';
+    protected string $module = '<nome progetto>';
 
     public function panel(Panel $panel): Panel
     {
@@ -188,7 +188,7 @@ Creare un provider dedicato per Bolt:
 ```php
 <?php
 
-namespace Modules\SaluteOra\Providers;
+namespace Modules\<nome progetto>\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use LaraZeus\Bolt\BoltPlugin;
@@ -267,7 +267,7 @@ Ogni sviluppatore è responsabile di testare l'integrazione prima del deploy.
 
 - [LaraZeus Bolt Documentation](https://bolt.larazeus.com/)
 - [Filament Plugin Development](https://filamentphp.com/docs/3.x/support/plugins)
-- [SaluteOra AdminPanelProvider](../laravel/Modules/SaluteOra/app/Providers/Filament/AdminPanelProvider.php)
+- [<nome progetto> AdminPanelProvider](../laravel/Modules/<nome progetto>/app/Providers/Filament/AdminPanelProvider.php)
 - [Xot Base Panel Provider](../laravel/Modules/Xot/app/Providers/Filament/XotBasePanelProvider.php)
 
 *Ultimo aggiornamento: Gennaio 2025* 

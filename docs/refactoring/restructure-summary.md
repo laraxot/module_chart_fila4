@@ -108,7 +108,7 @@ docs/
 
 ## 🏆 SUCCESSO COMPLETO
 
-La ristrutturazione DRY + KISS della documentazione SaluteOra è stata completata con **successo totale**:
+La ristrutturazione DRY + KISS della documentazione <nome progetto> è stata completata con **successo totale**:
 
 - ✅ **Obiettivi raggiunti al 100%**
 - ✅ **Principi DRY + KISS applicati rigorosamente**  
@@ -118,7 +118,7 @@ La ristrutturazione DRY + KISS della documentazione SaluteOra è stata completat
 
 ---
 
-**🎉 DOCUMENTAZIONE SALUTEORA TRASFORMATA**  
+**🎉 DOCUMENTAZIONE <nome progetto> TRASFORMATA**  
 *Da caotica a cristallina - Da ridondante a essenziale*  
 *Principi DRY + KISS applicati con successo totale*
 

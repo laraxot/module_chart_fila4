@@ -15,9 +15,9 @@
 ## Gestione dei Contenuti
 
 ### Struttura dei Dati
-- Sezioni: `/laravel/config/local/saluteora/database/content/sections/`
-- Blocchi: `/laravel/config/local/saluteora/database/content/blocks/`
-- Pagine: `/laravel/config/local/saluteora/database/content/pages/`
+- Sezioni: `/laravel/config/local/<nome progetto>/database/content/sections/`
+- Blocchi: `/laravel/config/local/<nome progetto>/database/content/blocks/`
+- Pagine: `/laravel/config/local/<nome progetto>/database/content/pages/`
 
 ### Organizzazione Multilingua
 - Ogni contenuto ha una cartella per lingua
@@ -108,7 +108,7 @@ return [
      - `config` non `Config`
 
 2. **Contenuti**
-   - Percorso: `/laravel/config/local/saluteora/database/content/`
+   - Percorso: `/laravel/config/local/<nome progetto>/database/content/`
    - Struttura:
      - `sections/`: Sezioni numerate (1.json, 2.json)
      - `blocks/`: Blocchi riutilizzabili (navigation.json, actions.json)

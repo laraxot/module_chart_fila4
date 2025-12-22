@@ -4,7 +4,7 @@
 Componenti Livewire o altri elementi dell'interfaccia utente posizionati nella directory `app/` invece che nei rispettivi moduli.
 
 ## Contesto
-Il sistema SaluteOra segue un'architettura modulare dove ogni modulo è autonomo e contiene tutti i suoi componenti. I componenti non dovrebbero mai essere posizionati nella directory `app/` dell'applicazione principale.
+Il sistema <nome progetto> segue un'architettura modulare dove ogni modulo è autonomo e contiene tutti i suoi componenti. I componenti non dovrebbero mai essere posizionati nella directory `app/` dell'applicazione principale.
 
 ## Cause Comuni
 1. Sviluppo rapido senza seguire l'architettura

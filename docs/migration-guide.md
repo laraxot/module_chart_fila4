@@ -1,8 +1,8 @@
-# Migration Guide: Moving from SaluteOra to Geo Module
+# Migration Guide: Moving from <nome progetto> to Geo Module
 
 ## Overview
 
-This guide explains how to migrate from using geographical models in the SaluteOra module to using the centralized Geo module.
+This guide explains how to migrate from using geographical models in the <nome progetto> module to using the centralized Geo module.
 
 ## Why Migrate?
 
@@ -27,13 +27,13 @@ Update your module's `composer.json` to require the Geo module if not already pr
 
 ### 2. Update Model Imports
 
-Replace imports from SaluteOra models to Geo models:
+Replace imports from <nome progetto> models to Geo models:
 
 ```diff
-- use Modules\SaluteOra\Models\Region;
-- use Modules\SaluteOra\Models\Province;
-- use Modules\SaluteOra\Models\City;
-- use Modules\SaluteOra\Models\Cap;
+- use Modules\<nome progetto>\Models\Region;
+- use Modules\<nome progetto>\Models\Province;
+- use Modules\<nome progetto>\Models\City;
+- use Modules\<nome progetto>\Models\Cap;
 
 + use Modules\Geo\Models\Region;
 + use Modules\Geo\Models\Province;
@@ -65,7 +65,7 @@ Update any relationships to use the new model classes:
 // Before
 public function region()
 {
-    return $this->belongsTo(\Modules\SaluteOra\Models\Region::class);
+    return $this->belongsTo(\Modules\<nome progetto>\Models\Region::class);
 }
 
 // After
@@ -85,7 +85,7 @@ php artisan migrate
 
 ## Data Migration
 
-If you have existing data in the SaluteOra module's geographical tables, you'll need to migrate it to the Geo module's tables. Create a custom migration for this purpose.
+If you have existing data in the <nome progetto> module's geographical tables, you'll need to migrate it to the Geo module's tables. Create a custom migration for this purpose.
 
 ## Testing
 

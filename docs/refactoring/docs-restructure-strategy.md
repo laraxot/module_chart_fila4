@@ -25,7 +25,7 @@ docs/
 ├── modules/                     # Documentazione moduli
 │   ├── overview.md
 │   ├── xot/
-│   ├── saluteora/
+│   ├── <nome progetto>/
 │   └── ui/
 ├── guides/                      # Guide pratiche
 │   ├── installation.md

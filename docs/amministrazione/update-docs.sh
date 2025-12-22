@@ -7,8 +7,8 @@ echo "===== Aggiornamento Documentazione ====="
 echo "Avviato: $(date)"
 
 # Directory principale
-DOCS_DIR="/var/www/html/saluteora/docs"
-LARAVEL_DIR="/var/www/html/saluteora/laravel"
+DOCS_DIR="/var/www/html/<nome progetto>/docs"
+LARAVEL_DIR="/var/www/html/<nome progetto>/laravel"
 LOG_FILE="$DOCS_DIR/aggiornamento_log.txt"
 
 # Funzione per registrare un messaggio nel log

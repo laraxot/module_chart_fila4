@@ -14,8 +14,8 @@
 ```nginx
 server {
     listen 80;
-    server_name saluteora.it;
-    root /var/www/html/saluteora/public;
+    server_name <nome progetto>.it;
+    root /var/www/html/<nome progetto>/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";
@@ -81,7 +81,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /var/www/html/saluteora
+            cd /var/www/html/<nome progetto>
             git pull origin main
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
@@ -100,7 +100,7 @@ jobs:
 php artisan backup:run
 
 # Backup files
-tar -czf backup.tar.gz /var/www/html/saluteora
+tar -czf backup.tar.gz /var/www/html/<nome progetto>
 
 # Verifica spazio
 df -h
@@ -190,7 +190,7 @@ php artisan migrate:rollback --step=1
 ```bash
 
 # Ripristino backup
-tar -xzf backup.tar.gz -C /var/www/html/saluteora
+tar -xzf backup.tar.gz -C /var/www/html/<nome progetto>
 
 # Ripristino database
 php artisan backup:restore
@@ -215,7 +215,7 @@ php artisan view:clear
 logrotate /etc/logrotate.d/laravel
 
 # Pulizia logs vecchi
-find /var/www/html/saluteora/storage/logs -type f -mtime +30 -delete
+find /var/www/html/<nome progetto>/storage/logs -type f -mtime +30 -delete
 ``` 
 
 ## Collegamenti tra versioni di README.md

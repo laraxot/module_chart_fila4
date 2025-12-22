@@ -18,7 +18,7 @@ Stiamo affrontando la necessità di garantire riusabilità e consistenza nel nos
 ### Struttura dei Widget
 
 ```
-Modules/SaluteOra/Filament/Widgets/
+Modules/<nome progetto>/Filament/Widgets/
 ├── Admin/          # Widget specifici per l'admin
 ├── Patient/        # Widget per l'area paziente (frontend)
 ├── Doctor/         # Widget per l'area dottore
@@ -31,7 +31,7 @@ Modules/SaluteOra/Filament/Widgets/
 {{-- Themes/One/resources/views/pages/patient/book.blade.php --}}
 <x-layouts.app>
     <div class="container mx-auto py-8">
-        @livewire('saluteora::patient.find-doctor-and-appointment-widget')
+        @livewire('<nome progetto>::patient.find-doctor-and-appointment-widget')
     </div>
 </x-layouts.app>
 ```

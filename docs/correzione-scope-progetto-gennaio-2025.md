@@ -1,8 +1,8 @@
-# 🔧 Correzione Scope Progetto SaluteOra - Gennaio 2025
+# 🔧 Correzione Scope Progetto <nome progetto> - Gennaio 2025
 
 ## ⚠️ **Problema Identificato**
 
-Durante la creazione della documentazione di stato avanzamenti, erano state erroneamente incluse funzionalità **non richieste** dal progetto SaluteOra, allontanandosi dalle specifiche reali contenute in `/docs/images/`.
+Durante la creazione della documentazione di stato avanzamenti, erano state erroneamente incluse funzionalità **non richieste** dal progetto <nome progetto>, allontanandosi dalle specifiche reali contenute in `/docs/images/`.
 
 ## 📋 **Analisi Effettuata**
 
@@ -42,7 +42,7 @@ Durante la creazione della documentazione di stato avanzamenti, erano state erro
 - ❌ Installment plans
 - ❌ PCI DSS compliance avanzata
 
-**Motivazione Rimozione**: Il progetto SaluteOra fornisce **servizi gratuiti** a gestanti in condizioni di vulnerabilità. Non ci sono pagamenti.
+**Motivazione Rimozione**: Il progetto <nome progetto> fornisce **servizi gratuiti** a gestanti in condizioni di vulnerabilità. Non ci sono pagamenti.
 
 ### **Funzionalità Avanzate:**
 - ❌ Telemedicina integrata
@@ -191,9 +191,9 @@ Per progetti futuri, utilizzare questa checklist:
 
 ## 🎯 **Conclusioni**
 
-La correzione dello scope del progetto SaluteOra rappresenta un **miglioramento significativo** nella precisione della documentazione e nell'allineamento con i requisiti reali.
+La correzione dello scope del progetto <nome progetto> rappresenta un **miglioramento significativo** nella precisione della documentazione e nell'allineamento con i requisiti reali.
 
-**Il progetto SaluteOra** è ora correttamente posizionato come una **piattaforma semplice ed efficace** per collegare pazienti gestanti in condizioni di vulnerabilità con dentisti convenzionati, **senza** complessità non necessarie.
+**Il progetto <nome progetto>** è ora correttamente posizionato come una **piattaforma semplice ed efficace** per collegare pazienti gestanti in condizioni di vulnerabilità con dentisti convenzionati, **senza** complessità non necessarie.
 
 **Benefici principali:**
 - ✅ **Scope realistico** e raggiungibile
@@ -205,7 +205,7 @@ La correzione dello scope del progetto SaluteOra rappresenta un **miglioramento 
 ---
 
 *Documento creato: 2 Gennaio 2025*  
-*Autore: AI Assistant (Correzione Scope SaluteOra)*  
+*Autore: AI Assistant (Correzione Scope <nome progetto>)*  
 *Ultima verifica: 2 Gennaio 2025*  
 *Versione: 1.0 - Correzione Definitiva*
 

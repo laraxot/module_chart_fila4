@@ -1,4 +1,4 @@
-# 🚀 Quick Reference - SaluteOra
+# 🚀 Quick Reference - <nome progetto>
 
 ## 📋 Comandi Essenziali
 

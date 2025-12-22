@@ -1,7 +1,7 @@
 # Risoluzione Conflitti di Merge - 27 Gennaio 2025
 
 ## Panoramica
-Questo documento descrive la risoluzione completa dei conflitti di merge Git nel progetto SaluteOra, seguendo le best practice e le regole del progetto.
+Questo documento descrive la risoluzione completa dei conflitti di merge Git nel progetto <nome progetto>, seguendo le best practice e le regole del progetto.
 
 ## File Risolti
 
@@ -14,17 +14,17 @@ Questo documento descrive la risoluzione completa dei conflitti di merge Git nel
 
 #### 2. `module.json`
 - **Conflitto**: Configurazione del modulo (Chart vs Geo)
-- **Risoluzione**: Configurato per SaluteOra con provider appropriati
+- **Risoluzione**: Configurato per <nome progetto> con provider appropriati
 - **Impatto**: Corretta registrazione del modulo
 
 #### 3. `package.json`
 - **Conflitto**: Dipendenze e configurazione build (Chart vs Geo)
-- **Risoluzione**: Unificate le dipendenze per SaluteOra, mantenendo Vite
+- **Risoluzione**: Unificate le dipendenze per <nome progetto>, mantenendo Vite
 - **Impatto**: Corretta build degli asset
 
 ### File di Migrazione
 
-#### 4. `laravel/Modules/SaluteOra/database/migrations/2024_03_31_000009_create_appointments_table.php`
+#### 4. `laravel/Modules/<nome progetto>/database/migrations/2024_03_31_000009_create_appointments_table.php`
 - **Conflitto**: Struttura tabella appuntamenti con multiple versioni
 - **Risoluzione**: 
   - Mantenute le foreign key nullable per flessibilità

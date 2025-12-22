@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-Questo documento descrive le procedure e le best practice per la manutenzione del codice nel progetto SaluteOra, garantendo qualità, performance e manutenibilità a lungo termine.
+Questo documento descrive le procedure e le best practice per la manutenzione del codice nel progetto <nome progetto>, garantendo qualità, performance e manutenibilità a lungo termine.
 
 ## Processo di Code Review
 

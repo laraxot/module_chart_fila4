@@ -1,8 +1,8 @@
-# Migrazioni del Database in SaluteOra
+# Migrazioni del Database in <nome progetto>
 
 ## Panoramica
 
-Questo documento descrive le best practice per la gestione delle migrazioni del database in SaluteOra, con particolare attenzione alla struttura delle tabelle e alla mappatura dei campi.
+Questo documento descrive le best practice per la gestione delle migrazioni del database in <nome progetto>, con particolare attenzione alla struttura delle tabelle e alla mappatura dei campi.
 
 ## Principi Fondamentali
 

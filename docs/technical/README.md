@@ -1,10 +1,10 @@
-# Documentazione Tecnica - SaluteOra
+# Documentazione Tecnica - <nome progetto>
 
 > **🔧 OBIETTIVO**: Documentazione tecnica completa per sviluppatori e amministratori di sistema
 
 ## 📋 Overview
 
-Questa sezione contiene tutta la documentazione tecnica necessaria per lo sviluppo, deployment e manutenzione del sistema SaluteOra, incluse specifiche architetturali, guide di installazione e procedure operative.
+Questa sezione contiene tutta la documentazione tecnica necessaria per lo sviluppo, deployment e manutenzione del sistema <nome progetto>, incluse specifiche architetturali, guide di installazione e procedure operative.
 
 ## 🏗️ Architettura Sistema
 
@@ -37,7 +37,7 @@ Supervisor (Queue Worker)
 ```
 app/
 ├── Modules/
-│   ├── SaluteOra/          # Modulo principale
+│   ├── <nome progetto>/          # Modulo principale
 │   │   ├── Filament/       # Admin panels
 │   │   ├── Http/           # Controllers & API
 │   │   ├── Models/         # Eloquent models
@@ -217,8 +217,8 @@ Route::middleware('throttle:60,1')->group(function () {
 # Nginx Configuration
 server {
     listen 80;
-    server_name saluteora.local;
-    root /var/www/html/_bases/base_saluteora/public;
+    server_name <nome progetto>.local;
+    root /var/www/html/_bases/base_<nome progetto>/public;
     
     index index.php;
     
@@ -242,13 +242,13 @@ server {
 # .env Production
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://saluteora.it
+APP_URL=https://<nome progetto>.it
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora_prod
-DB_USERNAME=saluteora_user
+DB_DATABASE=<nome progetto>_prod
+DB_USERNAME=<nome progetto>_user
 DB_PASSWORD=secure_password
 
 CACHE_DRIVER=redis
@@ -258,7 +258,7 @@ QUEUE_CONNECTION=redis
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USERNAME=noreply@saluteora.it
+MAIL_USERNAME=noreply@<nome progetto>.it
 MAIL_PASSWORD=app_password
 ```
 
@@ -267,9 +267,9 @@ MAIL_PASSWORD=app_password
 ```bash
 
 # Supervisor Configuration
-[program:saluteora-worker]
+[program:<nome progetto>-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/_bases/base_saluteora/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/html/_bases/base_<nome progetto>/artisan queue:work redis --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -277,7 +277,7 @@ killasgroup=true
 user=www-data
 numprocs=4
 redirect_stderr=true
-stdout_logfile=/var/log/supervisor/saluteora-worker.log
+stdout_logfile=/var/log/supervisor/<nome progetto>-worker.log
 stopwaitsecs=3600
 ```
 
@@ -384,11 +384,11 @@ tests/
 
 # Script backup database
 #!/bin/bash
-BACKUP_DIR="/backups/saluteora"
+BACKUP_DIR="/backups/<nome progetto>"
 DATE=$(date +%Y%m%d_%H%M%S)
 
-mysqldump -u saluteora_user -p saluteora_prod > $BACKUP_DIR/db_backup_$DATE.sql
-tar -czf $BACKUP_DIR/files_backup_$DATE.tar.gz /var/www/html/_bases/base_saluteora/storage
+mysqldump -u <nome progetto>_user -p <nome progetto>_prod > $BACKUP_DIR/db_backup_$DATE.sql
+tar -czf $BACKUP_DIR/files_backup_$DATE.tar.gz /var/www/html/_bases/base_<nome progetto>/storage
 
 # Retention: keep last 30 days
 find $BACKUP_DIR -name "*.sql" -mtime +30 -delete
@@ -435,14 +435,14 @@ php artisan storage:link
 ```bash
 
 # Permission issues
-sudo chown -R www-data:www-data /var/www/html/_bases/base_saluteora
-sudo chmod -R 755 /var/www/html/_bases/base_saluteora
-sudo chmod -R 777 /var/www/html/_bases/base_saluteora/storage
-sudo chmod -R 777 /var/www/html/_bases/base_saluteora/bootstrap/cache
+sudo chown -R www-data:www-data /var/www/html/_bases/base_<nome progetto>
+sudo chmod -R 755 /var/www/html/_bases/base_<nome progetto>
+sudo chmod -R 777 /var/www/html/_bases/base_<nome progetto>/storage
+sudo chmod -R 777 /var/www/html/_bases/base_<nome progetto>/bootstrap/cache
 
 # Queue issues
 php artisan queue:restart
-supervisorctl restart saluteora-worker:*
+supervisorctl restart <nome progetto>-worker:*
 
 # Cache issues
 php artisan cache:clear

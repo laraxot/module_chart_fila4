@@ -13,8 +13,8 @@ L'errore si verifica durante la registrazione di un nuovo paziente, specificamen
 ## Analisi del Codice
 
 ### File Coinvolti
-1. `Modules/SaluteOra/Actions/Patient/RegisterAction.php`
-2. `Modules/SaluteOra/Models/Patient.php`
+1. `Modules/<nome progetto>/Actions/Patient/RegisterAction.php`
+2. `Modules/<nome progetto>/Models/Patient.php`
 3. `Modules/User/Models/User.php`
 
 ### Causa Principale

@@ -52,10 +52,10 @@ Livewire richiede che ogni componente abbia **UN SOLO** elemento root HTML. Il w
                     </svg>
                 </div>
                 <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-                    {{ __('saluteora::widgets.doctor_appointments.empty.title') }}
+                    {{ __('<nome progetto>::widgets.doctor_appointments.empty.title') }}
                 </h3>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                    {{ __('saluteora::widgets.doctor_appointments.empty.description') }}
+                    {{ __('<nome progetto>::widgets.doctor_appointments.empty.description') }}
                 </p>
             </div>
         @endif
@@ -233,7 +233,7 @@ public function test_widget_renders_without_multiple_root_elements()
 
 - [Livewire Documentation - Single Root Element](https://livewire.laravel.com/docs/components#single-root-element)
 - [Filament Actions Documentation](https://filamentphp.com/docs/3.x/actions/overview)
-- [laravel/Modules/SaluteOra/docs/widgets/doctor-appointments-widget-fix.md](../laravel/Modules/SaluteOra/docs/widgets/doctor-appointments-widget-fix.md)
+- [laravel/Modules/<nome progetto>/docs/widgets/doctor-appointments-widget-fix.md](../laravel/Modules/<nome progetto>/docs/widgets/doctor-appointments-widget-fix.md)
 
 *Ultimo aggiornamento: 2025-01-03*
 *Autore: AI Assistant*

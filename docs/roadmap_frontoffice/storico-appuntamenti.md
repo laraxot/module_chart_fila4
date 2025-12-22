@@ -1,4 +1,4 @@
-# Storico Appuntamenti - SaluteOra
+# Storico Appuntamenti - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema completo per la gestione e visualizzazione dello storico degli appuntamenti delle pazienti
 
@@ -483,9 +483,9 @@ class MonthlyAppointmentReportJob implements ShouldQueue
 - [Dashboard Paziente](./dashboard_paziente.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/AppointmentHistoryResource.php`
-- `Modules/SaluteOra/Livewire/AppointmentTimelineComponent.php`
-- `Modules/SaluteOra/Exports/AppointmentHistoryExport.php`
+- `Modules/<nome progetto>/Filament/Resources/AppointmentHistoryResource.php`
+- `Modules/<nome progetto>/Livewire/AppointmentTimelineComponent.php`
+- `Modules/<nome progetto>/Exports/AppointmentHistoryExport.php`
 
 ---
 

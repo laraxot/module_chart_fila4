@@ -1,4 +1,4 @@
-# Lista Studi Odontoiatrici - SaluteOra
+# Lista Studi Odontoiatrici - <nome progetto>
 
 > **🎯 OBIETTIVO**: Visualizzazione ottimizzata dei risultati di ricerca degli studi odontoiatrici convenzionati
 
@@ -674,9 +674,9 @@ const studioFilters = new StudioFilters();
 - [Sistema Prenotazione](../03_prenotazione_visite.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/StudioSearchResultsResource.php`
-- `Modules/SaluteOra/Services/GeographicSearchService.php`
-- `Modules/SaluteOra/Services/StudioRankingService.php`
+- `Modules/<nome progetto>/Filament/Resources/StudioSearchResultsResource.php`
+- `Modules/<nome progetto>/Services/GeographicSearchService.php`
+- `Modules/<nome progetto>/Services/StudioRankingService.php`
 
 ---
 

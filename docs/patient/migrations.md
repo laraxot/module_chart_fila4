@@ -3,8 +3,8 @@
 ## Struttura e Naming
 
 1. **Path Corretto**:
-   - ✅ `/var/www/html/saluteora/laravel/Modules/Patient/database/migrations/`
-   - ❌ `/var/www/html/saluteora/Modules/Patient/Database/Migrations/`
+   - ✅ `/var/www/html/<nome progetto>/laravel/Modules/Patient/database/migrations/`
+   - ❌ `/var/www/html/<nome progetto>/Modules/Patient/Database/Migrations/`
 
 2. **Convenzioni di Naming**:
    - Timestamp: `YYYY_MM_DD_HHMMSS`
@@ -55,8 +55,8 @@
 ## Errori Comuni
 
 1. **Errore**: Path errato
-   - ❌ `/var/www/html/saluteora/Modules/Patient/Database/Migrations/`
-   - ✅ `/var/www/html/saluteora/laravel/Modules/Patient/database/migrations/`
+   - ❌ `/var/www/html/<nome progetto>/Modules/Patient/Database/Migrations/`
+   - ✅ `/var/www/html/<nome progetto>/laravel/Modules/Patient/database/migrations/`
 
 2. **Errore**: Non estende XotBaseMigration
    - ❌ `extends Migration`

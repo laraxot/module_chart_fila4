@@ -271,4 +271,4 @@ Il backoffice di il progetto è l'interfaccia amministrativa dedicata alla gesti
 
 ## Roadmap Sviluppo
 
-Per i dettagli sulla roadmap di implementazione, vedere il documento [roadmap_backoffice.md](/var/www/html/base_saluteora/docs/roadmap_backoffice.md).
+Per i dettagli sulla roadmap di implementazione, vedere il documento [roadmap_backoffice.md](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice.md).

@@ -30,7 +30,7 @@ Il progetto il progetto ha completato con successo l'integrazione di tutti i mod
    - *Stato: In corso - 70% completato*
    - *Responsabile: Team Backend*
    - *Deadline: Immediata*
-   - *Documentazione: [01-risoluzione-problemi-autoloading.md](/var/www/html/saluteora/docs/tecnico/01-risoluzione-problemi-autoloading.md)*
+   - *Documentazione: [01-risoluzione-problemi-autoloading.md](/var/www/html/<nome progetto>/docs/tecnico/01-risoluzione-problemi-autoloading.md)*
 
 2. **Configurazione Service Provider** ⏳
    - Registrazione corretta in config/app.php
@@ -40,7 +40,7 @@ Il progetto il progetto ha completato con successo l'integrazione di tutti i mod
    - *Stato: In corso - 50% completato*
    - *Responsabile: Team Backend*
    - *Deadline: Immediata*
-   - *Documentazione: [02-configurazione-service-provider.md](/var/www/html/saluteora/docs/tecnico/02-configurazione-service-provider.md)*
+   - *Documentazione: [02-configurazione-service-provider.md](/var/www/html/<nome progetto>/docs/tecnico/02-configurazione-service-provider.md)*
 
 3. **Esecuzione Migrazioni Database** 🔜
    - Pubblicazione migrazioni di tutti i moduli
@@ -75,7 +75,7 @@ Il progetto il progetto ha completato con successo l'integrazione di tutti i mod
    - *Stato: Da iniziare - 0% completato*
    - *Responsabile: Team Backend + DPO*
    - *Deadline: Fine Fase 2*
-   - *Documentazione: [03-implementazione-gdpr-core.md](/var/www/html/saluteora/docs/tecnico/03-implementazione-gdpr-core.md)*
+   - *Documentazione: [03-implementazione-gdpr-core.md](/var/www/html/<nome progetto>/docs/tecnico/03-implementazione-gdpr-core.md)*
 
 2. **Sistema Consensi Informati** 🔜
    - Sviluppo sistema multi-livello

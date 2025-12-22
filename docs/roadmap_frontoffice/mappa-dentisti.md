@@ -33,7 +33,7 @@ I mockup dettagliati sono disponibili nella cartella `/docs/images/`:
 ## Struttura Codice
 
 ```php
-namespace Modules\SaluteOra\app\Http\Controllers;
+namespace Modules\<nome progetto>\app\Http\Controllers;
 
 class DentistMapController extends Controller
 {

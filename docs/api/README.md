@@ -1,10 +1,10 @@
-# API Documentation - SaluteOra
+# API Documentation - <nome progetto>
 
-> **🌐 OBIETTIVO**: Documentazione completa delle API REST per l'integrazione con il sistema SaluteOra
+> **🌐 OBIETTIVO**: Documentazione completa delle API REST per l'integrazione con il sistema <nome progetto>
 
 ## 📋 Overview
 
-Le API di SaluteOra forniscono accesso programmatico a tutte le funzionalità principali del sistema per l'integrazione con applicazioni esterne, sistemi sanitari e partner tecnologici.
+Le API di <nome progetto> forniscono accesso programmatico a tutte le funzionalità principali del sistema per l'integrazione con applicazioni esterne, sistemi sanitari e partner tecnologici.
 
 ## 🔑 Autenticazione
 
@@ -228,7 +228,7 @@ Authorization: Bearer {token}
             "Autorizzazione Sanitaria ASL Milano"
         ],
         "foto_studio": [
-            "https://api.saluteora.it/storage/studios/1/photo1.jpg"
+            "https://api.<nome progetto>.it/storage/studios/1/photo1.jpg"
         ]
     }
 }
@@ -612,7 +612,7 @@ Authorization: Bearer {admin_token}
 Content-Type: application/json
 
 {
-    "url": "https://studio.example.com/webhooks/saluteora",
+    "url": "https://studio.example.com/webhooks/<nome progetto>",
     "events": [
         "appointment.created",
         "appointment.cancelled",
@@ -682,13 +682,13 @@ Content-Type: application/json
 ### JavaScript/TypeScript
 
 ```bash
-npm install @saluteora/api-client
+npm install @<nome progetto>/api-client
 
 # Utilizzo
-import { SaluteOraClient } from '@saluteora/api-client';
+import { <nome progetto>Client } from '@<nome progetto>/api-client';
 
-const client = new SaluteOraClient({
-    baseURL: 'https://api.saluteora.it',
+const client = new <nome progetto>Client({
+    baseURL: 'https://api.<nome progetto>.it',
     apiKey: 'your-api-key'
 });
 
@@ -710,13 +710,13 @@ const appointment = await client.appointments.create({
 ### PHP
 
 ```bash
-composer require saluteora/api-client
+composer require <nome progetto>/api-client
 
 # Utilizzo
-use SaluteOra\ApiClient\Client;
+use <nome progetto>\ApiClient\Client;
 
 $client = new Client([
-    'base_uri' => 'https://api.saluteora.it',
+    'base_uri' => 'https://api.<nome progetto>.it',
     'api_key' => 'your-api-key'
 ]);
 
@@ -739,12 +739,12 @@ $appointments = $client->appointments()->list([
 ### Strumenti di Sviluppo
 - **API Testing**: Postman Collection disponibile
 - **OpenAPI Spec**: `/api/documentation`
-- **Sandbox Environment**: `https://sandbox-api.saluteora.it`
+- **Sandbox Environment**: `https://sandbox-api.<nome progetto>.it`
 
 ### Supporto
-- **Email Tecnico**: api-support@saluteora.it
-- **Documentazione Live**: https://docs.saluteora.it
-- **Status Page**: https://status.saluteora.it
+- **Email Tecnico**: api-support@<nome progetto>.it
+- **Documentazione Live**: https://docs.<nome progetto>.it
+- **Status Page**: https://status.<nome progetto>.it
 
 ---
 

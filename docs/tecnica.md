@@ -18,8 +18,8 @@
 
 ### Installazione Base
 ```bash
-composer create-project laravel/laravel base_saluteora
-cd base_saluteora
+composer create-project laravel/laravel base_<nome progetto>
+cd base_<nome progetto>
 composer require filament/filament
 composer require spatie/laravel-permission
 composer require nwidart/laravel-modules

@@ -1,8 +1,8 @@
 # errore override metodo final in filament
 
-questo documento è un collegamento alla documentazione completa disponibile nel modulo SaluteOra:
+questo documento è un collegamento alla documentazione completa disponibile nel modulo <nome progetto>:
 
-[vai alla documentazione completa](/var/www/html/base_saluteora/laravel/Modules/SaluteOra/docs/errors/final_method_override_error.md)
+[vai alla documentazione completa](/var/www/html/base_<nome progetto>/laravel/Modules/<nome progetto>/docs/errors/final_method_override_error.md)
 
 ## problema in breve
 
@@ -24,4 +24,4 @@ public function infolist(Infolist $infolist): void {...}
 protected function getInfolistSchema(): array {...}
 ```
 
-per dettagli completi, consultare la [documentazione nel modulo SaluteOra](/var/www/html/base_saluteora/laravel/Modules/SaluteOra/docs/errors/final_method_override_error.md).
+per dettagli completi, consultare la [documentazione nel modulo <nome progetto>](/var/www/html/base_<nome progetto>/laravel/Modules/<nome progetto>/docs/errors/final_method_override_error.md).

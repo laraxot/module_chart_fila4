@@ -126,7 +126,7 @@ Per prevenire questo tipo di errore in futuro:
 
 # check_module_integrity.sh
 
-LARAVEL_PATH="/var/www/html/saluteora/laravel"
+LARAVEL_PATH="/var/www/html/<nome progetto>/laravel"
 MODULES_STATUS_FILE="$LARAVEL_PATH/modules_statuses.json"
 
 

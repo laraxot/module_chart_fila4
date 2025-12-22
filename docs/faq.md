@@ -1,9 +1,9 @@
-# ❓ FAQ - Domande Frequenti SaluteOra
+# ❓ FAQ - Domande Frequenti <nome progetto>
 
 ## 📚 Generale
 
-### Q: Cos'è SaluteOra?
-**A:** SaluteOra è una piattaforma digitale per la promozione della salute orale delle gestanti in condizioni di vulnerabilità socio-economica. È sviluppata in collaborazione con ANDI (Associazione Nazionale Dentisti Italiani) e utilizza tecnologie moderne come Laravel, Filament e architettura modulare.
+### Q: Cos'è <nome progetto>?
+**A:** <nome progetto> è una piattaforma digitale per la promozione della salute orale delle gestanti in condizioni di vulnerabilità socio-economica. È sviluppata in collaborazione con ANDI (Associazione Nazionale Dentisti Italiani) e utilizza tecnologie moderne come Laravel, Filament e architettura modulare.
 
 ### Q: Quali sono i requisiti di sistema?
 **A:** 
@@ -296,8 +296,8 @@ name('about');
 
 ### Q: Dove posso chiedere aiuto?
 **A:** 
-- **Slack**: #saluteora-dev
-- **Email**: support@saluteora.it
+- **Slack**: #<nome progetto>-dev
+- **Email**: support@<nome progetto>.it
 - **GitHub Issues**: Per bug e feature request
 - **Documentazione**: Consulta sempre prima la documentazione
 

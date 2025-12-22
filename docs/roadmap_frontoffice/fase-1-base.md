@@ -5,7 +5,7 @@
 
 ## Overview Fase
 
-La Fase 1 rappresenta le fondamenta tecnologiche e funzionali di SaluteOra, stabilendo l'architettura core, l'infrastruttura di base e le funzionalità essenziali per il lancio della piattaforma. Questa fase ha creato la base solida su cui costruire tutte le funzionalità avanzate future.
+La Fase 1 rappresenta le fondamenta tecnologiche e funzionali di <nome progetto>, stabilendo l'architettura core, l'infrastruttura di base e le funzionalità essenziali per il lancio della piattaforma. Questa fase ha creato la base solida su cui costruire tutte le funzionalità avanzate future.
 
 ## Componenti Completati ✅
 

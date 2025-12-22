@@ -1,7 +1,7 @@
 # Landing Page del Programma
 
 ## Panoramica
-La landing page è la vetrina principale del programma SaluteOra, progettata per informare e coinvolgere le potenziali beneficiarie del servizio odontoiatrico gratuito.
+La landing page è la vetrina principale del programma <nome progetto>, progettata per informare e coinvolgere le potenziali beneficiarie del servizio odontoiatrico gratuito.
 
 ## Funzionalità Principali
 - **Header Accattivante** con call-to-action principale

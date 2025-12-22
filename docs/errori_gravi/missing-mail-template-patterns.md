@@ -4,12 +4,12 @@
 
 L'errore "MissingMailTemplate" si verifica nel sistema Spatie Mail Templates quando viene richiesto un template email che non esiste nel database. Questo documento raccoglie pattern comuni e strategie di prevenzione globali per tutti i moduli.
 
-## 🚨 Caso Critico Identificato: SaluteOra Patient Registration
+## 🚨 Caso Critico Identificato: <nome progetto> Patient Registration
 
 **Data**: 26 Giugno 2025  
 **Impatto**: Sistema registrazione pazienti completamente bloccato  
 
-➡️ **Documentazione completa**: [SaluteOra: Missing Mail Template Error](../laravel/Modules/SaluteOra/docs/errori/missing-mail-template-spatiemail.md)
+➡️ **Documentazione completa**: [<nome progetto>: Missing Mail Template Error](../laravel/Modules/<nome progetto>/docs/errori/missing-mail-template-spatiemail.md)
 
 ### Problema Specifico
 Conflitto nel sistema di template dinamici:
@@ -241,7 +241,7 @@ Ogni modulo dovrebbe avere un seeder per i propri template:
 ```bash
 php artisan make:seeder UserModuleMailTemplatesSeeder
 php artisan make:seeder NotifyModuleMailTemplatesSeeder
-php artisan make:seeder SaluteOraModuleMailTemplatesSeeder
+php artisan make:seeder <nome progetto>ModuleMailTemplatesSeeder
 ```
 
 ### 2. **Test Automatizzati**
@@ -341,7 +341,7 @@ php artisan tinker -c "Mail::to('test@example.com')->send(new \Modules\Notify\Em
 ## Riferimenti e Collegamenti
 
 ### **Documentazione Moduli**
-- [SaluteOra: Missing Mail Template](../laravel/Modules/SaluteOra/docs/errori/missing-mail-template-spatiemail.md) - Caso specifico critico
+- [<nome progetto>: Missing Mail Template](../laravel/Modules/<nome progetto>/docs/errori/missing-mail-template-spatiemail.md) - Caso specifico critico
 - [Notify: Email Templates](../laravel/Modules/Notify/docs/email_templates.md) - Documentazione sistema template
 - [Notify: Spatie Email Usage](../laravel/Modules/Notify/docs/spatie_email_usage_guide.md) - Guida all'uso
 

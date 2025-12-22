@@ -112,7 +112,7 @@ return [
     'tenant_model' => \Modules\Tenant\Models\Tenant::class,
     'user_model' => \Modules\User\Models\User::class,
     'domain_identification' => true,
-    'subdomain_format' => '{tenant}.saluteora.it',
+    'subdomain_format' => '{tenant}.<nome progetto>.it',
     'path_identification' => false,
     'path_parameter' => 'tenant',
 ];

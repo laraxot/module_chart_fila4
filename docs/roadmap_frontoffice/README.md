@@ -1,4 +1,4 @@
-# Documentazione Frontoffice SaluteOra
+# Documentazione Frontoffice <nome progetto>
 
 ## Struttura della Documentazione
 

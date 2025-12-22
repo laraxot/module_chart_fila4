@@ -46,7 +46,7 @@ class TestSmtpPage extends XotBasePage
 
 ## Motivazione
 
-1. **Personalizzazione Centralizzata**: Le classi XotBase forniscono funzionalità specifiche per SaluteOra
+1. **Personalizzazione Centralizzata**: Le classi XotBase forniscono funzionalità specifiche per <nome progetto>
 2. **Aggiornamenti Semplificati**: Quando Filament viene aggiornato, è possibile adattare solo le classi XotBase
 3. **Funzionalità Aggiuntive**: Le classi XotBase includono metodi e proprietà aggiuntivi
 4. **Gestione delle Dipendenze**: Le classi XotBase gestiscono dipendenze specifiche del progetto
@@ -57,10 +57,10 @@ class TestSmtpPage extends XotBasePage
 ### ❌ ERRORE GRAVE: Documentazione in Posizione Sbagliata
 ```php
 // ❌ ERRORE GRAVE - Documentazione widget specifico in cartella generica
-/var/www/html/_bases/base_saluteora/docs/widgets/appointment-widget.md
+/var/www/html/_bases/base_<nome progetto>/docs/widgets/appointment-widget.md
 
 // ✅ CORRETTO - Documentazione widget specifico nella cartella del modulo
-/var/www/html/_bases/base_saluteora/laravel/Modules/SaluteMo/docs/appointment-widget.md
+/var/www/html/_bases/base_<nome progetto>/laravel/Modules/SaluteMo/docs/appointment-widget.md
 ```
 
 ### ❌ ERRORE GRAVE: Estensione Diretta Filament
@@ -85,8 +85,8 @@ class MyWidget extends XotBaseWidget
 **ERRORE GRAVE**: Posizionare documentazione specifica di un modulo nella cartella docs generica.
 
 ### Struttura Corretta:
-- **Documentazione Generica**: `/var/www/html/_bases/base_saluteora/docs/`
-- **Documentazione Modulo**: `/var/www/html/_bases/base_saluteora/laravel/Modules/{ModuleName}/docs/`
+- **Documentazione Generica**: `/var/www/html/_bases/base_<nome progetto>/docs/`
+- **Documentazione Modulo**: `/var/www/html/_bases/base_<nome progetto>/laravel/Modules/{ModuleName}/docs/`
 
 ### Quando Usare Quale:
 - **Widget/Resource specifici** → **OBBLIGATORIO** cartella docs del modulo

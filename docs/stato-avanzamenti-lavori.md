@@ -2,7 +2,7 @@
 
 ## Panoramica Generale
 
-Il progetto SaluteOra ha raggiunto un avanzamento complessivo dell'80%. Di seguito viene presentato un dettaglio dello stato di avanzamento per ogni area funzionale, con relative tempistiche e priorità.
+Il progetto <nome progetto> ha raggiunto un avanzamento complessivo dell'80%. Di seguito viene presentato un dettaglio dello stato di avanzamento per ogni area funzionale, con relative tempistiche e priorità.
 
 ## Stato Moduli Principali
 

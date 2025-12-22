@@ -229,7 +229,7 @@ public function getLabel(): string
 Tutti gli enum devono passare PHPStan livello 9:
 
 ```bash
-cd /var/www/html/_bases/base_saluteora/laravel
+cd /var/www/html/_bases/base_<nome progetto>/laravel
 ./vendor/bin/phpstan analyze Modules/ModuleName/Enums/MyEnum.php --level=9
 ```
 

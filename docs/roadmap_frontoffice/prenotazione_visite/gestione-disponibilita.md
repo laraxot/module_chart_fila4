@@ -1,4 +1,4 @@
-# Gestione Disponibilità Dentisti - SaluteOra
+# Gestione Disponibilità Dentisti - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema avanzato per la gestione automatica e manuale delle disponibilità degli studi odontoiatrici
 
@@ -778,9 +778,9 @@ class PredictiveSchedulingService
 - [Sistema Prenotazione](../03_prenotazione_visite.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/AvailabilityManagementResource.php`
-- `Modules/SaluteOra/Actions/GenerateRecurringAvailabilitiesAction.php`
-- `Modules/SaluteOra/Services/SmartSchedulingService.php`
+- `Modules/<nome progetto>/Filament/Resources/AvailabilityManagementResource.php`
+- `Modules/<nome progetto>/Actions/GenerateRecurringAvailabilitiesAction.php`
+- `Modules/<nome progetto>/Services/SmartSchedulingService.php`
 
 ---
 

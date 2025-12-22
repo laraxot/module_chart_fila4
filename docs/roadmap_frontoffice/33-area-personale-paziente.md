@@ -1,4 +1,4 @@
-# Area Personale Paziente - SaluteOra
+# Area Personale Paziente - <nome progetto>
 
 ## Introduzione
 
@@ -44,7 +44,7 @@ La dashboard è organizzata in sezioni modulari per fornire una visione d'insiem
 ```php
 class PatientDashboardWidget extends Widget
 {
-    protected static string $view = 'saluteora::filament.widgets.patient-dashboard';
+    protected static string $view = '<nome progetto>::filament.widgets.patient-dashboard';
     
     protected function getViewData(): array
     {

@@ -1,4 +1,4 @@
-# Roadmap Backoffice SaluteOra
+# Roadmap Backoffice <nome progetto>
 
 ## Introduzione
 
@@ -70,7 +70,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
   - [ ] New Relic
   - [ ] Custom logging
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/02-architettura-base.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/02-architettura-base.md)
 
 ### Task 3: UI/UX Base
 - [ ] Design system Filament
@@ -94,7 +94,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
   - [ ] Icons
   - [ ] Animations
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/03-ui-ux-base.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/03-ui-ux-base.md)
 
 ## Fase 2: Core Features (Settimane 5-12)
 
@@ -104,7 +104,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
 - [ ] Gestione ruoli
 - [ ] Audit log
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/04-gestione-utenti.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/04-gestione-utenti.md)
 
 ### Task 5: Gestione Documenti
 - [ ] Upload documenti
@@ -112,7 +112,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
 - [ ] Gestione referti
 - [ ] Archivio documenti
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/05-gestione-documenti.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/05-gestione-documenti.md)
 
 ### Task 6: Gestione Prestazioni
 - [ ] Monitoraggio visite
@@ -120,7 +120,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
 - [ ] Rimborsi
 - [ ] Reportistica
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/06-gestione-prestazioni.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/06-gestione-prestazioni.md)
 
 ## Fase 3: Integrazioni (Settimane 13-20)
 
@@ -130,7 +130,7 @@ La roadmap è organizzata in fasi sequenziali, ognuna contenente task specifici 
 - [ ] Notifiche stato
 - [ ] Reportistica
 
-[Dettagli implementazione ≫](/var/www/html/base_saluteora/docs/roadmap_backoffice/07-integrazione-isee.md)
+[Dettagli implementazione ≫](/var/www/html/base_<nome progetto>/docs/roadmap_backoffice/07-integrazione-isee.md)
 
 ### Task 8: Sistema di Fatturazione
 - [ ] Generazione fatture

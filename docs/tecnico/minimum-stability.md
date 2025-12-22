@@ -73,7 +73,7 @@ Questa modifica è un passo necessario per:
 ## Conclusione
 
 La modifica di `minimum-stability` da `stable` a `dev` è una decisione tecnica necessaria che riflette la natura innovativa e in rapido sviluppo del progetto il progetto. Sebbene introduca alcuni rischi, questi possono essere adeguatamente mitigati attraverso buone pratiche di sviluppo, test approfonditi e una gestione attenta delle dipendenze. 
-La modifica di `minimum-stability` da `stable` a `dev` è una decisione tecnica necessaria che riflette la natura innovativa e in rapido sviluppo del progetto SaluteOra. Sebbene introduca alcuni rischi, questi possono essere adeguatamente mitigati attraverso buone pratiche di sviluppo, test approfonditi e una gestione attenta delle dipendenze. 
+La modifica di `minimum-stability` da `stable` a `dev` è una decisione tecnica necessaria che riflette la natura innovativa e in rapido sviluppo del progetto <nome progetto>. Sebbene introduca alcuni rischi, questi possono essere adeguatamente mitigati attraverso buone pratiche di sviluppo, test approfonditi e una gestione attenta delle dipendenze. 
 ## Collegamenti tra versioni di minimum-stability.md
 * [minimum-stability.md](docs/minimum-stability.md)
 * [minimum-stability.md](docs/tecnico/minimum-stability.md)

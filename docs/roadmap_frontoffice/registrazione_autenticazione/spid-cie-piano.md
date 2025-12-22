@@ -1,7 +1,7 @@
 # Piano di Integrazione SPID/CIE
 
 ## Panoramica
-Piano dettagliato per l'integrazione dei sistemi di autenticazione SPID e CIE nel portale SaluteOra.
+Piano dettagliato per l'integrazione dei sistemi di autenticazione SPID e CIE nel portale <nome progetto>.
 
 ## Fasi di Implementazione
 

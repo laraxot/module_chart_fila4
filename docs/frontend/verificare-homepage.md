@@ -10,7 +10,7 @@ Esistono diversi approcci per verificare la corrispondenza dell'homepage con le 
 
 La verifica manuale consiste nel confrontare visivamente l'homepage con le specifiche:
 
-1. Apri il browser e naviga a `http://saluteora.local/`
+1. Apri il browser e naviga a `http://<nome progetto>.local/`
 2. Apri il documento di specifiche `docs/images/2.md` e la documentazione correlata
 3. Confronta elemento per elemento:
    - Verifica il titolo: "Benvenuta su Salute Orale,"
@@ -33,7 +33,7 @@ Lo script utilizza cURL per verificare che tutti gli elementi previsti siano pre
 
 **Nota:** In caso di errore HTTP 500, verifica che:
 - Il server locale sia attivo e funzionante
-- L'URL `http://saluteora.local/` sia configurato correttamente in `/etc/hosts`
+- L'URL `http://<nome progetto>.local/` sia configurato correttamente in `/etc/hosts`
 - Controlla i log PHP per identificare problemi di configurazione o errori
 
 ### 3. Verifica con Test di Integrazione
@@ -56,9 +56,9 @@ Verificare che il file di configurazione dell'homepage contenga le stringhe corr
 ```bash
 
 # Usando grep per verificare la presenza delle stringhe chiave
-grep "Benvenuta su Salute Orale" laravel/config/local/saluteora/database/content/pages/1.json
-grep "pazienti vulnerabili in stato di gravidanza" laravel/config/local/saluteora/database/content/pages/1.json
-grep "INIZIA ORA" laravel/config/local/saluteora/database/content/pages/1.json
+grep "Benvenuta su Salute Orale" laravel/config/local/<nome progetto>/database/content/pages/1.json
+grep "pazienti vulnerabili in stato di gravidanza" laravel/config/local/<nome progetto>/database/content/pages/1.json
+grep "INIZIA ORA" laravel/config/local/<nome progetto>/database/content/pages/1.json
 ```
 
 ## Elenco Completo degli Elementi da Verificare
@@ -84,7 +84,7 @@ grep "INIZIA ORA" laravel/config/local/saluteora/database/content/pages/1.json
 Se l'homepage non corrisponde alle specifiche:
 
 1. **Problema**: Contenuto testuale errato o mancante
-   **Soluzione**: Verificare e correggere `laravel/config/local/saluteora/database/content/pages/1.json`
+   **Soluzione**: Verificare e correggere `laravel/config/local/<nome progetto>/database/content/pages/1.json`
 
 2. **Problema**: Layout o stile non corrispondente  
    **Soluzione**: Verificare i file CSS nel tema `laravel/Themes/One/resources/css`

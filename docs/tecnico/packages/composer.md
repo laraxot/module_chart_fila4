@@ -57,7 +57,7 @@ composer --version
 1. File composer.json:
    ```json
    {
-       "name": "saluteora/app",
+       "name": "<nome progetto>/app",
        "type": "project",
        "description": "Sistema di Gestione Salute Orale",
        "keywords": ["laravel", "framework"],

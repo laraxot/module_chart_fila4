@@ -2,7 +2,7 @@
 
 ## 🎯 Filosofia Modulare
 
-Il sistema SaluteOra segue un'architettura modulare basata sui principi:
+Il sistema <nome progetto> segue un'architettura modulare basata sui principi:
 
 - **DRY**: Ogni funzionalità è implementata una sola volta
 - **KISS**: Struttura semplice e comprensibile
@@ -33,16 +33,16 @@ Il sistema SaluteOra segue un'architettura modulare basata sui principi:
 
 ### Business Modules (Logica di Business)
 
-#### 🏥 SaluteOra
+#### 🏥 <nome progetto>
 - **Scopo**: Logica principale dell'applicazione sanitaria
 - **Responsabilità**: Appointments, Reports, Doctors, Patients
 - **Dipendenze**: Xot, User, UI
-- **Documentazione**: [SaluteOra Module](../laravel/Modules/SaluteOra/docs/)
+- **Documentazione**: [<nome progetto> Module](../laravel/Modules/<nome progetto>/docs/)
 
 #### 🦷 SaluteMo
 - **Scopo**: Modulo specifico per salute orale mobile
 - **Responsabilità**: Mobile interface, Simplified workflows
-- **Dipendenze**: SaluteOra, UI
+- **Dipendenze**: <nome progetto>, UI
 - **Documentazione**: [SaluteMo Module](../laravel/Modules/SaluteMo/docs/)
 
 ### Support Modules (Supporto)
@@ -81,12 +81,12 @@ Il sistema SaluteOra segue un'architettura modulare basata sui principi:
 
 ```
 ┌─────────────┬─────┬──────┬────┬───────────┬─────────┬────────┬───────┬─────┬─────┬────────┐
-│ Modulo      │ Xot │ User │ UI │ SaluteOra │ SaluteMo│ Tenant │ Chart │ Cms │ Geo │ Notify │
+│ Modulo      │ Xot │ User │ UI │ <nome progetto> │ SaluteMo│ Tenant │ Chart │ Cms │ Geo │ Notify │
 ├─────────────┼─────┼──────┼────┼───────────┼─────────┼────────┼───────┼─────┼─────┼────────┤
 │ Xot         │  -  │  -   │ -  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
 │ User        │  ✓  │  -   │ -  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
 │ UI          │  ✓  │  -   │ -  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
-│ SaluteOra   │  ✓  │  ✓   │ ✓  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
+│ <nome progetto>   │  ✓  │  ✓   │ ✓  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
 │ SaluteMo    │  ✓  │  ✓   │ ✓  │     ✓     │    -    │   -    │   -   │  -  │  -  │   -    │
 │ Tenant      │  ✓  │  ✓   │ -  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
 │ Chart       │  ✓  │  -   │ ✓  │     -     │    -    │   -    │   -   │  -  │  -  │   -    │
@@ -116,7 +116,7 @@ User Registration Flow:
                       │
                       ▼
                ┌─────────────┐
-               │ SaluteOra   │
+               │ <nome progetto>   │
                │ Integration │
                └─────────────┘
 ```

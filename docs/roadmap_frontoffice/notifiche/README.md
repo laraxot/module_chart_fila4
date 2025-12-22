@@ -1,4 +1,4 @@
-# Sistema di Notifiche SaluteOra
+# Sistema di Notifiche <nome progetto>
 
 > **📧 Sistema completo di notifiche email per comunicazioni essenziali nel portale odontoiatrico**
 
@@ -88,7 +88,7 @@ Queue::push(new SendEmailNotification($user, $template, $data));
 
 ### Modello Notifica
 ```php
-// Modules/SaluteOra/Models/Notification.php
+// Modules/<nome progetto>/Models/Notification.php
 class Notification extends BaseModel
 {
     protected $fillable = [
@@ -109,7 +109,7 @@ class Notification extends BaseModel
 
 ### Service Provider
 ```php
-// Modules/SaluteOra/Providers/NotificationServiceProvider.php  
+// Modules/<nome progetto>/Providers/NotificationServiceProvider.php  
 class NotificationServiceProvider extends ServiceProvider
 {
     public function boot(): void
@@ -153,7 +153,7 @@ class NotificationHandler
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'SaluteOra' }}</title>
+    <title>{{ $title ?? '<nome progetto>' }}</title>
     <style>
         /* Inline CSS per compatibilità client email */
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
@@ -174,7 +174,7 @@ class NotificationHandler
             @yield('content')
         </div>
         <div class="footer">
-            <p>© 2025 SaluteOra - Servizi Odontoiatrici</p>
+            <p>© 2025 <nome progetto> - Servizi Odontoiatrici</p>
         </div>
     </div>
 </body>

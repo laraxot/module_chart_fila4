@@ -214,4 +214,4 @@ Il frontoffice di il progetto è l'interfaccia dedicata alle gestanti in condizi
 
 ## Roadmap Sviluppo
 
-Per i dettagli sulla roadmap di implementazione, vedere il documento [roadmap_frontoffice.md](/var/www/html/base_saluteora/docs/roadmap_frontoffice.md).
+Per i dettagli sulla roadmap di implementazione, vedere il documento [roadmap_frontoffice.md](/var/www/html/base_<nome progetto>/docs/roadmap_frontoffice.md).

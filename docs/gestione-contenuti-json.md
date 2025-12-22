@@ -1,8 +1,8 @@
-# Gestione dei Contenuti Tramite File JSON in SaluteOra
+# Gestione dei Contenuti Tramite File JSON in <nome progetto>
 
 ## Introduzione
 
-SaluteOra utilizza un approccio innovativo per la gestione dei contenuti statici, memorizzandoli in file JSON anziché in tabelle del database. Questo documento spiega il funzionamento di questo sistema, con particolare attenzione alla gestione della homepage.
+<nome progetto> utilizza un approccio innovativo per la gestione dei contenuti statici, memorizzandoli in file JSON anziché in tabelle del database. Questo documento spiega il funzionamento di questo sistema, con particolare attenzione alla gestione della homepage.
 
 ## Architettura del Sistema
 
@@ -25,9 +25,9 @@ SaluteOra utilizza un approccio innovativo per la gestione dei contenuti statici
 I contenuti sono organizzati secondo questa struttura:
 
 ```
-/var/www/html/saluteora/laravel/config/
+/var/www/html/<nome progetto>/laravel/config/
 └── local/
-    └── saluteora/
+    └── <nome progetto>/
         └── database/
             └── content/
                 ├── pages/
@@ -40,7 +40,7 @@ I contenuti sono organizzati secondo questa struttura:
 
 ## Gestione della Homepage
 
-La homepage è gestita attraverso il file `/var/www/html/saluteora/laravel/config/local/saluteora/database/content/pages/1.json`.
+La homepage è gestita attraverso il file `/var/www/html/<nome progetto>/laravel/config/local/<nome progetto>/database/content/pages/1.json`.
 
 ### Struttura del File
 
@@ -48,7 +48,7 @@ La homepage è gestita attraverso il file `/var/www/html/saluteora/laravel/confi
 {
     "id": "1",
     "title": {
-        "it": "SaluteOra - Promozione della salute orale per le gestanti"
+        "it": "<nome progetto> - Promozione della salute orale per le gestanti"
     },
     "slug": "home",
     "content_blocks": {
@@ -152,4 +152,4 @@ Se i blocchi di contenuto non vengono renderizzati correttamente:
 
 ## Conclusione
 
-Il sistema di gestione dei contenuti tramite file JSON offre un approccio flessibile e performante per gestire i contenuti statici in SaluteOra. Comprendere questo meccanismo è fondamentale per sviluppare e mantenere efficacemente l'applicazione.
+Il sistema di gestione dei contenuti tramite file JSON offre un approccio flessibile e performante per gestire i contenuti statici in <nome progetto>. Comprendere questo meccanismo è fondamentale per sviluppare e mantenere efficacemente l'applicazione.

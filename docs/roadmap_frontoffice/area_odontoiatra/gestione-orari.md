@@ -293,7 +293,7 @@ $emailTemplate = [
         Per eventuali chiarimenti può contattare lo studio al {{studio_phone}}.
         
         Cordiali saluti,
-        Staff SaluteOra
+        Staff <nome progetto>
     '
 ];
 ```

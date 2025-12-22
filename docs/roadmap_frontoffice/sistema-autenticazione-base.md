@@ -1,7 +1,7 @@
 # Sistema di Autenticazione Base
 
 ## Panoramica
-Implementazione del sistema di autenticazione per l'accesso sicuro alla piattaforma SaluteOra.
+Implementazione del sistema di autenticazione per l'accesso sicuro alla piattaforma <nome progetto>.
 
 ## Componenti Principali
 

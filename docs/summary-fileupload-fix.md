@@ -2,7 +2,7 @@
 
 ## Problema Risolto
 
-**Errore**: `foreach() argument must be of type array|object, string given` nel processo di registrazione paziente di SaluteOra.
+**Errore**: `foreach() argument must be of type array|object, string given` nel processo di registrazione paziente di <nome progetto>.
 
 **Data**: 2025-01-03
 
@@ -136,7 +136,7 @@ foreach ($attachments as $attachment) {
 Il modello `Patient` ha correttamente la proprietà `$attachments`:
 
 ```php
-// Modules/SaluteOra/app/Models/Patient.php
+// Modules/<nome progetto>/app/Models/Patient.php
 class Patient extends User implements HasMedia
 {
     public static array $attachments = [

@@ -8,7 +8,7 @@ Trovati 20 errori al livello 2.
 
 ## Errori e suggerimenti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Actions/JpGraph/V1/LineSubQuestionAction.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Actions/JpGraph/V1/LineSubQuestionAction.php`
 
 #### Linea 60: Constant MARK_FILLEDCIRCLE not found.
 
@@ -106,7 +106,7 @@ Trovati 20 errori al livello 2.
 - Le variabili siano inizializzate prima dell'uso
 - I nomi di metodi e proprietà siano corretti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Actions/JpGraph/V1/Pie1Action.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Actions/JpGraph/V1/Pie1Action.php`
 
 #### Linea 86: Constant FF_ARIAL not found.
 
@@ -140,7 +140,7 @@ Trovati 20 errori al livello 2.
 - Le variabili siano inizializzate prima dell'uso
 - I nomi di metodi e proprietà siano corretti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Models/Chart.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Models/Chart.php`
 
 #### Linea 26: PHPDoc tag @property-read for property Modules\Chart\Models\Chart::$creator contains unknown class Modules\Blog\Models\Profile.
 
@@ -158,7 +158,7 @@ Trovati 20 errori al livello 2.
 - Le variabili siano inizializzate prima dell'uso
 - I nomi di metodi e proprietà siano corretti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Models/MixedChart.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Models/MixedChart.php`
 
 #### Linea 29: PHPDoc tag @property-read for property Modules\Chart\Models\MixedChart::$creator contains unknown class Modules\Blog\Models\Profile.
 

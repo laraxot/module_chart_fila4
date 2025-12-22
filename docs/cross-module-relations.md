@@ -1,8 +1,8 @@
-# Cross-Module Relations in Laraxot SaluteOra
+# Cross-Module Relations in Laraxot <nome progetto>
 
 ## Panoramica
 
-Questo documento descrive l'architettura e l'implementazione delle relazioni tra moduli diversi nel sistema Laraxot SaluteOra, con particolare focus sui RelationManager Filament che gestiscono entità cross-module.
+Questo documento descrive l'architettura e l'implementazione delle relazioni tra moduli diversi nel sistema Laraxot <nome progetto>, con particolare focus sui RelationManager Filament che gestiscono entità cross-module.
 
 ## Architettura General
 
@@ -17,7 +17,7 @@ Questo documento descrive l'architettura e l'implementazione delle relazioni tra
 
 ```
 ┌─────────────────┐    ┌─────────────────┐
-│    SaluteMo     │    │    SaluteOra    │
+│    SaluteMo     │    │    <nome progetto>    │
 │   (UI Module)   │    │ (Domain Module) │
 ├─────────────────┤    ├─────────────────┤
 │ • Resources     │────│ • Models        │
@@ -31,13 +31,13 @@ Questo documento descrive l'architettura e l'implementazione delle relazioni tra
 
 ### Implementazione Multi-Module
 
-#### SaluteOra (Domain Module)
+#### <nome progetto> (Domain Module)
 - **Responsabilità**: Modelli, relazioni, logica di business
 - **Database**: `salute_ora` per Studio, `user` per Doctor
 - **File**: 
-  - `Modules/SaluteOra/Models/Doctor.php`
-  - `Modules/SaluteOra/Models/Studio.php`
-  - `Modules/SaluteOra/Models/DoctorStudio.php`
+  - `Modules/<nome progetto>/Models/Doctor.php`
+  - `Modules/<nome progetto>/Models/Studio.php`
+  - `Modules/<nome progetto>/Models/DoctorStudio.php`
 
 #### SaluteMo (UI Module)  
 - **Responsabilità**: Interfaccia Filament, RelationManager, Forms
@@ -49,13 +49,13 @@ Questo documento descrive l'architettura e l'implementazione delle relazioni tra
 ### Struttura della Relazione
 
 ```php
-// Doctor Model (SaluteOra)
+// Doctor Model (<nome progetto>)
 public function studios(): BelongsToMany
 {
     return $this->belongsToManyX(Studio::class);
 }
 
-// Studio Model (SaluteOra)  
+// Studio Model (<nome progetto>)  
 public function doctors(): BelongsToMany
 {
     return $this->belongsToManyX(Doctor::class);
@@ -239,18 +239,18 @@ public function relation_manager_shows_correct_columns(): void
 ## Documentazione Correlata
 
 ### Moduli Specifici
-- [SaluteMo RelationManager](/var/www/html/base_saluteora/laravel/Modules/SaluteMo/docs/filament/relationmanagers.md)
-- [SaluteOra RelationManager](/var/www/html/base_saluteora/laravel/Modules/SaluteOra/docs/relationmanagers.md)
-- [Doctor Model](/var/www/html/base_saluteora/laravel/Modules/SaluteOra/docs/models/doctor.md)
-- [Studio Model](/var/www/html/base_saluteora/laravel/Modules/SaluteOra/docs/models/studio.md)
+- [SaluteMo RelationManager](/var/www/html/base_<nome progetto>/laravel/Modules/SaluteMo/docs/filament/relationmanagers.md)
+- [<nome progetto> RelationManager](/var/www/html/base_<nome progetto>/laravel/Modules/<nome progetto>/docs/relationmanagers.md)
+- [Doctor Model](/var/www/html/base_<nome progetto>/laravel/Modules/<nome progetto>/docs/models/doctor.md)
+- [Studio Model](/var/www/html/base_<nome progetto>/laravel/Modules/<nome progetto>/docs/models/studio.md)
 
 ### Framework Documentation
-- [Filament Best Practices](/var/www/html/base_saluteora/docs/filament-best-practices.md)
-- [Laraxot Conventions](/var/www/html/base_saluteora/docs/laraxot-conventions.md)
-- [Module Structure](/var/www/html/base_saluteora/docs/module-structure.md)
+- [Filament Best Practices](/var/www/html/base_<nome progetto>/docs/filament-best-practices.md)
+- [Laraxot Conventions](/var/www/html/base_<nome progetto>/docs/laraxot-conventions.md)
+- [Module Structure](/var/www/html/base_<nome progetto>/docs/module-structure.md)
 
 ---
 
 *Ultimo aggiornamento: Gennaio 2025*  
 *Versione: 1.0*  
-*Compatibilità: Laraxot SaluteOra, Filament 4.x, Laravel 10+* 
+*Compatibilità: Laraxot <nome progetto>, Filament 4.x, Laravel 10+* 

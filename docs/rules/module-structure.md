@@ -1,4 +1,4 @@
-# Struttura Modulare SaluteOra
+# Struttura Modulare <nome progetto>
 
 ## Struttura Generale dei Moduli
 
@@ -94,4 +94,4 @@ Questo definisce il mapping tra namespace e directory fisica, spiegando perché:
 
 - [Architettura Modulare](../architecture/modules.md)
 - [Pattern XotBase](../conventions/xotbase.md)
-- [Filament in SaluteOra](../filament/overview.md)
+- [Filament in <nome progetto>](../filament/overview.md)

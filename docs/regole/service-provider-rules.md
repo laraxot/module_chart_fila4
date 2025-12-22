@@ -11,8 +11,8 @@ Ogni classe che estende `XotBaseServiceProvider` **DEVE** definire:
 ## Documenti Correlati
 
 Per ulteriori dettagli consultare:
-- `/var/www/html/saluteora/docs/tecnico/service-provider-requisiti.md`
-- `/var/www/html/saluteora/.cursor/rules/service-provider-rules.md`
+- `/var/www/html/<nome progetto>/docs/tecnico/service-provider-requisiti.md`
+- `/var/www/html/<nome progetto>/.cursor/rules/service-provider-rules.md`
 
 ## Quando Applicare
 

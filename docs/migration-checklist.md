@@ -1,4 +1,4 @@
-# Checklist per le Migrazioni in SaluteOra
+# Checklist per le Migrazioni in <nome progetto>
 
 ## Prima di Iniziare
 

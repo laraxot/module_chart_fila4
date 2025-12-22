@@ -2,7 +2,7 @@
 
 ## Analisi del Sistema Attuale
 
-`RecordNotification` è un componente fondamentale del sistema di notifiche multi-canale di SaluteOra. La sua implementazione attuale, sebbene funzionale, presenta diverse aree di miglioramento per rispettare pienamente gli standard del progetto.
+`RecordNotification` è un componente fondamentale del sistema di notifiche multi-canale di <nome progetto>. La sua implementazione attuale, sebbene funzionale, presenta diverse aree di miglioramento per rispettare pienamente gli standard del progetto.
 
 ### Stato Attuale
 
@@ -123,7 +123,7 @@ class RecordNotification extends Notification
 
         // Crea e restituisce l'oggetto SmsData
         return SmsData::from([
-            'from' => config('notify.sms.default_sender', 'SaluteOra'),
+            'from' => config('notify.sms.default_sender', '<nome progetto>'),
             'to' => $to,
             'body' => $content,
         ]);
@@ -492,7 +492,7 @@ Le notifiche nascono dal rapporto simbiotico tra un record del database (che for
 
 ## Politica di Implementazione
 
-### 1. Rispetto delle Convenzioni SaluteOra
+### 1. Rispetto delle Convenzioni <nome progetto>
 
 - Utilizzo di file di traduzione invece di etichette hardcoded
 - Impiego di enum per valori predefiniti
@@ -533,6 +533,6 @@ Permettere a ogni tenant di personalizzare l'aspetto visivo e il contenuto delle
 
 ## Conclusione
 
-Il sistema RecordNotification rappresenta un componente critico dell'infrastruttura di comunicazione di SaluteOra. L'implementazione proposta non solo risolve le limitazioni dell'attuale versione, ma espande significativamente le capacità del sistema mantenendo aderenza alle best practices e alla filosofia del progetto.
+Il sistema RecordNotification rappresenta un componente critico dell'infrastruttura di comunicazione di <nome progetto>. L'implementazione proposta non solo risolve le limitazioni dell'attuale versione, ma espande significativamente le capacità del sistema mantenendo aderenza alle best practices e alla filosofia del progetto.
 
-Attraverso un'architettura ben strutturata e componenti fortemente tipizzati, RecordNotification può diventare uno degli strumenti più versatili e potenti dell'ecosistema SaluteOra, garantendo comunicazioni efficaci e coerenti attraverso tutti i canali.
+Attraverso un'architettura ben strutturata e componenti fortemente tipizzati, RecordNotification può diventare uno degli strumenti più versatili e potenti dell'ecosistema <nome progetto>, garantendo comunicazioni efficaci e coerenti attraverso tutti i canali.

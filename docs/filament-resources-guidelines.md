@@ -1,8 +1,8 @@
-# Linee Guida per le Risorse Filament in SaluteOra
+# Linee Guida per le Risorse Filament in <nome progetto>
 
 ## Panoramica
 
-Questo documento fornisce una panoramica delle linee guida per l'implementazione delle risorse Filament nel progetto SaluteOra. Per una documentazione più dettagliata, consultare il [documento completo nel modulo Xot](/laravel/Modules/Xot/docs/FILAMENT_RESOURCE_RULES.md).
+Questo documento fornisce una panoramica delle linee guida per l'implementazione delle risorse Filament nel progetto <nome progetto>. Per una documentazione più dettagliata, consultare il [documento completo nel modulo Xot](/laravel/Modules/Xot/docs/FILAMENT_RESOURCE_RULES.md).
 
 ## Principi Fondamentali
 

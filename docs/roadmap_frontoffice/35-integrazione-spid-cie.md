@@ -1,8 +1,8 @@
-# Integrazione SPID/CIE - SaluteOra
+# Integrazione SPID/CIE - <nome progetto>
 
 ## Introduzione
 
-L'integrazione con il Sistema Pubblico di Identità Digitale (SPID) e la Carta d'Identità Elettronica (CIE) rappresenta un requisito strategico per SaluteOra, consentendo l'accesso semplificato e sicuro ai servizi per cittadini e operatori sanitari, in linea con le direttive di digitalizzazione della PA.
+L'integrazione con il Sistema Pubblico di Identità Digitale (SPID) e la Carta d'Identità Elettronica (CIE) rappresenta un requisito strategico per <nome progetto>, consentendo l'accesso semplificato e sicuro ai servizi per cittadini e operatori sanitari, in linea con le direttive di digitalizzazione della PA.
 
 ## Stato Attuale
 
@@ -450,9 +450,9 @@ class SAMLReplayProtection
 ```php
 // config/spid.php
 return [
-    'entity_id' => env('SPID_ENTITY_ID', 'https://saluteora.it/spid'),
-    'assertion_consumer_service' => env('SPID_ACS_URL', 'https://saluteora.it/auth/spid/acs'),
-    'single_logout_service' => env('SPID_SLS_URL', 'https://saluteora.it/auth/spid/sls'),
+    'entity_id' => env('SPID_ENTITY_ID', 'https://<nome progetto>.it/spid'),
+    'assertion_consumer_service' => env('SPID_ACS_URL', 'https://<nome progetto>.it/auth/spid/acs'),
+    'single_logout_service' => env('SPID_SLS_URL', 'https://<nome progetto>.it/auth/spid/sls'),
     
     'certificate' => [
         'x509cert' => env('SPID_X509_CERT'),
@@ -471,9 +471,9 @@ return [
     ],
     
     'organization' => [
-        'name' => env('SPID_ORG_NAME', 'SaluteOra'),
-        'display_name' => env('SPID_ORG_DISPLAY_NAME', 'SaluteOra - Portale Salute Orale'),
-        'url' => env('SPID_ORG_URL', 'https://saluteora.it'),
+        'name' => env('SPID_ORG_NAME', '<nome progetto>'),
+        'display_name' => env('SPID_ORG_DISPLAY_NAME', '<nome progetto> - Portale Salute Orale'),
+        'url' => env('SPID_ORG_URL', 'https://<nome progetto>.it'),
     ],
 ];
 ```

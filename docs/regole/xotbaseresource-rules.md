@@ -2,11 +2,11 @@
 
 ## Panoramica
 
-In SaluteOra, tutte le classi Resource di Filament devono estendere `Modules\Xot\Filament\Resources\XotBaseResource` e non direttamente `Filament\Resources\Resource`. Questo documento definisce le regole da seguire quando si estende `XotBaseResource`.
+In <nome progetto>, tutte le classi Resource di Filament devono estendere `Modules\Xot\Filament\Resources\XotBaseResource` e non direttamente `Filament\Resources\Resource`. Questo documento definisce le regole da seguire quando si estende `XotBaseResource`.
 
 > **IMPORTANTE**: Questo documento è collegato alla documentazione ufficiale nel modulo Xot. Per informazioni più dettagliate, consultare:
-> - [XotBaseResource.md](/var/www/html/saluteora/laravel/Modules/Xot/docs/XotBaseResource.md)
-> - [FILAMENT-BEST-PRACTICES.md](/var/www/html/saluteora/laravel/Modules/Xot/docs/FILAMENT-BEST-PRACTICES.md)
+> - [XotBaseResource.md](/var/www/html/<nome progetto>/laravel/Modules/Xot/docs/XotBaseResource.md)
+> - [FILAMENT-BEST-PRACTICES.md](/var/www/html/<nome progetto>/laravel/Modules/Xot/docs/FILAMENT-BEST-PRACTICES.md)
 
 ## Regole Fondamentali
 
@@ -115,4 +115,4 @@ Quando si estende `XotBaseResource`, utilizzare i seguenti metodi:
 
 ## Conclusione
 
-Seguire queste regole è fondamentale per mantenere la coerenza e la manutenibilità del codice in SaluteOra. La classe `XotBaseResource` fornisce funzionalità personalizzate e comportamenti specifici per il progetto che sono essenziali per il corretto funzionamento dell'applicazione.
+Seguire queste regole è fondamentale per mantenere la coerenza e la manutenibilità del codice in <nome progetto>. La classe `XotBaseResource` fornisce funzionalità personalizzate e comportamenti specifici per il progetto che sono essenziali per il corretto funzionamento dell'applicazione.

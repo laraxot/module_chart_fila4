@@ -20,8 +20,8 @@
 ### Step 1: Clone Repository
 ```bash
 cd /var/www/html
-git clone https://github.com/laraxot/saluteora.git
-cd saluteora
+git clone https://github.com/laraxot/<nome progetto>.git
+cd <nome progetto>
 ```
 
 ### Step 2: Setup Laravel
@@ -39,7 +39,7 @@ php artisan key:generate
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora
+DB_DATABASE=<nome progetto>
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
 ```
@@ -68,7 +68,7 @@ php artisan storage:link
 ```env
 
 # App Configuration
-APP_NAME="SaluteOra"
+APP_NAME="<nome progetto>"
 APP_ENV=local
 APP_DEBUG=true
 APP_URL=http://localhost
@@ -77,7 +77,7 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora
+DB_DATABASE=<nome progetto>
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -100,7 +100,7 @@ MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
 
 # Filament
-FILAMENT_DOMAIN=admin.saluteora.local
+FILAMENT_DOMAIN=admin.<nome progetto>.local
 ```
 
 ### Configurazione Moduli
@@ -113,7 +113,7 @@ php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProv
 php artisan module:enable Xot
 php artisan module:enable User
 php artisan module:enable UI
-php artisan module:enable SaluteOra
+php artisan module:enable <nome progetto>
 ```
 
 ## 🐳 Installazione Docker
@@ -139,7 +139,7 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: saluteora
+      MYSQL_DATABASE: <nome progetto>
     ports:
       - "3306:3306"
 
@@ -168,16 +168,16 @@ docker-compose exec app php artisan migrate
 ### Apache Virtual Host
 ```apache
 <VirtualHost *:80>
-    ServerName saluteora.local
-    DocumentRoot /var/www/html/saluteora/laravel/public
+    ServerName <nome progetto>.local
+    DocumentRoot /var/www/html/<nome progetto>/laravel/public
     
-    <Directory /var/www/html/saluteora/laravel/public>
+    <Directory /var/www/html/<nome progetto>/laravel/public>
         AllowOverride All
         Require all granted
     </Directory>
     
-    ErrorLog ${APACHE_LOG_DIR}/saluteora_error.log
-    CustomLog ${APACHE_LOG_DIR}/saluteora_access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/<nome progetto>_error.log
+    CustomLog ${APACHE_LOG_DIR}/<nome progetto>_access.log combined
 </VirtualHost>
 ```
 
@@ -185,8 +185,8 @@ docker-compose exec app php artisan migrate
 ```nginx
 server {
     listen 80;
-    server_name saluteora.local;
-    root /var/www/html/saluteora/laravel/public;
+    server_name <nome progetto>.local;
+    root /var/www/html/<nome progetto>/laravel/public;
     
     index index.php index.html;
     
@@ -226,22 +226,22 @@ php artisan module:list
 ```
 
 ### Accesso Applicazione
-- **Frontend**: http://saluteora.local
-- **Admin Panel**: http://saluteora.local/admin
-- **API**: http://saluteora.local/api
+- **Frontend**: http://<nome progetto>.local
+- **Admin Panel**: http://<nome progetto>.local/admin
+- **API**: http://<nome progetto>.local/api
 
 ### Credenziali Default
 ```
 Admin User:
-Email: admin@saluteora.local
+Email: admin@<nome progetto>.local
 Password: password
 
 Test Doctor:
-Email: doctor@saluteora.local
+Email: doctor@<nome progetto>.local
 Password: password
 
 Test Patient:
-Email: patient@saluteora.local
+Email: patient@<nome progetto>.local
 Password: password
 ```
 

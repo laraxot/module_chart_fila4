@@ -1,6 +1,6 @@
-# Registrazione Studi Odontoiatrici - SaluteOra
+# Registrazione Studi Odontoiatrici - <nome progetto>
 
-> **🎯 OBIETTIVO**: Sistema completo per la registrazione e verifica degli studi odontoiatrici al programma SaluteOra
+> **🎯 OBIETTIVO**: Sistema completo per la registrazione e verifica degli studi odontoiatrici al programma <nome progetto>
 
 ## 📋 Overview
 
@@ -359,7 +359,7 @@ class StudioRegistrationResource extends XotBaseResource
                                         ->view('components.terms-preview'),
                                         
                                     Checkbox::make('accetto_termini_programma')
-                                        ->label('Accetto i termini e condizioni del programma SaluteOra')
+                                        ->label('Accetto i termini e condizioni del programma <nome progetto>')
                                         ->required(),
                                         
                                     Checkbox::make('accetto_privacy')
@@ -589,7 +589,7 @@ class ProcessStudioRegistrationAction
 <div class="registration-landing">
     <div class="hero-section">
         <div class="hero-content">
-            <h1>Unisciti al Programma SaluteOra</h1>
+            <h1>Unisciti al Programma <nome progetto></h1>
             <p>Offri servizi odontoiatrici gratuiti a donne in gravidanza e contribuisci alla salute materno-infantile</p>
             
             <div class="benefits-grid">
@@ -689,7 +689,7 @@ class ProcessStudioRegistrationAction
             <h4>Hai bisogno di aiuto?</h4>
             <p>Il nostro team è disponibile per supportarti durante la registrazione.</p>
             <div class="contact-info">
-                <p><strong>Email:</strong> supporto@saluteora.it</p>
+                <p><strong>Email:</strong> supporto@<nome progetto>.it</p>
                 <p><strong>Telefono:</strong> 800-123-456</p>
                 <p><strong>Orari:</strong> Lun-Ven 9:00-18:00</p>
             </div>
@@ -726,7 +726,7 @@ class RegistrationReceivedMail extends Mailable
     
     public function build(): self
     {
-        return $this->subject('Registrazione ricevuta - SaluteOra')
+        return $this->subject('Registrazione ricevuta - <nome progetto>')
             ->view('emails.registration-received')
             ->with([
                 'studio' => $this->registration->nome_studio,
@@ -841,9 +841,9 @@ class RegistrationAnalytics
 - [Sistema Notifiche](../notifiche/README.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/StudioRegistrationResource.php`
-- `Modules/SaluteOra/Models/StudioRegistration.php`
-- `Modules/SaluteOra/Actions/ProcessStudioRegistrationAction.php`
+- `Modules/<nome progetto>/Filament/Resources/StudioRegistrationResource.php`
+- `Modules/<nome progetto>/Models/StudioRegistration.php`
+- `Modules/<nome progetto>/Actions/ProcessStudioRegistrationAction.php`
 
 ---
 

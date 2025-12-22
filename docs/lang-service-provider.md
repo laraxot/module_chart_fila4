@@ -2,7 +2,7 @@
 
 ## Introduzione
 
-Il LangServiceProvider è un componente fondamentale per la gestione delle traduzioni nell'applicazione SaluteOra. Questo documento fornisce una panoramica del sistema di traduzioni e collega alla documentazione dettagliata nel modulo Lang.
+Il LangServiceProvider è un componente fondamentale per la gestione delle traduzioni nell'applicazione <nome progetto>. Questo documento fornisce una panoramica del sistema di traduzioni e collega alla documentazione dettagliata nel modulo Lang.
 
 ## Caratteristiche Principali
 

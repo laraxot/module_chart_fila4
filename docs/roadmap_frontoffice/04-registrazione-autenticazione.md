@@ -191,6 +191,6 @@ test('gestante can register with valid data', function () {
 
 ## Links ai File Principali
 
-- [Modulo User](/var/www/html/base_saluteora/laravel/Modules/User/)
-- [Modulo GDPR](/var/www/html/base_saluteora/laravel/Modules/Gdpr/)
-- [Roadmap Frontoffice](/var/www/html/base_saluteora/docs/roadmap_frontoffice.md)
+- [Modulo User](/var/www/html/base_<nome progetto>/laravel/Modules/User/)
+- [Modulo GDPR](/var/www/html/base_<nome progetto>/laravel/Modules/Gdpr/)
+- [Roadmap Frontoffice](/var/www/html/base_<nome progetto>/docs/roadmap_frontoffice.md)

@@ -63,10 +63,10 @@ Questa sezione documenta le procedure e gli standard per garantire la qualità d
 
 ## Report di Copertura
 
-La copertura dei test viene generata automaticamente ad ogni build e può essere consultata all'indirizzo: `https://ci.saluteora.it/coverage`
+La copertura dei test viene generata automaticamente ad ogni build e può essere consultata all'indirizzo: `https://ci.<nome progetto>.it/coverage`
 
 ## Monitoraggio
 
-- [Dashboard SonarQube](https://sonar.saluteora.it)
-- [Test di Performance](https://kibana.saluteora.it)
-- [Metriche di Qualità](https://metrics.saluteora.it)
+- [Dashboard SonarQube](https://sonar.<nome progetto>.it)
+- [Test di Performance](https://kibana.<nome progetto>.it)
+- [Metriche di Qualità](https://metrics.<nome progetto>.it)

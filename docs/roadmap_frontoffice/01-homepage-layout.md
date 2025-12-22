@@ -3,12 +3,12 @@
 ## Stato: Completato (100%)
 
 ## Descrizione
-Implementazione del layout principale della homepage del portale SaluteOra, inclusi logo, attori coinvolti e sezione informativa.
+Implementazione del layout principale della homepage del portale <nome progetto>, inclusi logo, attori coinvolti e sezione informativa.
 
 ## Componenti Implementati
 
 ### Header
-- Logo SaluteOra
+- Logo <nome progetto>
 - Menu di navigazione
 - Pulsante accesso/registrazione
 

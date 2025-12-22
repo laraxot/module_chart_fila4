@@ -1,4 +1,4 @@
-# Gestione Profilo Paziente - SaluteOra
+# Gestione Profilo Paziente - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema completo per la gestione del profilo personale delle pazienti in gravidanza
 
@@ -254,9 +254,9 @@ class ProfileCompletionReminder implements ShouldQueue
 - [Sistema Notifiche](./notifiche/README.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/PatientProfileResource.php`
-- `Modules/SaluteOra/Models/Patient.php`
-- `Modules/SaluteOra/Jobs/ProfileCompletionReminder.php`
+- `Modules/<nome progetto>/Filament/Resources/PatientProfileResource.php`
+- `Modules/<nome progetto>/Models/Patient.php`
+- `Modules/<nome progetto>/Jobs/ProfileCompletionReminder.php`
 
 ---
 

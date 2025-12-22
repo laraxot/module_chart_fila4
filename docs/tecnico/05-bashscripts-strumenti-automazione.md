@@ -50,7 +50,7 @@ Gli script bash possono essere eseguiti dalla radice del progetto. È consigliab
 ```bash
 
 # Per sincronizzare tutti i subtree del progetto
-cd /var/www/html/saluteora
+cd /var/www/html/<nome progetto>
 ./bashscripts/git_sync_subtrees.sh
 
 # Per correggere problemi di struttura delle directory

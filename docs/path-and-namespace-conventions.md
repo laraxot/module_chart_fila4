@@ -1,22 +1,22 @@
-# Path and Namespace Conventions in SaluteOra
+# Path and Namespace Conventions in <nome progetto>
 
 ## Path Structure vs Namespace Structure
 
-In SaluteOra, there's a critical distinction between physical paths and PHP namespaces that must be understood and followed:
+In <nome progetto>, there's a critical distinction between physical paths and PHP namespaces that must be understood and followed:
 
 ### Physical Paths (Filesystem Structure)
 
 - **Directory Names**: Always use lowercase for standard directory names
-- **Module Structure**: `/var/www/html/saluteora/laravel/Modules/[ModuleName]/app/...`
+- **Module Structure**: `/var/www/html/<nome progetto>/laravel/Modules/[ModuleName]/app/...`
 - **Important**: The `app` directory is always lowercase in the filesystem
 
 ✅ **CORRECT Physical Paths**:
-- `/var/www/html/saluteora/laravel/Modules/Notify/app/Actions/SMS`
-- `/var/www/html/saluteora/laravel/Modules/User/app/Http/Livewire/Profile`
+- `/var/www/html/<nome progetto>/laravel/Modules/Notify/app/Actions/SMS`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Http/Livewire/Profile`
 
 ❌ **INCORRECT Physical Paths**:
-- `/var/www/html/saluteora/laravel/Modules/Notify/App/Actions/SMS` (wrong capitalization)
-- `/var/www/html/saluteora/laravel/Modules/User/Http/Livewire/Profile` (missing app directory)
+- `/var/www/html/<nome progetto>/laravel/Modules/Notify/App/Actions/SMS` (wrong capitalization)
+- `/var/www/html/<nome progetto>/laravel/Modules/User/Http/Livewire/Profile` (missing app directory)
 
 ### PHP Namespaces
 

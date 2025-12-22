@@ -189,7 +189,7 @@ php artisan route:list --name=bolt
 
 ### Test della Pagina
 ```bash
-curl -s http://saluteora.local/it/patient/referto
+curl -s http://<nome progetto>.local/it/patient/referto
 ```
 
 **Risultato**: ✅ Pagina si carica senza errori
@@ -274,7 +274,7 @@ Larazeus Bolt v3 Integration
 
 ## Conclusioni
 
-La soluzione implementata risolve completamente l'errore originale e fornisce una base solida per l'utilizzo di Larazeus Bolt v3 nel progetto SaluteOra. L'approccio modulare e la configurazione centralizzata garantiscono manutenibilità e scalabilità del sistema.
+La soluzione implementata risolve completamente l'errore originale e fornisce una base solida per l'utilizzo di Larazeus Bolt v3 nel progetto <nome progetto>. L'approccio modulare e la configurazione centralizzata garantiscono manutenibilità e scalabilità del sistema.
 
 **Stato**: ✅ IMPLEMENTATO E TESTATO
 **Compatibilità**: Laravel 12.x, Filament 4.x, Larazeus Bolt v3

@@ -5,7 +5,7 @@
 
 ## Overview
 
-Il sistema di registrazione pazienti di SaluteOra garantisce un onboarding fluido, sicuro e completo per tutti i nuovi utenti della piattaforma.
+Il sistema di registrazione pazienti di <nome progetto> garantisce un onboarding fluido, sicuro e completo per tutti i nuovi utenti della piattaforma.
 
 ## Implementazione Passo Passo
 

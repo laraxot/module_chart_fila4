@@ -1,4 +1,4 @@
-# Gestione Appuntamenti - Area Odontoiatra SaluteOra
+# Gestione Appuntamenti - Area Odontoiatra <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema completo per la gestione operativa degli appuntamenti da parte degli studi odontoiatrici
 
@@ -955,10 +955,10 @@ class AppointmentsExport implements FromCollection, WithHeadings, WithMapping
 - [Sistema Notifiche](../notifiche/README.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/StudioAppointmentResource.php`
-- `Modules/SaluteOra/Widgets/StudioCalendarWidget.php`
-- `Modules/SaluteOra/Actions/RescheduleAppointmentAction.php`
-- `Modules/SaluteOra/Exports/AppointmentsExport.php`
+- `Modules/<nome progetto>/Filament/Resources/StudioAppointmentResource.php`
+- `Modules/<nome progetto>/Widgets/StudioCalendarWidget.php`
+- `Modules/<nome progetto>/Actions/RescheduleAppointmentAction.php`
+- `Modules/<nome progetto>/Exports/AppointmentsExport.php`
 
 ---
 

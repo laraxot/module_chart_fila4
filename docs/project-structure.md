@@ -1,10 +1,10 @@
 # Struttura del Progetto
 
 ## Directory Root
-Il progetto è strutturato con una directory root `/var/www/html/saluteora` che contiene:
+Il progetto è strutturato con una directory root `/var/www/html/<nome progetto>` che contiene:
 
 ```
-/var/www/html/saluteora/
+/var/www/html/<nome progetto>/
 ├── laravel/           # Directory principale dell'applicazione Laravel
 │   ├── Modules/      # Moduli dell'applicazione
 │   │   ├── Patient/
@@ -25,11 +25,11 @@ Il progetto è strutturato con una directory root `/var/www/html/saluteora` che 
 ## Regole Fondamentali
 
 1. **Path Assoluti**:
-   - La directory root è SEMPRE `/var/www/html/saluteora`
-   - Tutti i moduli sono SEMPRE in `/var/www/html/saluteora/laravel/Modules/`
-   - I modelli sono SEMPRE in `/var/www/html/saluteora/laravel/Modules/{Module}/app/Models/`
-   - Le migration sono SEMPRE in `/var/www/html/saluteora/laravel/Modules/{Module}/database/migrations/`
-   - I seeder sono SEMPRE in `/var/www/html/saluteora/laravel/Modules/{Module}/database/seeders/`
+   - La directory root è SEMPRE `/var/www/html/<nome progetto>`
+   - Tutti i moduli sono SEMPRE in `/var/www/html/<nome progetto>/laravel/Modules/`
+   - I modelli sono SEMPRE in `/var/www/html/<nome progetto>/laravel/Modules/{Module}/app/Models/`
+   - Le migration sono SEMPRE in `/var/www/html/<nome progetto>/laravel/Modules/{Module}/database/migrations/`
+   - I seeder sono SEMPRE in `/var/www/html/<nome progetto>/laravel/Modules/{Module}/database/seeders/`
 
 2. **Convenzioni di Naming**:
    - I nomi delle directory sono SEMPRE in minuscolo
@@ -45,23 +45,23 @@ Il progetto è strutturato con una directory root `/var/www/html/saluteora` che 
 ## Errori Comuni
 
 1. **Errore**: Path errato per i modelli
-   - ❌ `/var/www/html/saluteora/Modules/Patient/Models/User.php`
-   - ✅ `/var/www/html/saluteora/laravel/Modules/Patient/app/Models/User.php`
+   - ❌ `/var/www/html/<nome progetto>/Modules/Patient/Models/User.php`
+   - ✅ `/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Models/User.php`
 
 2. **Errore**: Path errato per le migration
-   - ❌ `/var/www/html/saluteora/Modules/Patient/Database/Migrations/`
-   - ✅ `/var/www/html/saluteora/laravel/Modules/Patient/database/migrations/`
+   - ❌ `/var/www/html/<nome progetto>/Modules/Patient/Database/Migrations/`
+   - ✅ `/var/www/html/<nome progetto>/laravel/Modules/Patient/database/migrations/`
 
 3. **Errore**: Path errato per i seeder
-   - ❌ `/var/www/html/saluteora/Modules/Notify/database/seeders/`
-   - ✅ `/var/www/html/saluteora/laravel/Modules/Notify/database/seeders/`
+   - ❌ `/var/www/html/<nome progetto>/Modules/Notify/database/seeders/`
+   - ✅ `/var/www/html/<nome progetto>/laravel/Modules/Notify/database/seeders/`
 
 ## Best Practices
 
 1. **Verifica Struttura**:
    ```bash
    # Prima di ogni operazione
-   list_dir /var/www/html/saluteora/laravel/Modules/{Module}
+   list_dir /var/www/html/<nome progetto>/laravel/Modules/{Module}
    ```
 
 2. **Documentazione**:

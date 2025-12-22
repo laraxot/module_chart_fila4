@@ -4,7 +4,7 @@
 Creazione di viste Blade duplicate per form che dovrebbero invece utilizzare i widget Filament esistenti.
 
 ## Contesto
-Il sistema SaluteOra utilizza Filament come framework principale per la gestione dei form. Tutti i form devono essere implementati come widget Filament per garantire:
+Il sistema <nome progetto> utilizza Filament come framework principale per la gestione dei form. Tutti i form devono essere implementati come widget Filament per garantire:
 - Centralizzazione della logica
 - Riutilizzo del codice
 - Manutenibilità
@@ -55,7 +55,7 @@ Il sistema SaluteOra utilizza Filament come framework principale per la gestione
 
 {{-- ✅ Corretto: Utilizzo del widget Filament --}}
 {{-- /laravel/Themes/One/resources/views/pages/patient/book.blade.php --}}
-@livewire(\Modules\SaluteOra\Filament\Widgets\Patient\FindDoctorAndAppointmentWidget::class)
+@livewire(\Modules\<nome progetto>\Filament\Widgets\Patient\FindDoctorAndAppointmentWidget::class)
 ```
 
 ## Checklist di Verifica

@@ -55,8 +55,8 @@ Modules\NomeModulo\Services
 
 ### Enum
 ```php
-// File: /laravel/Modules/SaluteOra/app/Enums/AppointmentType.php
-namespace Modules\SaluteOra\Enums;
+// File: /laravel/Modules/<nome progetto>/app/Enums/AppointmentType.php
+namespace Modules\<nome progetto>\Enums;
 ```
 
 ### Filament Form
@@ -90,11 +90,11 @@ namespace Modules\Tenant\Providers;
 namespace Modules\Geo\App\Filament\Forms\LocationForm;
 
 // ❌ ERRATO - Non includere "app" nel namespace
-namespace Modules\SaluteOra\app\Enums\AppointmentType;
+namespace Modules\<nome progetto>\app\Enums\AppointmentType;
 
 // ❌ ERRATO - Path fisico errato (manca cartella app)
-// File: /laravel/Modules/SaluteOra/Enums/AppointmentType.php
-// Dovrebbe essere: /laravel/Modules/SaluteOra/app/Enums/AppointmentType.php
+// File: /laravel/Modules/<nome progetto>/Enums/AppointmentType.php
+// Dovrebbe essere: /laravel/Modules/<nome progetto>/app/Enums/AppointmentType.php
 ```
 
 ## 🔧 AUTOLOADING IN COMPOSER.JSON
@@ -130,7 +130,7 @@ Quando crei un nuovo file:
 Dopo aver creato/modificato file, esegui sempre:
 
 ```bash
-cd /var/www/html/_bases/base_saluteora/laravel
+cd /var/www/html/_bases/base_<nome progetto>/laravel
 composer dumpautoload
 ```
 
@@ -149,14 +149,14 @@ NAMESPACE:          Modules\[Modulo]\[Cartella]
 ```bash
 
 # Trova tutti i file con namespace errati
-grep -r "namespace Modules.*App\\\\" /var/www/html/_bases/base_saluteora/laravel/Modules/
+grep -r "namespace Modules.*App\\\\" /var/www/html/_bases/base_<nome progetto>/laravel/Modules/
 ```
 
 ### Correggere un namespace
 ```bash
 
 # Esempio: correggere namespace nel modulo Geo
-find /var/www/html/_bases/base_saluteora/laravel/Modules/Geo -name "*.php" -exec sed -i 's/namespace Modules\\Geo\\App\\/namespace Modules\\Geo\\/g' {} \;
+find /var/www/html/_bases/base_<nome progetto>/laravel/Modules/Geo -name "*.php" -exec sed -i 's/namespace Modules\\Geo\\App\\/namespace Modules\\Geo\\/g' {} \;
 ```
 
 ## 🚨 ERRORI COMUNI E SOLUZIONI

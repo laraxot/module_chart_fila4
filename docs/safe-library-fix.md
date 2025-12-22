@@ -5,7 +5,7 @@
 Durante la risoluzione dei conflitti di merge nel progetto Base, è stato identificato un problema con la libreria `thecodingmachine/safe` che impedisce l'esecuzione di comandi Artisan e l'analisi PHPStan. L'errore specifico è:
 
 ```
-Safe\Exceptions\JsonException thrown in /var/www/html/base_saluteora/laravel/vendor/thecodingmachine/safe/lib/Exceptions/JsonException.php on line 11 while loading bootstrap file /var/www/html/base_saluteora/laravel/vendor/larastan/larastan/bootstrap.php: Syntax error
+Safe\Exceptions\JsonException thrown in /var/www/html/base_<nome progetto>/laravel/vendor/thecodingmachine/safe/lib/Exceptions/JsonException.php on line 11 while loading bootstrap file /var/www/html/base_<nome progetto>/laravel/vendor/larastan/larastan/bootstrap.php: Syntax error
 ```
 
 Il problema sembra essere legato alla versione della libreria Safe (attualmente v3.1.0) che potrebbe avere incompatibilità con PHP 8.3.20.
@@ -21,14 +21,14 @@ Il problema sembra essere legato alla versione della libreria Safe (attualmente 
 ### Soluzione 1: Aggiornare la Libreria Safe
 
 ```bash
-cd /var/www/html/base_saluteora/laravel
+cd /var/www/html/base_<nome progetto>/laravel
 composer update thecodingmachine/safe
 ```
 
 ### Soluzione 2: Installare una Versione Specifica
 
 ```bash
-cd /var/www/html/base_saluteora/laravel
+cd /var/www/html/base_<nome progetto>/laravel
 composer require thecodingmachine/safe:^2.4 --update-with-dependencies
 ```
 
@@ -36,7 +36,7 @@ composer require thecodingmachine/safe:^2.4 --update-with-dependencies
 
 Se le soluzioni precedenti non funzionano, è possibile modificare manualmente il file JsonException.php:
 
-1. Apri il file in `/var/www/html/base_saluteora/laravel/vendor/thecodingmachine/safe/lib/Exceptions/JsonException.php`
+1. Apri il file in `/var/www/html/base_<nome progetto>/laravel/vendor/thecodingmachine/safe/lib/Exceptions/JsonException.php`
 2. Sostituisci il contenuto con:
 
 ```php
@@ -61,7 +61,7 @@ class JsonException extends \JsonException implements SafeExceptionInterface
 
 Per continuare lo sviluppo mentre si risolve il problema:
 
-1. Modifica il file `/var/www/html/base_saluteora/laravel/phpstan.neon`
+1. Modifica il file `/var/www/html/base_<nome progetto>/laravel/phpstan.neon`
 2. Commenta la riga che include la regola Safe:
 
 ```neon
@@ -80,7 +80,7 @@ Dopo aver risolto il problema con la libreria Safe, è necessario:
 1. Eseguire l'analisi PHPStan sui moduli corretti:
 
 ```bash
-cd /var/www/html/base_saluteora/laravel
+cd /var/www/html/base_<nome progetto>/laravel
 ./vendor/bin/phpstan analyse Modules/Media/app --level 3
 ./vendor/bin/phpstan analyse Modules/UI/app --level 3
 ./vendor/bin/phpstan analyse Modules/Xot/app --level 3
@@ -90,14 +90,14 @@ cd /var/www/html/base_saluteora/laravel
 2. Eseguire i test per verificare che le correzioni funzionino:
 
 ```bash
-cd /var/www/html/base_saluteora/laravel
+cd /var/www/html/base_<nome progetto>/laravel
 php artisan test --filter=ConflictResolutionTest
 ```
 
 3. Verificare che i comandi Artisan funzionino correttamente:
 
 ```bash
-cd /var/www/html/base_saluteora/laravel
+cd /var/www/html/base_<nome progetto>/laravel
 php artisan module:list
 ```
 

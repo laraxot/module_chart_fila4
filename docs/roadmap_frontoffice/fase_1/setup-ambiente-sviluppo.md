@@ -5,7 +5,7 @@
 
 ## Overview
 
-Configurazione completa dell'ambiente di sviluppo per la piattaforma SaluteOra con stack tecnologico moderno e workflow di deployment automatizzato.
+Configurazione completa dell'ambiente di sviluppo per la piattaforma <nome progetto> con stack tecnologico moderno e workflow di deployment automatizzato.
 
 ## Stack Tecnologico Implementato
 
@@ -49,7 +49,7 @@ Documentation: Swagger/OpenAPI
 ```bash
 
 # Setup Locale Completo
-git clone https://gitlab.com/saluteora/platform.git
+git clone https://gitlab.com/<nome progetto>/platform.git
 cd platform
 
 # Docker environment

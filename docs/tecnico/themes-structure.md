@@ -7,7 +7,7 @@ Nel progetto il progetto, è fondamentale mantenere una chiara separazione tra m
 ### Struttura Corretta
 
 ```
-/var/www/html/saluteora/laravel/
+/var/www/html/<nome progetto>/laravel/
 ├── Modules/        # Contiene i moduli funzionali
 │   ├── Xot/
 │   ├── User/
@@ -23,13 +23,13 @@ Nel progetto il progetto, è fondamentale mantenere una chiara separazione tra m
 È stato identificato un errore di implementazione: il tema One è stato erroneamente posizionato come modulo in:
 
 ```
-/var/www/html/saluteora/laravel/Modules/ThemeOne
+/var/www/html/<nome progetto>/laravel/Modules/ThemeOne
 ```
 
 Quando invece dovrebbe essere posizionato in:
 
 ```
-/var/www/html/saluteora/laravel/Themes/One
+/var/www/html/<nome progetto>/laravel/Themes/One
 ```
 
 ## Conseguenze dell'Errore
@@ -53,13 +53,13 @@ Per correggere questa situazione, è necessario:
 ```bash
 
 # Creare la directory Themes se non esiste
-mkdir -p /var/www/html/saluteora/laravel/Themes
+mkdir -p /var/www/html/<nome progetto>/laravel/Themes
 
 # Spostare il tema nella posizione corretta
-mv /var/www/html/saluteora/laravel/Modules/ThemeOne /var/www/html/saluteora/laravel/Themes/One
+mv /var/www/html/<nome progetto>/laravel/Modules/ThemeOne /var/www/html/<nome progetto>/laravel/Themes/One
 
 # Rigenerare l'autoloader
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 composer dump-autoload -o
 ```
 

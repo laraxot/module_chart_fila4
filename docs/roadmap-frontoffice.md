@@ -1,4 +1,4 @@
-# 📅 Roadmap Frontoffice SaluteOra
+# 📅 Roadmap Frontoffice <nome progetto>
 
 > **⚠️ AVVISO IMPORTANTE**
 >
@@ -6,7 +6,7 @@
 
 ## Introduzione
 
-Questo documento descrive la roadmap di sviluppo dettagliata per il frontoffice di SaluteOra, il portale dedicato alla promozione della salute orale per le gestanti in condizioni di vulnerabilità socio-economica, basato sulla [Presentazione del portale Salute Orale](./12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md).
+Questo documento descrive la roadmap di sviluppo dettagliata per il frontoffice di <nome progetto>, il portale dedicato alla promozione della salute orale per le gestanti in condizioni di vulnerabilità socio-economica, basato sulla [Presentazione del portale Salute Orale](./12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md).
 
 La roadmap è organizzata in aree funzionali, ognuna contenente task specifici con relative sotto-attività e percentuali di completamento. Per ogni task complesso sono disponibili documenti dettagliati nella directory `roadmap_frontoffice/` con spiegazioni passo-passo per l'implementazione.
 

@@ -1,4 +1,4 @@
-# Larazeus Bolt v3 Integration - SaluteOra
+# Larazeus Bolt v3 Integration - <nome progetto>
 
 ## Filosofia e Architettura
 
@@ -21,7 +21,7 @@ Larazeus Bolt v3
 └── Security Layer (Validazione e Protezione)
 ```
 
-## Integrazione nel Progetto SaluteOra
+## Integrazione nel Progetto <nome progetto>
 
 ### Configurazione del Plugin
 
@@ -207,7 +207,7 @@ BOLT_CACHE_FORMS=true
 BOLT_CACHE_TTL=3600
 BOLT_ENABLE_API=false
 BOLT_ADMIN_ACCESS=restricted
-BOLT_ADMIN_EMAIL=admin@saluteora.local
+BOLT_ADMIN_EMAIL=admin@<nome progetto>.local
 ```
 
 ### Step 4: Verifica dell'Installazione ✅
@@ -240,7 +240,7 @@ php artisan tinker
 
 declare(strict_types=1);
 
-namespace Modules\SaluteOra\Http\Livewire;
+namespace Modules\<nome progetto>\Http\Livewire;
 
 use Livewire\Component;
 use LaraZeus\Bolt\Facades\Designer;
@@ -249,7 +249,7 @@ class FormBuilder extends Component
 {
     public function render()
     {
-        return view('saluteora::livewire.form-builder');
+        return view('<nome progetto>::livewire.form-builder');
     }
     
     public function getFormSchema()
@@ -267,7 +267,7 @@ class FormBuilder extends Component
     <div class="space-y-6">
         <h1 class="text-2xl font-bold">Referto Medico</h1>
         
-        @livewire('saluteora::form-builder')
+        @livewire('<nome progetto>::form-builder')
     </div>
 </x-filament::page>
 ```
@@ -329,7 +329,7 @@ php artisan migrate:status
 
 ## Filosofia di Integrazione
 
-L'integrazione di Larazeus Bolt v3 nel progetto SaluteOra segue i principi di:
+L'integrazione di Larazeus Bolt v3 nel progetto <nome progetto> segue i principi di:
 
 - **Modularità**: Ogni componente è indipendente e riutilizzabile
 - **Estensibilità**: Architettura plugin-based per funzionalità aggiuntive

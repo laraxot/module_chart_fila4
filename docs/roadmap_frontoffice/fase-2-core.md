@@ -5,7 +5,7 @@
 
 ## Overview Fase
 
-La Fase 2 rappresenta il cuore funzionale di SaluteOra, implementando le funzionalità business-critical che rendono la piattaforma operativa e commercialmente viabile. Focus su registrazione utenti, prenotazioni, pagamenti e sistema di notifiche complete.
+La Fase 2 rappresenta il cuore funzionale di <nome progetto>, implementando le funzionalità business-critical che rendono la piattaforma operativa e commercialmente viabile. Focus su registrazione utenti, prenotazioni, pagamenti e sistema di notifiche complete.
 
 ## Componenti Completati ✅
 

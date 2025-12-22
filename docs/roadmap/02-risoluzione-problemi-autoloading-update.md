@@ -34,7 +34,7 @@ Questa configurazione entra in conflitto con il pacchetto `nwidart/laravel-modul
 
 ### Soluzione Implementata
 
-È stato creato uno script bash automatizzato (`/var/www/html/saluteora/laravel/bashscripts/fix-autoloading.sh`) che:
+È stato creato uno script bash automatizzato (`/var/www/html/<nome progetto>/laravel/bashscripts/fix-autoloading.sh`) che:
 
 1. Rimuove la riga problematica `"Modules\\": "Modules/"` dal composer.json principale
 2. Modifica l'impostazione `minimum-stability` da `stable` a `dev`
@@ -72,7 +72,7 @@ Questo causa errori di autoloading perché:
 
 ### Soluzione Implementata
 
-È stato creato uno script bash automatizzato (`/var/www/html/saluteora/laravel/bashscripts/fix-namespace.sh`) che:
+È stato creato uno script bash automatizzato (`/var/www/html/<nome progetto>/laravel/bashscripts/fix-namespace.sh`) che:
 
 1. Analizza tutti i moduli per identificare file con namespace non conformi
 2. Corregge i namespace da `Modules\NomeModulo\App\` a `Modules\NomeModulo\`
@@ -83,7 +83,7 @@ Questo causa errori di autoloading perché:
 
 ### Descrizione del Problema
 
-È stato scoperto che il file di configurazione `/var/www/html/saluteora/laravel/config/app.php` conteneva errori o mancanze critiche che influenzavano l'autoloading dei moduli:
+È stato scoperto che il file di configurazione `/var/www/html/<nome progetto>/laravel/config/app.php` conteneva errori o mancanze critiche che influenzavano l'autoloading dei moduli:
 
 1. Mancanza del service provider `Nwidart\Modules\LaravelModulesServiceProvider::class` nell'array dei provider
 2. Ordine errato dei provider dei moduli Laraxot (l'ordine è cruciale per la corretta risoluzione delle dipendenze)
@@ -118,32 +118,32 @@ Per risolvere completamente i problemi di autoloading, seguire questi passaggi:
 1. **Correggere il file app.php**:
    ```bash
    # Verificare che i service provider siano configurati correttamente
-   nano /var/www/html/saluteora/laravel/config/app.php
+   nano /var/www/html/<nome progetto>/laravel/config/app.php
    
    # Assicurarsi che siano presenti e nell'ordine corretto
    ```
 
 2. **Eseguire lo script di correzione composer.json**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    ./bashscripts/fix-autoloading.sh
    ```
 
 3. **Eseguire lo script di correzione namespace**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    ./bashscripts/fix-namespace.sh
    ```
 
 4. **Rigenerare l'autoloader**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    composer dump-autoload -o
    ```
 
 5. **Verificare il corretto funzionamento**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    php artisan test
    ```
 
@@ -176,7 +176,7 @@ Dopo l'implementazione di queste soluzioni, si consiglia di:
 
 ## Documenti Correlati
 
-- [Discrepanza tra Namespace e Directory](/var/www/html/saluteora/docs/namespace-structure.md)
-- [Minimum Stability](/var/www/html/saluteora/docs/minimum-stability.md)
-- [Scripts Bash](/var/www/html/saluteora/docs/bashscripts.md)
-- [Configurazione app.php](/var/www/html/saluteora/docs/app-php-configuration.md) 
+- [Discrepanza tra Namespace e Directory](/var/www/html/<nome progetto>/docs/namespace-structure.md)
+- [Minimum Stability](/var/www/html/<nome progetto>/docs/minimum-stability.md)
+- [Scripts Bash](/var/www/html/<nome progetto>/docs/bashscripts.md)
+- [Configurazione app.php](/var/www/html/<nome progetto>/docs/app-php-configuration.md) 

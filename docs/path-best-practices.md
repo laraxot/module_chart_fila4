@@ -1,29 +1,29 @@
-# Best Practices per la Gestione dei Percorsi in SaluteOra
+# Best Practices per la Gestione dei Percorsi in <nome progetto>
 
 ## Struttura Corretta dei Percorsi
 
-Tutti i percorsi nel progetto SaluteOra **DEVONO** seguire questa struttura:
+Tutti i percorsi nel progetto <nome progetto> **DEVONO** seguire questa struttura:
 
 ```
-/var/www/html/saluteora/laravel/Modules/{ModuleName}/...
+/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/...
 ```
 
 ## Percorsi Corretti per i Componenti Principali
 
 | Componente | Percorso Corretto |
 |------------|-------------------|
-| Modelli | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/app/Models/` |
-| Controller | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/app/Http/Controllers/` |
-| Migrazioni | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/database/migrations/` |
-| Seeder | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/database/seeders/` |
-| Risorse Filament | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/app/Filament/Resources/` |
-| Provider | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/app/Providers/` |
-| Viste | `/var/www/html/saluteora/laravel/Modules/{ModuleName}/resources/views/` |
+| Modelli | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/app/Models/` |
+| Controller | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/app/Http/Controllers/` |
+| Migrazioni | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/database/migrations/` |
+| Seeder | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/database/seeders/` |
+| Risorse Filament | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/app/Filament/Resources/` |
+| Provider | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/app/Providers/` |
+| Viste | `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/resources/views/` |
 
 ## Percorsi ERRATI da NON Utilizzare Mai
 
-❌ `/var/www/html/saluteora/Modules/{ModuleName}/...`  
-❌ `/var/www/html/saluteora/laravel/app/Models/...` (a meno che non sia un modello globale)  
+❌ `/var/www/html/<nome progetto>/Modules/{ModuleName}/...`  
+❌ `/var/www/html/<nome progetto>/laravel/app/Models/...` (a meno che non sia un modello globale)  
 ❌ `/var/www/html/Modules/{ModuleName}/...`  
 
 ## Utilizzo del PathHelper
@@ -79,10 +79,10 @@ php artisan xot:verify-paths --module=Patient
 
 Prima di utilizzare un percorso nel codice:
 
-- [ ] Verificare che il percorso includa `/laravel/` dopo `/saluteora/`
+- [ ] Verificare che il percorso includa `/laravel/` dopo `/<nome progetto>/`
 - [ ] Utilizzare `PathHelper` per generare i percorsi quando possibile
 - [ ] Verificare la struttura effettiva con `list_dir` prima di operare su file
-- [ ] Per i moduli, rispettare sempre la struttura: `/var/www/html/saluteora/laravel/Modules/{ModuleName}/`
+- [ ] Per i moduli, rispettare sempre la struttura: `/var/www/html/<nome progetto>/laravel/Modules/{ModuleName}/`
 
 ## Esempi Pratici
 
@@ -90,12 +90,12 @@ Prima di utilizzare un percorso nel codice:
 
 ✓ Corretto:
 ```php
-require_once '/var/www/html/saluteora/laravel/Modules/Patient/app/Models/User.php';
+require_once '/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Models/User.php';
 ```
 
 ✗ Errato:
 ```php
-require_once '/var/www/html/saluteora/Modules/Patient/Models/User.php';
+require_once '/var/www/html/<nome progetto>/Modules/Patient/Models/User.php';
 ```
 
 ### Esempio 2: Creazione di una Migrazione
@@ -106,24 +106,24 @@ require_once '/var/www/html/saluteora/Modules/Patient/Models/User.php';
 php artisan xot:make-migration create_doctors_table --module=Patient --create
 
 // Oppure specificare il percorso corretto
-$migrationPath = '/var/www/html/saluteora/laravel/Modules/Patient/database/migrations/';
+$migrationPath = '/var/www/html/<nome progetto>/laravel/Modules/Patient/database/migrations/';
 ```
 
 ✗ Errato:
 ```php
-$migrationPath = '/var/www/html/saluteora/Modules/Patient/Database/Migrations/';
+$migrationPath = '/var/www/html/<nome progetto>/Modules/Patient/Database/Migrations/';
 ```
 
 ### Esempio 3: Accesso a un Seeder
 
 ✓ Corretto:
 ```php
-require_once '/var/www/html/saluteora/laravel/Modules/Notify/database/seeders/MailTemplateSeeder.php';
+require_once '/var/www/html/<nome progetto>/laravel/Modules/Notify/database/seeders/MailTemplateSeeder.php';
 ```
 
 ✗ Errato:
 ```php
-require_once '/var/www/html/saluteora/Modules/Notify/database/seeders/MailTemplateSeeder.php';
+require_once '/var/www/html/<nome progetto>/Modules/Notify/database/seeders/MailTemplateSeeder.php';
 ```
 
 ## Risoluzione dei Problemi Comuni
@@ -132,7 +132,7 @@ require_once '/var/www/html/saluteora/Modules/Notify/database/seeders/MailTempla
 
 Se si verifica un errore "File not found", verificare che:
 
-1. Il percorso includa `/laravel/` dopo `/saluteora/`
+1. Il percorso includa `/laravel/` dopo `/<nome progetto>/`
 2. La struttura delle directory sia corretta (ad es. `app/Models` e non solo `Models`)
 3. Il file esista effettivamente nella posizione specificata
 
@@ -146,4 +146,4 @@ Se si verifica un errore "Class not found", verificare che:
 
 ## Conclusione
 
-Seguire queste best practices per la gestione dei percorsi è fondamentale per evitare errori nel progetto SaluteOra. Utilizzare sempre i percorsi corretti e gli strumenti forniti per verificare e correggere eventuali errori.
+Seguire queste best practices per la gestione dei percorsi è fondamentale per evitare errori nel progetto <nome progetto>. Utilizzare sempre i percorsi corretti e gli strumenti forniti per verificare e correggere eventuali errori.

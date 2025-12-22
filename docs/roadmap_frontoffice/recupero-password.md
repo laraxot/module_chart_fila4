@@ -5,7 +5,7 @@
 
 ## Overview
 
-Il sistema di recupero password di SaluteOra garantisce sicurezza e usabilità, permettendo agli utenti di reimpostare le credenziali in modo sicuro e autonomo.
+Il sistema di recupero password di <nome progetto> garantisce sicurezza e usabilità, permettendo agli utenti di reimpostare le credenziali in modo sicuro e autonomo.
 
 ## Implementazione Passo Passo
 
@@ -44,7 +44,7 @@ public function sendPasswordResetNotification($token)
 ```yaml
 
 # Contenuto Email Template
-Subject: "Reset Password - SaluteOra"
+Subject: "Reset Password - <nome progetto>"
 Content: 
   - Messaggio personalizzato con nome utente
   - Link sicuro con token (scadenza 60 minuti)

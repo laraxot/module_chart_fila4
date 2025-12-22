@@ -1,7 +1,7 @@
 # Piano di Implementazione 2FA
 
 ## Panoramica
-Piano dettagliato per l'implementazione dell'autenticazione a due fattori nel portale SaluteOra.
+Piano dettagliato per l'implementazione dell'autenticazione a due fattori nel portale <nome progetto>.
 
 ## Fasi di Implementazione
 

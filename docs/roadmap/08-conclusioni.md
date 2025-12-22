@@ -38,7 +38,7 @@ Per procedere efficacemente con l'implementazione, si raccomandano i seguenti pa
 1. **Risoluzione dei conflitti di naming**:
    ```bash
    # Individuare tutti i moduli installati e verificare conflitti
-   find /var/www/html/saluteora/laravel/Modules -maxdepth 1 -type d | grep -v "^/var/www/html/saluteora/laravel/Modules$"
+   find /var/www/html/<nome progetto>/laravel/Modules -maxdepth 1 -type d | grep -v "^/var/www/html/<nome progetto>/laravel/Modules$"
    
    # Risolvere conflitti tra CMS e Cms mantenendo la versione corretta
    # Se necessario, eliminare la versione duplicata
@@ -47,10 +47,10 @@ Per procedere efficacemente con l'implementazione, si raccomandano i seguenti pa
 2. **Correzione problemi di autoloading**:
    ```bash
    # Verificare e correggere namespace nei moduli
-   grep -r "namespace" /var/www/html/saluteora/laravel/Modules --include="*.php" | grep -v "Modules\\"
+   grep -r "namespace" /var/www/html/<nome progetto>/laravel/Modules --include="*.php" | grep -v "Modules\\"
    
    # Rigenerare autoloader dopo le correzioni
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    composer dump-autoload
    ```
 
@@ -64,7 +64,7 @@ Per procedere efficacemente con l'implementazione, si raccomandano i seguenti pa
 
 1. **Pubblicare migrazioni**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    php artisan vendor:publish --tag=migrations
    ```
 

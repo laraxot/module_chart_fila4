@@ -1,8 +1,8 @@
-# Autenticazione a Due Fattori (2FA) - SaluteOra
+# Autenticazione a Due Fattori (2FA) - <nome progetto>
 
 ## Introduzione
 
-L'implementazione dell'autenticazione a due fattori rappresenta un elemento critico per la sicurezza del portale SaluteOra, considerando la natura sensibile dei dati sanitari gestiti e le normative GDPR applicabili.
+L'implementazione dell'autenticazione a due fattori rappresenta un elemento critico per la sicurezza del portale <nome progetto>, considerando la natura sensibile dei dati sanitari gestiti e le normative GDPR applicabili.
 
 ## Stato Attuale
 
@@ -92,7 +92,7 @@ class SMSOTPService
             now()->addMinutes(5)
         );
         
-        SMS::send($user->phone, "Il tuo codice SaluteOra: {$code}. Valido per 5 minuti.");
+        SMS::send($user->phone, "Il tuo codice <nome progetto>: {$code}. Valido per 5 minuti.");
         
         SecurityAudit::log('sms_otp_sent', $user, ['phone_last4' => substr($user->phone, -4)]);
         

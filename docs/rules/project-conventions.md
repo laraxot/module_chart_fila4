@@ -1,4 +1,4 @@
-# Convenzioni del Progetto SaluteOra
+# Convenzioni del Progetto <nome progetto>
 
 ## Convenzioni Generali
 

@@ -25,7 +25,7 @@ Per compilare e pubblicare un tema:
 
 1. Entrare nella directory del tema:
    ```bash
-   cd /var/www/html/base_saluteora/laravel/Themes/One
+   cd /var/www/html/base_<nome progetto>/laravel/Themes/One
    ```
 
 2. Compilare gli asset:

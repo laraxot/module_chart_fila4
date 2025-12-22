@@ -2,7 +2,7 @@
 
 ## Panoramica
 
-I test automatizzati sono una componente essenziale per garantire la qualità del software. Questo documento descrive le strategie e le linee guida per l'implementazione dei test automatizzati nel progetto SaluteOra.
+I test automatizzati sono una componente essenziale per garantire la qualità del software. Questo documento descrive le strategie e le linee guida per l'implementazione dei test automatizzati nel progetto <nome progetto>.
 
 ## Tipologie di Test
 

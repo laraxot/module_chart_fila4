@@ -19,18 +19,18 @@ Ho corretto tutti gli esempi di `->label()` nella documentazione per rispettare 
 - **Corretto**: Esempi di colonne senza `->label()`
 - **Aggiunto**: Commenti per spiegare traduzione automatica
 
-### 3. laravel/Modules/SaluteOra/docs/critical-errors-resolved.md
+### 3. laravel/Modules/<nome progetto>/docs/critical-errors-resolved.md
 - **Rimosso**: `Group::make()->label($label)`
 - **Rimosso**: `TextInput::make("$dayKey.morning")->label('Mattina')`
 - **Rimosso**: `TextInput::make("$dayKey.afternoon")->label('Pomeriggio')`
 - **Rimosso**: `TimePicker::make("$dayKey.morning_from")->label('Dalle')`
 - **Rimosso**: `TimePicker::make("$dayKey.morning_to")->label('Alle')`
 
-### 4. laravel/Modules/SaluteOra/docs/widgets/doctor-appointments-widget-fix.md
+### 4. laravel/Modules/<nome progetto>/docs/widgets/doctor-appointments-widget-fix.md
 - **Rimosso**: `->label('Elimina')`
 - **Aggiunto**: Commento per traduzione automatica
 
-### 5. laravel/Modules/SaluteOra/docs/widgets/doctor-availabilities-widget.md
+### 5. laravel/Modules/<nome progetto>/docs/widgets/doctor-availabilities-widget.md
 - **Rimosso**: `->label('Data di Validità')`
 - **Aggiunto**: Commento per traduzione automatica
 

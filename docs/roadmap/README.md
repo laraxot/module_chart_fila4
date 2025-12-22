@@ -19,8 +19,8 @@
 - [x] Studio della privacy by design e privacy by default
 - [x] Bozza iniziale DPIA (Valutazione d'Impatto sulla Protezione dei Dati)
 - [x] Integrazione degli script Bash per l'automazione (`git subtree add -P bashscripts git@github.com:laraxot/bashscripts_fila3.git dev --squash`)
-- [x] Creazione script per la correzione dei namespace (`/var/www/html/saluteora/laravel/bashscripts/fix-namespace.sh`)
-- [x] Creazione script per la correzione della posizione del tema (`/var/www/html/saluteora/laravel/bashscripts/fix-theme-location.sh`)
+- [x] Creazione script per la correzione dei namespace (`/var/www/html/<nome progetto>/laravel/bashscripts/fix-namespace.sh`)
+- [x] Creazione script per la correzione della posizione del tema (`/var/www/html/<nome progetto>/laravel/bashscripts/fix-theme-location.sh`)
 
 ### Problemi Tecnici Risolti ✅
 - [x] Duplicazione del modulo CMS/Cms
@@ -56,15 +56,15 @@ Per supportare lo sviluppo del progetto, sono stati creati i seguenti documenti 
 - [Stato Attuale del Progetto](01-stato-attuale-aggiornato.md) - Panoramica completa delle attività completate e in corso
 - [Risoluzione Problemi di Autoloading](02-risoluzione-problemi-autoloading.md) - Guida dettagliata per risolvere i problemi di autoloading
 - [Problema di Autoloading in Composer.json](02-risoluzione-problemi-autoloading-update.md) - Analisi specifica del problema con "Modules\\": "Modules/"
-- [Discrepanza tra Namespace e Directory](/var/www/html/saluteora/docs/namespace-structure.md) - Analisi del disallineamento tra namespace e struttura directory
-- [Configurazione del file app.php](/var/www/html/saluteora/docs/app-php-configuration.md) - Analisi del ruolo cruciale del file app.php nell'autoloading
-- [Struttura dei Temi](/var/www/html/saluteora/docs/themes-structure.md) - Documentazione sulla corretta struttura dei temi
-- [Gestione Temi nel Modulo Cms](/var/www/html/saluteora/docs/tecnico/09-gestione-temi-modulo-cms.md) - Spiegazione di come il modulo Cms gestisce i temi
-- [Gestione Migrazioni nei Moduli](/var/www/html/saluteora/docs/tecnico/10-gestione-migrazioni-moduli.md) - Documentazione sulla gestione delle migrazioni nei moduli Laraxot
+- [Discrepanza tra Namespace e Directory](/var/www/html/<nome progetto>/docs/namespace-structure.md) - Analisi del disallineamento tra namespace e struttura directory
+- [Configurazione del file app.php](/var/www/html/<nome progetto>/docs/app-php-configuration.md) - Analisi del ruolo cruciale del file app.php nell'autoloading
+- [Struttura dei Temi](/var/www/html/<nome progetto>/docs/themes-structure.md) - Documentazione sulla corretta struttura dei temi
+- [Gestione Temi nel Modulo Cms](/var/www/html/<nome progetto>/docs/tecnico/09-gestione-temi-modulo-cms.md) - Spiegazione di come il modulo Cms gestisce i temi
+- [Gestione Migrazioni nei Moduli](/var/www/html/<nome progetto>/docs/tecnico/10-gestione-migrazioni-moduli.md) - Documentazione sulla gestione delle migrazioni nei moduli Laraxot
 - [Configurazione Filament](03-configurazione-filament.md) - Implementazione del pannello amministrativo con Filament 4.x
 - [Modulo Patient](04-modulo-patient.md) - Implementazione dettagliata del modulo per la gestione pazienti
-- [Scripts Bash](/var/www/html/saluteora/docs/bashscripts.md) - Documentazione sugli script Bash per l'automazione
-- [Minimum Stability](/var/www/html/saluteora/docs/minimum-stability.md) - Analisi dell'importanza di usare "minimum-stability": "dev"
+- [Scripts Bash](/var/www/html/<nome progetto>/docs/bashscripts.md) - Documentazione sugli script Bash per l'automazione
+- [Minimum Stability](/var/www/html/<nome progetto>/docs/minimum-stability.md) - Analisi dell'importanza di usare "minimum-stability": "dev"
 
 ### Documenti Originali
 - [Architettura e Moduli](02-architettura-moduli.md) - Descrizione dell'architettura modulare
@@ -206,7 +206,7 @@ Per supportare lo sviluppo del progetto, sono stati creati i seguenti documenti 
 1. **Verificare e correggere il file config/app.php**
    ```bash
    # Verificare che i service provider siano configurati correttamente
-   nano /var/www/html/saluteora/laravel/config/app.php
+   nano /var/www/html/<nome progetto>/laravel/config/app.php
    
    # Assicurarsi che i service provider siano registrati nell'ordine corretto
    # 1. Provider di Laravel
@@ -218,13 +218,13 @@ Per supportare lo sviluppo del progetto, sono stati creati i seguenti documenti 
 2. **Verificare i namespace nel tema One**
    ```bash
    # Verificare i namespace nei file PHP
-   grep -r "namespace Modules\\\\ThemeOne" /var/www/html/saluteora/laravel/Themes/One
+   grep -r "namespace Modules\\\\ThemeOne" /var/www/html/<nome progetto>/laravel/Themes/One
    
    # Se necessario, aggiornare i namespace
-   find /var/www/html/saluteora/laravel/Themes/One -type f -name "*.php" | xargs sed -i 's/namespace Modules\\ThemeOne/namespace Themes\\One/g'
+   find /var/www/html/<nome progetto>/laravel/Themes/One -type f -name "*.php" | xargs sed -i 's/namespace Modules\\ThemeOne/namespace Themes\\One/g'
    
    # Verificare i riferimenti al tema
-   grep -r "Modules\\\\ThemeOne" /var/www/html/saluteora/laravel --include="*.php" --exclude-dir="/var/www/html/saluteora/laravel/Themes/One"
+   grep -r "Modules\\\\ThemeOne" /var/www/html/<nome progetto>/laravel --include="*.php" --exclude-dir="/var/www/html/<nome progetto>/laravel/Themes/One"
    ```
 
 3. **Correggere il problema di autoloading in composer.json**
@@ -243,7 +243,7 @@ Per supportare lo sviluppo del progetto, sono stati creati i seguenti documenti 
 4. **Correggere i namespace non conformi nei file PHP**
    ```bash
    # Utilizzare lo script di automazione per correggere i namespace
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    ./bashscripts/fix-namespace.sh
    
    # Per correggere un singolo modulo
@@ -256,7 +256,7 @@ Per supportare lo sviluppo del progetto, sono stati creati i seguenti documenti 
 5. **Completare la risoluzione dei conflitti di classe**
    ```bash
    # Analizzare classi duplicate
-   find /var/www/html/saluteora/laravel/Modules -type f -name "*.php" | xargs grep -l "class " | sort > classi_totali.txt
+   find /var/www/html/<nome progetto>/laravel/Modules -type f -name "*.php" | xargs grep -l "class " | sort > classi_totali.txt
    
    # Standardizzare namespace
    # Esempio: rinominare classi in conflitto tra UI e GDPR

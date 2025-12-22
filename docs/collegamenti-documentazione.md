@@ -1,8 +1,8 @@
-# Collegamenti Documentazione SaluteOra
+# Collegamenti Documentazione <nome progetto>
 
 ## Mappa dei collegamenti
 
-- [README.md documentazione generale SaluteOra](./README.md)
+- [README.md documentazione generale <nome progetto>](./README.md)
 - [README.md toolkit bashscripts](../bashscripts/docs/README.md)
 - [Documentazione Sistema di Prompt](../bashscripts/docs/PROMPTS_DOCUMENTATION_SYSTEM.md)
 - [Percorsi Relativi nella Documentazione](../bashscripts/docs/PERCORSI_RELATIVI_DOCUMENTAZIONE.md)

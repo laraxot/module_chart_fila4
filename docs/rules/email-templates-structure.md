@@ -2,7 +2,7 @@
 
 ## Regole Fondamentali
 
-In SaluteOra, la directory `/Modules/Notify/resources/mail-layouts/` deve contenere **SOLO** file HTML base con placeholder `{{{ body }}}`. 
+In <nome progetto>, la directory `/Modules/Notify/resources/mail-layouts/` deve contenere **SOLO** file HTML base con placeholder `{{{ body }}}`. 
 
 ### Errori critici da evitare
 

@@ -1,4 +1,4 @@
-# Email Conferma Registrazione - SaluteOra
+# Email Conferma Registrazione - <nome progetto>
 
 > **📧 Sistema di conferma registrazione via email per nuovi utenti del portale odontoiatrico**
 
@@ -34,7 +34,7 @@ Verificare l'indirizzo email fornito durante la registrazione per garantire:
 
 ### Controller Registrazione
 ```php
-// Modules/SaluteOra/Http/Controllers/Auth/RegisterController.php
+// Modules/<nome progetto>/Http/Controllers/Auth/RegisterController.php
 class RegisterController extends Controller
 {
     public function register(RegisterRequest $request): RedirectResponse
@@ -80,7 +80,7 @@ class RegisterController extends Controller
 
 ### Email Notification
 ```php
-// Modules/SaluteOra/Notifications/EmailVerificationNotification.php
+// Modules/<nome progetto>/Notifications/EmailVerificationNotification.php
 class EmailVerificationNotification extends Notification implements ShouldQueue
 {
     use Queueable;
@@ -95,8 +95,8 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
         $verificationUrl = $this->verificationUrl($notifiable);
         
         return (new MailMessage)
-            ->subject('Conferma il tuo account SaluteOra')
-            ->view('saluteora::emails.verify-email', [
+            ->subject('Conferma il tuo account <nome progetto>')
+            ->view('<nome progetto>::emails.verify-email', [
                 'user' => $notifiable,
                 'verificationUrl' => $verificationUrl,
                 'expireMinutes' => config('auth.verification.expire', 60),
@@ -119,13 +119,13 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 
 ### Template Email Responsive
 ```blade
-{{-- Modules/SaluteOra/resources/views/emails/verify-email.blade.php --}}
+{{-- Modules/<nome progetto>/resources/views/emails/verify-email.blade.php --}}
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conferma Account - SaluteOra</title>
+    <title>Conferma Account - <nome progetto></title>
     <style>
         /* Reset CSS */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -264,7 +264,7 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
             <h1 class="welcome-title">Benvenuta, {{ $user->name }}!</h1>
             
             <p class="welcome-text">
-                Grazie per esserti registrata al programma <strong>SaluteOra</strong>. 
+                Grazie per esserti registrata al programma <strong><nome progetto></strong>. 
                 Per completare la registrazione e accedere ai servizi odontoiatrici gratuiti, 
                 è necessario verificare il tuo indirizzo email.
             </p>
@@ -303,13 +303,13 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
         <div class="footer">
             <p class="footer-text">
                 Hai ricevuto questa email perché ti sei registrata su 
-                <strong>SaluteOra</strong>.
+                <strong><nome progetto></strong>.
             </p>
             <p class="expiry-warning">
                 ⚠️ Questo link scadrà tra {{ $expireMinutes }} minuti
             </p>
             <p class="footer-text" style="margin-top: 15px;">
-                © 2025 SaluteOra - Servizi Odontoiatrici<br>
+                © 2025 <nome progetto> - Servizi Odontoiatrici<br>
                 Se non hai richiesto questa registrazione, ignora questa email.
             </p>
         </div>
@@ -324,7 +324,7 @@ class EmailVerificationNotification extends Notification implements ShouldQueue
 
 ### Token Verification
 ```php
-// Modules/SaluteOra/Http/Controllers/Auth/VerifyEmailController.php
+// Modules/<nome progetto>/Http/Controllers/Auth/VerifyEmailController.php
 class VerifyEmailController extends Controller
 {
     public function verify(EmailVerificationRequest $request): RedirectResponse
@@ -354,14 +354,14 @@ class VerifyEmailController extends Controller
         Log::info('Email verified', ['user_id' => $user->id, 'ip' => $request->ip()]);
 
         return redirect()->route('dashboard')
-            ->with('success', 'Email verificata con successo! Benvenuta in SaluteOra.');
+            ->with('success', 'Email verificata con successo! Benvenuta in <nome progetto>.');
     }
 }
 ```
 
 ### Request Validation
 ```php
-// Modules/SaluteOra/Http/Requests/EmailVerificationRequest.php
+// Modules/<nome progetto>/Http/Requests/EmailVerificationRequest.php
 class EmailVerificationRequest extends FormRequest
 {
     public function authorize(): bool

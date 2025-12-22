@@ -61,7 +61,7 @@ public function validateDateSelection(string $dateString): array
         'enabled' => $isEnabled,
         'message' => $isEnabled 
             ? null 
-            : __('saluteora::calendar.date_not_available', ['date' => $dateString])
+            : __('<nome progetto>::calendar.date_not_available', ['date' => $dateString])
     ];
 }
 
@@ -247,7 +247,7 @@ x-data="{
 
 ### Fase 1: Feature Flag
 ```php
-// config/saluteora.php
+// config/<nome progetto>.php
 'inline_date_picker' => [
     'validation_method' => env('DATE_PICKER_VALIDATION', 'payload'), // 'payload', 'livewire', 'hybrid'
 ],

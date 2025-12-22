@@ -27,7 +27,7 @@ Risolvere i conflitti di namespace e problemi di autoloading PSR-4 tra i vari mo
 #### Implementazione
 1. **Identificare classi duplicate**:
    ```bash
-   find /var/www/html/saluteora/laravel/Modules -type f -name "*.php" | xargs grep -l "namespace" | sort > file_namespaces.txt
+   find /var/www/html/<nome progetto>/laravel/Modules -type f -name "*.php" | xargs grep -l "namespace" | sort > file_namespaces.txt
    ```
 
 2. **Analizzare manualmente i conflitti** più critici:
@@ -69,7 +69,7 @@ Registrare correttamente i service provider dei moduli nel file `config/app.php`
 #### Implementazione
 1. **Aprire il file di configurazione**:
    ```bash
-   nano /var/www/html/saluteora/laravel/config/app.php
+   nano /var/www/html/<nome progetto>/laravel/config/app.php
    ```
 
 2. **Aggiungere i provider in ordine di dipendenza**:
@@ -109,7 +109,7 @@ Configurare il database e eseguire le migrazioni per tutti i moduli.
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=saluteora
+   DB_DATABASE=<nome progetto>
    DB_USERNAME=root
    DB_PASSWORD=
    ```

@@ -30,7 +30,7 @@ Il sistema attualmente presenta una duplicazione della logica dei form tra viste
    {{-- Template standard per l'integrazione dei widget --}}
    <div class="page-container">
        <div class="content-wrapper">
-           @livewire(\Modules\SaluteOra\Filament\Widgets\Patient\FindDoctorAndAppointmentWidget::class)
+           @livewire(\Modules\<nome progetto>\Filament\Widgets\Patient\FindDoctorAndAppointmentWidget::class)
        </div>
    </div>
    ```

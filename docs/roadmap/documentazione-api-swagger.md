@@ -45,9 +45,9 @@ info:
   description: API per accesso e gestione dati piattaforma il progetto
   version: 1.0.0
 servers:
-  - url: https://api.saluteora.it/v1
+  - url: https://api.<nome progetto>.it/v1
     description: Production server
-  - url: https://staging-api.saluteora.it/v1
+  - url: https://staging-api.<nome progetto>.it/v1
     description: Staging server
 paths:
   /patient/patients:
@@ -128,8 +128,8 @@ I modelli e gli schemi dati vengono definiti per rappresentare in modo coerente 
 L'interfaccia di documentazione è accessibile tramite:
 
 - Ambiente di sviluppo: `/api/documentation`
-- Ambiente di staging: `https://staging-api.saluteora.it/documentation`
-- Produzione: `https://api.saluteora.it/documentation`
+- Ambiente di staging: `https://staging-api.<nome progetto>.it/documentation`
+- Produzione: `https://api.<nome progetto>.it/documentation`
 
 La UI consente:
 - Esplorazione interattiva degli endpoint

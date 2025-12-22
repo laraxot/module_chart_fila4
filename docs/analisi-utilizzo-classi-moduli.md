@@ -1,7 +1,7 @@
-# Analisi Utilizzo Classi nei Moduli Laraxot SaluteOra
+# Analisi Utilizzo Classi nei Moduli Laraxot <nome progetto>
 
 **Data Analisi:** Gennaio 2025  
-**Progetto:** /var/www/html/_bases/base_saluteora/laravel/Modules  
+**Progetto:** /var/www/html/_bases/base_<nome progetto>/laravel/Modules  
 **Totale File PHP:** 625 file analizzati
 
 ## Sommario Esecutivo
@@ -32,7 +32,7 @@ L'analisi ha rivelato una chiara stratificazione nell'utilizzo delle classi, con
   - `SelectState` - componenti di stato
   - `RadioImage`, `InlineDatePicker` - componenti form avanzati
 
-### 3. **Modello User (SaluteOra)** - 🥇 CORE BUSINESS
+### 3. **Modello User (<nome progetto>)** - 🥇 CORE BUSINESS
 - **Utilizzi rilevati:** 36 occorrenze
 - **Classi correlate utilizzate:**
   - `User` - modello principale utenti
@@ -45,7 +45,7 @@ L'analisi ha rivelato una chiara stratificazione nell'utilizzo delle classi, con
 - **Ruolo:** Gestione job, batch, scheduling
 - **Note:** Modulo estremamente completo e ben utilizzato
 
-### 5. **Modelli Core SaluteOra** - 🥈 BUSINESS LOGIC
+### 5. **Modelli Core <nome progetto>** - 🥈 BUSINESS LOGIC
 - **Patient:** 18 occorrenze - Gestione pazienti
 - **Doctor:** 16 occorrenze - Gestione dottori  
 - **Studio:** 14 occorrenze - Gestione studi medici
@@ -67,7 +67,7 @@ L'analisi ha rivelato una chiara stratificazione nell'utilizzo delle classi, con
 
 ### 🚨 CLASSI PHP ATTIVE NON UTILIZZATE (DA RIMUOVERE SUBITO)
 
-#### Modelli SaluteOra Non Utilizzati:
+#### Modelli <nome progetto> Non Utilizzati:
 - **`ReimbursementRequest.php`** - 4.2KB, 124 righe - COMPLETAMENTE INUTILIZZATO
 - **`Pregnancy.php`** - 5.9KB, 157 righe - COMPLETAMENTE INUTILIZZATO  
 - **`PatientDocument.php`** - 3.7KB, 117 righe - COMPLETAMENTE INUTILIZZATO
@@ -235,7 +235,7 @@ SearchTextInDbCommand.php: 1 errore - collect() con tipi complessi
 - `TableLayoutEnum` da UI utilizzato
 
 ### Media - LIMITATO
-- Alcuni utilizzi cross-module (SaluteOra User)
+- Alcuni utilizzi cross-module (<nome progetto> User)
 - `IconMediaColumn` utilizzata
 
 ### Notify - SPECIALIZZATO
@@ -342,5 +342,5 @@ SearchTextInDbCommand.php: 1 errore - collect() con tipi complessi
 ---
 
 *Analisi generata il: Gennaio 2025*  
-*Progetto: Laraxot SaluteOra*  
+*Progetto: Laraxot <nome progetto>*  
 *Metodo: Ricerca semantica e pattern matching* 

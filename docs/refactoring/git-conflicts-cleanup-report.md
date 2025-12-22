@@ -9,7 +9,7 @@
 
 ## Backup
 I file originali sono stati salvati in:
-`/var/www/html/_bases/base_saluteora/backup-conflicts-20250804-103305`
+`/var/www/html/_bases/base_<nome progetto>/backup-conflicts-20250804-103305`
 
 ## Strategia di Pulizia
 La pulizia ha utilizzato una strategia conservativa:

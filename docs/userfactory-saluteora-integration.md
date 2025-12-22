@@ -1,12 +1,12 @@
-# UserFactory SaluteOra Integration - Root Documentation
+# UserFactory <nome progetto> Integration - Root Documentation
 
 ## Overview
 
-L'integrazione della `UserFactory` nel modulo SaluteOra rappresenta un'implementazione completa di factory per domini sanitari specializzati, utilizzando Single Table Inheritance (STI) e business logic avanzata.
+L'integrazione della `UserFactory` nel modulo <nome progetto> rappresenta un'implementazione completa di factory per domini sanitari specializzati, utilizzando Single Table Inheritance (STI) e business logic avanzata.
 
 ## Componenti Integrati
 
-### 1. Modulo SaluteOra
+### 1. Modulo <nome progetto>
 - **UserFactory**: Genera utenti del dominio sanitario con dati realistici
 - **STI Models**: User, Patient, Doctor, Admin con ereditarietà Parental
 - **Business Logic**: ISEE, gravidanza, certificazioni professionali
@@ -21,7 +21,7 @@ L'integrazione della `UserFactory` nel modulo SaluteOra rappresenta un'implement
 
 ```
 BaseUser (Modules\User\Models\BaseUser)
-├── User (Modules\SaluteOra\Models\User) - STI Base
+├── User (Modules\<nome progetto>\Models\User) - STI Base
     ├── Patient (HasParent) - 11 campi sanitari specifici
     ├── Doctor (HasParent) - Credenziali professionali
     └── Admin (HasParent) - Privilegi amministrativi
@@ -57,7 +57,7 @@ User::factory()->integrationRequested()->create();
 ## Implementation Quality
 
 ### ✅ Conformità Laraxot
-- **Namespace Conventions**: Modules\SaluteOra\... (no App segment)
+- **Namespace Conventions**: Modules\<nome progetto>\... (no App segment)
 - **Type Safety**: PHPStan livello 9+ compliant
 - **Documentation**: Bidirectional links tra moduli
 - **Code Standards**: PSR-12, strict types, complete PHPDoc
@@ -155,10 +155,10 @@ $population = [
 
 ## Documentation Links
 
-### SaluteOra Module
-- [UserFactory Analysis](../laravel/Modules/SaluteOra/docs/factories/UserFactory-improvements-analysis.md)
-- [Implementation Complete](../laravel/Modules/SaluteOra/docs/factories/userfactory_implementation_completed.md)
-- [Model Architecture](../laravel/Modules/SaluteOra/docs/model-architecture.md)
+### <nome progetto> Module
+- [UserFactory Analysis](../laravel/Modules/<nome progetto>/docs/factories/UserFactory-improvements-analysis.md)
+- [Implementation Complete](../laravel/Modules/<nome progetto>/docs/factories/userfactory_implementation_completed.md)
+- [Model Architecture](../laravel/Modules/<nome progetto>/docs/model-architecture.md)
 
 ### User Module
 - [User Factory Integration](../laravel/Modules/User/docs/user_factory_integration.md)
@@ -192,7 +192,7 @@ $population = [
 
 ## Conclusion
 
-L'integrazione UserFactory SaluteOra stabilisce un nuovo standard per:
+L'integrazione UserFactory <nome progetto> stabilisce un nuovo standard per:
 
 1. **Domain-Specific Factories** in contesti sanitari
 2. **Cross-Module Integration** mantenendo clean architecture
@@ -205,5 +205,5 @@ L'integrazione UserFactory SaluteOra stabilisce un nuovo standard per:
 
 **Created**: January 2025  
 **Status**: ✅ Production Ready  
-**Integration**: Complete across SaluteOra and User modules  
+**Integration**: Complete across <nome progetto> and User modules  
 **Next Phase**: Unit testing and performance validation 

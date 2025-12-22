@@ -1,15 +1,15 @@
-# Guida Completa: Migrazioni e Connessioni al Database in SaluteOra
+# Guida Completa: Migrazioni e Connessioni al Database in <nome progetto>
 
 ## Architettura del Database
 
 ### Connessioni al Database
 
-SaluteOra utilizza un'architettura multi-database con le seguenti connessioni:
+<nome progetto> utilizza un'architettura multi-database con le seguenti connessioni:
 
 | Connessione | Database | Descrizione | Tabelle Principali |
 |-------------|----------|-------------|-------------------|
-| `mysql` | `saluteora_data` | Database principale per i dati dell'applicazione | `doctor_registration_workflows`, `patients`, `documents`, ecc. |
-| `user` | `saluteora_user` | Database specifico per gli utenti | `users` |
+| `mysql` | `<nome progetto>_data` | Database principale per i dati dell'applicazione | `doctor_registration_workflows`, `patients`, `documents`, ecc. |
+| `user` | `<nome progetto>_user` | Database specifico per gli utenti | `users` |
 
 ### Regole Fondamentali per le Connessioni
 
@@ -101,7 +101,7 @@ SaluteOra utilizza un'architettura multi-database con le seguenti connessioni:
 
 ## Esempi Pratici
 
-### Esempio 1: Tabella in `saluteora_data` (connessione `mysql`)
+### Esempio 1: Tabella in `<nome progetto>_data` (connessione `mysql`)
 
 ```php
 // Migrazione
@@ -135,7 +135,7 @@ class DoctorRegistrationWorkflow extends BaseModel
 }
 ```
 
-### Esempio 2: Tabella in `saluteora_user` (connessione `user`)
+### Esempio 2: Tabella in `<nome progetto>_user` (connessione `user`)
 
 ```php
 // Migrazione

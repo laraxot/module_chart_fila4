@@ -5,7 +5,7 @@
 
 ## Overview Tecnica
 
-Il sistema di notifiche di SaluteOra è un'infrastruttura multi-canale progettata per garantire comunicazioni tempestive, personalizzate e affidabili tra piattaforma, odontoiatri e pazienti. Supporta email, SMS, push notifications e chiamate automatiche con intelligenza artificiale per ottimizzazione delivery e engagement.
+Il sistema di notifiche di <nome progetto> è un'infrastruttura multi-canale progettata per garantire comunicazioni tempestive, personalizzate e affidabili tra piattaforma, odontoiatri e pazienti. Supporta email, SMS, push notifications e chiamate automatiche con intelligenza artificiale per ottimizzazione delivery e engagement.
 
 ## Architettura Sistema
 
@@ -143,7 +143,7 @@ A/B Testing: Custom implementation
 <!-- Appointment Confirmation Template -->
 <div class="email-container">
   <header class="brand-header">
-    <img src="{{logo_url}}" alt="SaluteOra" />
+    <img src="{{logo_url}}" alt="<nome progetto>" />
     <h1>Appuntamento Confermato</h1>
   </header>
   
@@ -180,7 +180,7 @@ A/B Testing: Custom implementation
 ```javascript
 // Appointment Reminder Template
 const smsTemplates = {
-  reminder_2h: `🦷 SaluteOra: Hai un appuntamento tra 2 ore con Dr. {{dentist_name}} alle {{time}}. 
+  reminder_2h: `🦷 <nome progetto>: Hai un appuntamento tra 2 ore con Dr. {{dentist_name}} alle {{time}}. 
   
 Conferma: {{confirm_link}}
 Sposta: {{reschedule_link}}`,

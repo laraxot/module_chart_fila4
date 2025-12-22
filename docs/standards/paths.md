@@ -48,36 +48,36 @@ ModuleName/
 1. **Namespace e Percorsi**
    - Tutti i file devono essere nella cartella `app/` del modulo
    - Il namespace deve riflettere la struttura delle cartelle
-   - Esempio: `Modules\SaluteOra\App\Enums\AppointmentType`
+   - Esempio: `Modules\<nome progetto>\App\Enums\AppointmentType`
 
 2. **Enums**
    - Posizione corretta: `app/Enums/`
-   - Namespace: `Modules\SaluteOra\App\Enums`
+   - Namespace: `Modules\<nome progetto>\App\Enums`
    - Esempio: `AppointmentType.php` deve essere in `app/Enums/`
 
 3. **Models**
    - Posizione corretta: `app/Models/`
-   - Namespace: `Modules\SaluteOra\App\Models`
+   - Namespace: `Modules\<nome progetto>\App\Models`
    - Esempio: `Appointment.php` deve essere in `app/Models/`
 
 4. **Controllers**
    - Posizione corretta: `app/Http/Controllers/`
-   - Namespace: `Modules\SaluteOra\App\Http\Controllers`
+   - Namespace: `Modules\<nome progetto>\App\Http\Controllers`
    - Esempio: `AppointmentController.php` deve essere in `app/Http/Controllers/`
 
 ## Esempi di Percorsi Corretti
 
 ```php
 // Corretto
-namespace Modules\SaluteOra\App\Enums;
+namespace Modules\<nome progetto>\App\Enums;
 class AppointmentType extends Enum { ... }
 
 // Corretto
-namespace Modules\SaluteOra\App\Models;
+namespace Modules\<nome progetto>\App\Models;
 class Appointment extends Model { ... }
 
 // Corretto
-namespace Modules\SaluteOra\App\Http\Controllers;
+namespace Modules\<nome progetto>\App\Http\Controllers;
 class AppointmentController extends Controller { ... }
 ```
 
@@ -85,15 +85,15 @@ class AppointmentController extends Controller { ... }
 
 ```php
 // Errato - Enums fuori da app/
-namespace Modules\SaluteOra\Enums;
+namespace Modules\<nome progetto>\Enums;
 class AppointmentType extends Enum { ... }
 
 // Errato - Models fuori da app/
-namespace Modules\SaluteOra\Models;
+namespace Modules\<nome progetto>\Models;
 class Appointment extends Model { ... }
 
 // Errato - Controllers fuori da app/
-namespace Modules\SaluteOra\Http\Controllers;
+namespace Modules\<nome progetto>\Http\Controllers;
 class AppointmentController extends Controller { ... }
 ```
 
@@ -128,7 +128,7 @@ class AppointmentController extends Controller { ... }
 php artisan module:check-structure
 
 # Genera file nel percorso corretto
-php artisan make:module:enum SaluteOra AppointmentType
+php artisan make:module:enum <nome progetto> AppointmentType
 ```
 
 2. **Script di Validazione**

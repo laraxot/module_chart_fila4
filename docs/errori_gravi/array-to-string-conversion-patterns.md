@@ -4,12 +4,12 @@
 
 L'errore "Array to string conversion" in Laravel/Eloquent si verifica quando si tenta di inserire array PHP direttamente in colonne database string. Questo documento raccoglie pattern comuni e strategie di prevenzione globali per tutti i moduli.
 
-## 🚨 Caso Critico Identificato: SaluteOra Patient Registration
+## 🚨 Caso Critico Identificato: <nome progetto> Patient Registration
 
 **Data**: 26 Giugno 2025  
 **Impatto**: Sistema registrazione pazienti completamente bloccato  
 
-➡️ **Documentazione completa**: [SaluteOra: Array to String Error](../laravel/Modules/SaluteOra/docs/errori/array-to-string-conversion-patient-registration.md)
+➡️ **Documentazione completa**: [<nome progetto>: Array to String Error](../laravel/Modules/<nome progetto>/docs/errori/array-to-string-conversion-patient-registration.md)
 
 ### Problema Specifico
 Conflitto architetturale tra:
@@ -240,7 +240,7 @@ if (is_array($value) && !$this->hasValidCast($key)) {
 ## Casi Studio per Modulo
 
 ### Moduli a Rischio
-- **SaluteOra**: ✅ Documentato - Patient attachments
+- **<nome progetto>**: ✅ Documentato - Patient attachments
 - **User**: Media uploads, settings JSON
 - **Content**: Metadata, tags, categories
 - **E-commerce**: Product variants, specifications
@@ -258,8 +258,8 @@ grep -r "array.*=" Modules/ | grep -v test
 ## Collegamenti
 
 ### Documentazione Specifica
-- 🚨 [SaluteOra Patient Registration Error](../laravel/Modules/SaluteOra/docs/errori/array-to-string-conversion-patient-registration.md)
-- 📋 [SaluteOra Media Library Implementation](../laravel/Modules/SaluteOra/docs/spatie_media_library_implementation.md)
+- 🚨 [<nome progetto> Patient Registration Error](../laravel/Modules/<nome progetto>/docs/errori/array-to-string-conversion-patient-registration.md)
+- 📋 [<nome progetto> Media Library Implementation](../laravel/Modules/<nome progetto>/docs/spatie_media_library_implementation.md)
 
 ### Regole AI
 - 📋 [Cursor Rules: Attachment Handling](../laravel/.cursor/rules/patient-attachment-handling.mdc)
@@ -273,4 +273,4 @@ grep -r "array.*=" Modules/ | grep -v test
 ---
 
 **Ultimo aggiornamento**: 26 Giugno 2025  
-**Status**: Pattern documentato, caso critico SaluteOra identificato  
+**Status**: Pattern documentato, caso critico <nome progetto> identificato  

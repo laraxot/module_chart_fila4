@@ -1,4 +1,4 @@
-# Visualizzazione Documenti - SaluteOra
+# Visualizzazione Documenti - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema sicuro per la visualizzazione e gestione dei documenti caricati dalle pazienti
 
@@ -392,9 +392,9 @@ document.addEventListener('DOMContentLoaded', function() {
 - [Area Personale Paziente](./02_area_personale_paziente.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/PatientDocumentsResource.php`
-- `Modules/SaluteOra/Http/Controllers/DocumentPreviewController.php`
-- `Modules/SaluteOra/Services/DocumentEncryptionService.php`
+- `Modules/<nome progetto>/Filament/Resources/PatientDocumentsResource.php`
+- `Modules/<nome progetto>/Http/Controllers/DocumentPreviewController.php`
+- `Modules/<nome progetto>/Services/DocumentEncryptionService.php`
 
 ---
 

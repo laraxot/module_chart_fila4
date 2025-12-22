@@ -120,7 +120,7 @@ php artisan cache:clear
 
 ### Principio Fondamentale
 - **`pub_theme::`** è ESCLUSIVAMENTE per il tema One
-- **Moduli** usano il proprio namespace (`user::`, `cms::`, `saluteora::`)
+- **Moduli** usano il proprio namespace (`user::`, `cms::`, `<nome progetto>::`)
 - **MAI** mescolare namespace tra modulo e tema
 
 ### Esempi Corretti vs Errati
@@ -157,7 +157,7 @@ class UserStatsWidget extends XotBaseWidget
 | **Tema One** | `pub_theme::` | Layout globali, override, personalizzazioni tema |
 | **Modulo User** | `user::` | Widget, pagine, componenti del modulo User |
 | **Modulo Cms** | `cms::` | Widget, pagine, componenti del modulo Cms |
-| **Modulo SaluteOra** | `saluteora::` | Widget, pagine, componenti del modulo SaluteOra |
+| **Modulo <nome progetto>** | `<nome progetto>::` | Widget, pagine, componenti del modulo <nome progetto> |
 
 ### Override del Tema (Pattern Corretto)
 Il tema può sovrascrivere le view dei moduli mantenendo l'indipendenza:

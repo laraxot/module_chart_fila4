@@ -1,4 +1,4 @@
-# Modifica Dati Anagrafici - SaluteOra
+# Modifica Dati Anagrafici - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema sicuro per la modifica controllata dei dati anagrafici delle pazienti con validazione e audit trail
 
@@ -473,7 +473,7 @@ class DataChangeNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Dati personali aggiornati - SaluteOra')
+            ->subject('Dati personali aggiornati - <nome progetto>')
             ->line('I tuoi dati personali sono stati aggiornati con successo.')
             ->line('Campo modificato: ' . $this->campoModificato)
             ->line('Se non hai effettuato tu questa modifica, contatta immediatamente il supporto.')
@@ -487,7 +487,7 @@ class SensitiveChangeRequestNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Richiesta modifica dati in attesa - SaluteOra')
+            ->subject('Richiesta modifica dati in attesa - <nome progetto>')
             ->line('La tua richiesta di modifica per il campo "' . $this->campo . '" è stata ricevuta.')
             ->line('Sarà elaborata entro 5 giorni lavorativi.')
             ->line('Riceverai una notifica quando sarà approvata o respinta.')
@@ -551,9 +551,9 @@ class PendingSensitiveChangesWidget extends Widget
 - [Area Personale Paziente](./02_area_personale_paziente.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Resources/PatientDataEditResource.php`
-- `Modules/SaluteOra/Models/SensitiveDataChangeRequest.php`
-- `Modules/SaluteOra/Actions/ProcessSensitiveDataChangeAction.php`
+- `Modules/<nome progetto>/Filament/Resources/PatientDataEditResource.php`
+- `Modules/<nome progetto>/Models/SensitiveDataChangeRequest.php`
+- `Modules/<nome progetto>/Actions/ProcessSensitiveDataChangeAction.php`
 
 ---
 

@@ -1,16 +1,16 @@
-# Regole Fondamentali del Progetto SaluteOra
+# Regole Fondamentali del Progetto <nome progetto>
 
-Questo documento centralizza tutte le regole e le convenzioni del progetto SaluteOra per garantire coerenza e facilità di accesso.
+Questo documento centralizza tutte le regole e le convenzioni del progetto <nome progetto> per garantire coerenza e facilità di accesso.
 
 ## Traduzioni e Localizzazione
-- **MAI utilizzare `->label()` nei componenti Filament**. Le etichette sono gestite automaticamente dal `LangServiceProvider`. [Dettagli](/var/www/html/saluteora/docs/lang-service-provider-improvements.md)
+- **MAI utilizzare `->label()` nei componenti Filament**. Le etichette sono gestite automaticamente dal `LangServiceProvider`. [Dettagli](/var/www/html/<nome progetto>/docs/lang-service-provider-improvements.md)
 - Utilizzare sempre i file di traduzione per le etichette e i testi. [Struttura dei file di traduzione](#)
 
 ## Enum e Valori Fissi
 - **Utilizzare SEMPRE ENUM per array di opzioni fisse**. Evitare array hardcoded. [Esempio di implementazione](#)
 
 ## Notifiche
-- Utilizzare `RecordNotification` per le notifiche. Studiare le implementazioni esistenti prima di crearne di nuove. [Dettagli](/var/www/html/saluteora/docs/record-notification-implementation.md)
+- Utilizzare `RecordNotification` per le notifiche. Studiare le implementazioni esistenti prima di crearne di nuove. [Dettagli](/var/www/html/<nome progetto>/docs/record-notification-implementation.md)
 
 ## Architettura
 - **NON utilizzare componenti Livewire diretti**. Usare esclusivamente Widget di Filament. [Dettagli](#)

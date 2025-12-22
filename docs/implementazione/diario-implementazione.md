@@ -73,7 +73,7 @@ Laravel Installer era già installato nel sistema, quindi non sono state necessa
 ### 2. Correzione del percorso di installazione di Laravel
 
 #### Problema riscontrato
-Ho inizialmente tentato di creare il progetto Laravel nella directory `/var/www/html/saluteora/public_html/laravel`, che è un percorso errato. Secondo le specifiche del progetto, il progetto Laravel deve essere posizionato direttamente in `/var/www/html/saluteora/laravel`.
+Ho inizialmente tentato di creare il progetto Laravel nella directory `/var/www/html/<nome progetto>/public_html/laravel`, che è un percorso errato. Secondo le specifiche del progetto, il progetto Laravel deve essere posizionato direttamente in `/var/www/html/<nome progetto>/laravel`.
 
 #### Analisi dell'errore
 Questo errore è stato causato da una comprensione errata della struttura del progetto il progetto. Ho erroneamente pensato che il codice dovesse risiedere in una directory `public_html`, che è un pattern comune in alcuni hosting web ma non è richiesto in questo progetto.
@@ -82,15 +82,15 @@ Questo errore è stato causato da una comprensione errata della struttura del pr
 Una soluzione efficiente sarebbe spostare la directory già creata nella posizione corretta utilizzando il comando `mv`:
 
 ```bash
-mv /var/www/html/saluteora/public_html/laravel /var/www/html/saluteora/laravel
+mv /var/www/html/<nome progetto>/public_html/laravel /var/www/html/<nome progetto>/laravel
 ```
 
 #### Verifica della soluzione
 Ho verificato se la directory `public_html/laravel` esiste per poterla spostare:
 
 ```bash
-if [ -d "/var/www/html/saluteora/public_html/laravel" ]; then 
-    mv /var/www/html/saluteora/public_html/laravel /var/www/html/saluteora/laravel && echo "Directory moved successfully" || echo "Move failed"
+if [ -d "/var/www/html/<nome progetto>/public_html/laravel" ]; then 
+    mv /var/www/html/<nome progetto>/public_html/laravel /var/www/html/<nome progetto>/laravel && echo "Directory moved successfully" || echo "Move failed"
 else 
     echo "Source directory doesn't exist"
 fi
@@ -114,7 +114,7 @@ Questo indica che la directory di origine non esiste, probabilmente perché il p
 Ho tentato di creare il progetto Laravel nella posizione corretta:
 
 ```bash
-cd /var/www/html/saluteora && laravel new laravel
+cd /var/www/html/<nome progetto> && laravel new laravel
 ```
 
 Risultato:
@@ -136,7 +136,7 @@ In NewCommand.php line 735:
 Ho verificato il contenuto della directory principale:
 
 ```bash
-ls -la /var/www/html/saluteora
+ls -la /var/www/html/<nome progetto>
 ```
 
 E ho scoperto che la directory `laravel` è già presente. Questo è un risultato positivo, poiché possiamo procedere direttamente con i passaggi successivi dell'implementazione senza dover creare un nuovo progetto Laravel.
@@ -155,7 +155,7 @@ Ora che abbiamo confermato l'esistenza della directory Laravel, procediamo con l
 Prima di installare Laravel Modules, abbiamo dovuto configurare Composer per consentire il plugin `wikimedia/composer-merge-plugin`, che è necessario per Laravel Modules e per l'integrazione dei composer.json dei vari moduli:
 
 ```bash
-cd /var/www/html/saluteora/laravel && composer config allow-plugins.wikimedia/composer-merge-plugin true
+cd /var/www/html/<nome progetto>/laravel && composer config allow-plugins.wikimedia/composer-merge-plugin true
 ```
 
 Questo comando è stato eseguito con successo, abilitando il plugin richiesto nella configurazione di Composer.
@@ -503,7 +503,7 @@ Questa sequenza avrebbe permesso di:
 Prima di procedere con l'importazione dei moduli Laraxot, ho verificato lo stato attuale del repository Git:
 
 ```bash
-cd /var/www/html/saluteora && git status
+cd /var/www/html/<nome progetto> && git status
 ```
 
 Risultato:
@@ -538,7 +538,7 @@ Il repository è nel branch `dev` ma non ha ancora nessun commit. Ci sono divers
 Ho eseguito il commit iniziale di tutti i file del progetto:
 
 ```bash
-cd /var/www/html/saluteora && git add . && git commit -m "chore: initial commit"
+cd /var/www/html/<nome progetto> && git add . && git commit -m "chore: initial commit"
 ```
 
 Risultato:
@@ -570,7 +570,7 @@ La seconda opzione è probabilmente preferibile, poiché la struttura di base de
 Dopo aver tentato di importare il modulo Xot tramite git subtree, ho scoperto che vari moduli Laraxot sono già stati importati nel progetto. Verificando la directory dei moduli e la storia dei commit, ho trovato che i seguenti moduli sono già presenti:
 
 ```bash
-cd /var/www/html/saluteora && ls -la laravel/Modules
+cd /var/www/html/<nome progetto> && ls -la laravel/Modules
 ```
 
 Risultato:
@@ -667,7 +667,7 @@ Oggi abbiamo completato l'importazione dei moduli core Laraxot rimanenti: Media,
 Prima di procedere all'importazione, abbiamo dovuto risolvere un problema di modifiche non committate nel working tree che impedivano l'operazione di git subtree:
 
 ```bash
-cd /var/www/html/saluteora && git status
+cd /var/www/html/<nome progetto> && git status
 ```
 
 Risultato:
@@ -688,7 +688,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Abbiamo quindi proceduto a committare le modifiche:
 
 ```bash
-cd /var/www/html/saluteora && git add . && git commit -m "docs: aggiornamento diario implementazione con stato moduli già importati"
+cd /var/www/html/<nome progetto> && git add . && git commit -m "docs: aggiornamento diario implementazione con stato moduli già importati"
 ```
 
 Risultato:
@@ -703,7 +703,7 @@ Risultato:
 Abbiamo importato il modulo Media, che fornisce funzionalità di gestione dei file multimediali:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Media git@github.com:laraxot/module_media_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Media git@github.com:laraxot/module_media_fila3.git dev --squash
 ```
 
 Risultato:
@@ -727,7 +727,7 @@ L'importazione è avvenuta con successo, aggiungendo 183 oggetti al repository.
 Abbiamo importato il modulo Activity, che fornisce funzionalità di registrazione delle attività degli utenti:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Activity git@github.com:laraxot/module_activity_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Activity git@github.com:laraxot/module_activity_fila3.git dev --squash
 ```
 
 Risultato:
@@ -751,7 +751,7 @@ L'importazione è avvenuta con successo, aggiungendo 164 oggetti al repository.
 Infine, abbiamo importato il modulo GDPR, che fornisce funzionalità per la gestione della conformità al regolamento generale sulla protezione dei dati:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Gdpr git@github.com:laraxot/module_gdpr_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Gdpr git@github.com:laraxot/module_gdpr_fila3.git dev --squash
 ```
 
 Risultato:
@@ -775,7 +775,7 @@ L'importazione è avvenuta con successo, aggiungendo 218 oggetti al repository.
 Dopo aver completato l'importazione, abbiamo verificato la presenza di tutti i moduli core Laraxot richiesti:
 
 ```bash
-ls -la /var/www/html/saluteora/laravel/Modules
+ls -la /var/www/html/<nome progetto>/laravel/Modules
 ```
 
 Risultato:
@@ -824,7 +824,7 @@ Oggi abbiamo completato l'importazione di tutti i moduli Laraxot rimanenti. Ques
 Prima di procedere con l'importazione dei moduli funzionali e di utilità, abbiamo verificato quali moduli frontend fossero già presenti:
 
 ```bash
-cd /var/www/html/saluteora && ls -la laravel/Modules
+cd /var/www/html/<nome progetto> && ls -la laravel/Modules
 ```
 
 Risultato:
@@ -846,7 +846,7 @@ Abbiamo scoperto che, oltre ai moduli core importati ieri, erano già stati impo
 Per confermare che questi moduli fossero effettivamente stati importati correttamente, abbiamo controllato la storia dei commit:
 
 ```bash
-cd /var/www/html/saluteora && git log --oneline -n 20 | grep -i 'merge\|squashed'
+cd /var/www/html/<nome progetto> && git log --oneline -n 20 | grep -i 'merge\|squashed'
 ```
 
 Risultato:
@@ -864,7 +864,7 @@ c55f385 Squashed 'laravel/Modules/UI/' content from commit 18ef511
 Abbiamo proceduto con l'importazione del modulo CMS, che fornisce funzionalità di gestione dei contenuti:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Cms git@github.com:laraxot/module_cms_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Cms git@github.com:laraxot/module_cms_fila3.git dev --squash
 ```
 
 Risultato:
@@ -888,7 +888,7 @@ L'importazione è avvenuta con successo, aggiungendo 4101 oggetti al repository.
 Abbiamo importato il modulo Job, che gestisce code e lavori asincroni:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Job git@github.com:laraxot/module_job_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Job git@github.com:laraxot/module_job_fila3.git dev --squash
 ```
 
 Risultato:
@@ -912,7 +912,7 @@ L'importazione è avvenuta con successo, aggiungendo 426 oggetti al repository.
 Infine, abbiamo importato il modulo Chart, che fornisce funzionalità per la generazione di grafici e reportistica:
 
 ```bash
-cd /var/www/html/saluteora && git subtree add --prefix laravel/Modules/Chart git@github.com:laraxot/module_chart_fila3.git dev --squash
+cd /var/www/html/<nome progetto> && git subtree add --prefix laravel/Modules/Chart git@github.com:laraxot/module_chart_fila3.git dev --squash
 ```
 
 Risultato:
@@ -936,7 +936,7 @@ L'importazione è avvenuta con successo, aggiungendo 1691 oggetti al repository.
 Dopo aver completato l'importazione, abbiamo verificato la presenza di tutti i moduli Laraxot richiesti:
 
 ```bash
-ls -la /var/www/html/saluteora/laravel/Modules
+ls -la /var/www/html/<nome progetto>/laravel/Modules
 ```
 
 Risultato:

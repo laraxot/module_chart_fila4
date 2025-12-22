@@ -49,7 +49,7 @@ Per tutti i dati statici (regioni, province, comuni, cap) di dimensioni ridotte,
 - Nessuna duplicazione, dati facilmente versionabili.
 - Performance ottimale tramite cache Laravel.
 - Per dettagli implementativi e best practice vedi: [geo-json-model.md](geo-json-model.md)
-- Regola architetturale documentata anche in: [Xot/docs/module-structure.md](../../Xot/docs/module-structure.md) e [SaluteOra/docs/geo-integration.md](../../SaluteOra/docs/geo-integration.md)
+- Regola architetturale documentata anche in: [Xot/docs/module-structure.md](../../Xot/docs/module-structure.md) e [<nome progetto>/docs/geo-integration.md](../../<nome progetto>/docs/geo-integration.md)
 
 ---
 

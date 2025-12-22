@@ -40,7 +40,7 @@ Questo documento definisce le linee guida standard per la risoluzione dei confli
 
 ## [AGGIORNAMENTO 2024-xx-xx] Risoluzione conflitto in Modules/Tenant/app/Models/Tenant.php
 
-- **Descrizione**: Conflitto tra due versioni delle relazioni `patients()` e `appointments()`, una puntava ai moduli `Patient` e `Dental`, l'altra a `SaluteOra`.
+- **Descrizione**: Conflitto tra due versioni delle relazioni `patients()` e `appointments()`, una puntava ai moduli `Patient` e `Dental`, l'altra a `<nome progetto>`.
 - **Soluzione**: È stata mantenuta la versione che utilizza i moduli `Patient` e `Dental` per garantire la separazione delle responsabilità e la compatibilità con PHPStan livello 10.
 - **Motivazione**: Modularità, chiarezza architetturale e riduzione delle dipendenze non necessarie.
 - **Dettagli e motivazioni**: Vedi la [documentazione locale del modulo Tenant](../../laravel/Modules/Tenant/docs/risoluzione_conflitti.md).

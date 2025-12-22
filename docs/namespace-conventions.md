@@ -2,7 +2,7 @@
 
 questo documento è un collegamento alla documentazione completa disponibile nel modulo xot:
 
-[vai alla documentazione completa](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/namespace_conventions.md)
+[vai alla documentazione completa](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/namespace_conventions.md)
 
 ## regola critica
 
@@ -10,17 +10,17 @@ questo documento è un collegamento alla documentazione completa disponibile nel
 
 ```php
 // GRAVEMENTE ERRATO
-namespace Modules\SaluteOra\App\Controllers;
+namespace Modules\<nome progetto>\App\Controllers;
 
 // CORRETTO
-namespace Modules\SaluteOra\Controllers;
+namespace Modules\<nome progetto>\Controllers;
 ```
 
 ## differenza tra percorso fisico e namespace
 
 | percorso fisico | namespace corretto |
 |-----------------|--------------------|
-| `/Modules/SaluteOra/app/Models/Patient.php` | `Modules\SaluteOra\Models` |
-| `/Modules/SaluteOra/app/Filament/Resources/PatientResource.php` | `Modules\SaluteOra\Filament\Resources` |
+| `/Modules/<nome progetto>/app/Models/Patient.php` | `Modules\<nome progetto>\Models` |
+| `/Modules/<nome progetto>/app/Filament/Resources/PatientResource.php` | `Modules\<nome progetto>\Filament\Resources` |
 
-per dettagli completi, consultare la [documentazione nel modulo xot](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/namespace_conventions.md).
+per dettagli completi, consultare la [documentazione nel modulo xot](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/namespace_conventions.md).

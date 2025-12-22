@@ -1,8 +1,8 @@
-# Guida agli Enum di Stato in SaluteOra
+# Guida agli Enum di Stato in <nome progetto>
 
 ## Panoramica
 
-SaluteOra utilizza enum PHP 8.1+ per gestire gli stati dei diversi modelli in tutto il sistema. Questo approccio garantisce type safety, coerenza e manutenibilità del codice.
+<nome progetto> utilizza enum PHP 8.1+ per gestire gli stati dei diversi modelli in tutto il sistema. Questo approccio garantisce type safety, coerenza e manutenibilità del codice.
 
 ## Vantaggi degli Enum
 

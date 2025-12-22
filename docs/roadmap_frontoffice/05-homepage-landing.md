@@ -1,7 +1,7 @@
 # Implementazione Homepage e Landing Page
 
 ## Panoramica
-Questo documento descrive l'implementazione dettagliata della homepage e delle landing page del portale SaluteOra, seguendo le specifiche definite nella presentazione del progetto.
+Questo documento descrive l'implementazione dettagliata della homepage e delle landing page del portale <nome progetto>, seguendo le specifiche definite nella presentazione del progetto.
 
 ## Componenti Principali
 
@@ -12,7 +12,7 @@ Questo documento descrive l'implementazione dettagliata della homepage e delle l
 - **TODO**: Ottimizzare la visualizzazione sui dispositivi mobili
 
 ### 2. Sezione Informativa (85% completato)
-- Contenuti informativi sul progetto SaluteOra
+- Contenuti informativi sul progetto <nome progetto>
 - Descrizione dei benefici per le partecipanti
 - Informazioni sugli attori coinvolti nel progetto
 - **TODO**: Aggiungere testimonial e statistiche di successo
@@ -47,7 +47,7 @@ La homepage è implementata utilizzando Laravel Folio per il routing e Volt per 
 ### JSON Content Management
 I contenuti dinamici sono gestiti tramite file JSON nella directory:
 ```
-/var/www/html/saluteora/laravel/config/local/saluteora/database/content/sections/
+/var/www/html/<nome progetto>/laravel/config/local/<nome progetto>/database/content/sections/
 ```
 
 ## Ottimizzazioni Future
@@ -74,6 +74,6 @@ I contenuti dinamici sono gestiti tramite file JSON nella directory:
 - Velocità di caricamento < 2 secondi
 
 ## Collegamenti
-- [← Torna alla Roadmap Frontoffice](/var/www/html/saluteora/docs/roadmap_frontoffice.md)
-- [Registrazione e Autenticazione](/var/www/html/saluteora/docs/roadmap_frontoffice/04-registrazione-autenticazione.md)
-- [UI/UX Base](/var/www/html/saluteora/docs/roadmap_frontoffice/03-ui-ux-base.md)
+- [← Torna alla Roadmap Frontoffice](/var/www/html/<nome progetto>/docs/roadmap_frontoffice.md)
+- [Registrazione e Autenticazione](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/04-registrazione-autenticazione.md)
+- [UI/UX Base](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/03-ui-ux-base.md)

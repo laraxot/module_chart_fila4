@@ -2,7 +2,7 @@
 
 ## Descrizione
 
-Questo documento descrive la procedura per configurare e gestire i Model Context Protocol (MCP) Servers utilizzati da Cursor all'interno del progetto SaluteOra. Gli MCP Servers estendono le funzionalità dell'assistente AI fornendo accesso a strumenti e dati esterni.
+Questo documento descrive la procedura per configurare e gestire i Model Context Protocol (MCP) Servers utilizzati da Cursor all'interno del progetto <nome progetto>. Gli MCP Servers estendono le funzionalità dell'assistente AI fornendo accesso a strumenti e dati esterni.
 
 ## Implementazione
 
@@ -28,7 +28,7 @@ I seguenti script sono stati implementati per gestire i MCP servers:
 ### Struttura della Directory
 
 ```
-/var/www/html/saluteora/
+/var/www/html/<nome progetto>/
 └── bashscripts/
     └── mcp/
         ├── start-mcp       # Script principale di avvio
@@ -41,7 +41,7 @@ I seguenti script sono stati implementati per gestire i MCP servers:
 - ✅ Script di avvio e arresto implementati
 - ✅ Configurazione corretta delle dimensioni del terminale
 - ✅ Directory strutturata secondo le convenzioni del progetto
-- 🚧 Integrazione con il sistema di logging di SaluteOra (80%)
+- 🚧 Integrazione con il sistema di logging di <nome progetto> (80%)
 - 🚧 Test su diversi ambienti (50%)
 
 ## Prossimi Passi

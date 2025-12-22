@@ -1,11 +1,11 @@
-# Email Notifications di Base - Sistema SaluteOra
+# Email Notifications di Base - Sistema <nome progetto>
 
 ## Stato Avanzamento
 **Completamento**: ✅ 100% Completato
 
 ## Overview
 
-Sistema di notifiche email basilare per le comunicazioni essenziali della piattaforma SaluteOra, focalizzato su conferme registrazione e comunicazioni critiche.
+Sistema di notifiche email basilare per le comunicazioni essenziali della piattaforma <nome progetto>, focalizzato su conferme registrazione e comunicazioni critiche.
 
 ## Implementazione Completata
 
@@ -58,7 +58,7 @@ Success Rate: 97.2%
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Benvenuto in SaluteOra</title>
+    <title>Benvenuto in <nome progetto></title>
 </head>
 <body>
     <h1>Benvenuto {{name}}!</h1>

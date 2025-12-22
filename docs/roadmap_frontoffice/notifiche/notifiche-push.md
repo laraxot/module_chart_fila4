@@ -1,4 +1,4 @@
-# Notifiche Push Browser - SaluteOra
+# Notifiche Push Browser - <nome progetto>
 
 > **🔔 Sistema di notifiche push browser per comunicazioni immediate**
 
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 ### Backend Controller (Pianificato)
 ```php
-// Modules/SaluteOra/Http/Controllers/PushNotificationController.php
+// Modules/<nome progetto>/Http/Controllers/PushNotificationController.php
 class PushNotificationController extends Controller
 {
     public function subscribe(Request $request): JsonResponse
@@ -348,7 +348,7 @@ class PushNotificationController extends Controller
 
 ### Push Subscription Model
 ```php
-// Modules/SaluteOra/Models/PushSubscription.php
+// Modules/<nome progetto>/Models/PushSubscription.php
 class PushSubscription extends BaseModel
 {
     protected $fillable = [
@@ -436,7 +436,7 @@ class PushNotificationTemplates
             ],
             
             default => [
-                'title' => 'SaluteOra',
+                'title' => '<nome progetto>',
                 'body' => $data['message'] ?? 'Hai una nuova notifica',
                 'icon' => '/icon-192x192.png',
                 'url' => route('dashboard'),
@@ -479,7 +479,7 @@ class PushNotificationTemplates
 4. **Graceful degradation**: Funzionamento senza push
 
 ### Notification Design
-- **Branding consistency**: Logo e colori SaluteOra
+- **Branding consistency**: Logo e colori <nome progetto>
 - **Action-oriented**: CTA chiari e specifici
 - **Contextual**: Informazioni rilevanti immediate
 - **Non-intrusive**: Rispetto per attenzione utente

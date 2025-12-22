@@ -100,7 +100,7 @@ Per completare l'implementazione tecnica, si raccomandano i seguenti passaggi:
 
 1. **Pubblicazione delle configurazioni**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    php artisan vendor:publish --provider="Modules\Xot\Providers\XotServiceProvider"
    # Ripetere per gli altri moduli principali
    ```

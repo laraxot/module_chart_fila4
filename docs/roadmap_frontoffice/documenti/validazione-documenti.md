@@ -1,7 +1,7 @@
 # Validazione Automatica Documenti
 
 ## Panoramica
-Sistema avanzato per la validazione automatica dei documenti caricati sulla piattaforma SaluteOra.
+Sistema avanzato per la validazione automatica dei documenti caricati sulla piattaforma <nome progetto>.
 
 ## Funzionalità Principali
 

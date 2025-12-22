@@ -5,7 +5,7 @@
 
 ## Overview Sistema
 
-Il sistema di documenti digitali di SaluteOra rappresenta il cuore della trasformazione digitale per gli studi odontoiatrici, offrendo una piattaforma completa per gestione, archiviazione e condivisione sicura di tutta la documentazione clinica. Il sistema garantisce compliance normativa, interoperabilità e sicurezza end-to-end per dati sanitari sensibili.
+Il sistema di documenti digitali di <nome progetto> rappresenta il cuore della trasformazione digitale per gli studi odontoiatrici, offrendo una piattaforma completa per gestione, archiviazione e condivisione sicura di tutta la documentazione clinica. Il sistema garantisce compliance normativa, interoperabilità e sicurezza end-to-end per dati sanitari sensibili.
 
 ## Architettura Documentale
 

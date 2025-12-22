@@ -1,4 +1,4 @@
-# Guida Completa per lo Sviluppatore SaluteOra
+# Guida Completa per lo Sviluppatore <nome progetto>
 
 ## 📋 Indice
 
@@ -27,7 +27,7 @@
 1. **Clone del repository**
    ```bash
    git clone [repository-url]
-   cd base_saluteora/laravel
+   cd base_<nome progetto>/laravel
    ```
 
 2. **Installazione dipendenze PHP**
@@ -46,7 +46,7 @@
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=saluteora
+   DB_DATABASE=<nome progetto>
    DB_USERNAME=root
    DB_PASSWORD=
    ```
@@ -79,12 +79,12 @@
 ## 📁 Struttura del Progetto
 
 ```
-base_saluteora/
+base_<nome progetto>/
 ├── laravel/                    # Applicazione Laravel
 │   ├── Modules/               # Moduli applicativi
 │   │   ├── Xot/              # Modulo base framework
 │   │   ├── User/             # Gestione utenti
-│   │   ├── SaluteOra/        # Core business
+│   │   ├── <nome progetto>/        # Core business
 │   │   ├── Patient/          # Gestione pazienti
 │   │   ├── Dental/           # Modulo odontoiatrico
 │   │   └── ...               # Altri moduli
@@ -724,7 +724,7 @@ jobs:
 - [Spatie Packages](https://spatie.be/docs)
 
 ### Community
-- Slack: #saluteora-dev
+- Slack: #<nome progetto>-dev
 - GitHub Issues
 - Stack Overflow
 

@@ -1,4 +1,4 @@
-# Promemoria Appuntamenti - SaluteOra
+# Promemoria Appuntamenti - <nome progetto>
 
 > **📧 Sistema automatico di promemoria per appuntamenti odontoiatrici programmati**
 
@@ -34,7 +34,7 @@ Ridurre il tasso di "no-show" attraverso promemoria tempestivi:
 
 ### Scheduler Sistema
 ```php
-// Modules/SaluteOra/Console/Commands/SendAppointmentReminders.php
+// Modules/<nome progetto>/Console/Commands/SendAppointmentReminders.php
 class SendAppointmentReminders extends Command
 {
     protected $signature = 'appointments:send-reminders';
@@ -108,7 +108,7 @@ class SendAppointmentReminders extends Command
 
 ### Mail Class Promemoria
 ```php
-// Modules/SaluteOra/Mail/AppointmentReminderMail.php
+// Modules/<nome progetto>/Mail/AppointmentReminderMail.php
 class AppointmentReminderMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
@@ -121,11 +121,11 @@ class AppointmentReminderMail extends Mailable implements ShouldQueue
     public function build(): self
     {
         $subject = $this->reminder_type === '24h' 
-            ? 'Promemoria: Appuntamento domani - SaluteOra'
-            : 'Ultimo promemoria: Appuntamento tra 1 ora - SaluteOra';
+            ? 'Promemoria: Appuntamento domani - <nome progetto>'
+            : 'Ultimo promemoria: Appuntamento tra 1 ora - <nome progetto>';
 
         return $this->subject($subject)
-            ->view('saluteora::emails.appointment-reminder')
+            ->view('<nome progetto>::emails.appointment-reminder')
             ->with([
                 'appointment' => $this->appointment,
                 'reminder_type' => $this->reminder_type,
@@ -174,13 +174,13 @@ class AppointmentReminderMail extends Mailable implements ShouldQueue
 
 ### Template Email 24h
 ```blade
-{{-- Modules/SaluteOra/resources/views/emails/appointment-reminder.blade.php --}}
+{{-- Modules/<nome progetto>/resources/views/emails/appointment-reminder.blade.php --}}
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promemoria Appuntamento - SaluteOra</title>
+    <title>Promemoria Appuntamento - <nome progetto></title>
     <style>
         /* Base styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -616,13 +616,13 @@ class AppointmentReminderMail extends Mailable implements ShouldQueue
         <!-- Footer -->
         <div class="footer">
             <p class="footer-text">
-                Email automatica da <strong>SaluteOra</strong>
+                Email automatica da <strong><nome progetto></strong>
             </p>
             <p class="footer-text">
                 Per modifiche: Rispondi a questa email o chiama 800-123-456
             </p>
             <p class="footer-text">
-                © 2025 SaluteOra - Servizi Odontoiatrici Gratuiti
+                © 2025 <nome progetto> - Servizi Odontoiatrici Gratuiti
             </p>
         </div>
     </div>
@@ -640,7 +640,7 @@ class AppointmentReminderMail extends Mailable implements ShouldQueue
 # /etc/crontab
 
 # Esegui ogni 30 minuti per promemoria tempestivi
-*/30 * * * * php /var/www/saluteora/artisan appointments:send-reminders
+*/30 * * * * php /var/www/<nome progetto>/artisan appointments:send-reminders
 ```
 
 ### Queue Configuration
@@ -659,7 +659,7 @@ class AppointmentReminderMail extends Mailable implements ShouldQueue
 
 ### Backup SMS System
 ```php
-// Modules/SaluteOra/Jobs/SendSMSReminderJob.php
+// Modules/<nome progetto>/Jobs/SendSMSReminderJob.php
 class SendSMSReminderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;

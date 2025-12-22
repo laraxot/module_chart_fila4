@@ -7,7 +7,7 @@
 /laravel/
   ├── config/
   │   └── local/
-  │       └── base_saluteora/
+  │       └── base_<nome progetto>/
   │           └── database/
   │               └── content/
   │                   ├── pages/
@@ -56,7 +56,7 @@ class ContentServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('content', function ($app) {
-            return new ContentManager($app['config']['base_saluteora.content']);
+            return new ContentManager($app['config']['base_<nome progetto>.content']);
         });
     }
 
@@ -101,7 +101,7 @@ class ContentValidator
 
 ### Configurazione
 ```php
-// config/base_saluteora.php
+// config/base_<nome progetto>.php
 return [
     'content' => [
         'path' => database_path('content'),

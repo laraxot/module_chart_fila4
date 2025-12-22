@@ -2,7 +2,7 @@
 
 ## Analisi dell'Implementazione Attuale
 
-Il `LangServiceProvider` è un componente fondamentale di SaluteOra che gestisce automaticamente le traduzioni per i componenti Filament senza richiedere l'uso esplicito del metodo `->label()`. Questo approccio garantisce:
+Il `LangServiceProvider` è un componente fondamentale di <nome progetto> che gestisce automaticamente le traduzioni per i componenti Filament senza richiedere l'uso esplicito del metodo `->label()`. Questo approccio garantisce:
 
 1. **Coerenza**: Tutte le etichette seguono lo stesso pattern di traduzione
 2. **Manutenibilità**: Le traduzioni sono centralizzate nei file di lingua

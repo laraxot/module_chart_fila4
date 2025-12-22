@@ -38,7 +38,7 @@ Per compilare e pubblicare un tema:
 
 1. Entrare nella directory del tema:
    ```bash
-   cd /var/www/html/base_saluteora/laravel/Themes/One
+   cd /var/www/html/base_<nome progetto>/laravel/Themes/One
    ```
 
 2. Compilare gli asset:
@@ -64,8 +64,8 @@ Per maggiori dettagli, consultare la [documentazione completa sulla compilazione
 - [Stats Component](../../laravel/Themes/One/resources/views/components/blocks/stats.blade.php)
 
 ### Integrazione Backend
-- [Widget FullCalendar Backend](../../laravel/Modules/SaluteOra/docs/fullcalendar_widget_implementation.mdc)
-- [Configurazione FullCalendar](../../laravel/Modules/SaluteOra/docs/fullcalendar_configuration.md)
+- [Widget FullCalendar Backend](../../laravel/Modules/<nome progetto>/docs/fullcalendar_widget_implementation.mdc)
+- [Configurazione FullCalendar](../../laravel/Modules/<nome progetto>/docs/fullcalendar_configuration.md)
 
 ### Compilazione e Build
 - [Compilazione Temi](./compilazione_temi.md)

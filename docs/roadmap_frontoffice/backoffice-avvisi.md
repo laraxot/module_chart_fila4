@@ -12,7 +12,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
 - **Descrizione**: Widget centralizzato che mostra tutte le notifiche in attesa, con indicatori di priorità.
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Widgets/NotificationsWidget.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Widgets/NotificationsWidget.php
   namespace Modules\Admin\Filament\Widgets;
   
   use Modules\Xot\Filament\Widgets\XotBaseWidget;
@@ -39,7 +39,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
   - **Promemoria**: Scadenze o azioni in attesa
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Enums/AlertType.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Enums/AlertType.php
   namespace Modules\Admin\Enums;
   
   enum AlertType: string
@@ -80,7 +80,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
   - Service Worker per notifiche browser
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Events/NewAlertEvent.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Events/NewAlertEvent.php
   namespace Modules\Admin\Events;
   
   use Illuminate\Broadcasting\Channel;
@@ -113,7 +113,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
   - Assegnazione automatica agli amministratori
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Services/AlertRulesService.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Services/AlertRulesService.php
   namespace Modules\Admin\Services;
   
   class AlertRulesService
@@ -151,7 +151,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
   - Timeline eventi correlati
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/AlertResource.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/AlertResource.php
   namespace Modules\Admin\Filament\Resources;
   
   use Modules\Xot\Filament\Resources\XotBaseResource;
@@ -222,7 +222,7 @@ Il sistema di avvisi del backoffice fornisce notifiche in tempo reale agli ammin
 Il sistema di avvisi è integrato con diversi moduli per generare notifiche automatiche:
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Dental/app/Providers/EventServiceProvider.php
+// /var/www/html/<nome progetto>/laravel/Modules/Dental/app/Providers/EventServiceProvider.php
 namespace Modules\Dental\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -243,7 +243,7 @@ class EventServiceProvider extends ServiceProvider
 Implementazione del listener:
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Dental/app/Listeners/NotifyAdminAboutNewDentist.php
+// /var/www/html/<nome progetto>/laravel/Modules/Dental/app/Listeners/NotifyAdminAboutNewDentist.php
 namespace Modules\Dental\Listeners;
 
 use Modules\Admin\Services\AlertService;
@@ -274,12 +274,12 @@ class NotifyAdminAboutNewDentist
 
 ## Interfaccia Utente
 
-![Mockup Centro Notifiche](/var/www/html/saluteora/docs/immagini/mockup-backoffice-avvisi.png)
+![Mockup Centro Notifiche](/var/www/html/<nome progetto>/docs/immagini/mockup-backoffice-avvisi.png)
 
 ### Componente Dropdown Notifiche
 
 ```blade
-{{-- /var/www/html/saluteora/laravel/Modules/Admin/resources/views/components/notification-dropdown.blade.php --}}
+{{-- /var/www/html/<nome progetto>/laravel/Modules/Admin/resources/views/components/notification-dropdown.blade.php --}}
 <x-filament::dropdown placement="bottom-end" width="md">
     <x-slot name="trigger">
         <button type="button" class="relative">
@@ -344,7 +344,7 @@ class NotifyAdminAboutNewDentist
 
 ### Test Unitari
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Unit/AlertServiceTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Unit/AlertServiceTest.php
 namespace Modules\Admin\Tests\Unit;
 
 use Tests\TestCase;
@@ -369,7 +369,7 @@ class AlertServiceTest extends TestCase
 
 ### Test di Integrazione
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Feature/AlertNotificationTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Feature/AlertNotificationTest.php
 namespace Modules\Admin\Tests\Feature;
 
 use Tests\TestCase;

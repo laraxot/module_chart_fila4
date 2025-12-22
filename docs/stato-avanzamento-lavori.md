@@ -1,4 +1,4 @@
-# SaluteOra - Stato Avanzamento Lavori (Aggiornamento 5 Giugno 2025)
+# <nome progetto> - Stato Avanzamento Lavori (Aggiornamento 5 Giugno 2025)
 
 > **🎯 OBIETTIVO**: Portale per servizi odontoiatrici gratuiti a donne in gravidanza con ISEE ≤ €20.000
 
@@ -145,7 +145,7 @@
 
 ## 📋 Documentazione Completa e Collegamenti
 
-**✅ COMPLETATO**: Ogni singolo punto di questo documento è collegato ai file di approfondimento dettagliati nella cartella [`roadmap_frontoffice`](./roadmap_frontoffice/) con collegamenti bidirezionali completi. **AGGIORNATO** per riflettere esclusivamente le funzionalità effettivamente richieste dal progetto SaluteOra.
+**✅ COMPLETATO**: Ogni singolo punto di questo documento è collegato ai file di approfondimento dettagliati nella cartella [`roadmap_frontoffice`](./roadmap_frontoffice/) con collegamenti bidirezionali completi. **AGGIORNATO** per riflettere esclusivamente le funzionalità effettivamente richieste dal progetto <nome progetto>.
 
 ### 🔗 Mappa dei Collegamenti Principali
 

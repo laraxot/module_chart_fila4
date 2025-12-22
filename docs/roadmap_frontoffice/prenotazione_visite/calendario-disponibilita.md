@@ -1,4 +1,4 @@
-# Calendario Disponibilità - SaluteOra
+# Calendario Disponibilità - <nome progetto>
 
 > **🎯 OBIETTIVO**: Sistema avanzato di visualizzazione e selezione degli slot di disponibilità degli studi odontoiatrici
 
@@ -733,9 +733,9 @@ window.selectAvailableSlot = (event) => {
 - [Conferma Prenotazione](./conferma_prenotazione.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Widgets/StudioAvailabilityCalendarWidget.php`
-- `Modules/SaluteOra/Services/AvailabilityManagementService.php`
-- `Modules/SaluteOra/Actions/BookSlotAction.php`
+- `Modules/<nome progetto>/Widgets/StudioAvailabilityCalendarWidget.php`
+- `Modules/<nome progetto>/Services/AvailabilityManagementService.php`
+- `Modules/<nome progetto>/Actions/BookSlotAction.php`
 
 ---
 

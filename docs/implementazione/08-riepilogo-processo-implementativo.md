@@ -3,7 +3,7 @@
 ## Cronologia dell'implementazione
 
 ### Fase 1: Configurazione dell'ambiente base
-- Installazione Laravel nella directory corretta (`/var/www/html/saluteora/laravel`)
+- Installazione Laravel nella directory corretta (`/var/www/html/<nome progetto>/laravel`)
 - Installazione del pacchetto `nwidart/laravel-modules` per la gestione modulare
 - Pubblicazione della configurazione di Laravel Modules
 
@@ -64,7 +64,7 @@ Dopo l'integrazione di tutti i moduli necessari, è necessario completare l'impl
 
 1. **Pubblicazione delle configurazioni**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    php artisan vendor:publish --tag=module-config
    ```
 

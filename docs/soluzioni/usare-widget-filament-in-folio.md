@@ -28,7 +28,7 @@ name('patient.book');
 ?>
 
 <div>
-    @livewire('modules.saluteora.filament.widgets.patient.find-doctor-and-appointment-widget')
+    @livewire('modules.<nome progetto>.filament.widgets.patient.find-doctor-and-appointment-widget')
 </div>
 ```
 

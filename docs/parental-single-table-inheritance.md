@@ -4,7 +4,7 @@
 - [Introduzione](#introduzione)
 - [Concetti Fondamentali](#concetti-fondamentali)
 - [Vantaggi e Svantaggi](#vantaggi-e-svantaggi)
-- [Implementazione in il progetto](#implementazione-in-saluteora)
+- [Implementazione in il progetto](#implementazione-in-<nome progetto>)
 - [Casi d'Uso Pratici](#casi-duso-pratici)
 - [Integrazione con Altri Componenti](#integrazione-con-altri-componenti)
 - [Migrazione da Architetture Esistenti](#migrazione-da-architetture-esistenti)

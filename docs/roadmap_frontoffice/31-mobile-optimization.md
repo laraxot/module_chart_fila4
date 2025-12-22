@@ -1,8 +1,8 @@
-# Mobile Optimization - SaluteOra Frontoffice
+# Mobile Optimization - <nome progetto> Frontoffice
 
 ## Introduzione
 
-L'ottimizzazione mobile è critica per il successo di SaluteOra, considerando che il target principale (gestanti in condizioni di vulnerabilità) accede prevalentemente tramite dispositivi mobili. L'obiettivo è raggiungere un Lighthouse Score > 90 e una Mobile Usability del 100%.
+L'ottimizzazione mobile è critica per il successo di <nome progetto>, considerando che il target principale (gestanti in condizioni di vulnerabilità) accede prevalentemente tramite dispositivi mobili. L'obiettivo è raggiungere un Lighthouse Score > 90 e una Mobile Usability del 100%.
 
 ## Stato Attuale
 

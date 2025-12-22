@@ -1,8 +1,8 @@
-# Regole per l'Implementazione degli Enum in SaluteOra
+# Regole per l'Implementazione degli Enum in <nome progetto>
 
 ## Panoramica
 
-Gli enum in PHP 8.1+ sono utilizzati in SaluteOra per rappresentare insiemi fissi di valori, come giorni della settimana, stati, tipi, ecc. Questo documento definisce le regole e le best practices per l'implementazione degli enum nel progetto, con particolare attenzione all'integrazione con Filament.
+Gli enum in PHP 8.1+ sono utilizzati in <nome progetto> per rappresentare insiemi fissi di valori, come giorni della settimana, stati, tipi, ecc. Questo documento definisce le regole e le best practices per l'implementazione degli enum nel progetto, con particolare attenzione all'integrazione con Filament.
 
 ## Regole Fondamentali
 
@@ -241,6 +241,6 @@ public static function fromCarbon(\Carbon\Carbon $date): self
 
 ## Collegamenti Bidirezionali
 
-- [XotBaseResource](/var/www/html/saluteora/laravel/Modules/Xot/docs/XotBaseResource.md)
-- [FILAMENT-BEST-PRACTICES](/var/www/html/saluteora/laravel/Modules/Xot/docs/FILAMENT-BEST-PRACTICES.md)
-- [DayOfWeek Enum](/var/www/html/saluteora/laravel/Modules/Xot/app/Enums/DayOfWeek.php)
+- [XotBaseResource](/var/www/html/<nome progetto>/laravel/Modules/Xot/docs/XotBaseResource.md)
+- [FILAMENT-BEST-PRACTICES](/var/www/html/<nome progetto>/laravel/Modules/Xot/docs/FILAMENT-BEST-PRACTICES.md)
+- [DayOfWeek Enum](/var/www/html/<nome progetto>/laravel/Modules/Xot/app/Enums/DayOfWeek.php)

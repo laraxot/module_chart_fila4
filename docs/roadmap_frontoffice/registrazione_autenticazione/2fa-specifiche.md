@@ -1,7 +1,7 @@
 # Specifiche Tecniche Autenticazione a Due Fattori (2FA)
 
 ## Panoramica
-Documentazione tecnica per l'implementazione dell'autenticazione a due fattori per il portale SaluteOra.
+Documentazione tecnica per l'implementazione dell'autenticazione a due fattori per il portale <nome progetto>.
 
 ## Architettura
 

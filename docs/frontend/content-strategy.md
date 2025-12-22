@@ -1,8 +1,8 @@
-# Strategia Contenuti Frontend - SaluteOra
+# Strategia Contenuti Frontend - <nome progetto>
 
 ## Panoramica
 
-La strategia contenuti di SaluteOra riflette la missione sociale del progetto: democratizzare l'accesso alla salute orale per le gestanti vulnerabili attraverso un'esperienza digitale umana e accessibile.
+La strategia contenuti di <nome progetto> riflette la missione sociale del progetto: democratizzare l'accesso alla salute orale per le gestanti vulnerabili attraverso un'esperienza digitale umana e accessibile.
 
 ## Collegamenti Strategici Modulari
 

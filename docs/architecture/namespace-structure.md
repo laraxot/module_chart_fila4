@@ -2,7 +2,7 @@
 
 ## Problema Identificato
 
-È stata identificata una discrepanza critica tra i namespace dichiarati nei file PHP, la configurazione di autoloading in `composer.json` e la struttura fisica delle directory nei moduli Laraxot. Questa discrepanza causa problemi di autoloading delle classi nel progetto SaluteOra.
+È stata identificata una discrepanza critica tra i namespace dichiarati nei file PHP, la configurazione di autoloading in `composer.json` e la struttura fisica delle directory nei moduli Laraxot. Questa discrepanza causa problemi di autoloading delle classi nel progetto <nome progetto>.
 
 ## Analisi del Modulo Chart
 
@@ -119,7 +119,7 @@ Si può utilizzare un script per automatizzare la modifica dei namespace nei fil
 #!/bin/bash
 
 # Trova tutti i file PHP nel modulo Chart
-find /var/www/html/saluteora/laravel/Modules/Chart -type f -name "*.php" | while read file; do
+find /var/www/html/<nome progetto>/laravel/Modules/Chart -type f -name "*.php" | while read file; do
     # Sostituisci namespace Modules\Chart\App\ con Modules\Chart\
     sed -i 's/namespace Modules\\\\Chart\\\\App\\\\/namespace Modules\\\\Chart\\\\/g' "$file"
     

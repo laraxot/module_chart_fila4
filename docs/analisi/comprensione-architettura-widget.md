@@ -20,9 +20,9 @@ Ho completamente frainteso l'architettura del progetto riguardo l'uso dei widget
 I widget Filament rappresentano componenti di business logic che devono essere riutilizzabili in tutto il sistema, sia admin che frontend.
 
 ### 2. **Separazione per Contesto, Non per Tecnologia**
-- `Modules/SaluteOra/Filament/Widgets/Admin/*` - Widget specifici per l'admin
-- `Modules/SaluteOra/Filament/Widgets/Patient/*` - Widget per area paziente (frontend)
-- `Modules/SaluteOra/Filament/Widgets/Doctor/*` - Widget per area dottore
+- `Modules/<nome progetto>/Filament/Widgets/Admin/*` - Widget specifici per l'admin
+- `Modules/<nome progetto>/Filament/Widgets/Patient/*` - Widget per area paziente (frontend)
+- `Modules/<nome progetto>/Filament/Widgets/Doctor/*` - Widget per area dottore
 
 ### 3. **Le Pagine Folio Incorporano Widget**
 Le pagine Folio nel frontend NON devono reimplementare la logica, ma DEVONO incorporare i widget appropriati.
@@ -32,7 +32,7 @@ Le pagine Folio nel frontend NON devono reimplementare la logica, ma DEVONO inco
 ```blade
 {{-- Themes/One/resources/views/pages/patient/book.blade.php --}}
 <x-layouts.app>
-    @livewire('saluteora::patient.find-doctor-and-appointment-widget')
+    @livewire('<nome progetto>::patient.find-doctor-and-appointment-widget')
 </x-layouts.app>
 ```
 
@@ -41,7 +41,7 @@ Le pagine Folio nel frontend NON devono reimplementare la logica, ma DEVONO inco
 Il problema va risolto nella VIEW del widget, non evitando il widget:
 
 ```blade
-{{-- saluteora::filament.widgets.find-doctor-and-appointment --}}
+{{-- <nome progetto>::filament.widgets.find-doctor-and-appointment --}}
 <div> {{-- UN SOLO root element --}}
     <!-- Tutto il contenuto del widget qui -->
 </div>

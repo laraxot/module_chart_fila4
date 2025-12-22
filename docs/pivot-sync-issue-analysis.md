@@ -132,16 +132,16 @@ dd([
 
 ## Note Importanti
 
-1. **Cross-Database**: La relazione attraversa database diversi (user ↔ saluteora_data)
+1. **Cross-Database**: La relazione attraversa database diversi (user ↔ <nome progetto>_data)
 2. **belongsToManyX**: Gestisce automaticamente la configurazione cross-database
 3. **withPivot()**: Definisce i campi disponibili per l'aggiornamento
 4. **sync()**: Ignora campi non definiti in withPivot()
 
 ## Collegamenti Correlati
 
-- [Modules/SaluteOra/app/Actions/Doctor/RegisterAction.php](../../laravel/Modules/SaluteOra/app/Actions/Doctor/RegisterAction.php)
-- [Modules/SaluteOra/app/Models/Doctor.php](../../laravel/Modules/SaluteOra/app/Models/Doctor.php)
-- [Modules/SaluteOra/app/Models/DoctorStudio.php](../../laravel/Modules/SaluteOra/app/Models/DoctorStudio.php)
+- [Modules/<nome progetto>/app/Actions/Doctor/RegisterAction.php](../../laravel/Modules/<nome progetto>/app/Actions/Doctor/RegisterAction.php)
+- [Modules/<nome progetto>/app/Models/Doctor.php](../../laravel/Modules/<nome progetto>/app/Models/Doctor.php)
+- [Modules/<nome progetto>/app/Models/DoctorStudio.php](../../laravel/Modules/<nome progetto>/app/Models/DoctorStudio.php)
 - [Modules/Xot/app/Models/Traits/RelationX.php](../../laravel/Modules/Xot/app/Models/Traits/RelationX.php)
 
 *Ultimo aggiornamento: 2025-01-06* 

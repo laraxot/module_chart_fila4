@@ -7,14 +7,14 @@
 ## Struttura Corretta della Documentazione
 
 ### 1. Documentazione Generica (Progetto-wide)
-**Posizione**: `/var/www/html/_bases/base_saluteora/docs/`
+**Posizione**: `/var/www/html/_bases/base_<nome progetto>/docs/`
 - Regole generali del progetto
 - Pattern architetturali comuni
 - Best practices globali
 - Documentazione di sistema
 
 ### 2. Documentazione Specifica Modulo
-**Posizione**: `/var/www/html/_bases/base_saluteora/laravel/Modules/{ModuleName}/docs/`
+**Posizione**: `/var/www/html/_bases/base_<nome progetto>/laravel/Modules/{ModuleName}/docs/`
 - Documentazione specifica del modulo
 - Widget del modulo
 - Resource del modulo
@@ -24,7 +24,7 @@
 
 ### ✅ CORRETTO - Documentazione Modulo Specifica
 ```
-/var/www/html/_bases/base_saluteora/laravel/Modules/SaluteMo/docs/
+/var/www/html/_bases/base_<nome progetto>/laravel/Modules/SaluteMo/docs/
 ├── appointment-states-overview-widget.md
 ├── appointment-resource.md
 ├── models/
@@ -35,7 +35,7 @@
 
 ### ❌ ERRATO - Documentazione nella Cartella Generica
 ```
-/var/www/html/_bases/base_saluteora/docs/
+/var/www/html/_bases/base_<nome progetto>/docs/
 ├── widgets/
 │   └── appointment-states-overview-widget.md  # ❌ ERRORE GRAVE
 ```
@@ -75,19 +75,19 @@ Prima di creare qualsiasi documentazione, verificare:
 ### ❌ ERRORE GRAVE: Widget in Cartella Generica
 ```php
 // ❌ ERRORE GRAVE
-/var/www/html/_bases/base_saluteora/docs/widgets/appointment-widget.md
+/var/www/html/_bases/base_<nome progetto>/docs/widgets/appointment-widget.md
 
 // ✅ CORRETTO
-/var/www/html/_bases/base_saluteora/laravel/Modules/SaluteMo/docs/appointment-widget.md
+/var/www/html/_bases/base_<nome progetto>/laravel/Modules/SaluteMo/docs/appointment-widget.md
 ```
 
 ### ❌ ERRORE GRAVE: Resource in Cartella Generica
 ```php
 // ❌ ERRORE GRAVE
-/var/www/html/_bases/base_saluteora/docs/resources/appointment-resource.md
+/var/www/html/_bases/base_<nome progetto>/docs/resources/appointment-resource.md
 
 // ✅ CORRETTO
-/var/www/html/_bases/base_saluteora/laravel/Modules/SaluteMo/docs/appointment-resource.md
+/var/www/html/_bases/base_<nome progetto>/laravel/Modules/SaluteMo/docs/appointment-resource.md
 ```
 
 ## Penalità per Violazioni

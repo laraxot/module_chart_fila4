@@ -1,7 +1,7 @@
 # Appointment Item View Translation Fix
 
 ## Overview
-Fixed hardcoded Italian text in the appointment item view to ensure proper multilingual support for the SaluteOra system.
+Fixed hardcoded Italian text in the appointment item view to ensure proper multilingual support for the <nome progetto> system.
 
 ## Issue Identified
 The file `laravel/Themes/One/resources/views/appointment/item.blade.php` contained hardcoded Italian text that prevented proper localization:

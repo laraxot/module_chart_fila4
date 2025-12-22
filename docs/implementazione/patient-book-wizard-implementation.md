@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the implementation of the patient booking wizard for the SaluteOra platform.
+This document outlines the implementation of the patient booking wizard for the <nome progetto> platform.
 
 Il wizard di prenotazione accessibile da `/it/patient/book` è il flusso principale per permettere ai pazienti di prenotare appuntamenti. Questo documento descrive l'implementazione dettagliata del primo step "Cerca un dentista".
 
@@ -200,4 +200,4 @@ Per replicare esattamente il design:
 
 - [Roadmap Frontoffice](../roadmap_frontoffice.md)
 - [Patient Book Feature](../roadmap_frontoffice/30-patient-book.md)
-- [Calendar Booking System](../../laravel/Modules/SaluteOra/docs/calendar-booking-system.md)
+- [Calendar Booking System](../../laravel/Modules/<nome progetto>/docs/calendar-booking-system.md)

@@ -194,7 +194,7 @@ return [
 
 1. **Esecuzione Script Analisi**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    php artisan tinker --execute="require 'analisi-service-provider.php';" > report-service-provider.txt
    ```
 
@@ -319,7 +319,7 @@ Soluzione:
 ```bash
 
 # Verificare presenza del file
-find /var/www/html/saluteora/laravel/Modules -name "XYZServiceProvider.php"
+find /var/www/html/<nome progetto>/laravel/Modules -name "XYZServiceProvider.php"
 
 # Rigenerare autoloader
 composer dump-autoload

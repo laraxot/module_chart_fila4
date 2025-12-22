@@ -1,8 +1,8 @@
-# Architettura del Sistema SaluteOra
+# Architettura del Sistema <nome progetto>
 
 ## 🏗️ Visione Generale
 
-SaluteOra è costruito su un'architettura modulare che garantisce scalabilità, manutenibilità e separazione delle responsabilità. Il sistema è progettato per essere estensibile e facilmente integrabile con servizi esterni.
+<nome progetto> è costruito su un'architettura modulare che garantisce scalabilità, manutenibilità e separazione delle responsabilità. Il sistema è progettato per essere estensibile e facilmente integrabile con servizi esterni.
 
 ## 📊 Diagramma dell'Architettura
 
@@ -35,7 +35,7 @@ SaluteOra è costruito su un'architettura modulare che garantisce scalabilità, 
 │  ┌─────────────────────────────────────────────────────────────┐   │
 │  │                   MODULI FUNZIONALI                         │   │
 │  │  ┌──────────┐  ┌─────────┐  ┌────────┐  ┌──────────┐     │   │
-│  │  │SaluteOra │  │ Patient │  │ Dental │  │  Doctor  │     │   │
+│  │  │<nome progetto> │  │ Patient │  │ Dental │  │  Doctor  │     │   │
 │  │  └──────────┘  └─────────┘  └────────┘  └──────────┘     │   │
 │  └─────────────────────────────────────────────────────────────┘   │
 │                                                                     │
@@ -91,7 +91,7 @@ SaluteOra è costruito su un'architettura modulare che garantisce scalabilità, 
 - **UI**: Componenti interfaccia riutilizzabili
 
 #### Moduli Funzionali
-- **SaluteOra**: Business logic del dominio sanitario
+- **<nome progetto>**: Business logic del dominio sanitario
 - **Patient**: Gestione pazienti, ISEE, documenti
 - **Dental**: Cartella clinica, odontogramma
 - **Doctor**: Profili professionisti, calendari

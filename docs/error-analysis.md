@@ -8,7 +8,7 @@ Durante l'analisi della homepage del progetto il progetto, ho commesso un errore
 
 ## Struttura Corretta
 La homepage è gestita tramite:
-1. File di configurazione: `/laravel/config/local/saluteora/database/content/pages/1.json`
+1. File di configurazione: `/laravel/config/local/<nome progetto>/database/content/pages/1.json`
 2. Documentazione: `/docs/images/2.md` (contiene il testo esatto)
 
 ## Lezioni Apprese

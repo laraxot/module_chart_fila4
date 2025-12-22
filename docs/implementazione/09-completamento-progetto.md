@@ -46,7 +46,7 @@ L'analisi completa del progetto il progetto ha rivelato che l'implementazione è
 ```bash
 
 # Verificare quale versione è corretta
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan module:list
 
 # Rimuovere la versione duplicata se necessario
@@ -64,19 +64,19 @@ php artisan module:list
 
 #### 2.1 Esecuzione Migrazioni Pendenti
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan module:migrate
 ```
 
 #### 2.2 Pubblicazione Asset e Configurazioni
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan module:publish
 ```
 
 #### 2.3 Ottimizzazione Cache
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan optimize:clear
 php artisan config:cache
 php artisan route:cache
@@ -183,7 +183,7 @@ Cache::tags(['tenant:'.$tenantId])->remember('key', $ttl, function () {
 ```bash
 
 # Navigare nella directory del progetto
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 
 # Eseguire migrazioni pendenti
 php artisan module:migrate
@@ -215,7 +215,7 @@ php artisan about
 ```bash
 
 # Avviare il server di sviluppo
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 php artisan serve
 ```
 

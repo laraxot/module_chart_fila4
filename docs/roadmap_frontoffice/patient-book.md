@@ -33,7 +33,7 @@ I mockup dettagliati sono disponibili nella cartella `/docs/images/`:
 ## Struttura Codice
 
 ```php
-namespace Modules\SaluteOra\Http\Controllers;
+namespace Modules\<nome progetto>\Http\Controllers;
 
 class PatientBookController extends Controller
 {
@@ -57,7 +57,7 @@ class PatientBookController extends Controller
 ## Widget Frontend
 
 ```php
-namespace Modules\SaluteOra\Filament\Widgets;
+namespace Modules\<nome progetto>\Filament\Widgets;
 
 class PatientBookWidget extends XotBaseWidget
 {

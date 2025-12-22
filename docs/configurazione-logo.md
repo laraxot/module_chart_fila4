@@ -20,7 +20,7 @@ Il modulo Xot contiene la documentazione tecnica sul processo di risoluzione:
 ## Principi Fondamentali in il progetto
 
 - I loghi di il progetto sono configurati nel file `metatag.php` specifico per dominio
-- Per il progetto, il dominio è `saluteora.local` che diventa `local/saluteora`
+- Per il progetto, il dominio è `<nome progetto>.local` che diventa `local/<nome progetto>`
 - I percorsi ai loghi utilizzano la notazione di namespace dei moduli (es. `patient::images/logo.svg`)
 - Questa notazione si traduce in percorsi fisici nei moduli (es. `laravel/Modules/Patient/resources/images/logo.svg`)
 
@@ -45,9 +45,9 @@ Il modulo Xot contiene la documentazione tecnica sul processo di risoluzione:
 ### Nota Importante per il progetto
 Per modificare il logo di il progetto:
 
-1. Il dominio dell'applicazione è `saluteora.local`
-2. Il percorso invertito è `local/saluteora`
-3. Il file di configurazione si trova in `laravel/config/local/saluteora/metatag.php`
+1. Il dominio dell'applicazione è `<nome progetto>.local`
+2. Il percorso invertito è `local/<nome progetto>`
+3. Il file di configurazione si trova in `laravel/config/local/<nome progetto>/metatag.php`
 4. I percorsi attuali sono:
    ```php
    'logo_header' => 'patient::images/logo.svg',

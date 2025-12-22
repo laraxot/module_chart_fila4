@@ -2,7 +2,7 @@
 
 ## Panoramica del Processo
 
-Il processo di registrazione dell'odontoiatra (chiamato genericamente "Doctor" nel sistema) è una componente cruciale del sistema SaluteOra, in quanto garantisce che solo professionisti qualificati possano offrire servizi alle pazienti. Il flusso completo è strutturato nelle seguenti fasi:
+Il processo di registrazione dell'odontoiatra (chiamato genericamente "Doctor" nel sistema) è una componente cruciale del sistema <nome progetto>, in quanto garantisce che solo professionisti qualificati possano offrire servizi alle pazienti. Il flusso completo è strutturato nelle seguenti fasi:
 
 1. Registrazione iniziale e verifica dell'identità
 2. Validazione dei documenti professionali
@@ -23,7 +23,7 @@ La registrazione degli odontoiatri segue quattro principi fondamentali:
 
 ### Best Practices per la Gestione dei Giorni della Settimana
 
-Nella gestione dei giorni della settimana, è fondamentale adottare approcci moderni che garantiscano type safety, manutenibilità e localizzazione. Di seguito sono analizzate diverse alternative, con l'implementazione consigliata per SaluteOra.
+Nella gestione dei giorni della settimana, è fondamentale adottare approcci moderni che garantiscano type safety, manutenibilità e localizzazione. Di seguito sono analizzate diverse alternative, con l'implementazione consigliata per <nome progetto>.
 
 #### Approcci Disponibili
 
@@ -88,9 +88,9 @@ Nella gestione dei giorni della settimana, è fondamentale adottare approcci mod
    **Vantaggi**: Localizzazione automatica, supporto multilingua integrato.
    **Svantaggi**: Meno type-safe rispetto agli enum.
 
-#### Implementazione Raccomandata per SaluteOra
+#### Implementazione Raccomandata per <nome progetto>
 
-Per SaluteOra, l'approccio consigliato è l'utilizzo degli enum di PHP 8.1+ combinato con Filament. Questo è già implementato nel progetto:
+Per <nome progetto>, l'approccio consigliato è l'utilizzo degli enum di PHP 8.1+ combinato con Filament. Questo è già implementato nel progetto:
 
 ```php
 // Nel DoctorResource.php
@@ -108,7 +108,7 @@ Questa implementazione è particolarmente elegante perché:
 2. Sfrutta il metodo `from()` per convertire il valore in un'istanza dell'enum
 3. Utilizza il metodo `getLabel()` dell'enum per ottenere l'etichetta localizzata
 
-**Nota**: L'enum `DayOfWeek` è stato spostato in `Modules\Xot\Enums\` per renderlo riutilizzabile in tutto il progetto SaluteOra, dato che i giorni della settimana sono un concetto comune e non specifico solo al modulo Patient.
+**Nota**: L'enum `DayOfWeek` è stato spostato in `Modules\Xot\Enums\` per renderlo riutilizzabile in tutto il progetto <nome progetto>, dato che i giorni della settimana sono un concetto comune e non specifico solo al modulo Patient.
 
 ### Implementazione Tecnica
 
@@ -217,7 +217,7 @@ Questa struttura permette di rappresentare una gerarchia di classi utilizzando u
 
 #### Processo di Registrazione
 
-Il processo di registrazione avviene tramite un widget Filament personalizzato situato in `/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`. Questo widget gestisce il flusso di registrazione multi-step, recuperando il form schema tramite `DoctorResource::getFormSchemaWidget()`.
+Il processo di registrazione avviene tramite un widget Filament personalizzato situato in `/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`. Questo widget gestisce il flusso di registrazione multi-step, recuperando il form schema tramite `DoctorResource::getFormSchemaWidget()`.
 
 #### Gestione degli Stati
 
@@ -231,11 +231,11 @@ Il processo di registrazione avviene tramite un widget Filament personalizzato s
 6. **Dependency Injection**: Supporto per DI nelle classi di transizione, permettendo una maggiore modularità e testabilità.
 
 **File Chiave:**
-- `/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
-- `/var/www/html/saluteora/laravel/Modules/User/app/Models/BaseUser.php`
-- `/var/www/html/saluteora/laravel/Modules/User/app/Models/User.php`
-- `/var/www/html/saluteora/laravel/Modules/Patient/app/Models/Doctor.php` (estende `Modules\Patient\Models\BaseModel`)
-- `/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Models/BaseUser.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Models/User.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Models/Doctor.php` (estende `Modules\Patient\Models\BaseModel`)
+- `/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php`
 
 **Percentuale di Completamento**: 80%
 
@@ -250,7 +250,7 @@ Il processo di registrazione avviene tramite un widget Filament personalizzato s
 
 ### Dettagli Implementativi del Widget di Registrazione
 
-Il widget `RegistrationWidget` è una componente chiave per la registrazione degli utenti nel sistema SaluteOra. Situato in `/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`, estende `XotBaseWidget` e utilizza i tratti di Filament per gestire i form. Ecco i dettagli del suo funzionamento:
+Il widget `RegistrationWidget` è una componente chiave per la registrazione degli utenti nel sistema <nome progetto>. Situato in `/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`, estende `XotBaseWidget` e utilizza i tratti di Filament per gestire i form. Ecco i dettagli del suo funzionamento:
 
 - **Inizializzazione**: Il metodo `mount(string $type)` riceve il tipo di utente (ad esempio, 'doctor') come parametro. Questo tipo viene utilizzato per determinare la classe di risorsa appropriata tramite `XotData::make()->getUserResourceClassByType($type)`.
 - **Schema del Form**: Il metodo `getFormSchema()` delega alla classe di risorsa (ad esempio, `DoctorResource`) per ottenere lo schema del form tramite `getFormSchemaWidget()`. Questo approccio modulare permette di personalizzare i campi del form per ogni tipo di utente.
@@ -483,11 +483,11 @@ Ecco un esempio di implementazione migliorata:
 Questo design garantisce flessibilità e riutilizzabilità, permettendo al sistema di gestire facilmente nuovi tipi di utenti senza modificare il codice del widget.
 
 **File Chiave:**
-- `/var/www/html/saluteora/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
-- `/var/www/html/saluteora/laravel/Modules/User/app/Models/BaseUser.php`
-- `/var/www/html/saluteora/laravel/Modules/User/app/Models/User.php`
-- `/var/www/html/saluteora/laravel/Modules/Patient/app/Models/Doctor.php` (estende `Modules\Patient\Models\BaseModel`)
-- `/var/www/html/saluteora/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Filament/Widgets/RegistrationWidget.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Models/BaseUser.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/User/app/Models/User.php`
+- `/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Models/Doctor.php` (estende `Modules\Patient\Models\BaseModel`)
+- `/var/www/html/<nome progetto>/laravel/Modules/Patient/app/Filament/Resources/DoctorResource.php`
 
 **Percentuale di Completamento**: 80%
 
@@ -787,21 +787,21 @@ L'adozione di `spatie/laravel-model-states` semplifica la gestione degli stati d
 
 2. **Curva di Apprendimento**: Il team dovrebbe familiarizzare con le API del pacchetto e adattare le pratiche di sviluppo esistenti.
 
-3. **Personalizzazione Avanzata**: Se il workflow di SaluteOra richiede funzionalità non supportate nativamente dal pacchetto (ad esempio, dati contestuali estesi per ogni stato), potrebbe essere necessario estendere il pacchetto.
+3. **Personalizzazione Avanzata**: Se il workflow di <nome progetto> richiede funzionalità non supportate nativamente dal pacchetto (ad esempio, dati contestuali estesi per ogni stato), potrebbe essere necessario estendere il pacchetto.
 
 4. **Integrazione con Altri Sistemi**: Assicurarsi che il sistema di stati si integri correttamente con altri componenti come notifiche, logging e audit trail.
 
 5. **Performance**: Per modelli con un alto volume di transizioni di stato, potrebbe essere necessario ottimizzare le query o implementare caching.
 
-##### Implementazione in SaluteOra
+##### Implementazione in <nome progetto>
 
-In SaluteOra, l'implementazione di `spatie/laravel-model-states` è stata adattata per soddisfare le esigenze specifiche del processo di registrazione degli odontoiatri:
+In <nome progetto>, l'implementazione di `spatie/laravel-model-states` è stata adattata per soddisfare le esigenze specifiche del processo di registrazione degli odontoiatri:
 
 1. **Stati Personalizzati**: Sono stati definiti stati specifici (`Pending`, `Approved`, `Rejected`, `Active`) con metodi helper per facilitare le verifiche di stato.
 
 2. **Transizioni con Contesto**: Le classi di transizione accettano parametri contestuali come l'ID del moderatore e le note di moderazione.
 
-3. **Integrazione con Notifiche**: Le transizioni attivano automaticamente notifiche appropriate tramite il sistema di notifiche di SaluteOra.
+3. **Integrazione con Notifiche**: Le transizioni attivano automaticamente notifiche appropriate tramite il sistema di notifiche di <nome progetto>.
 
 4. **Supporto per Azioni in Background**: L'uso di `QueueableAction` permette di eseguire transizioni complesse in background quando necessario.
 
@@ -815,7 +815,7 @@ In precedenza, si utilizzava una relazione `workflow()` personalizzata per gesti
 
 1. **Complessità Specifica del Processo**: Il processo di registrazione e validazione di un odontoiatra richiede un flusso di lavoro altamente personalizzato con fasi multiple (ad esempio, verifica dei documenti, approvazione amministrativa). Queste fasi potevano essere mappate con precisione in un workflow personalizzato.
 
-2. **Integrazione con il Sistema**: Un workflow personalizzato si integrava strettamente con altri moduli di SaluteOra (come notifiche, gestione tenant e permessi), permettendo una coerenza e personalizzazione che potevano essere più difficili da ottenere con un pacchetto esterno.
+2. **Integrazione con il Sistema**: Un workflow personalizzato si integrava strettamente con altri moduli di <nome progetto> (come notifiche, gestione tenant e permessi), permettendo una coerenza e personalizzazione che potevano essere più difficili da ottenere con un pacchetto esterno.
 
 3. **Controllo Totale**: Implementare un workflow personalizzato consentiva al team di sviluppo di avere il pieno controllo sulle logiche di transizione, sui dati associati a ciascuna fase e sulle azioni automatiche (come l'invio di notifiche o l'aggiornamento di altri record) che dovevano avvenire durante il processo.
 
@@ -860,17 +860,17 @@ Il modulo di registrazione odontoiatra si integra con:
 
 Dopo un'analisi approfondita della documentazione di `spatie/laravel-model-states` (disponibile su [https://spatie.be/docs/laravel-model-states/v2/01-introduction](https://spatie.be/docs/laravel-model-states/v2/01-introduction)), è chiaro che questo pacchetto offre un sistema robusto per gestire gli stati di un modello in Laravel. Include funzionalità come la configurazione di stati personalizzati, transizioni avanzate tra stati con classi personalizzate, eventi di transizione, supporto al query builder con scope di stato, e regole di validazione per le richieste.
 
-Tuttavia, nel contesto di SaluteOra, la classe `Doctor` utilizza una relazione `workflow()` personalizzata invece di adottare soluzioni come `spatie/laravel-model-states` o `spatie/laravel-model-status` per i seguenti motivi:
+Tuttavia, nel contesto di <nome progetto>, la classe `Doctor` utilizza una relazione `workflow()` personalizzata invece di adottare soluzioni come `spatie/laravel-model-states` o `spatie/laravel-model-status` per i seguenti motivi:
 
 1. **Complessità Specifica del Processo**: Il processo di registrazione e validazione di un odontoiatra richiede un flusso di lavoro altamente personalizzato con fasi multiple (ad esempio, verifica dei documenti, approvazione amministrativa). Queste fasi non sono facilmente mappabili con le transizioni di stato standard offerte dal pacchetto Spatie, che tende a supportare scenari più lineari.
 
-2. **Integrazione con il Sistema**: Un workflow personalizzato si integra strettamente con altri moduli di SaluteOra (come notifiche, gestione tenant e permessi), permettendo una coerenza e personalizzazione che potrebbero essere più difficili da ottenere con un pacchetto esterno.
+2. **Integrazione con il Sistema**: Un workflow personalizzato si integra strettamente con altri moduli di <nome progetto> (come notifiche, gestione tenant e permessi), permettendo una coerenza e personalizzazione che potrebbero essere più difficili da ottenere con un pacchetto esterno.
 
 3. **Controllo Totale**: Implementare un workflow personalizzato consente al team di sviluppo di avere il pieno controllo sulle logiche di transizione, sui dati associati a ciascuna fase e sulle azioni automatiche (come l'invio di notifiche o l'aggiornamento di altri record) che devono avvenire durante il processo.
 
 4. **Flessibilità per Dati Aggiuntivi**: La relazione `workflow()` permette di associare dati contestuali (come note o timestamp per ogni fase) direttamente al modello `Doctor` in una tabella separata, offrendo una struttura più ricca rispetto a un semplice campo di stato.
 
-Questa scelta riflette l'esigenza di SaluteOra di adattare le soluzioni alle specificità del progetto, garantendo la massima flessibilità e controllo sul processo di registrazione degli odontoiatri.
+Questa scelta riflette l'esigenza di <nome progetto> di adattare le soluzioni alle specificità del progetto, garantendo la massima flessibilità e controllo sul processo di registrazione degli odontoiatri.
 
 ### Alternativa: Workflow Personalizzato (Implementazione Legacy)
 
@@ -1061,7 +1061,7 @@ public function execute(Appointment $appointment): ReimbursementRequest
         'appointment_id' => $appointment->id,
         'dentist_id' => $appointment->dentist_id,
         'patient_id' => $appointment->patient_id,
-        'amount' => config('saluteora.reimbursement_amount'),
+        'amount' => config('<nome progetto>.reimbursement_amount'),
         'status' => 'pending',
         'requested_at' => now(),
     ]);

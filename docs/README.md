@@ -9,7 +9,7 @@ Il modulo **Chart** gestisce la visualizzazione e l'analisi di dati tramite graf
 ---
 
 ## Collegamenti correlati
-- [Documentazione SaluteOra](/docs/README.md)
+- [Documentazione <nome progetto>](/docs/README.md)
 - [Mappa Documentazione](/docs/collegamenti-documentazione.md)
 - [Modulo Xot](../../Xot/docs/README.md)
 - [Modulo Cms](../../Cms/docs/README.md)
@@ -72,7 +72,7 @@ Il modulo Chart segue un approccio strutturato per la gestione dei conflitti git
 - `README.md`: Documentazione e collegamenti bidirezionali
 ## Gestione build assets e output
 
-Gli asset del modulo Chart devono essere generati nella directory `./resources/dist` del modulo. La configurazione di Vite deve includere `emptyOutDir: false` e `manifest: "manifest.json"` per garantire la coerenza con le regole di progetto SaluteOra.
+Gli asset del modulo Chart devono essere generati nella directory `./resources/dist` del modulo. La configurazione di Vite deve includere `emptyOutDir: false` e `manifest: "manifest.json"` per garantire la coerenza con le regole di progetto <nome progetto>.
 
 **Motivazione architetturale:**
 - Ogni modulo deve essere autonomo nella gestione degli asset

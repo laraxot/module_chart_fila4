@@ -481,6 +481,6 @@ test('dentist can view appointment details', function () {
 
 ## Links ai File Principali
 
-- [Modulo Dental](/var/www/html/base_saluteora/laravel/Modules/Dental/)
-- [Modulo Patient](/var/www/html/base_saluteora/laravel/Modules/Patient/)
-- [Roadmap Frontoffice](/var/www/html/base_saluteora/docs/roadmap_frontoffice.md)
+- [Modulo Dental](/var/www/html/base_<nome progetto>/laravel/Modules/Dental/)
+- [Modulo Patient](/var/www/html/base_<nome progetto>/laravel/Modules/Patient/)
+- [Roadmap Frontoffice](/var/www/html/base_<nome progetto>/docs/roadmap_frontoffice.md)

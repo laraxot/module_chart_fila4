@@ -1,6 +1,6 @@
-# Regole per l'Implementazione di Canali di Notifica in SaluteOra
+# Regole per l'Implementazione di Canali di Notifica in <nome progetto>
 
-Questa documentazione fornisce linee guida standardizzate per l'implementazione di canali di notifica (email, SMS, Telegram) nel sistema SaluteOra.
+Questa documentazione fornisce linee guida standardizzate per l'implementazione di canali di notifica (email, SMS, Telegram) nel sistema <nome progetto>.
 
 ## Regole Generali
 
@@ -83,7 +83,7 @@ public function toMail($notifiable): SpatieEmail
 
 ### Provider Supportati
 
-I seguenti provider sono supportati e configurati in SaluteOra:
+I seguenti provider sono supportati e configurati in <nome progetto>:
 
 1. **Internazionali**:
    - Twilio (preferito per affidabilità)

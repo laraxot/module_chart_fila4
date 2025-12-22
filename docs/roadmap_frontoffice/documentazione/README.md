@@ -1,6 +1,6 @@
 # Documentazione Tecnica
 
-Questa directory contiene la documentazione tecnica di riferimento per lo sviluppo e la manutenzione della piattaforma SaluteOra.
+Questa directory contiene la documentazione tecnica di riferimento per lo sviluppo e la manutenzione della piattaforma <nome progetto>.
 
 ## Indice
 

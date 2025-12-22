@@ -10,7 +10,7 @@
 
 ## Backup
 I file originali sono stati salvati in:
-`/var/www/html/_bases/base_saluteora/backup-conflicts-advanced-20250804-103453`
+`/var/www/html/_bases/base_<nome progetto>/backup-conflicts-advanced-20250804-103453`
 
 ## Strategia di Pulizia Avanzata
 La pulizia ha utilizzato un parser intelligente che:

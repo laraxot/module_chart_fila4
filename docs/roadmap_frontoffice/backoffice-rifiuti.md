@@ -17,7 +17,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
   - Ricerca per nome/email
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/RejectedRequestResource.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/RejectedRequestResource.php
   namespace Modules\Admin\Filament\Resources;
   
   use Filament\Tables\Columns\TextColumn;
@@ -111,7 +111,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
   - Note dell'amministratore
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/RejectedRequestResource/Pages/ViewRejectedRequest.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/RejectedRequestResource/Pages/ViewRejectedRequest.php
   namespace Modules\Admin\Filament\Resources\RejectedRequestResource\Pages;
   
   use Modules\Admin\Filament\Resources\RejectedRequestResource;
@@ -167,7 +167,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
   - Tracking stato ricorso
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Models/Appeal.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Models/Appeal.php
   namespace Modules\Admin\Models;
   
   use Modules\Xot\Models\BaseModel;
@@ -244,7 +244,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
   4. Notifica all'utente che la sua richiesta è stata riconsiderata
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Actions/ReconsiderRejectedRequestAction.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Actions/ReconsiderRejectedRequestAction.php
   namespace Modules\Admin\Actions;
   
   use Modules\Admin\Enums\RequestStatus;
@@ -295,7 +295,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
   - Tasso di approvazione dopo ricorso
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Widgets/RejectionStatisticsWidget.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Widgets/RejectionStatisticsWidget.php
   namespace Modules\Admin\Filament\Widgets;
   
   use Modules\Xot\Filament\Widgets\XotBaseWidget;
@@ -360,7 +360,7 @@ Questo modulo del backoffice è dedicato alla gestione delle richieste di iscriz
 ## Implementazione della Notifica di Riconsiderazione
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/app/Notifications/RequestReconsideredNotification.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Notifications/RequestReconsideredNotification.php
 namespace Modules\Admin\Notifications;
 
 use Illuminate\Notifications\Notification;
@@ -408,7 +408,7 @@ class RequestReconsideredNotification extends Notification
 ## Enum per lo Stato del Ricorso
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/app/Enums/AppealStatus.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Enums/AppealStatus.php
 namespace Modules\Admin\Enums;
 
 enum AppealStatus: string
@@ -442,7 +442,7 @@ enum AppealStatus: string
 ### Componente Statistiche Rifiuti
 
 ```blade
-{{-- /var/www/html/saluteora/laravel/Modules/Admin/resources/views/widgets/rejection-statistics.blade.php --}}
+{{-- /var/www/html/<nome progetto>/laravel/Modules/Admin/resources/views/widgets/rejection-statistics.blade.php --}}
 <x-filament::card>
     <div class="space-y-4">
         <div class="flex items-center justify-between">
@@ -551,7 +551,7 @@ enum AppealStatus: string
 
 ### Test Unitari
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Unit/ReconsiderRejectedRequestActionTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Unit/ReconsiderRejectedRequestActionTest.php
 namespace Modules\Admin\Tests\Unit;
 
 use Tests\TestCase;
@@ -591,7 +591,7 @@ class ReconsiderRejectedRequestActionTest extends TestCase
 
 ### Test di Integrazione
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Feature/RejectedRequestManagementTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Feature/RejectedRequestManagementTest.php
 namespace Modules\Admin\Tests\Feature;
 
 use Tests\TestCase;

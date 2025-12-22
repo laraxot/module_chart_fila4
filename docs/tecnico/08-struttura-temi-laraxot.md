@@ -18,7 +18,7 @@ Nell'ecosistema Laraxot, esiste una netta separazione concettuale e organizzativ
 La corretta organizzazione delle directory riflette questa separazione:
 
 ```
-/var/www/html/saluteora/laravel/
+/var/www/html/<nome progetto>/laravel/
 ├── Modules/           # Directory per i moduli funzionali
 │   ├── Xot/
 │   ├── Lang/
@@ -36,7 +36,7 @@ La corretta organizzazione delle directory riflette questa separazione:
 Il tema principale utilizzato in il progetto, denominato "ThemeOne", deve essere posizionato correttamente in:
 
 ```
-/var/www/html/saluteora/laravel/Themes/One/
+/var/www/html/<nome progetto>/laravel/Themes/One/
 ```
 
 ### Installazione Corretta

@@ -1,14 +1,14 @@
-# Pattern di Ereditarietà dei Modelli in SaluteOra
+# Pattern di Ereditarietà dei Modelli in <nome progetto>
 
 ## Panoramica
 
-Questo documento descrive i pattern di ereditarietà utilizzati per i modelli in SaluteOra, fornendo linee guida e best practice per l'implementazione corretta dell'ereditarietà nei vari moduli.
+Questo documento descrive i pattern di ereditarietà utilizzati per i modelli in <nome progetto>, fornendo linee guida e best practice per l'implementazione corretta dell'ereditarietà nei vari moduli.
 
 ## Pattern di Ereditarietà Principali
 
 ### 1. Single Table Inheritance (STI)
 
-SaluteOra utilizza principalmente il pattern Single Table Inheritance tramite il pacchetto `spatie/laravel-model-states` per gestire diversi tipi di entità che condividono la stessa tabella di base.
+<nome progetto> utilizza principalmente il pattern Single Table Inheritance tramite il pacchetto `spatie/laravel-model-states` per gestire diversi tipi di entità che condividono la stessa tabella di base.
 
 #### Implementazione nei Moduli
 
@@ -18,7 +18,7 @@ SaluteOra utilizza principalmente il pattern Single Table Inheritance tramite il
 
 ### 2. Ereditarietà con Classi Base Personalizzate
 
-Ogni modulo in SaluteOra definisce le proprie classi base che estendono le classi standard di Laravel:
+Ogni modulo in <nome progetto> definisce le proprie classi base che estendono le classi standard di Laravel:
 
 - `BaseModel` in ciascun modulo estende `Illuminate\Database\Eloquent\Model`
 - `XotBaseResource` estende `Filament\Resources\Resource`

@@ -1,7 +1,7 @@
 # Registrazione Pazienti
 
 ## Panoramica
-Documentazione dettagliata del flusso di registrazione pazienti per il portale SaluteOra.
+Documentazione dettagliata del flusso di registrazione pazienti per il portale <nome progetto>.
 
 ## Requisiti Funzionali
 - [x] Form di registrazione con validazione lato client e server

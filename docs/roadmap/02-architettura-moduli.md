@@ -7,7 +7,7 @@ Il progetto il progetto è implementato come applicazione Laravel modulare, util
 ### Schema Architetturale
 
 ```
-/var/www/html/saluteora/
+/var/www/html/<nome progetto>/
 ├── laravel/                 # Applicazione Laravel
 │   ├── app/                 # Codice applicativo core
 │   ├── bootstrap/           # File di bootstrap

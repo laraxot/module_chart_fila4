@@ -15,7 +15,7 @@ Oltre agli script standard di Laraxot, sono stati sviluppati script personalizza
 
 ### 1. fix-namespace.sh
 
-**Percorso**: `/var/www/html/saluteora/laravel/bashscripts/fix-namespace.sh`
+**Percorso**: `/var/www/html/<nome progetto>/laravel/bashscripts/fix-namespace.sh`
 
 **Descrizione**: Corregge automaticamente i namespace non conformi nei moduli Laraxot, risolvendo la discrepanza tra i namespace dichiarati nei file PHP e la configurazione di autoloading in composer.json.
 
@@ -29,7 +29,7 @@ Oltre agli script standard di Laraxot, sono stati sviluppati script personalizza
 ```bash
 
 # Per correggere tutti i moduli
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/fix-namespace.sh
 
 # Per correggere un modulo specifico
@@ -46,7 +46,7 @@ cd /var/www/html/saluteora/laravel
 
 ### 2. fix-autoloading.sh
 
-**Percorso**: `/var/www/html/saluteora/laravel/bashscripts/fix-autoloading.sh`
+**Percorso**: `/var/www/html/<nome progetto>/laravel/bashscripts/fix-autoloading.sh`
 
 **Descrizione**: Script per risolvere problemi di autoloading modificando il composer.json principale.
 
@@ -57,18 +57,18 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/fix-autoloading.sh
 ```
 
 ### 3. fix-theme-location.sh
 
-**Percorso**: `/var/www/html/saluteora/laravel/bashscripts/fix-theme-location.sh`
+**Percorso**: `/var/www/html/<nome progetto>/laravel/bashscripts/fix-theme-location.sh`
 
 **Descrizione**: Script per correggere il posizionamento errato del tema One, spostandolo dalla directory dei moduli alla directory dei temi.
 
 **Funzionalità**:
-- Sposta il tema dalla directory errata `/var/www/html/saluteora/laravel/Modules/ThemeOne` alla directory corretta `/var/www/html/saluteora/laravel/Themes/One`
+- Sposta il tema dalla directory errata `/var/www/html/<nome progetto>/laravel/Modules/ThemeOne` alla directory corretta `/var/www/html/<nome progetto>/laravel/Themes/One`
 - Aggiorna i namespace nei file PHP da `Modules\ThemeOne` a `Themes\One`
 - Identifica tutti i riferimenti al tema in altri file del progetto
 - Crea un backup del tema originale prima delle modifiche
@@ -76,7 +76,7 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/fix-theme-location.sh
 ```
 
@@ -87,7 +87,7 @@ cd /var/www/html/saluteora/laravel
 
 ### 4. module-setup.sh
 
-**Percorso**: `/var/www/html/saluteora/laravel/bashscripts/module-setup.sh`
+**Percorso**: `/var/www/html/<nome progetto>/laravel/bashscripts/module-setup.sh`
 
 **Descrizione**: Automatizza il processo di setup e configurazione di un nuovo modulo.
 
@@ -98,7 +98,7 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/module-setup.sh NomeModulo
 ```
 
@@ -112,7 +112,7 @@ Oltre agli script personalizzati, sono disponibili vari script standard forniti 
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/composer-update-force.sh
 ```
 
@@ -122,7 +122,7 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/git-pull-modules.sh
 ```
 
@@ -132,7 +132,7 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/install-all.sh
 ```
 
@@ -142,7 +142,7 @@ cd /var/www/html/saluteora/laravel
 
 **Utilizzo**:
 ```bash
-cd /var/www/html/saluteora/laravel
+cd /var/www/html/<nome progetto>/laravel
 ./bashscripts/artisan-optimize.sh
 ```
 
@@ -151,14 +151,14 @@ cd /var/www/html/saluteora/laravel
 Prima di utilizzare qualsiasi script, assicurarsi che sia eseguibile:
 
 ```bash
-chmod +x /var/www/html/saluteora/laravel/bashscripts/*.sh
+chmod +x /var/www/html/<nome progetto>/laravel/bashscripts/*.sh
 ```
 
 ## Creazione di Nuovi Script
 
 Per creare nuovi script di automazione:
 
-1. Creare il file nella directory `/var/www/html/saluteora/laravel/bashscripts/`
+1. Creare il file nella directory `/var/www/html/<nome progetto>/laravel/bashscripts/`
 2. Iniziare il file con lo shebang `#!/bin/bash`
 3. Aggiungere commenti dettagliati sul funzionamento dello script
 4. Renderlo eseguibile con `chmod +x nomescript.sh`
@@ -193,7 +193,7 @@ Gli script bash sono parte integrante del processo di sviluppo e manutenzione de
 ## Conclusione
 
 L'automazione tramite script bash è un elemento chiave per il successo del progetto il progetto, consentendo di gestire in modo efficiente le complessità dell'architettura modulare e risolvere rapidamente i problemi comuni. Questi script sono in continua evoluzione per soddisfare le esigenze del progetto. 
-L'automazione tramite script bash è un elemento chiave per il successo del progetto SaluteOra, consentendo di gestire in modo efficiente le complessità dell'architettura modulare e risolvere rapidamente i problemi comuni. Questi script sono in continua evoluzione per soddisfare le esigenze del progetto. 
+L'automazione tramite script bash è un elemento chiave per il successo del progetto <nome progetto>, consentendo di gestire in modo efficiente le complessità dell'architettura modulare e risolvere rapidamente i problemi comuni. Questi script sono in continua evoluzione per soddisfare le esigenze del progetto. 
 
 ## Collegamenti tra versioni di bashscripts.md
 * [bashscripts.md](docs/bashscripts.md)

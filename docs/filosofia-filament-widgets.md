@@ -1,4 +1,4 @@
-# Filosofia dei Widget Filament nel Progetto SaluteOra
+# Filosofia dei Widget Filament nel Progetto <nome progetto>
 
 ## Il Principio Fondamentale
 "Ogni form è un widget Filament. Ogni widget è riutilizzabile. Ogni pagina è un contenitore."

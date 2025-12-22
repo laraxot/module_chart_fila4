@@ -17,7 +17,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
   - Confronto documenti lato a lato
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Media/app/Http/Livewire/DocumentViewer.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Media/app/Http/Livewire/DocumentViewer.php
   namespace Modules\Media\Http\Livewire;
   
   use Livewire\Component;
@@ -80,7 +80,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
   - Evidenziazione discrepanze con dati dichiarati
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Media/app/Actions/ExtractDataFromDocumentAction.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Media/app/Actions/ExtractDataFromDocumentAction.php
   namespace Modules\Media\Actions;
   
   use Modules\Media\Models\Document;
@@ -129,7 +129,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
   - Note di revisione
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Media/app/Models/DocumentVersion.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Media/app/Models/DocumentVersion.php
   namespace Modules\Media\Models;
   
   use Modules\Xot\Models\BaseModel;
@@ -176,7 +176,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
   5. Notifica all'utente
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Actions/ValidateDocumentAction.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Actions/ValidateDocumentAction.php
   namespace Modules\Admin\Actions;
   
   use Modules\Media\Models\Document;
@@ -230,7 +230,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
   - Report di attività
 - **File di Implementazione**:
   ```php
-  // /var/www/html/saluteora/laravel/Modules/Admin/app/Filament/Resources/DocumentResource.php
+  // /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Filament/Resources/DocumentResource.php
   namespace Modules\Admin\Filament\Resources;
   
   use Filament\Tables\Columns\BadgeColumn;
@@ -320,7 +320,7 @@ Il modulo di gestione documentazione del backoffice permette agli amministratori
 Esempio di implementazione dell'estrazione dati da carta d'identità:
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Media/app/Services/Extractors/IdentityCardExtractor.php
+// /var/www/html/<nome progetto>/laravel/Modules/Media/app/Services/Extractors/IdentityCardExtractor.php
 namespace Modules\Media\Services\Extractors;
 
 use Modules\Media\Contracts\DocumentExtractor;
@@ -393,7 +393,7 @@ class IdentityCardExtractor implements DocumentExtractor
 ### Componente Validazione Documenti
 
 ```blade
-{{-- /var/www/html/saluteora/laravel/Modules/Admin/resources/views/components/document-validation-card.blade.php --}}
+{{-- /var/www/html/<nome progetto>/laravel/Modules/Admin/resources/views/components/document-validation-card.blade.php --}}
 <div class="rounded-lg border border-gray-300 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
     <div class="mb-4 flex items-center justify-between">
         <h3 class="text-lg font-semibold">{{ $document->document_type_label }}</h3>
@@ -471,7 +471,7 @@ class IdentityCardExtractor implements DocumentExtractor
 ## Notifiche di Stato dei Documenti
 
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/app/Notifications/DocumentStatusChangedNotification.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/app/Notifications/DocumentStatusChangedNotification.php
 namespace Modules\Admin\Notifications;
 
 use Illuminate\Notifications\Notification;
@@ -533,7 +533,7 @@ class DocumentStatusChangedNotification extends Notification
 
 ### Test Unitari
 ```php
-// /var/www/html/saluteora/laravel/Modules/Media/Tests/Unit/ExtractDataFromDocumentActionTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Media/Tests/Unit/ExtractDataFromDocumentActionTest.php
 namespace Modules\Media\Tests\Unit;
 
 use Tests\TestCase;
@@ -559,7 +559,7 @@ class ExtractDataFromDocumentActionTest extends TestCase
 
 ### Test di Integrazione
 ```php
-// /var/www/html/saluteora/laravel/Modules/Admin/Tests/Feature/DocumentValidationTest.php
+// /var/www/html/<nome progetto>/laravel/Modules/Admin/Tests/Feature/DocumentValidationTest.php
 namespace Modules\Admin\Tests\Feature;
 
 use Tests\TestCase;

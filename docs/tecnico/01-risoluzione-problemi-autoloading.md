@@ -25,10 +25,10 @@ Ambiguous class resolution: multiple classes match, cannot determine which one t
 Alcuni file presentano namespace non allineati con la loro posizione nel filesystem:
 
 ```
-// File: /var/www/html/saluteora/laravel/Modules/Activity/Services/ActivityService.php
+// File: /var/www/html/<nome progetto>/laravel/Modules/Activity/Services/ActivityService.php
 namespace Modules\Activity\Service; // Dovrebbe essere Services (plurale)
 
-// File: /var/www/html/saluteora/laravel/Modules/Gdpr/Models/ConsentLog.php
+// File: /var/www/html/<nome progetto>/laravel/Modules/Gdpr/Models/ConsentLog.php
 namespace Modules\Gdpr\Model; // Dovrebbe essere Models (plurale)
 ```
 
@@ -59,7 +59,7 @@ namespace Modules\Activity\Services;
 Per garantire un'implementazione sistematica, utilizziamo questo comando per identificare tutti i file con problemi di namespace:
 
 ```bash
-for module in $(find /var/www/html/saluteora/laravel/Modules -maxdepth 1 -type d | grep -v "^/var/www/html/saluteora/laravel/Modules$"); do
+for module in $(find /var/www/html/<nome progetto>/laravel/Modules -maxdepth 1 -type d | grep -v "^/var/www/html/<nome progetto>/laravel/Modules$"); do
   module_name=$(basename "$module")
   echo "Analisi $module_name..."
   grep -r "namespace Modules\\\\$module_name" "$module" --include="*.php" | grep -v "Models\\\\\\|Services\\\\\\|Http\\\\Controllers\\\\\\|Providers\\\\"
@@ -173,7 +173,7 @@ Per facilitare l'identificazione e la correzione dei problemi, utilizziamo quest
 ```bash
 #!/bin/bash
 
-LARAVEL_PATH="/var/www/html/saluteora/laravel"
+LARAVEL_PATH="/var/www/html/<nome progetto>/laravel"
 MODULES_PATH="$LARAVEL_PATH/Modules"
 
 echo "Analisi problemi di autoloading nei moduli Laraxot..."

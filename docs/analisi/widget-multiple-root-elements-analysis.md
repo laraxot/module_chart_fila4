@@ -23,7 +23,7 @@ Livewire only supports one HTML element per component. Multiple root elements de
 ```
 /laravel/
 ├── Modules/
-│   └── SaluteOra/
+│   └── <nome progetto>/
 │       ├── app/
 │       │   └── Filament/
 │       │       └── Widgets/

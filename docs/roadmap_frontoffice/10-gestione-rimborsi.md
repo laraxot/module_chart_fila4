@@ -1,7 +1,7 @@
 # Implementazione Gestione Rimborsi
 
 ## Panoramica
-Questo documento descrive l'implementazione del sistema di gestione rimborsi per gli odontoiatri nel portale SaluteOra, includendo la compilazione dei referti post-visita, la generazione automatica delle richieste di rimborso e il monitoraggio dello stato.
+Questo documento descrive l'implementazione del sistema di gestione rimborsi per gli odontoiatri nel portale <nome progetto>, includendo la compilazione dei referti post-visita, la generazione automatica delle richieste di rimborso e il monitoraggio dello stato.
 
 ## Componenti Principali
 
@@ -111,6 +111,6 @@ class ReimbursementService
 - Soddisfazione degli odontoiatri > 4.5/5
 
 ## Collegamenti
-- [← Torna alla Roadmap Frontoffice](/var/www/html/saluteora/docs/roadmap_frontoffice.md)
-- [Dashboard Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/08-dashboard-odontoiatra.md)
-- [Iscrizione Odontoiatra](/var/www/html/saluteora/docs/roadmap_frontoffice/09-iscrizione-odontoiatra.md)
+- [← Torna alla Roadmap Frontoffice](/var/www/html/<nome progetto>/docs/roadmap_frontoffice.md)
+- [Dashboard Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/08-dashboard-odontoiatra.md)
+- [Iscrizione Odontoiatra](/var/www/html/<nome progetto>/docs/roadmap_frontoffice/09-iscrizione-odontoiatra.md)

@@ -2,7 +2,7 @@
 
 ## Panoramica Esecutiva
 
-Il progetto **SaluteOra** - Portale Salute Orale per gestanti in condizioni di vulnerabilità socio-economica ha raggiunto un **82% di completamento complessivo** al 2 Gennaio 2025. 
+Il progetto **<nome progetto>** - Portale Salute Orale per gestanti in condizioni di vulnerabilità socio-economica ha raggiunto un **82% di completamento complessivo** al 2 Gennaio 2025. 
 
 ### Stato Generale
 - **Avanzamento**: 82%

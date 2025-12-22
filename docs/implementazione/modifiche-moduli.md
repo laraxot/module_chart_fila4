@@ -108,7 +108,7 @@
 ```bash
 
 # Per ogni modulo (Patient, Dental, Reporting)
-cd /var/www/html/saluteora/laravel/Modules/[ModuleName]
+cd /var/www/html/<nome progetto>/laravel/Modules/[ModuleName]
 
 # Creare le directory necessarie
 mkdir -p app/{Models,Http,Services,Jobs,Filament,Console,Events,Listeners,Notifications}

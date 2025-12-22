@@ -4,9 +4,9 @@
 
 ## Collegamenti
 
-- [Documentazione completa sulle regole di documentazione](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/DOCUMENTATION_RULES.md)
-- [Convenzioni di naming](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/NAMING_CONVENTIONS.md)
-- [Struttura dei moduli](/var/www/html/base_saluteora/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
+- [Documentazione completa sulle regole di documentazione](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/DOCUMENTATION_RULES.md)
+- [Convenzioni di naming](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/NAMING_CONVENTIONS.md)
+- [Struttura dei moduli](/var/www/html/base_<nome progetto>/laravel/Modules/Xot/docs/MODULE_STRUCTURE.md)
 
 ## Sommario
 

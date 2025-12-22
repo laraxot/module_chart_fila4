@@ -38,7 +38,7 @@ Lo script esegue le seguenti operazioni:
 Per eseguire lo script e aggiornare automaticamente la documentazione:
 
 ```bash
-cd /var/www/html/saluteora
+cd /var/www/html/<nome progetto>
 ./docs/update-docs.sh
 ```
 
@@ -88,7 +88,7 @@ Oltre all'aggiornamento automatico, è importante mantenere manualmente la docum
 ```bash
 
 # Esempio: aggiornamento settimanale ogni lunedì alle 9:00
-0 9 * * 1 /var/www/html/saluteora/docs/update-docs.sh >> /var/www/html/saluteora/docs/cron_log.txt 2>&1
+0 9 * * 1 /var/www/html/<nome progetto>/docs/update-docs.sh >> /var/www/html/<nome progetto>/docs/cron_log.txt 2>&1
 ```
 
 ## Risoluzione dei Problemi

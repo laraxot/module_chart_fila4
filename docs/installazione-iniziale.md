@@ -21,8 +21,8 @@ composer global require laravel/installer -W
 
 2. Creare un nuovo progetto Laravel
 ```bash
-laravel new saluteora
-cd saluteora
+laravel new <nome progetto>
+cd <nome progetto>
 ```
 
 3. Installare le dipendenze PHP
@@ -50,7 +50,7 @@ php artisan key:generate
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=saluteora
+DB_DATABASE=<nome progetto>
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
 ```

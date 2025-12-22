@@ -11,9 +11,9 @@ Il sistema presenta errori di timeout nell'esecuzione di alcune operazioni, supe
 
 ### Dettagli Tecnici
 ```
-[Mon Mar 31 17:52:36.363429 2025] [php:error] [pid 178493] [client 172.18.0.1:57929] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 200
-[Mon Mar 31 17:59:06.295538 2025] [php:error] [pid 326] [client 172.18.0.1:50995] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Collections/Collection.php on line 624
-[Mon Mar 31 18:00:21.376504 2025] [php:error] [pid 329] [client 172.18.0.1:50923] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Collections/Collection.php on line 624
+[Mon Mar 31 17:52:36.363429 2025] [php:error] [pid 178493] [client 172.18.0.1:57929] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/<nome progetto>/laravel/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 200
+[Mon Mar 31 17:59:06.295538 2025] [php:error] [pid 326] [client 172.18.0.1:50995] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/<nome progetto>/laravel/vendor/laravel/framework/src/Illuminate/Collections/Collection.php on line 624
+[Mon Mar 31 18:00:21.376504 2025] [php:error] [pid 329] [client 172.18.0.1:50923] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /var/www/html/<nome progetto>/laravel/vendor/laravel/framework/src/Illuminate/Collections/Collection.php on line 624
 ```
 
 ### Possibili Cause
@@ -33,9 +33,9 @@ L'applicazione sta esaurendo la memoria allocata (1GB) durante l'esecuzione di a
 
 ### Dettagli Tecnici
 ```
-[Mon Mar 31 18:01:27.564221 2025] [php:error] [pid 3912] [client 172.18.0.1:62086] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 4096 bytes) in /var/www/html/saluteora/laravel/Modules/Xot/app/Providers/XotBaseServiceProvider.php on line 68
-[Mon Mar 31 18:01:27.663324 2025] [php:error] [pid 3912] [client 172.18.0.1:62086] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 1310720 bytes) in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Renderer/Exception.php on line 111
-[Mon Mar 31 18:01:55.963062 2025] [php:error] [pid 3913] [client 172.18.0.1:62087] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 262144 bytes) in /var/www/html/saluteora/laravel/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 195
+[Mon Mar 31 18:01:27.564221 2025] [php:error] [pid 3912] [client 172.18.0.1:62086] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 4096 bytes) in /var/www/html/<nome progetto>/laravel/Modules/Xot/app/Providers/XotBaseServiceProvider.php on line 68
+[Mon Mar 31 18:01:27.663324 2025] [php:error] [pid 3912] [client 172.18.0.1:62086] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 1310720 bytes) in /var/www/html/<nome progetto>/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Renderer/Exception.php on line 111
+[Mon Mar 31 18:01:55.963062 2025] [php:error] [pid 3913] [client 172.18.0.1:62087] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 262144 bytes) in /var/www/html/<nome progetto>/laravel/vendor/laravel/framework/src/Illuminate/Collections/Arr.php on line 195
 ```
 
 ### Possibili Cause

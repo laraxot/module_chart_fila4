@@ -18,13 +18,13 @@ Il progetto il progetto presenta diversi problemi di autoloading che derivano pr
 1. **Eseguire analisi dei file PHP** per identificare classi duplicate:
 
 ```bash
-find /var/www/html/saluteora/laravel/Modules -type f -name "*.php" | xargs grep -l "class " | sort > classi_totali.txt
+find /var/www/html/<nome progetto>/laravel/Modules -type f -name "*.php" | xargs grep -l "class " | sort > classi_totali.txt
 ```
 
 2. **Cercare duplicati nei namespace**:
 
 ```bash
-grep -r "namespace" /var/www/html/saluteora/laravel/Modules --include="*.php" | sort > namespaces.txt
+grep -r "namespace" /var/www/html/<nome progetto>/laravel/Modules --include="*.php" | sort > namespaces.txt
 ```
 
 3. **Analizzare manualmente i risultati** per identificare conflitti, focalizzandosi su:

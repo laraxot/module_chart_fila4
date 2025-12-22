@@ -1,8 +1,8 @@
-# Back Office SaluteOra
+# Back Office <nome progetto>
 
 ## Panoramica
 
-Il Back Office rappresenta il cuore amministrativo del portale SaluteOra, dove il personale autorizzato gestisce tutti i processi di verifica, approvazione e supervisione del sistema. È strutturato per garantire efficienza operativa e controllo qualitativo dei servizi offerti.
+Il Back Office rappresenta il cuore amministrativo del portale <nome progetto>, dove il personale autorizzato gestisce tutti i processi di verifica, approvazione e supervisione del sistema. È strutturato per garantire efficienza operativa e controllo qualitativo dei servizi offerti.
 
 ![Accesso backoffice](../images/23.png)
 

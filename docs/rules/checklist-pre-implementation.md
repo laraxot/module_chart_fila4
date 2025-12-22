@@ -1,6 +1,6 @@
 # Checklist Pre-Implementazione
 
-Questa checklist deve essere consultata prima di iniziare qualsiasi attività di sviluppo nel progetto SaluteOra per garantire il rispetto delle regole e delle convenzioni.
+Questa checklist deve essere consultata prima di iniziare qualsiasi attività di sviluppo nel progetto <nome progetto> per garantire il rispetto delle regole e delle convenzioni.
 
 - [ ] Ho letto e compreso le regole fondamentali del progetto in `PROJECT_RULES.md`.
 - [ ] Ho verificato la documentazione esistente nella directory `/docs` relativa all'area di lavoro.

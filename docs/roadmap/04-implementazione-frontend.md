@@ -26,7 +26,7 @@ Configurare Filament come framework di amministrazione per il progetto.
 #### Implementazione
 1. **Installare Filament**:
    ```bash
-   cd /var/www/html/saluteora/laravel
+   cd /var/www/html/<nome progetto>/laravel
    composer require filament/filament:"^3.0"
    php artisan filament:install --panels
    ```

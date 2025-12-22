@@ -237,7 +237,7 @@ jobs:
 
 ### Test Environment
 ```env
-TESTING_DATABASE_URL=mysql://user:password@localhost/saluteora_testing
+TESTING_DATABASE_URL=mysql://user:password@localhost/<nome progetto>_testing
 TESTING_REDIS_URL=redis://localhost:6379/1
 TESTING_QUEUE_CONNECTION=sync
 ``` 

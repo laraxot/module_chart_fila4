@@ -2,7 +2,7 @@
 
 ## 🎉 Conversione Completata con Successo
 
-La migrazione completa da PHPUnit a Pest per il progetto Laraxot SaluteOra è stata **completata con successo**!
+La migrazione completa da PHPUnit a Pest per il progetto Laraxot <nome progetto> è stata **completata con successo**!
 
 ## 📊 Risultati Finali
 
@@ -13,7 +13,7 @@ La migrazione completa da PHPUnit a Pest per il progetto Laraxot SaluteOra è st
 
 ### 📁 Moduli Convertiti
 
-#### 1. **SaluteOra** (2 test files)
+#### 1. **<nome progetto>** (2 test files)
 - ✅ `tests/Unit/Actions/GenerateReportActionTest.php` - Convertito a Pest con mock management
 - ✅ `tests/Browser/HomepageTest.php` - Convertito a Pest (test Dusk)
 
@@ -47,7 +47,7 @@ La migrazione completa da PHPUnit a Pest per il progetto Laraxot SaluteOra è st
 ### 🔧 Caratteristiche Implementate
 
 #### Pest Configuration Files
-- ✅ `Modules/SaluteOra/tests/Pest.php` - Healthcare-specific expectations
+- ✅ `Modules/<nome progetto>/tests/Pest.php` - Healthcare-specific expectations
 - ✅ `Modules/Cms/tests/Pest.php` - Frontend/UX expectations  
 - ✅ `Modules/Xot/tests/Pest.php` - Core framework expectations
 
@@ -91,7 +91,7 @@ La migrazione completa da PHPUnit a Pest per il progetto Laraxot SaluteOra è st
 ```bash
 
 # All converted tests pass
-./vendor/bin/pest Modules/SaluteOra/tests/Unit/Actions/GenerateReportActionTest.php
+./vendor/bin/pest Modules/<nome progetto>/tests/Unit/Actions/GenerateReportActionTest.php
 ✓ esegue correttamente la generazione di un report
 ✓ gestisce correttamente gli errori durante la generazione  
 ✓ unisce correttamente i parametri del report e quelli aggiuntivi
@@ -116,7 +116,7 @@ Tests: 4 passed (11 assertions)
 
 #### Migration Guides
 - ✅ `docs/testing-organization.md` - Complete Pest migration guide
-- ✅ `Modules/SaluteOra/docs/testing.md` - Healthcare-specific guidelines
+- ✅ `Modules/<nome progetto>/docs/testing.md` - Healthcare-specific guidelines
 - ✅ `Modules/Cms/docs/testing.md` - Frontend testing focus
 - ✅ `Modules/Xot/docs/testing.md` - Core framework testing
 
@@ -153,7 +153,7 @@ Tests: 4 passed (11 assertions)
 
 **✅ Verification tools implemented**
 
-The SaluteOra project now benefits from:
+The <nome progetto> project now benefits from:
 - **Modern testing framework** (Pest v2.x)
 - **Better developer experience**
 - **Improved performance** (+30% speed)

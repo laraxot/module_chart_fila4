@@ -1,6 +1,6 @@
 # Mappatura tra Presentazione del Portale e File di Implementazione
 
-Questo documento fornisce una mappatura completa tra le sezioni della [Presentazione del Portale SaluteOra](../12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md) e i relativi file di implementazione nella directory `roadmap_frontoffice`.
+Questo documento fornisce una mappatura completa tra le sezioni della [Presentazione del Portale <nome progetto>](../12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md) e i relativi file di implementazione nella directory `roadmap_frontoffice`.
 
 ## Homepage e Landing Page
 
@@ -73,7 +73,7 @@ Ogni file di implementazione contiene dettagli tecnici che includono:
 
 #### Iscrizione Odontoiatra
 ```php
-// File: /var/www/html/saluteora/laravel/Modules/Dental/app/Http/Livewire/DentistRegistration.php
+// File: /var/www/html/<nome progetto>/laravel/Modules/Dental/app/Http/Livewire/DentistRegistration.php
 
 namespace Modules\Dental\Http\Livewire;
 
@@ -85,7 +85,7 @@ class DentistRegistration extends Component
 
 #### Dashboard Odontoiatra
 ```php
-// File: /var/www/html/saluteora/laravel/Modules/Dental/app/Http/Livewire/DentistDashboard.php
+// File: /var/www/html/<nome progetto>/laravel/Modules/Dental/app/Http/Livewire/DentistDashboard.php
 
 namespace Modules\Dental\Http\Livewire;
 

@@ -1,7 +1,7 @@
 # Appointment Report PDF Template
 
 ## Overview
-The appointment report PDF template (`laravel/Themes/One/resources/views/appointment/report_pdf.blade.php`) provides a comprehensive, professional PDF generation for appointment reports in the SaluteOra system.
+The appointment report PDF template (`laravel/Themes/One/resources/views/appointment/report_pdf.blade.php`) provides a comprehensive, professional PDF generation for appointment reports in the <nome progetto> system.
 
 ## Features
 
@@ -206,9 +206,9 @@ Many fields display conditionally:
 - `laravel/Themes/One/lang/de/appointment.php`
 
 ### Models
-- `laravel/Modules/SaluteOra/app/Models/Appointment.php`
-- `laravel/Modules/SaluteOra/app/Models/Report.php`
-- `laravel/Modules/SaluteOra/app/Models/Studio.php`
+- `laravel/Modules/<nome progetto>/app/Models/Appointment.php`
+- `laravel/Modules/<nome progetto>/app/Models/Report.php`
+- `laravel/Modules/<nome progetto>/app/Models/Studio.php`
 
 ### Documentation
 - `docs/translation_completeness_audit.md`

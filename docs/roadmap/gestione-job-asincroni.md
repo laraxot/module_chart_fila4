@@ -496,10 +496,10 @@ class HandleFailedJobAction
 Per garantire l'esecuzione continua dei worker delle code, utilizziamo Supervisor:
 
 ```ini
-; /etc/supervisor/conf.d/saluteora-workers.conf
-[program:saluteora-high-worker]
+; /etc/supervisor/conf.d/<nome progetto>-workers.conf
+[program:<nome progetto>-high-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/saluteora/laravel/artisan queue:work redis --queue=high --sleep=3 --tries=3 --max-time=3600
+command=php /var/www/html/<nome progetto>/laravel/artisan queue:work redis --queue=high --sleep=3 --tries=3 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -507,12 +507,12 @@ killasgroup=true
 user=www-data
 numprocs=2
 redirect_stderr=true
-stdout_logfile=/var/www/html/saluteora/laravel/storage/logs/worker-high.log
+stdout_logfile=/var/www/html/<nome progetto>/laravel/storage/logs/worker-high.log
 stopwaitsecs=3600
 
-[program:saluteora-default-worker]
+[program:<nome progetto>-default-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/saluteora/laravel/artisan queue:work redis --queue=default --sleep=3 --tries=2 --max-time=3600
+command=php /var/www/html/<nome progetto>/laravel/artisan queue:work redis --queue=default --sleep=3 --tries=2 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -520,12 +520,12 @@ killasgroup=true
 user=www-data
 numprocs=2
 redirect_stderr=true
-stdout_logfile=/var/www/html/saluteora/laravel/storage/logs/worker-default.log
+stdout_logfile=/var/www/html/<nome progetto>/laravel/storage/logs/worker-default.log
 stopwaitsecs=3600
 
-[program:saluteora-reports-worker]
+[program:<nome progetto>-reports-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/saluteora/laravel/artisan queue:work redis --queue=reports --sleep=3 --tries=3 --timeout=1800 --max-time=3600
+command=php /var/www/html/<nome progetto>/laravel/artisan queue:work redis --queue=reports --sleep=3 --tries=3 --timeout=1800 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -533,12 +533,12 @@ killasgroup=true
 user=www-data
 numprocs=1
 redirect_stderr=true
-stdout_logfile=/var/www/html/saluteora/laravel/storage/logs/worker-reports.log
+stdout_logfile=/var/www/html/<nome progetto>/laravel/storage/logs/worker-reports.log
 stopwaitsecs=3600
 
-[program:saluteora-low-worker]
+[program:<nome progetto>-low-worker]
 process_name=%(program_name)s_%(process_num)02d
-command=php /var/www/html/saluteora/laravel/artisan queue:work redis --queue=emails,low --sleep=3 --tries=1 --max-time=3600
+command=php /var/www/html/<nome progetto>/laravel/artisan queue:work redis --queue=emails,low --sleep=3 --tries=1 --max-time=3600
 autostart=true
 autorestart=true
 stopasgroup=true
@@ -546,11 +546,11 @@ killasgroup=true
 user=www-data
 numprocs=1
 redirect_stderr=true
-stdout_logfile=/var/www/html/saluteora/laravel/storage/logs/worker-low.log
+stdout_logfile=/var/www/html/<nome progetto>/laravel/storage/logs/worker-low.log
 stopwaitsecs=3600
 
-[group:saluteora-workers]
-programs=saluteora-high-worker,saluteora-default-worker,saluteora-reports-worker,saluteora-low-worker
+[group:<nome progetto>-workers]
+programs=<nome progetto>-high-worker,<nome progetto>-default-worker,<nome progetto>-reports-worker,<nome progetto>-low-worker
 priority=999
 ```
 

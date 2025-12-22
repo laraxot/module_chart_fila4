@@ -2,7 +2,7 @@
 
 ## Identificazione dei moduli mancanti
 
-Dall'analisi della documentazione `/var/www/html/saluteora/docs/laraxot/modules.md` è emerso che l'implementazione iniziale era incompleta. Ecco l'elenco completo dei moduli Laraxot necessari per il progetto il progetto:
+Dall'analisi della documentazione `/var/www/html/<nome progetto>/docs/laraxot/modules.md` è emerso che l'implementazione iniziale era incompleta. Ecco l'elenco completo dei moduli Laraxot necessari per il progetto il progetto:
 
 ### Moduli già integrati
 1. **Xot** - Modulo core con utility e configurazioni base

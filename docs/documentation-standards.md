@@ -1,4 +1,4 @@
-# Standard di Documentazione SaluteOra
+# Standard di Documentazione <nome progetto>
 
 ## Collegamenti Correlati
 - [Collegamenti Documentazione](./collegamenti-documentazione.md)
@@ -9,9 +9,9 @@
 ## Regole Fondamentali
 
 ### 1. Struttura della Documentazione
-- **Root docs**: Documentazione generale e indice `/var/www/html/saluteora/docs/`
-- **Docs moduli**: Documentazione specifica per modulo `/var/www/html/saluteora/laravel/Modules/*/docs/`
-- **Docs temi**: Documentazione specifica per tema `/var/www/html/saluteora/laravel/Themes/*/docs/`
+- **Root docs**: Documentazione generale e indice `/var/www/html/<nome progetto>/docs/`
+- **Docs moduli**: Documentazione specifica per modulo `/var/www/html/<nome progetto>/laravel/Modules/*/docs/`
+- **Docs temi**: Documentazione specifica per tema `/var/www/html/<nome progetto>/laravel/Themes/*/docs/`
 
 ### 2. Collegamenti Bidirezionali
 - Ogni documento deve avere collegamenti bidirezionali ai documenti correlati
@@ -19,7 +19,7 @@
 - I collegamenti tra documenti correlati devono essere mantenuti sincronizzati
 
 ### 3. Percorsi Relativi
-- **MAI utilizzare percorsi assoluti** come `/var/www/html/saluteora/...`
+- **MAI utilizzare percorsi assoluti** come `/var/www/html/<nome progetto>/...`
 - Utilizzare sempre percorsi relativi per i collegamenti tra documenti:
   - Stesso modulo, stessa cartella: `./ALTRO_FILE.md`
   - Stesso modulo, sottocartella: `./subcartella/ALTRO_FILE.md`

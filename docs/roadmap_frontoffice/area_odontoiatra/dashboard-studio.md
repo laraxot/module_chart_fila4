@@ -1,4 +1,4 @@
-# Dashboard Studio - SaluteOra
+# Dashboard Studio - <nome progetto>
 
 > **🎯 OBIETTIVO**: Dashboard completa per la gestione operativa degli studi odontoiatrici con analytics avanzate e controllo attività
 
@@ -14,7 +14,7 @@ La Dashboard Studio fornisce una vista unificata di tutte le attività dello stu
 // Page: StudioDashboardPage
 class StudioDashboardPage extends Page
 {
-    protected static string $view = 'saluteora::filament.pages.studio-dashboard';
+    protected static string $view = '<nome progetto>::filament.pages.studio-dashboard';
     
     public Studio $studio;
     public array $dateRange = [];
@@ -577,7 +577,7 @@ class StudioAnalyticsService
     
     private function getRevenueMetrics(Studio $studio, Carbon $start, Carbon $end): array
     {
-        // Per SaluteOra il fatturato è calcolato sui rimborsi dal servizio sanitario
+        // Per <nome progetto> il fatturato è calcolato sui rimborsi dal servizio sanitario
         $appointments = Appointment::where('studio_id', $studio->id)
             ->whereBetween('data_appuntamento', [$start, $end])
             ->where('stato', 'completato');
@@ -775,9 +775,9 @@ class DashboardAlertService
 - [Calendario Disponibilità](../prenotazione_visite/calendario_disponibilita.md)
 
 ### File Tecnici
-- `Modules/SaluteOra/Filament/Pages/StudioDashboardPage.php`
-- `Modules/SaluteOra/Widgets/StudioStatsOverviewWidget.php`
-- `Modules/SaluteOra/Services/StudioAnalyticsService.php`
+- `Modules/<nome progetto>/Filament/Pages/StudioDashboardPage.php`
+- `Modules/<nome progetto>/Widgets/StudioStatsOverviewWidget.php`
+- `Modules/<nome progetto>/Services/StudioAnalyticsService.php`
 
 ---
 

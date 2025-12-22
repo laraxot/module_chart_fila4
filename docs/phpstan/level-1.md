@@ -8,7 +8,7 @@ Trovati 16 errori al livello 1.
 
 ## Errori e suggerimenti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Actions/JpGraph/V1/LineSubQuestionAction.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Actions/JpGraph/V1/LineSubQuestionAction.php`
 
 #### Linea 60: Constant MARK_FILLEDCIRCLE not found.
 
@@ -106,7 +106,7 @@ Trovati 16 errori al livello 1.
 - Le variabili siano inizializzate prima dell'uso
 - I nomi di metodi e proprietà siano corretti
 
-### File: `/var/www/html/saluteora/laravel/Modules/Chart/app/Actions/JpGraph/V1/Pie1Action.php`
+### File: `/var/www/html/<nome progetto>/laravel/Modules/Chart/app/Actions/JpGraph/V1/Pie1Action.php`
 
 #### Linea 86: Constant FF_ARIAL not found.
 

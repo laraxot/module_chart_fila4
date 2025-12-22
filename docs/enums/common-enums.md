@@ -1,8 +1,8 @@
-# Enum Comuni nel Sistema SaluteOra
+# Enum Comuni nel Sistema <nome progetto>
 
 ## Panoramica
 
-Gli enum sono una caratteristica introdotta in PHP 8.1 che permette di definire un tipo che può assumere solo un insieme limitato di valori predefiniti. Nel sistema SaluteOra, utilizziamo gli enum per rappresentare concetti comuni e riutilizzabili in tutto il sistema.
+Gli enum sono una caratteristica introdotta in PHP 8.1 che permette di definire un tipo che può assumere solo un insieme limitato di valori predefiniti. Nel sistema <nome progetto>, utilizziamo gli enum per rappresentare concetti comuni e riutilizzabili in tutto il sistema.
 
 Questo documento descrive gli enum comuni disponibili nel modulo `Xot`, che possono essere utilizzati in qualsiasi altro modulo del sistema.
 
@@ -188,7 +188,7 @@ Oltre a `DayOfWeek`, il modulo `Xot` fornisce altri enum comuni:
 
 ## Conclusione
 
-Gli enum comuni nel modulo `Xot` forniscono un modo standardizzato e type-safe per rappresentare concetti comuni in tutto il sistema SaluteOra. Utilizzare questi enum invece di implementazioni personalizzate in ogni modulo garantisce coerenza, riusabilità e manutenibilità del codice.
+Gli enum comuni nel modulo `Xot` forniscono un modo standardizzato e type-safe per rappresentare concetti comuni in tutto il sistema <nome progetto>. Utilizzare questi enum invece di implementazioni personalizzate in ogni modulo garantisce coerenza, riusabilità e manutenibilità del codice.
 
 ## Riferimenti
 

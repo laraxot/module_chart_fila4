@@ -1,7 +1,7 @@
 # Implementazione Iscrizione Odontoiatra
 
 ## Panoramica
-Questo documento descrive l'implementazione dettagliata del processo di iscrizione degli odontoiatri al portale SaluteOra, come illustrato nella [presentazione del portale](../12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md). Il flusso comprende registrazione iniziale, verifica dell'identità professionale, approvazione backoffice, completamento dati e impostazione disponibilità.
+Questo documento descrive l'implementazione dettagliata del processo di iscrizione degli odontoiatri al portale <nome progetto>, come illustrato nella [presentazione del portale](../12.10,%20Presentazione%20del%20portale%20Salute%20Orale.md). Il flusso comprende registrazione iniziale, verifica dell'identità professionale, approvazione backoffice, completamento dati e impostazione disponibilità.
 
 ## Processo di Iscrizione Completo
 

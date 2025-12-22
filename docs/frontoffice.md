@@ -1,12 +1,12 @@
-# Documentazione Frontoffice SaluteOra
+# Documentazione Frontoffice <nome progetto>
 
 ## Introduzione
 
-Questo documento descrive l'architettura e l'implementazione del frontoffice del progetto SaluteOra. Il frontoffice è l'interfaccia pubblica attraverso cui le gestanti possono accedere alle informazioni sul programma di salute orale, verificare la propria idoneità, prenotare appuntamenti e monitorare il proprio percorso di cura.
+Questo documento descrive l'architettura e l'implementazione del frontoffice del progetto <nome progetto>. Il frontoffice è l'interfaccia pubblica attraverso cui le gestanti possono accedere alle informazioni sul programma di salute orale, verificare la propria idoneità, prenotare appuntamenti e monitorare il proprio percorso di cura.
 
 ## Architettura Generale
 
-Il frontoffice di SaluteOra è basato su un'architettura moderna che utilizza:
+Il frontoffice di <nome progetto> è basato su un'architettura moderna che utilizza:
 
 1. **Laravel Folio**: Per il routing basato su file
 2. **Laravel Volt**: Per componenti interattivi con sintassi semplificata
@@ -36,7 +36,7 @@ Folio::path(resource_path('views/pages'))->middleware([
 ]);
 ```
 
-Le caratteristiche principali implementate in SaluteOra includono:
+Le caratteristiche principali implementate in <nome progetto> includono:
 
 - **Routing basato su file**: Le pagine in `resources/views/pages/` diventano automaticamente rotte accessibili
 - **Parametri dinamici**: Supporto per parametri nelle URL (es. `appointments/[id].blade.php`)
@@ -74,7 +74,7 @@ $patient = $appointment->patient;
 
 ## Componenti Interattivi con Volt e Livewire
 
-SaluteOra utilizza Laravel Volt per componenti semplici e Livewire per componenti più complessi. Questa combinazione permette di sviluppare rapidamente interfacce interattive mantenendo il codice leggibile e manutenibile.
+<nome progetto> utilizza Laravel Volt per componenti semplici e Livewire per componenti più complessi. Questa combinazione permette di sviluppare rapidamente interfacce interattive mantenendo il codice leggibile e manutenibile.
 
 ### Esempi di Componenti Volt
 
@@ -143,7 +143,7 @@ SaluteOra utilizza Laravel Volt per componenti semplici e Livewire per component
 
 ### Componenti Livewire Principali
 
-I componenti Livewire implementati per SaluteOra includono:
+I componenti Livewire implementati per <nome progetto> includono:
 
 - **AppointmentBooking**: Workflow completo per prenotazione appuntamenti
 - **EligibilityVerification**: Verifica i requisiti di accesso al programma

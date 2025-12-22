@@ -1,4 +1,4 @@
-# Preferenze Notifiche - SaluteOra
+# Preferenze Notifiche - <nome progetto>
 
 > **⚙️ Sistema di gestione personalizzata delle preferenze di notifica per utenti**
 
@@ -78,7 +78,7 @@ Schema::create('notification_preferences', function (Blueprint $table) {
 
 ### Model Implementation
 ```php
-// Modules/SaluteOra/Models/NotificationPreference.php
+// Modules/<nome progetto>/Models/NotificationPreference.php
 class NotificationPreference extends BaseModel
 {
     protected $fillable = [
