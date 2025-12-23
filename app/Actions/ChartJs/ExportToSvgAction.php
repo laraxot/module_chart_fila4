@@ -556,7 +556,7 @@ final class ExportToSvgAction
         return $maxValue > 0 ? $maxValue : 1.0;
     }
 
-    private function sanitizeDimension(mixed $value): int
+    private function sanitizeDimension(int|float|string|null $value): int
     {
         if (\is_string($value)) {
             $value = (int) $value;
