@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Chart\Actions\ChartJs;
 
 use Spatie\QueueableAction\QueueableAction;
+use Webmozart\Assert\Assert;
 
 final class ExportToSvgAction
 {
@@ -40,8 +41,13 @@ final class ExportToSvgAction
      */
     private function resolveExportOptions(array $chartData, array $options): array
     {
-        $width = $this->sanitizeDimension($options['width'] ?? $chartData['width'] ?? 800);
-        $height = $this->sanitizeDimension($options['height'] ?? $chartData['height'] ?? 600);
+        /** @var float|int|string|null $widthInput */
+        $widthInput = $options['width'] ?? $chartData['width'] ?? 800;
+        $width = $this->sanitizeDimension($widthInput);
+
+        /** @var float|int|string|null $heightInput */
+        $heightInput = $options['height'] ?? $chartData['height'] ?? 600;
+        $height = $this->sanitizeDimension($heightInput);
 
         $filename = (string) ($options['filename'] ?? ('chart_'.\time().'.svg'));
         $title = (string) ($options['title'] ?? $chartData['title'] ?? 'Chart');

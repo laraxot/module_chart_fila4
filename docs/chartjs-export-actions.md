@@ -40,6 +40,15 @@ This action generates SVG content from Chart.js data on the server side. It supp
 > **18 novembre 2025 – aggiornamento**  
 > L'azione è stata completamente tipizzata: normalizza datasets/labels, usa Safe helpers per l'escaping e applica controlli sui valori numerici per evitare errori PHPStan livello 10.
 
+> **22 dicembre 2025 – refactoring completo PHPStan Level 10**  
+> Refactoring completo per PHPStan Level 10 con:
+> - Helper methods per ridurre complexity (< 10)
+> - Type narrowing completo con `is_array()`, `isset()`, `is_numeric()`
+> - Safe functions per tutte le operazioni stringa (`Safe\sprintf`, `Safe\htmlspecialchars`)
+> - Normalizzazione dati con metodi dedicati (`normalizeNumericSeries`, `normalizeColorPalette`, `normalizeLabels`)
+> - PHPDoc espliciti per tutti i tipi di ritorno
+> - Gestione sicura di divisioni per zero con `max(..., 1)`
+
 **Usage**:
 ```php
 $result = app(ExportToSvgAction::class)->execute(
@@ -230,6 +239,225 @@ function exportChartToPng() {
 </script>
 ```
 
+## PHPStan Level 10 Compliance - Safe Patterns
+
+### Safe Functions Utilizzate
+
+Tutte le operazioni su stringhe utilizzano funzioni Safe per garantire type safety:
+
+```php
+use function Safe\sprintf;
+use function Safe\htmlspecialchars;
+
+// ✅ CORRETTO - Safe sprintf per concatenazione stringhe
+$svg = sprintf(
+    '<svg width="%d" height="%d">%s</svg>',
+    $width,
+    $height,
+    $content
+);
+
+// ✅ CORRETTO - Safe htmlspecialchars per escaping
+$escapedTitle = htmlspecialchars($title, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+```
+
+### Type Narrowing Pattern
+
+Pattern completo per type narrowing di array e valori mixed:
+
+```php
+// ✅ CORRETTO - Type narrowing completo
+private function extractChartPayload(array $chartData): array
+{
+    if (! isset($chartData['data']) || ! is_array($chartData['data'])) {
+        return ['datasets' => [], 'labels' => []];
+    }
+
+    $data = $chartData['data'];
+
+    // Normalizza datasets
+    $datasets = [];
+    if (isset($data['datasets']) && is_array($data['datasets'])) {
+        foreach ($data['datasets'] as $dataset) {
+            if (is_array($dataset)) {
+                $datasets[] = $this->normalizeNumericSeries($dataset);
+            }
+        }
+    }
+
+    // Normalizza labels
+    $labels = [];
+    if (isset($data['labels']) && is_array($data['labels'])) {
+        $labels = $this->normalizeLabels($data['labels']);
+    }
+
+    return [
+        'datasets' => $datasets,
+        'labels' => $labels,
+    ];
+}
+```
+
+### Helper Methods per Complexity Reduction
+
+Metodi helper creati per ridurre complexity e migliorare manutenibilità:
+
+#### normalizeNumericSeries()
+Normalizza serie numeriche filtrando valori non numerici:
+
+```php
+/**
+ * Normalizza serie numeriche filtrando valori non numerici.
+ *
+ * @param array<string, mixed> $dataset
+ *
+ * @return array<string, mixed>
+ */
+private function normalizeNumericSeries(array $dataset): array
+{
+    if (! isset($dataset['data']) || ! is_array($dataset['data'])) {
+        return $dataset;
+    }
+
+    $data = $dataset['data'];
+    $normalizedData = array_filter($data, fn ($value): bool => is_numeric($value));
+    $normalizedData = array_map(fn ($value): float => (float) $value, $normalizedData);
+
+    $dataset['data'] = array_values($normalizedData);
+
+    return $dataset;
+}
+```
+
+#### normalizeColorPalette()
+Normalizza palette colori garantendo `list<string>`:
+
+```php
+/**
+ * Normalizza palette colori garantendo list<string>.
+ *
+ * @param array<string, mixed> $dataset
+ *
+ * @return array<string, mixed>
+ */
+private function normalizeColorPalette(array $dataset): array
+{
+    $colorKeys = ['backgroundColor', 'borderColor', 'hoverBackgroundColor', 'hoverBorderColor'];
+
+    foreach ($colorKeys as $key) {
+        if (! isset($dataset[$key])) {
+            continue;
+        }
+
+        $colors = $dataset[$key];
+        if (! is_array($colors)) {
+            continue;
+        }
+
+        // Filtra solo stringhe valide
+        $normalizedColors = array_filter($colors, fn ($color): bool => is_string($color));
+        $dataset[$key] = array_values($normalizedColors);
+    }
+
+    return $dataset;
+}
+```
+
+#### normalizeLabels()
+Normalizza labels generando placeholder se mancanti:
+
+```php
+/**
+ * Normalizza labels garantendo list<string>.
+ *
+ * @param array<int|string, mixed> $labels
+ *
+ * @return list<string>
+ */
+private function normalizeLabels(array $labels): array
+{
+    $normalized = [];
+    foreach ($labels as $label) {
+        if (is_string($label)) {
+            $normalized[] = $label;
+        } elseif (is_numeric($label)) {
+            $normalized[] = (string) $label;
+        }
+    }
+
+    // Genera placeholder se labels vuote
+    if (empty($normalized)) {
+        $maxDataPoints = $this->maxDataPoints($this->extractChartPayload($this->chartData ?? [])['datasets'] ?? []);
+        $normalized = array_map(fn (int $i): string => 'Label '.($i + 1), range(0, max($maxDataPoints - 1, 0)));
+    }
+
+    return $normalized;
+}
+```
+
+#### sanitizeDimension()
+Sanitizza dimensioni garantendo valori interi positivi:
+
+```php
+/**
+ * Sanitizza dimensioni garantendo valori interi positivi.
+ *
+ * @param mixed $dimension
+ */
+private function sanitizeDimension(mixed $dimension): int
+{
+    if (is_int($dimension) && $dimension > 0) {
+        return $dimension;
+    }
+
+    if (is_numeric($dimension)) {
+        $int = (int) $dimension;
+
+        return max($int, 1);
+    }
+
+    return 800; // Default
+}
+```
+
+### Gestione Divisioni per Zero
+
+Pattern per evitare divisioni per zero:
+
+```php
+// ✅ CORRETTO - max(..., 1) per evitare divisione per zero
+$maxValue = max($this->maxDataPoints($datasets), 1);
+$barWidth = ($width - ($padding * 2)) / $maxValue;
+
+// ✅ CORRETTO - Verifica array non vuoto prima di max()
+$dataValues = array_filter($data, fn ($value): bool => is_numeric($value));
+if (empty($dataValues)) {
+    return 0.0;
+}
+$maxValue = max($dataValues);
+```
+
+### PHPDoc Completi per Array Shapes
+
+PHPDoc espliciti per tutti i tipi di ritorno:
+
+```php
+/**
+ * @param array<string, mixed> $chartData
+ * @param array<string, mixed> $options
+ *
+ * @return array{
+ *     svg_content: string,
+ *     export_options: array{width: int, height: int, filename: string, title: string, includeStyles: bool},
+ *     timestamp: int
+ * }
+ */
+public function execute(array $chartData, array $options = []): array
+{
+    // ...
+}
+```
+
 ## Best Practices
 
 1. **Queue Heavy Operations**: Use the `QueueableAction` trait for operations that might be resource-intensive.
@@ -241,6 +469,18 @@ function exportChartToPng() {
 4. **File Management**: Clean up temporary files and implement appropriate file retention policies.
 
 5. **Client-Server Coordination**: For PNG export, coordinate between client-side canvas generation and server-side file saving.
+
+6. **PHPStan Level 10 Compliance**: 
+   - Usa sempre Safe functions per operazioni stringa
+   - Applica type narrowing completo con `is_array()`, `isset()`, `is_numeric()`
+   - Crea helper methods per ridurre complexity (< 10)
+   - Documenta tutti i tipi di ritorno con PHPDoc espliciti
+   - Gestisci divisioni per zero con `max(..., 1)`
+
+7. **Complexity Reduction**:
+   - Estrai logica complessa in metodi privati focalizzati
+   - Ogni metodo deve avere complexity < 10
+   - Ogni metodo deve essere < 20 righe (target), max 50 righe
 
 ## Error Handling
 
