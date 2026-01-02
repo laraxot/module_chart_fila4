@@ -1,239 +1,192 @@
-# Roadmap Modulo Chart
+# Roadmap Modulo Chart - Completamento e Miglioramenti
 
-## 📊 Progress Overview
-| Categoria | Progresso | Note |
-|-----------|-----------|------|
-| Core Features | 85% | Base solida |
-| Performance | 80% | Ottimizzato |
-| Documentation | 70% | Da aggiornare |
-| Test Coverage | 75% | Buona copertura |
-| Security | 85% | Standard elevati |
+**Data Creazione**: 2026-01-02  
+**Status**: 📋 IN LAVORAZIONE  
+**Versione**: 1.0.0
 
-## Stato Attuale
-- **Versione**: 1.2.0
-- **Stato Implementazione**: 80%
-- **Priorità**: Alta
-- **Dipendenze**: UI, User, Activity
+## 🎯 Obiettivo
 
-## Task & Progress
+Completare il modulo Chart con tutte le funzionalità mancanti, migliorare qualità e performance, e garantire generazione grafici perfetta.
 
-### Completato (100%)
-- [x] Chart system base
-- [x] Basic visualizations
-- [x] Data processing
-- [x] API endpoints
-- [x] Export system
+## 📊 Stato Attuale
 
-### In Progress (50%)
-- [ ] Performance optimization
-- [ ] Advanced charts
-- [ ] Analytics integration
-- [ ] API documentation
-- [ ] Integration tests
+### Metriche
+- **File PHP**: 86
+- **Test**: 7 (copertura bassa)
+- **Documentazione**: 906 file
+- **PHPStan Level 10**: ✅ 0 errori
+- **Models**: 6
+- **Filament Resources**: 16
+- **Actions**: 22
 
-### Da Fare (0%)
-- [ ] AI data analysis
-- [ ] Advanced analytics
-- [ ] Real-time updates
-- [ ] Custom themes
-- [ ] Training system
+### Componenti Principali
+- **Models**: Chart, AnswerData, AnswersChartData
+- **Filament Resources**: Chart resources
+- **Actions**: Chart generation, Export actions
+- **Widgets**: Chart widgets
 
-## Analisi di Sistema
+## 🚨 TODO e Miglioramenti Identificati
+
+### 1. Test Coverage
+**Problema**: Solo 7 test, copertura molto bassa
+**Priorità**: 🔴 Alta
+**Stima**: 15-20 ore
+
+### 2. Chart Generation Optimization
+**Problema**: Ottimizzare generazione grafici
+**Priorità**: 🟡 Media
+**Stima**: 10-15 ore
+
+### 3. Export Formats
+**Problema**: Aggiungere formati export
+**Priorità**: 🟡 Media
+**Stima**: 8-12 ore
+
+## 📋 Roadmap Dettagliata
+
+### Fase 1: Testing e Qualità (Settimana 1-2)
+
+#### 1.1 Aumentare Copertura Test
+**Obiettivo**: Portare copertura test da ~20% a > 80%
+
+**Task**:
+- [ ] Test unitari per tutti i Models
+- [ ] Test feature per Actions
+- [ ] Test integration per Resources
+- [ ] Test chart generation
+- [ ] Test export
+
+**Dipendenze**: Nessuna
+**Stima**: 15-20 ore
+
+### Fase 2: Performance e Ottimizzazioni (Settimana 3)
+
+#### 2.1 Chart Generation Optimization
+**Obiettivo**: Ottimizzare generazione grafici
+
+**Task**:
+- [ ] Analizzare performance generazione
+- [ ] Implementare caching
+- [ ] Ottimizzare query dati
+- [ ] Benchmark performance
+
+**Dipendenze**: Fase 1 completata
+**Stima**: 10-15 ore
+
+#### 2.2 Memory Optimization
+**Obiettivo**: Ridurre memory usage
+
+**Task**:
+- [ ] Analizzare memory usage
+- [ ] Implementare chunking
+- [ ] Cleanup risorse
+- [ ] Memory profiling
+
+**Dipendenze**: Fase 1 completata
+**Stima**: 6-10 ore
+
+### Fase 3: Features Avanzate (Settimana 4-6)
+
+#### 3.1 Export Formats
+**Obiettivo**: Aggiungere formati export
+
+**Task**:
+- [ ] Export SVG
+- [ ] Export PNG
+- [ ] Export PDF
+- [ ] Export Excel
+- [ ] Test export
+
+**Dipendenze**: Fase 2 completata
+**Stima**: 8-12 ore
+
+#### 3.2 Advanced Chart Types
+**Obiettivo**: Aggiungere tipi grafici avanzati
+
+**Task**:
+- [ ] Chart types avanzati
+- [ ] Custom chart types
+- [ ] Interactive charts
+- [ ] Test chart types
+
+**Dipendenze**: Fase 2 completata
+**Stima**: 15-20 ore
+
+## 🎯 Priorità
+
+### Priorità 1 (Urgente - 1-2 settimane)
+1. ✅ Test coverage
+
+### Priorità 2 (Importante - 3 settimane)
+1. Chart generation optimization
+2. Memory optimization
+
+### Priorità 3 (Miglioramenti - 4-6 settimane)
+1. Export formats
+2. Advanced chart types
+
+## 📈 Metriche Target
+
+### Qualità Codice
+- **PHPStan Level 10**: ✅ 0 errori (già raggiunto)
+- **PHPMD Complexity**: < 10 per metodo
+- **Test Coverage**: > 80% (attuale ~20%)
 
 ### Performance
-- [Analisi Performance](roadmap/performance.md)
-  - Chart rendering
-  - Data processing
-  - Export generation
-  - Cache strategy
+- **Chart Generation**: < 500ms
+- **Memory Usage**: < 128MB
+- **Export Time**: < 2s
 
-### Design e UX
-- [Design System](roadmap/design_ux.md)
-  - Chart Editor
-  - Data Manager
-  - Analytics Dashboard
-  - Export Interface
+## 🔗 Dipendenze Inter-Modulo
 
-### Sicurezza
-- [Analisi Sicurezza](roadmap/sicurezza.md)
-  - Data Validation
-  - Access Control
-  - Export Security
-  - System Security
+### Dipendenze da Altri Moduli
+- **Xot**: Framework base (dipendenza core)
+- **Quaeris**: Chart usage (dipendenza business)
 
-## Metriche di Successo
+### Dipendenze da Chart
+- **Quaeris**: Usa Chart per visualizzazione dati
 
-### Performance
-- Chart Render < 100ms
-- Data Process < 50ms
-- Export Gen < 1s
-- Cache Hit Rate > 95%
+**REGOLA ASSOLUTA**: Chart fornisce visualizzazione dati, non business logic!
 
-### Qualità
-- Test Coverage > 85%
-- Zero Critical Bugs
-- Documentation Complete
-- Code Quality High
+## 📚 Documentazione da Consolidare
 
-### Business
-- User Engagement +40%
-- Data Insight +35%
-- Support Tickets -30%
-- API Usage +50%
+1. Consolidare 906 file documentazione
+2. Creare `docs/testing-guide.md` - Guida testing
+3. Creare `docs/performance-guide.md` - Guida performance
 
-## Piano di Testing
+## 🧪 Testing Strategy
 
-### Unit Testing
-- Chart Tests
-- Data Tests
-- Export Tests
-- Security Tests
+### Unit Tests
+- Test per ogni Model
+- Test per ogni Action
+- Test chart generation
 
-### Integration Testing
-- API Tests
-- UI Tests
-- Performance Tests
-- Security Tests
+### Feature Tests
+- Test chart rendering
+- Test export
+- Test chart types
 
-### Security Testing
-- Data Validation
-- Access Control
-- Export Security
-- System Security
+## 🚀 Quick Wins (Prima Settimana)
 
-## Documentazione
+1. ✅ Test base models (5-8 ore)
+2. ✅ Test chart generation (5-8 ore)
+3. ✅ Test export (3-5 ore)
 
-### Tecnica
-- [API Reference](roadmap/api_reference.md)
-- [Architecture](roadmap/architecture.md)
-- [Performance Guide](roadmap/performance_guide.md)
-- [Security Guide](roadmap/security_guide.md)
+**Totale Quick Wins**: 13-21 ore (2-3 giorni)
 
-### Utente
-- [Chart Guide](roadmap/chart_guide.md)
-- [Admin Guide](roadmap/admin_guide.md)
-- [Best Practices](roadmap/best_practices.md)
-- [Troubleshooting](roadmap/troubleshooting.md)
+## 📝 Note
 
-## Next Steps
+- Chart è modulo BASE - fornisce visualizzazione dati
+- Tutte le modifiche devono rispettare filosofia DRY + KISS
+- Ogni feature deve essere testata
+- Documentazione sempre aggiornata
+- PHPStan Level 10 sempre mantenuto
 
-### Immediati
-1. [ ] Optimize Performance
-2. [ ] Complete Advanced Charts
-3. [ ] Add Analytics
+## 🔗 Collegamenti
 
-### A Medio Termine
-1. [ ] Implement AI Analysis
-2. [ ] Improve API Docs
-3. [ ] Enhance Security
-
-### A Lungo Termine
-1. [ ] Real-time Updates
-2. [ ] Custom Themes
-3. [ ] Training System 
-
-## Analisi Statica del Codice (PHPStan)
-
-L'analisi statica del codice è stata effettuata utilizzando PHPStan a diversi livelli di rigore.
-I risultati completi sono disponibili nella cartella [docs/phpstan](phpstan/).
-
-### Stato Attuale
-| Livello | Stato | Errori | Azioni Richieste |
-| Livello max | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 10 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 9 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 8 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 7 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 6 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 5 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 4 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 3 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 2 | ⚠️ Non analizzato | - | Eseguire analisi |
-| Livello 1 | ⚠️ Non analizzato | - | Eseguire analisi |
-|---------|-------|--------|------------------|
-
-### Obiettivi di Qualità
-
-Secondo le "Regole Windsurf per base_predict_fila3_mono", gli obiettivi per l'analisi PHPStan sono:
-
-- Iniziare dal livello 1 per i nuovi moduli
-- Assicurarsi che tutto il codice passi almeno il livello 5
-- Mirare al livello 9 come obiettivo finale per tutto il codice
-- Documentare i problemi non risolvibili con annotazioni @phpstan-ignore
-
-### Piano d'Azione
-
-1. Risolvere gli errori partendo dal livello più basso
-2. Prioritizzare gli errori più critici e ripetitivi
-3. Aggiornare la documentazione del codice con annotazioni PHPDoc complete
-4. Implementare test unitari per verificare il comportamento corretto
-5. Eseguire regolarmente l'analisi PHPStan durante lo sviluppo
+- [Filosofia Chart](./philosophy.md)
+- [Chart Documentation](./)
 
 ---
 
-## Collegamenti
-
-[⬅️ Torna alla Roadmap Principale](/docs/roadmap.md)
-
-## Stato Attuale
-- **Versione**: 1.0.0
-- **Stato Implementazione**: In sviluppo
-- **Dipendenze**: Xot, Cms, UI, Lang
-
-## Obiettivi Strategici
-
-### 1. Supporto Grafici Avanzati (Q2 2025)
-- [ ] Integrazione con ECharts e altri provider
-- [ ] Nuovi tipi di grafici: radar, heatmap, funnel
-- [ ] Miglioramento della personalizzazione widget
-
-### 2. Dashboard Dinamiche (Q3 2025)
-- [ ] Layout drag & drop
-- [ ] Widget configurabili runtime
-- [ ] Salvataggio layout utente
-
-### 3. Performance & Caching (Q3-Q4 2025)
-- [ ] Ottimizzazione query
-- [ ] Caching risultati grafici
-- [ ] Lazy loading dati
-
-### 4. API & Sicurezza (Q4 2025)
-- [ ] Endpoints REST per dashboard
-- [ ] Autorizzazioni granulari
-- [ ] Audit trail accessi e modifiche
-
-## Milestone Q2 2025
-
-### Milestone 1: Grafici Base
-- [ ] Line, Bar, Pie chart
-- [ ] Documentazione esempi
-- [ ] Test automatici rendering
-
-### Milestone 2: Dashboard Base
-- [ ] Layout responsive
-- [ ] Widget statici
-- [ ] Autenticazione base
-
----
-
-## Aggiornamento Roadmap
-Questa roadmap viene aggiornata periodicamente in base alle priorità di progetto e ai feedback degli utenti. Contribuisci segnalando nuove feature o bug tramite GitHub Issues.
-
-## Collegamenti tra versioni di roadmap.md
-* [roadmap.md](../../../../bashscripts/docs/roadmap.md)
-* [roadmap.md](../../../../docs/roadmap.md)
-* [roadmap.md](../../Gdpr/docs/roadmap.md)
-* [roadmap.md](../../Notify/docs/roadmap.md)
-* [roadmap.md](../../Xot/docs/roadmap.md)
-* [roadmap.md](../../Dental/docs/roadmap.md)
-* [roadmap.md](../../User/docs/roadmap.md)
-* [roadmap.md](../../UI/docs/roadmap.md)
-* [roadmap.md](../../Lang/docs/roadmap.md)
-* [roadmap.md](../../Job/docs/roadmap.md)
-* [roadmap.md](../../Media/docs/roadmap.md)
-* [roadmap.md](../../Tenant/docs/roadmap.md)
-* [roadmap.md](../../Activity/docs/roadmap.md)
-* [roadmap.md](../../Patient/docs/roadmap.md)
-* [roadmap.md](../../Cms/docs/roadmap.md)
-* [roadmap.md](../../../Themes/One/docs/roadmap.md)
-
+**Filosofia**: Chart fornisce visualizzazione dati - rendering perfetto, nessuna business logic.
