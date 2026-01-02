@@ -1,7 +1,6 @@
 # Modulo Chart
 
 Il modulo **Chart** gestisce la visualizzazione e l'analisi di dati tramite grafici e dashboard interattivi. Offre componenti riutilizzabili, API per la generazione di grafici, e strumenti di personalizzazione per dashboard avanzate.
-Il modulo **Chart** gestisce la visualizzazione e l'analisi di dati tramite grafici e dashboard interattivi. Offre componenti riutilizzabili, API per la generazione di grafici, e strumenti di personalizzazione per dashboard avanzate.
 
 - **Namespace:** `Modules\Chart`
 - **Dipendenze:** [Xot](../../Xot/docs/README.md), [Cms](../../Cms/docs/README.md), [UI](../../UI/docs/README.md), [Lang](../../Lang/docs/README.md)
