@@ -13,8 +13,6 @@ export default defineConfig({
         outDir: './public',
         emptyOutDir: false,
         manifest: "manifest.json",
-<<<<<<< HEAD
-=======
         rollupOptions: {
             // Evitiamo di bundlare chart.js perché Filament lo fornisce già lato admin.
             external: ['chart.js', 'chart.js/helpers'],
@@ -25,7 +23,6 @@ export default defineConfig({
                 },
             },
         },
->>>>>>> f44b0e2 (.)
         // Opzioni rollup commentate per riferimento futuro
         /*
         rollupOptions: {
@@ -37,13 +34,10 @@ export default defineConfig({
         }
         */
     },
-<<<<<<< HEAD
-=======
     optimizeDeps: {
         // Lasciamo che chart.js venga risolto dall'istanza globale caricata da Filament.
         exclude: ['chart.js', 'chart.js/helpers'],
     },
->>>>>>> f44b0e2 (.)
     plugins: [
         laravel({
             publicDirectory: '../../../public_html',
