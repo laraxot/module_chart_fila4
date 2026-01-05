@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions\ChartJs;
 
+use InvalidArgumentException;
 use Illuminate\Support\Facades\File;
 use Spatie\QueueableAction\QueueableAction;
 
@@ -43,7 +44,7 @@ class SavePngToFileAction
         
         // Validate base64
         if (!base64_decode($base64Data, true)) {
-            throw new \InvalidArgumentException('Invalid base64 data provided');
+            throw new InvalidArgumentException('Invalid base64 data provided');
         }
         
         // Generate filename if not provided

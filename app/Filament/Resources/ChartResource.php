@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Filament\Resources;
 
+use Filament\Support\Components\Component;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -21,7 +22,7 @@ class ChartResource extends XotBaseResource
     protected static ?string $model = Chart::class;
 
     /**
-     * @return array<string, \Filament\Support\Components\Component>
+     * @return array<string, Component>
      */
     public static function getFormSchema(): array
     {

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Models;
 
+use Illuminate\Support\Carbon;
+use Modules\Quaeris\Models\Profile;
 use ErrorException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -21,8 +23,8 @@ use Webmozart\Assert\Assert;
  * @property int|null $font_family
  * @property int|null $font_style
  * @property int|null $font_size
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
  * @property int|null $y_grace
@@ -45,8 +47,8 @@ use Webmozart\Assert\Assert;
  * @property string $transparency
  * @property array<array-key, mixed> $colors
  * @property string|null $grace
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Profile|null $updater
  *
  * @method static Builder<static>|Chart newModelQuery()
  * @method static Builder<static>|Chart newQuery()

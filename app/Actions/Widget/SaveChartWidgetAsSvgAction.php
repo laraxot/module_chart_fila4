@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions\Widget;
 
+use RuntimeException;
+use Exception;
+use ReflectionClass;
+use ReflectionException;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\Storage;
 // use Spatie\Browsershot\Browsershot; // Not installed
@@ -79,7 +83,7 @@ class SaveChartWidgetAsSvgAction
             $stored = Storage::disk($disk)->put($filename, $svgContent);
 
             if (! $stored) {
-                throw new \RuntimeException('Failed to save SVG file to storage');
+                throw new RuntimeException('Failed to save SVG file to storage');
             }
 
             // 6. Cleanup file PNG temporaneo (if filename exists)
@@ -104,14 +108,14 @@ class SaveChartWidgetAsSvgAction
                 'filename' => $filename,
                 'note' => 'SVG with embedded PNG image (not vector)',
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Cleanup in caso di errore (if filename exists)
             if (isset($pngResult['filename'])) {
                 Assert::string($pngResult['filename']);
                 Storage::disk('local')->delete($pngResult['filename']);
             }
 
-            throw new \RuntimeException("Failed to generate SVG from widget: {$e->getMessage()}", previous: $e);
+            throw new RuntimeException("Failed to generate SVG from widget: {$e->getMessage()}", previous: $e);
         }
     }
 
@@ -161,13 +165,13 @@ SVG;
     {
         // Usa reflection per accedere alla proprietà protetta $heading
         try {
-            $reflection = new \ReflectionClass($widget);
+            $reflection = new ReflectionClass($widget);
             $property = $reflection->getProperty('heading');
             $property->setAccessible(true);
             $heading = $property->getValue($widget);
 
             return \is_string($heading) ? $heading : null;
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             return null;
         }
     }

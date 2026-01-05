@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions;
 
+use RuntimeException;
 use Illuminate\Support\Facades\Storage;
 
 use function Safe\base64_decode;
@@ -51,7 +52,7 @@ class ExportChartToSvgAction
         // Salva file SVG
         $result = Storage::disk($disk)->put($filename, $svgContent);
         if (false === $result) {
-            throw new \RuntimeException('Failed to save SVG file');
+            throw new RuntimeException('Failed to save SVG file');
         }
 
         return [

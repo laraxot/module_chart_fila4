@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions\Widget;
 
+use RuntimeException;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\Storage;
 // use Spatie\Browsershot\Browsershot; // Not installed
@@ -69,7 +70,7 @@ class SaveChartWidgetAsPngAction
         }
 
         // 4. Renderizza con Browsershot e salva
-        throw new \RuntimeException('Browsershot dependency not installed. Please install spatie/browsershot to use this functionality.');
+        throw new RuntimeException('Browsershot dependency not installed. Please install spatie/browsershot to use this functionality.');
     }
 
     /**

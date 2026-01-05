@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions;
 
+use RuntimeException;
 use Illuminate\Support\Facades\Storage;
 
 use function Safe\base64_decode;
@@ -52,7 +53,7 @@ class ExportChartToPngAction
         // Salva file PNG
         $result = Storage::disk($disk)->put($filename, $imageData);
         if (false === $result) {
-            throw new \RuntimeException('Failed to save PNG file');
+            throw new RuntimeException('Failed to save PNG file');
         }
 
         return [

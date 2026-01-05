@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Models;
 
+use Illuminate\Support\Carbon;
+use Modules\Quaeris\Models\Profile;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -18,14 +20,14 @@ use Illuminate\Database\Eloquent\Relations\Relation;
  *
  * @property int $id
  * @property string $name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
- * @property-read Collection<int, \Modules\Chart\Models\Chart> $charts
+ * @property-read Collection<int, Chart> $charts
  * @property-read int|null $charts_count
- * @property-read \Modules\Quaeris\Models\Profile|null $creator
- * @property-read \Modules\Quaeris\Models\Profile|null $updater
+ * @property-read Profile|null $creator
+ * @property-read Profile|null $updater
  *
  * @method static Builder<static>|MixedChart newModelQuery()
  * @method static Builder<static>|MixedChart newQuery()

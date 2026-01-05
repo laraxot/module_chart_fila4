@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Filament\Widgets\ChartWidget;
 use Illuminate\Support\Facades\Storage;
 use Spatie\QueueableAction\QueueableAction;
@@ -179,7 +180,7 @@ class ExportChartFromWidgetAction
         $title = null;
 
         if (null !== $heading) {
-            $title = $heading instanceof \Illuminate\Contracts\Support\Htmlable
+            $title = $heading instanceof Htmlable
                 ? $heading->toHtml()
                 : (string) $heading;
         }

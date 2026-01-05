@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Chart\Actions\Widget;
 
+use ReflectionClass;
+use ReflectionException;
+use RuntimeException;
 use Filament\Widgets\ChartWidget;
 use Spatie\QueueableAction\QueueableAction;
 use Webmozart\Assert\Assert;
@@ -166,7 +169,7 @@ HTML;
     private function getWidgetData(ChartWidget $widget): array
     {
         try {
-            $reflection = new \ReflectionClass($widget);
+            $reflection = new ReflectionClass($widget);
             $method = $reflection->getMethod('getData');
             $method->setAccessible(true);
 
@@ -174,8 +177,8 @@ HTML;
             $data = $method->invoke($widget);
 
             return $data;
-        } catch (\ReflectionException $e) {
-            throw new \RuntimeException("Failed to get widget data: {$e->getMessage()}", previous: $e);
+        } catch (ReflectionException $e) {
+            throw new RuntimeException("Failed to get widget data: {$e->getMessage()}", previous: $e);
         }
     }
 
@@ -188,7 +191,7 @@ HTML;
     private function getWidgetType(ChartWidget $widget): string
     {
         try {
-            $reflection = new \ReflectionClass($widget);
+            $reflection = new ReflectionClass($widget);
             $method = $reflection->getMethod('getType');
             $method->setAccessible(true);
 
@@ -196,7 +199,7 @@ HTML;
             $type = $method->invoke($widget);
 
             return $type;
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             return 'line'; // Default fallback
         }
     }
@@ -210,7 +213,7 @@ HTML;
     private function getWidgetOptions(ChartWidget $widget): array
     {
         try {
-            $reflection = new \ReflectionClass($widget);
+            $reflection = new ReflectionClass($widget);
             $method = $reflection->getMethod('getOptions');
             $method->setAccessible(true);
 
@@ -218,7 +221,7 @@ HTML;
             $options = $method->invoke($widget);
 
             return $options;
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             return []; // Default empty options
         }
     }
@@ -232,7 +235,7 @@ HTML;
     private function getWidgetHeading(ChartWidget $widget): ?string
     {
         try {
-            $reflection = new \ReflectionClass($widget);
+            $reflection = new ReflectionClass($widget);
             $property = $reflection->getProperty('heading');
             $property->setAccessible(true);
 
@@ -240,7 +243,7 @@ HTML;
             $heading = $property->getValue($widget);
 
             return $heading;
-        } catch (\ReflectionException $e) {
+        } catch (ReflectionException $e) {
             return null;
         }
     }
