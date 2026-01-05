@@ -41,7 +41,10 @@ class ExportChartToPngAction
         int $quality = 95,
     ): array {
         // Decodifica base64 e rimuovi prefisso "data:image/png;base64,"
-        $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Data));
+        $cleanedData = preg_replace('#^data:image/\w+;base64,#i', '', $base64Data);
+        $cleanedData = is_string($cleanedData) ? $cleanedData : (is_array($cleanedData) ? $cleanedData[0] : '');
+        WebmozartAssert::string($cleanedData, 'Failed to clean base64 data');
+        $imageData = base64_decode($cleanedData);
 
         // Genera nome file se non fornito
         $filename = $filename ?? 'chart-'.uniqid().'.png';

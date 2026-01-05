@@ -37,7 +37,10 @@ class ExportChartToSvgAction
         string $disk = 'public',
     ): array {
         // Decodifica base64 e rimuovi prefisso "data:image/png;base64,"
-        $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Data));
+        $cleanedData = preg_replace('#^data:image/\w+;base64,#i', '', $base64Data);
+        $cleanedData = is_string($cleanedData) ? $cleanedData : (is_array($cleanedData) ? $cleanedData[0] : '');
+        Assert::string($cleanedData, 'Failed to clean base64 data');
+        $imageData = base64_decode($cleanedData);
 
         // Genera nome file se non fornito
         $filename = $filename ?? 'chart-'.uniqid().'.svg';
@@ -114,7 +117,10 @@ SVG;
         $result = $this->execute($base64Data, $filename, $disk);
 
         // Sovrascrivi SVG con dimensioni personalizzate
-        $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Data));
+        $cleanedData = preg_replace('#^data:image/\w+;base64,#i', '', $base64Data);
+        $cleanedData = is_string($cleanedData) ? $cleanedData : (is_array($cleanedData) ? $cleanedData[0] : '');
+        Assert::string($cleanedData, 'Failed to clean base64 data');
+        $imageData = base64_decode($cleanedData);
         $svgContent = $this->createSvgWithEmbeddedImage($imageData, $width, $height);
 
         Storage::disk($disk)->put($result['filename'], $svgContent);
@@ -145,7 +151,10 @@ SVG;
         $result = $this->execute($base64Data, $filename, $disk);
 
         // Aggiungi metadati al SVG
-        $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Data));
+        $cleanedData = preg_replace('#^data:image/\w+;base64,#i', '', $base64Data);
+        $cleanedData = is_string($cleanedData) ? $cleanedData : (is_array($cleanedData) ? $cleanedData[0] : '');
+        Assert::string($cleanedData, 'Failed to clean base64 data');
+        $imageData = base64_decode($cleanedData);
         $svgContent = $this->createSvgWithMetadata($imageData, $metadata);
 
         Storage::disk($disk)->put($result['filename'], $svgContent);
