@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 import ChartDataLabels from 'chartjs-plugin-datalabels'
+=======
+/**
+ * Filament carica già Chart.js (e relativo helper) in amministrazione.
+ * Recuperiamo il plugin dei datalabels dalla finestra globale per evitare
+ * di importare/bundlare nuovamente Chart.js.
+ */
+const ChartDataLabels =
+    window.ChartDataLabels ??
+    window.Chart?.registry?.plugins?.get('datalabels') ??
+    null;
+>>>>>>> f44b0e2 (.)
 
 const tooltipNote = {
     id: 'tooltipNote',
@@ -76,6 +88,14 @@ const tooltipNote = {
   // }
  
 window.filamentChartJsPlugins ??= []
+<<<<<<< HEAD
 window.filamentChartJsPlugins.push(ChartDataLabels);
+=======
+if (ChartDataLabels) {
+    window.filamentChartJsPlugins.push(ChartDataLabels);
+} else {
+    console.warn('ChartDataLabels plugin non disponibile sulla finestra globale.');
+}
+>>>>>>> f44b0e2 (.)
 //window.filamentChartJsPlugins.push(tooltipNote);
 window.filamentChartJsPlugins.push(doughnutLabel);
