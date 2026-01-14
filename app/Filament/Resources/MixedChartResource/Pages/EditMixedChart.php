@@ -12,10 +12,13 @@ class EditMixedChart extends XotBaseEditRecord
 {
     protected static string $resource = MixedChartResource::class;
 
+    /**
+     * @return array<string, \Filament\Actions\Action | \Filament\Actions\ActionGroup>
+     */
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            'delete' => DeleteAction::make(),
         ];
     }
 }

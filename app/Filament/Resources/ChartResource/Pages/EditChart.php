@@ -12,10 +12,13 @@ class EditChart extends XotBaseEditRecord
 {
     protected static string $resource = ChartResource::class;
 
+    /**
+     * @return array<string, \Filament\Actions\Action | \Filament\Actions\ActionGroup>
+     */
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            'delete' => DeleteAction::make(),
         ];
     }
 }
