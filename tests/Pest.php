@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\Chart\Models\Chart;
 use Modules\Chart\Tests\TestCase;
 
@@ -18,7 +18,7 @@ use Modules\Chart\Tests\TestCase;
 */
 
 pest()->extend(TestCase::class)
-    ->use(RefreshDatabase::class)
+    ->use(DatabaseTransactions::class)
     ->in('Feature', 'Unit');
 
 /*
