@@ -15,9 +15,6 @@ use Modules\Xot\Models\XotBaseModel;
  */
 abstract class BaseModel extends XotBaseModel
 {
-    /** @var string */
-    protected $connection = null; // Use default connection instead of xot to access question_charts table
-
     /**
      * Get the attributes that should be cast.
      *

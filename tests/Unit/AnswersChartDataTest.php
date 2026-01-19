@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\Chart\Tests\TestCase::class);
+
 use Filament\Support\RawJs;
 use Modules\Chart\Datas\AnswerData;
 use Modules\Chart\Datas\AnswersChartData;

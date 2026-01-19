@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+uses(\Modules\Chart\Tests\TestCase::class);
+
 use Modules\Chart\Models\Chart;
 
 describe('Chart Factory', function () {

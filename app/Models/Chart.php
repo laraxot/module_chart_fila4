@@ -91,7 +91,7 @@ use Webmozart\Assert\Assert;
 class Chart extends BaseModel
 {
     /** @var string */
-    protected $connection = 'mysql'; // Override to use the database with question_charts table
+    protected $connection = 'mysql'; // Use mysql connection to access question_charts table
     /** @var string */
     protected $table = 'question_charts';
 
